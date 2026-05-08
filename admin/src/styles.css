@@ -1,0 +1,183 @@
+/* =========================================================
+   GLOBAL RESET
+========================================================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+body {
+  background: #f4f5fb;
+}
+
+/* =========================================================
+   LAYOUT
+========================================================= */
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 250px;
+  background: #111827; /* dark navy */
+  color: #e5e7eb;
+  padding: 1.5rem 1rem;
+}
+
+.sidebar h2 {
+  color: #fbbf24; /* gold */
+  font-size: 1.4rem;
+  margin-bottom: 2rem;
+}
+
+.sidebar a {
+  display: block;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 0.5rem;
+  color: #e5e7eb;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+  background: #fbbf24;
+  color: #111827;
+}
+
+/* =========================================================
+   MAIN CONTENT
+========================================================= */
+.main-content {
+  flex: 1;
+  padding: 2rem;
+}
+
+/* =========================================================
+   STYLISH CARD
+========================================================= */
+.card {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  margin-bottom: 1.5rem;
+}
+
+/* =========================================================
+   DASHBOARD STAT CARDS
+========================================================= */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.5rem;
+}
+
+.stat-box {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.8rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+  text-align: center;
+  border-left: 6px solid #fbbf24; /* gold accent */
+  transition: 0.3s ease;
+}
+
+.stat-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.15);
+}
+
+.stat-title {
+  font-size: 1.1rem;
+  color: #374151;
+  margin-bottom: 0.6rem;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #111827;
+}
+
+/* =========================================================
+   TABLE
+========================================================= */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.table th,
+.table td {
+  padding: 0.75rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+
+/* Badges */
+.badge {
+  padding: 0.25rem 0.6rem;
+  background: #e5e7eb;
+  font-size: 0.75rem;
+  border-radius: 999px;
+}
+
+/* =========================================================
+   RESPONSIVE (MOBILE & TABLET)
+========================================================= */
+
+/* TABLET */
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 220px;
+  }
+
+  .main-content {
+    padding: 1.5rem;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .app-layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    min-height: auto;
+    padding: 1rem;
+  }
+
+  .sidebar a {
+    font-size: 0.9rem;
+    padding: 0.6rem 0.8rem;
+  }
+
+  .main-content {
+    padding: 1rem;
+  }
+}
+
+/* SMALL MOBILE */
+@media (max-width: 480px) {
+  .sidebar h2 {
+    font-size: 1.1rem;
+  }
+
+  .sidebar a {
+    font-size: 0.85rem;
+  }
+
+  .main-content {
+    padding: 0.8rem;
+  }
+}

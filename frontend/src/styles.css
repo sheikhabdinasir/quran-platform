@@ -1,0 +1,146 @@
+/************************************
+ * GLOBAL RESET & DEFAULTS
+ ************************************/
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:#FFF8F3;
+  color:#2C1810;
+  line-height:1.6;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+/************************************
+ * NAVBAR
+ ************************************/
+.navbar{
+  background:#2C1810;
+  color:#D4AF37;
+  border-bottom:2px solid rgba(212,175,55,.35);
+}
+
+/************************************
+ * HERO
+ ************************************/
+.hero{
+  padding:3rem 1.5rem;
+  text-align:center;
+  background:linear-gradient(#932F2F,#2C1810);
+  color:#FFF8F3;
+  border-bottom:4px solid #D4AF37;
+}
+
+/************************************
+ * SECTION
+ ************************************/
+.section{
+  max-width:1200px;
+  margin:auto;
+  padding:2rem 1.5rem;
+}
+
+/************************************
+ * GRID
+ ************************************/
+.card-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:1.4rem;
+}
+
+/************************************
+ * CARD
+ ************************************/
+.card{
+  background:#F5E6E0;
+  border-left:5px solid #D4AF37;
+  border-radius:18px;
+  padding:1.2rem;
+  color:#2C1810;
+  box-shadow:0 12px 30px rgba(0,0,0,.12);
+  transition:.3s ease;
+}
+
+.card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 18px 40px rgba(0,0,0,.18);
+}
+
+/************************************
+ * FOOTER
+ ************************************/
+.footer{
+  background:#2C1810;
+  color:#D4AF37;
+  text-align:center;
+  padding:2rem 1.5rem;
+  border-top:4px solid #D4AF37;
+  margin-top:3rem;
+}
+
+/************************************
+ * VIDEO CARDS
+ ************************************/
+.home-videos{
+  padding:4rem 1.5rem;
+  max-width:1200px;
+  margin:auto;
+}
+
+.home-videos-title{
+  text-align:center;
+  font-size:2.2rem;
+  font-weight:900;
+  color:#2C1810;
+  margin-bottom:3rem;
+  border-bottom:4px solid #D4AF37;
+  width:fit-content;
+  margin-inline:auto;
+  padding-bottom:.6rem;
+}
+
+.video-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:2rem;
+}
+
+.video-card{
+  background:#FFF8F3;
+  border-radius:22px;
+  overflow:hidden;
+  box-shadow:0 18px 40px rgba(0,0,0,.15);
+  transition:.3s ease;
+}
+
+.video-card:hover{
+  transform:translateY(-8px);
+}
+
+.video-card video{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+}
+
+.video-card-info{
+  padding:1rem 1.2rem;
+}
+
+.video-card-info h4{
+  color:#932F2F;
+  font-weight:800;
+}
+
+.video-card-info p{
+  color:#555;
+}

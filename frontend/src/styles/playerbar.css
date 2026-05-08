@@ -1,0 +1,215 @@
+/* ================= BASE (MOBILE FIRST) ================= */
+
+.player-bar {
+  position: fixed;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 24px);
+  max-width: 420px;
+  background: #1f2933;
+  color: #f5f5f5;
+  border-radius: 16px;
+  padding: 12px 14px;
+  padding-bottom: calc(12px + env(safe-area-inset-bottom)); /* ✅ SAFE AREA */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+}
+
+/* INFO */
+.player-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  flex: 1;
+  overflow: hidden;
+}
+
+.player-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #f2e6d8;
+  color: #b08d57;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+/* TEXT */
+.player-text {
+  overflow: hidden;
+}
+
+.player-text h4 {
+  font-size: 14px;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.player-text p {
+  font-size: 12px;
+  margin: 0;
+  opacity: 0.7;
+}
+
+/* CONTROLS */
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.controls button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #f2e6d8;
+  cursor: pointer;
+  transition: transform .2s ease, opacity .2s ease; /* ✅ HOVER FEEDBACK */
+}
+
+.controls button:hover {
+  opacity: 0.85;
+  transform: scale(1.05);
+}
+
+.controls button.active {
+  color: #b08d57;
+}
+
+/* PLAY BUTTON (SAXAN) */
+.player-play {
+  font-size: 24px;
+}
+
+/* HIDE BUTTON */
+.hide-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  margin-right: 4px;
+}
+
+/* LOADING */
+.skeleton {
+  width: 140px;
+  height: 22px;
+  border-radius: 6px;
+  background: linear-gradient(
+    90deg,
+    #2a2a2a 25%,
+    #3a3a3a 37%,
+    #2a2a2a 63%
+  );
+  background-size: 400% 100%;
+  animation: shimmer 1.4s ease infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+/* MINIMIZED */
+.player-bar.minimized {
+  width: auto;
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  border-radius: 20px;
+}
+
+/* ================= TABLET ================= */
+@media (min-width: 600px) {
+  .player-bar {
+    max-width: 600px;
+    padding: 14px 18px;
+  }
+
+  .player-icon {
+    width: 46px;
+    height: 46px;
+    font-size: 22px;
+  }
+
+  .player-text h4 {
+    font-size: 15px;
+  }
+
+  .controls button {
+    font-size: 22px;
+  }
+}
+
+/* ================= DESKTOP ================= */
+@media (min-width: 1024px) {
+  .player-bar {
+    max-width: 700px;
+    bottom: 20px;
+  }
+
+  .controls {
+    gap: 10px;
+  }
+
+  .controls button {
+    font-size: 24px;
+  }
+}
+
+/* ================= LARGE SCREENS ================= */
+@media (min-width: 1440px) {
+  .player-bar {
+    max-width: 800px;
+  }
+}
+
+/* CLOSE BUTTON */
+.close-btn {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  color: #ccc;
+  cursor: pointer;
+  margin-left: 6px;
+}
+
+.close-btn:hover {
+  color: #ff6b6b;
+}
+
+
+/* 🔹 SMALL ICON BUTTONS (Shuffle & Repeat) */
+.small-btn {
+  font-size: 16px;        /* ⬅️ yaree */
+  opacity: 0.75;
+}
+
+.small-btn:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* Tablet */
+@media (min-width: 600px) {
+  .small-btn {
+    font-size: 18px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .small-btn {
+    font-size: 19px;
+  }
+}

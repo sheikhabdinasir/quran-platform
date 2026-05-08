@@ -1,0 +1,64 @@
+import React,{
+  useContext
+} from "react";
+
+import {
+  useNavigate
+} from "react-router-dom";
+
+import {
+  TafsiirPlayerContext
+} from "../context/TafsiirPlayerContext";
+
+const TafsiirNowPlaying = () => {
+
+  const navigate =
+  useNavigate();
+
+  const {
+    currentTrack
+  } = useContext(
+    TafsiirPlayerContext
+  );
+
+  if(!currentTrack)
+    return null;
+
+  return (
+    <div className="now-page">
+
+      <button
+        className="now-back"
+        onClick={() =>
+          navigate(-1)
+        }
+      >
+        ← Back
+      </button>
+
+      <div className="now-cover">
+        🕌
+      </div>
+
+      <p className="now-small">
+        Tafsiir Audio
+      </p>
+
+      <h1 className="now-title">
+        {
+          currentTrack.surahName
+        }
+      </h1>
+
+      <p className="now-sheikh">
+        {
+          currentTrack.sheikhName
+        }
+      </p>
+
+    </div>
+  );
+};
+
+export default
+TafsiirNowPlaying;
