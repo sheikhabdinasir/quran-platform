@@ -8,7 +8,7 @@ import {
 
 import {
   TafsiirPlayerContext
-} from "../context/TafsiirPlayerContext";
+} from "../Context/TafsiirPlayerContext";
 
 const TafsiirNowPlaying = () => {
 
