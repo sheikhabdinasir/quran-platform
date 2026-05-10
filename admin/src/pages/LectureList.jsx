@@ -20,7 +20,7 @@ const LectureList = () => {
   const fetchLectures = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:4000/api/lectures/admin-all"
+        "`${import.meta.env.VITE_API_URL}/api/lectures/admin-all`"
       );
       setLectures(res.data.data);
     } catch {
