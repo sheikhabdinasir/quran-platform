@@ -121,8 +121,7 @@ export const forgotAdminPassword = async (req, res) => {
     await admin.save();
 
     // frontend reset link
-    const resetUrl = `http://localhost:5174/reset-password/${resetToken}`;
-
+const resetUrl = `https://quran-admin-nine.vercel.app/reset-password/${resetToken}`;
     const message = `
 You requested a password reset for Tafsiir Admin Dashboard.
 
