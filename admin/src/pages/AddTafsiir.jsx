@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 
-const API = "http://localhost:4000/api/tafsiir";
+const API =
+`${import.meta.env.VITE_API_URL}/api/tafsiir`;
 
 const AddTafsiir = () => {
   const [juzList, setJuzList] = useState([]);
