@@ -2,7 +2,9 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { usePublic } from "../Context/PublicContext";
-const API = "http://localhost:4000/api/duruus";
+
+const API =
+`${import.meta.env.VITE_API_URL}/api/duruus`;
 
 const Lessons = () => {
   const { bookId } = useParams();
