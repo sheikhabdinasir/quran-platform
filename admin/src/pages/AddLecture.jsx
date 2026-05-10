@@ -24,7 +24,10 @@ const AddLecture = () => {
     }
 
     try {
-      await axios.post("http://localhost:4000/api/lectures/add", form);
+     await axios.post(
+  `${import.meta.env.VITE_API_URL}/api/lectures/add`,
+  form
+);
 
       playDing();
       toast.success("✅ Muxaadarada si guul ah ayaa loo daray");
