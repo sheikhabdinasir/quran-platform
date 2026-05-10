@@ -16,7 +16,10 @@ const SectionViewer = () => {
 
   const fetchSections = async () => {
     try {
-      const res = await axios.get("http://localhost:4000/api/dars/all");
+
+      const res = await axios.get(
+  `${import.meta.env.VITE_API_URL}/api/dars/all`
+);
       const list = res.data.data || [];
 
       // Filter data by Juz + Surah + Type
