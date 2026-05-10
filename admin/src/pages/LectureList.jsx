@@ -20,8 +20,8 @@ const LectureList = () => {
   const fetchLectures = async () => {
     try {
       const res = await axios.get(
-        "`${import.meta.env.VITE_API_URL}/api/lectures/admin-all`"
-      );
+        `${import.meta.env.VITE_API_URL}/api/lectures/admin-all`
+      );         
       setLectures(res.data.data);
     } catch {
       toast.error("❌ Error loading lectures");
@@ -54,7 +54,7 @@ const LectureList = () => {
 
   /* ================= TOGGLE ACTIVE ================= */
   const toggleActive = async (id) => {
-    await axios.put(`http://localhost:4000/api/lectures/toggle/${id}`);
+    await axios.put(`${import.meta.env.VITE_API_URL}/api/lectures/toggle/${id}`);
     playDing();
     toast.success("🔄 Status waa la beddelay");
     fetchLectures();
@@ -62,7 +62,7 @@ const LectureList = () => {
 
   /* ================= FAVORITE ================= */
   const toggleFavorite = async (id) => {
-    await axios.put(`http://localhost:4000/api/lectures/favorite/${id}`);
+    await axios.put(`${import.meta.env.VITE_API_URL}/api/lectures/favorite/${id}`);
     playDing();
     toast.success("⭐ Favorite waa la beddelay");
     fetchLectures();
@@ -79,15 +79,16 @@ const LectureList = () => {
     try {
       if (deleteMode === "single") {
         await axios.delete(
-          `http://localhost:4000/api/lectures/delete/${targetId}`
+          `${import.meta.env.VITE_API_URL}/api/lectures/delete/${targetId}`
         );
       }
 
       if (deleteMode === "multiple") {
         await Promise.all(
           selected.map((id) =>
-            axios.delete(`http://localhost:4000/api/lectures/delete/${id}`)
-          )
+axios.delete(
+  `${import.meta.env.VITE_API_URL}/api/lectures/delete/${id}`
+)          )
         );
         setSelected([]);
       }
@@ -95,8 +96,9 @@ const LectureList = () => {
       if (deleteMode === "all") {
         await Promise.all(
           lectures.map((l) =>
-            axios.delete(`http://localhost:4000/api/lectures/delete/${l._id}`)
-          )
+axios.delete(
+  `${import.meta.env.VITE_API_URL}/api/lectures/delete/${l._id}`
+)          )
         );
         setSelected([]);
       }
