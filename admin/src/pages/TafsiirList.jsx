@@ -10,8 +10,9 @@ import axios from "axios";
 import toast from "react-hot-toast";
 
 const TafsiirList = () => {
-  const API =
-    "http://localhost:4000/api/tafsiir";
+ const API =
+  `${import.meta.env.VITE_API_URL}/api/tafsiir`;
+  
 
   const [items, setItems] =
     useState([]);

@@ -16,6 +16,7 @@ import {
 
 import { motion, AnimatePresence } from "framer-motion";
 import adminPic from "../assets/adminpicture.png";
+
 /* ===== SIDEBAR CONTENT ===== */
 const SidebarContent = ({ onClose, isMobile }) => {
   const { logoutAdmin } = useContext(AdminContext);
