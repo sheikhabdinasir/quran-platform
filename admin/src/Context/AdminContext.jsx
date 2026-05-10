@@ -50,9 +50,15 @@ export const AdminProvider = ({ children }) => {
     if (!aToken) return;
 
     try {
-      const res = await axios.get("http://localhost:4000/api/admin/profile", {
-        headers: { Authorization: `Bearer ${aToken}` },
-      });
+   
+      const res = await axios.get(
+  `${import.meta.env.VITE_API_URL}/api/admin/profile`,
+  {
+    headers: {
+      Authorization: `Bearer ${aToken}`,
+    },
+  }
+);
 
       if (res.data.success) {
         setAdminInfo(res.data.data);
