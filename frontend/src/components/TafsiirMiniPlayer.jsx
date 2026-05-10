@@ -5,10 +5,9 @@ import React, {
 import {
   useNavigate
 } from "react-router-dom";
-
 import {
   TafsiirPlayerContext
-}  from "../Context/TafsiirPlayerContext";
+} from "../Context/TafsiirPlayerContext";
 
 const TafsiirMiniPlayer = () => {
 

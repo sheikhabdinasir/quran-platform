@@ -7,10 +7,10 @@ import {
 } from "react-router-dom";
 
 import "../tafsiir.css";
-
 import {
   TafsiirPlayerContext
-}  from "../Context/TafsiirPlayerContext";
+} from "../Context/TafsiirPlayerContext";
+
 const Tafsiir = () => {
 
   const navigate =
