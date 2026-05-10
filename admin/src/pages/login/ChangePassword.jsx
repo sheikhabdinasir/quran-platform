@@ -35,12 +35,13 @@ const ChangePassword = () => {
     try {
       setLoading(true);
 
+    
       const res = await axios.put(
-        "http://localhost:4000/api/admin/change-password",
-        {
-          oldPassword,
-          newPassword,
-        },
+  `${import.meta.env.VITE_API_URL}/api/admin/change-password`,
+  {
+    oldPassword,
+    newPassword,
+  },
         {
           headers: {
             Authorization: `Bearer ${aToken}`,
