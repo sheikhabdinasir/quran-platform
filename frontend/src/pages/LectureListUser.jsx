@@ -13,8 +13,12 @@ const LectureListUser = () => {
 
   /* ================= FETCH ================= */
   useEffect(() => {
+    
     axios
-      .get("http://localhost:4000/api/lectures/all")
+  .get(
+    `${import.meta.env.VITE_API_URL}/api/lectures/all`
+  )
+
       .then((res) => setLectures(res.data.data))
       .catch(console.error);
   }, []);

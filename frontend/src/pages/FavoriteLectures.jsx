@@ -8,8 +8,12 @@ const FavoriteLectures = () => {
   const { playLesson } = usePublic();
 
   useEffect(() => {
+    
     axios
-      .get("http://localhost:4000/api/lectures/favorites")
+  .get(
+    `${import.meta.env.VITE_API_URL}/api/lectures/favorites`
+  )
+
       .then((res) => setLectures(res.data.data || []))
       .catch(console.error);
   }, []);
