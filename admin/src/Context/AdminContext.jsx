@@ -12,7 +12,9 @@ export const AdminProvider = ({ children }) => {
   // ==========================
   const loginAdmin = async (email, password) => {
     try {
-      const res = await axios.post("http://localhost:4000/api/admin/login", {
+      const res = await axios.post(
+  `${import.meta.env.VITE_API_URL}/api/admin/login`,
+  {
         email,
         password,
       });
