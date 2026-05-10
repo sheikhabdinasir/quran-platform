@@ -15,7 +15,7 @@ import {
 } from "react-icons/md";
 
 import { motion, AnimatePresence } from "framer-motion";
-import image from "../assets/adminpicture.png";
+import adminPic from "../assets/adminpicture.png";
 /* ===== SIDEBAR CONTENT ===== */
 const SidebarContent = ({ onClose, isMobile }) => {
   const { logoutAdmin } = useContext(AdminContext);
