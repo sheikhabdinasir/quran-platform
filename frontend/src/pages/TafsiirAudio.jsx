@@ -15,7 +15,7 @@ import {
 const TafsiirAudio = () => {
 
   const API =
-  "http://localhost:4000/api/tafsiir/public";
+  `${import.meta.env.VITE_API_URL}/api/tafsiir/public`;
 
   const [items,
   setItems] =
