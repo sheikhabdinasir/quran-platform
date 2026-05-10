@@ -25,7 +25,7 @@ const EditLecture = () => {
     const loadLecture = async () => {
       try {
         const res = await axios.get(
-          "`${import.meta.env.VITE_API_URL}/api/lectures/admin-all`"
+          `${import.meta.env.VITE_API_URL}/api/lectures/admin-all`
         );
         const lec = res.data.data.find((l) => l._id === id);
 
@@ -60,7 +60,7 @@ const EditLecture = () => {
 
     try {
       await axios.put(
-        `http://localhost:4000/api/lectures/update/${id}`,
+        `${import.meta.env.VITE_API_URL}/api/lectures/update/${id}`,
         form
       );
 
