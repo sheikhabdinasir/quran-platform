@@ -39,10 +39,19 @@ import {
 } from "./Context/AdminContext.jsx";
 
 const AppLayout = () => {
+
+  const isMobile =
+  window.innerWidth < 768;
+
   return (
     <div
       style={{
-        display:"flex"
+        display:"flex",
+        flexDirection:
+          isMobile
+          ? "column"
+          : "row",
+        minHeight:"100vh"
       }}
     >
 
@@ -51,7 +60,9 @@ const AppLayout = () => {
       <main
         style={{
           flex:1,
-          padding:"1rem"
+          padding:"1rem",
+          width:"100%",
+          overflowX:"hidden"
         }}
       >
 
