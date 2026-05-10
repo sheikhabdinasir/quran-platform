@@ -6,7 +6,8 @@ import axios from "axios";
 const PublicContext = createContext();
 
 /* ================= BACKEND API ================= */
-const API = "http://localhost:4000/api/duruus";
+const API =
+`${import.meta.env.VITE_API_URL}/api/duruus`;
 
 export const PublicProvider = ({ children }) => {
   /* ================= DATA STATES ================= */

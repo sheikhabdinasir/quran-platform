@@ -11,9 +11,8 @@ import {
   TafsiirPlayerContext
 } from "../Context/TafsiirPlayerContext";
 const TafsiirFavorites = () => {
-
-  const API =
-  "http://localhost:4000/api/tafsiir/public";
+const API =
+`${import.meta.env.VITE_API_URL}/api/tafsiir/public`;
 
   const [items,
   setItems] =
