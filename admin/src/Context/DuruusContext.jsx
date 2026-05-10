@@ -2,8 +2,8 @@ import { createContext, useContext, useState } from "react";
 import axios from "axios";
 
 const DuruusContext = createContext();
-const API = "http://localhost:4000/api/duruus";
-
+const API =
+`${import.meta.env.VITE_API_URL}/api/duruus`;
 export const DuruusProvider = ({ children }) => {
   const [books, setBooks] = useState([]);
   const [lessons, setLessons] = useState([]);
