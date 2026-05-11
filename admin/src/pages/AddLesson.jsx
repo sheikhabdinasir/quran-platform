@@ -10,10 +10,9 @@ const AddLesson = () => {
   const { bookId } = useParams();
 
   const [data, setData] = useState({
-    title: "",
-    order: 1,
-    audioUrl: "",
-  });
+  title: "",
+  audioUrl: "",
+});
 
   const [loading, setLoading] = useState(false);
 
@@ -39,10 +38,9 @@ const AddLesson = () => {
 
       // RESET FORM
       setData({
-        title: "",
-        order: 1,
-        audioUrl: "",
-      });
+  title: "",
+  audioUrl: "",
+});
     } catch (error) {
       console.log(error);
       toast.error("❌ Casharka lama keydin");
@@ -103,25 +101,7 @@ const AddLesson = () => {
                 />
               </div>
 
-              {/* ORDER */}
-              <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
-                  Numberka Casharka
-                </label>
-
-                <input
-                  type="number"
-                  value={data.order}
-                  onChange={(e) =>
-                    setData({
-                      ...data,
-                      order: Number(e.target.value),
-                    })
-                  }
-                  className="w-full rounded-xl border border-gray-200 px-4 py-3
-                  focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-              </div>
+             
 
               {/* AUDIO URL */}
               <div>

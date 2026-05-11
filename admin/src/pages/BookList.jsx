@@ -187,9 +187,7 @@ const BookList = () => {
                   className="bg-gray-50 border border-gray-100 rounded-xl p-4 hover:shadow-sm transition"
                 >
                   <div className="flex flex-wrap items-center gap-3 mb-3">
-                    <span className="px-3 py-1 rounded-full bg-gray-100 text-xs font-bold">
-                      #{lesson.order}
-                    </span>
+                    
 
                     <span
                       className={`text-xs px-3 py-1 rounded-full font-medium ${
