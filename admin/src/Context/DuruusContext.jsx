@@ -13,6 +13,7 @@ export const DuruusProvider = ({ children }) => {
   // GET ALL BOOKS
   const getBooks = async () => {
     try {
+      
       const { data } = await axios.get(`${API}/books`);
 
       // backend now returns:
