@@ -72,7 +72,7 @@ const Dashboard = () => {
             color:"#666",
           }}
         >
-          Live statistics from database
+          your info..
         </p>
 
       </div>
