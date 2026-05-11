@@ -100,9 +100,9 @@ const TafsiirPlayerProvider =
     if(list.length)
       setPlaylist(list);
 
-    audioRef.current.src =
     track.audioUrl ||
-    track.fileUrl;
+track.videoUrl ||
+track.fileUrll;
 
     audioRef.current.play();
 

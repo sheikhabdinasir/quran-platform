@@ -42,11 +42,11 @@ const API =
       await axios.get(API);
 
       const audios =
-      data.tafsiir.filter(
-        item =>
-        item.mediaType ===
-        "audio"
-      );
+data.tafsiir.filter(
+  item =>
+    item.audioUrl ||
+    item.videoUrl
+);
 
       const onlyFav =
       audios.filter(
