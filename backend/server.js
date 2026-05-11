@@ -1,9 +1,10 @@
-import dashboardRoutes from "./routes/dashboardRoutes.js";import express from "express";
+import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 
-// ROUTES
+/* ================= ROUTES ================= */
+
 import adminRoute from "./routes/adminRoute.js";
 import lectureRoute from "./routes/lectureRoutes.js";
 import duruusRoute from "./routes/duruusRoute.js";
@@ -11,7 +12,10 @@ import bookRoutes from "./routes/bookRoutes.js";
 import lessonRoutes from "./routes/lessonRoutes.js";
 import tafsiirRoute from "./routes/tafsiirRoutes.js";
 import dashboardRoutes from "./routes/dashboardRoutes.js";
-dotenv.config({ path: "./.env" });
+
+/* ================= CONFIG ================= */
+
+dotenv.config({ path:"./.env" });
 
 const app = express();
 
@@ -21,57 +25,106 @@ app.use(cors());
 
 /* ================= BODY PARSER ================= */
 
-/*
-JSON routes only
-(login, forgot password, admin routes)
-*/
-app.use("/api/dashboard", dashboardRoutes);
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+
+app.use(
+  express.urlencoded({
+    extended:true
+  })
+);
 
 /* ================= DATABASE ================= */
 
 mongoose
   .connect(process.env.MONGO_URI)
-  .then(() => console.log("✅ MongoDB Connected Successfully"))
+
+  .then(() =>
+    console.log(
+      "✅ MongoDB Connected Successfully"
+    )
+  )
+
   .catch((err) =>
-    console.error("❌ MongoDB Connection Error:", err.message)
+    console.error(
+      "❌ MongoDB Connection Error:",
+      err.message
+    )
   );
 
 /* ================= ROUTES ================= */
 
-/*
-Admin routes
-*/
-app.use("/api/admin", adminRoute);
-app.use("/api/lectures", lectureRoute);
+/* ADMIN */
+app.use(
+  "/api/admin",
+  adminRoute
+);
+
+/* LECTURES */
+app.use(
+  "/api/lectures",
+  lectureRoute
+);
+
+/* DASHBOARD */
+app.use(
+  "/api/dashboard",
+  dashboardRoutes
+);
 
 /*
 IMPORTANT:
 bookRoutes must come BEFORE generic duruusRoute
-so multer can handle multipart/form-data correctly
+so multer handles multipart/form-data correctly
 */
-app.use("/api/duruus/books", bookRoutes);
-app.use("/api/duruus/lessons", lessonRoutes);
-app.use("/api/tafsiir", tafsiirRoute);
-/*
-Generic duruus route LAST
-*/
-app.use("/api/duruus", duruusRoute);
+
+/* BOOKS */
+app.use(
+  "/api/duruus/books",
+  bookRoutes
+);
+
+/* LESSONS */
+app.use(
+  "/api/duruus/lessons",
+  lessonRoutes
+);
+
+/* TAFSIIR */
+app.use(
+  "/api/tafsiir",
+  tafsiirRoute
+);
+
+/* GENERIC DURUUS */
+app.use(
+  "/api/duruus",
+  duruusRoute
+);
 
 /* ================= TEST ================= */
 
-app.get("/", (req, res) => {
+app.get("/", (req,res) => {
+
   res.json({
-    success: true,
-    message: "🚀 Tafsiir Qur'aan API is running",
+
+    success:true,
+
+    message:
+    "🚀 Tafsiir Qur'aan API is running",
+
   });
+
 });
 
 /* ================= START ================= */
 
-const PORT = process.env.PORT || 4000;
+const PORT =
+process.env.PORT || 4000;
 
 app.listen(PORT, () => {
-  console.log(`🚀 Backend server running on port ${PORT}`);
+
+  console.log(
+    `🚀 Backend server running on port ${PORT}`
+  );
+
 });
