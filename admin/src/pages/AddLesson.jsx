@@ -1,124 +1,163 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useParams } from "react-router-dom";
 import { useDuruus } from "../Context/DuruusContext";
 import toast from "react-hot-toast";
 
 const AddLesson = () => {
-  const { books, getBooks, addLesson } = useDuruus();
+  const { addLesson } = useDuruus();
+
+  // GET BOOK ID FROM URL
+  const { bookId } = useParams();
 
   const [data, setData] = useState({
     title: "",
     order: 1,
-    book: "",
     audioUrl: "",
   });
 
-  useEffect(() => {
-    getBooks();
-  }, []);
+  const [loading, setLoading] = useState(false);
 
   const submitHandler = async (e) => {
     e.preventDefault();
 
-    if (!data.title || !data.book || !data.audioUrl) {
+    // VALIDATION
+    if (!data.title || !data.audioUrl) {
       toast.error("Fadlan buuxi dhammaan xogta");
       return;
     }
 
     try {
-      await addLesson(data);
-      toast.success("Lesson si guul ah ayaa loo daray ✅");
-      setData({ title: "", order: 1, book: "", audioUrl: "" });
+      setLoading(true);
+
+      // SEND LESSON + BOOK ID
+      await addLesson({
+        ...data,
+        book: bookId,
+      });
+
+      toast.success("✅ Casharka si guul ah ayaa loo daray");
+
+      // RESET FORM
+      setData({
+        title: "",
+        order: 1,
+        audioUrl: "",
+      });
     } catch (error) {
-      toast.error("Lesson lama keydin ❌");
+      console.log(error);
+      toast.error("❌ Casharka lama keydin");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-start justify-center p-4">
-      <div className="w-full max-w-2xl bg-white rounded-2xl shadow-lg p-6 sm:p-8">
-        {/* Header */}
-        <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-2">
-          ➕   geli  cashar csub     
-        </h2>
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 flex justify-center items-start px-4 py-8">
+      <div className="w-full max-w-2xl">
+        
+        {/* CARD */}
+        <div className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden relative">
 
-        {/* Form */}
-        <form onSubmit={submitHandler} className="space-y-5">
-          {/* Lesson Title */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              magaca ciwaanka
-            </label>
-            <input
-              type="text"
-              placeholder="Tusaale: Casharka 1aad"
-              value={data.title}
-              onChange={(e) => setData({ ...data, title: e.target.value })}
-              className="w-full rounded-lg border border-gray-300 px-4 py-2
-                         focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
+          {/* TOP LINE */}
+          <div className="h-2 bg-gradient-to-r from-blue-500 to-indigo-500"></div>
 
-          {/* Order + Book */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                numbers sax ah u samee
-              </label>
-              <input
-                type="number"
-                value={data.order}
-                onChange={(e) =>
-                  setData({ ...data, order: Number(e.target.value) })
-                }
-                className="w-full rounded-lg border border-gray-300 px-4 py-2
-                           focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
+          {/* CONTENT */}
+          <div className="p-6 sm:p-8">
+
+            {/* HEADER */}
+            <div className="text-center mb-8">
+              <div className="w-16 h-16 mx-auto rounded-2xl bg-blue-100 flex items-center justify-center text-3xl mb-4">
+                🎧
+              </div>
+
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-800">
+                Geli Cashar Cusub
+              </h2>
+
+              <p className="text-sm text-gray-500 mt-2">
+                Casharkan wuxuu si toos ah ugu xirnaan doonaa kitaabka
+              </p>
             </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Daooro kitaab
-              </label>
-              <select
-                value={data.book}
-                onChange={(e) => setData({ ...data, book: e.target.value })}
-                className="w-full rounded-lg border border-gray-300 px-4 py-2
-                           bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+            {/* FORM */}
+            <form onSubmit={submitHandler} className="space-y-6">
+
+              {/* TITLE */}
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  Magaca Casharka
+                </label>
+
+                <input
+                  type="text"
+                  placeholder="Tusaale: Casharka 1aad"
+                  value={data.title}
+                  onChange={(e) =>
+                    setData({
+                      ...data,
+                      title: e.target.value,
+                    })
+                  }
+                  className="w-full rounded-xl border border-gray-200 px-4 py-3
+                  focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+
+              {/* ORDER */}
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  Numberka Casharka
+                </label>
+
+                <input
+                  type="number"
+                  value={data.order}
+                  onChange={(e) =>
+                    setData({
+                      ...data,
+                      order: Number(e.target.value),
+                    })
+                  }
+                  className="w-full rounded-xl border border-gray-200 px-4 py-3
+                  focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+
+              {/* AUDIO URL */}
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  Audio URL
+                </label>
+
+                <input
+                  type="text"
+                  placeholder="https://example.com/audio.mp3"
+                  value={data.audioUrl}
+                  onChange={(e) =>
+                    setData({
+                      ...data,
+                      audioUrl: e.target.value,
+                    })
+                  }
+                  className="w-full rounded-xl border border-gray-200 px-4 py-3
+                  focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+
+              {/* BUTTON */}
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full bg-gradient-to-r from-blue-600 to-indigo-600
+                hover:from-blue-700 hover:to-indigo-700
+                text-white font-semibold py-3 rounded-xl
+                transition duration-200 disabled:opacity-60"
               >
-                <option value="">  Xulo kitaab </option>
-                {books.map((b) => (
-                  <option key={b._id} value={b._id}>
-                    {b.title}
-                  </option>
-                ))}
-              </select>
-            </div>
+                {loading ? "Saving..." : "➕ Kaydi Casharka"}
+              </button>
+            </form>
           </div>
-
-          {/* Audio URL */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Audio URL
-            </label>
-            <input
-              type="text"
-              placeholder="https://example.com/audio.mp3"
-              value={data.audioUrl}
-              onChange={(e) => setData({ ...data, audioUrl: e.target.value })}
-              className="w-full rounded-lg border border-gray-300 px-4 py-2
-                         focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
-
-          {/* Submit */}
-          <button
-            type="submit"
-            className="w-full bg-blue-600 text-white py-3 rounded-xl
-                       font-semibold hover:bg-blue-700 transition duration-200"
-          >
-            ➕ KAYDI CASHARKA
-          </button>
-        </form>
+        </div>
       </div>
     </div>
   );

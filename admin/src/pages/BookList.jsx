@@ -151,9 +151,21 @@ const BookList = () => {
             ← Back to Books
           </button>
 
-          <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-4">
-            🎧 Casharrada – {selectedBook.title}
-          </h3>
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
+  
+  <h3 className="text-xl sm:text-2xl font-bold text-gray-800">
+    🎧 Casharrada – {selectedBook.title}
+  </h3>
+
+  <button
+    onClick={() =>
+      window.location.href = `/admin/books/${selectedBook._id}/add-lesson`
+    }
+    className="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium transition"
+  >
+    ➕ Add Lesson
+  </button>
+</div>
 
           <input
             type="text"

@@ -104,10 +104,9 @@ const AppLayout = () => {
           />
 
           <Route
-            path="/add-lesson"
-            element={<AddLesson />}
-          />
-
+  path="/admin/books/:bookId/add-lesson"
+  element={<AddLesson />}
+/>
           <Route
             path="/book-list"
             element={<BookList />}
