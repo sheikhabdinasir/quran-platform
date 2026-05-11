@@ -13,7 +13,6 @@ import {
 const TafsiirFavorites = () => {
 const API =
 `${import.meta.env.VITE_API_URL}/api/tafsiir/public`;
-
   const [items,
   setItems] =
   useState([]);
@@ -42,11 +41,11 @@ const API =
       await axios.get(API);
 
       const audios =
-data.tafsiir.filter(
-  item =>
-    item.audioUrl ||
-    item.videoUrl
-);
+      data.tafsiir.filter(
+        item =>
+        item.mediaType ===
+        "audio"
+      );
 
       const onlyFav =
       audios.filter(
