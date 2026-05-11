@@ -1,4 +1,4 @@
-import express from "express";
+import dashboardRoutes from "./routes/dashboardRoutes.js";import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
@@ -10,7 +10,7 @@ import duruusRoute from "./routes/duruusRoute.js";
 import bookRoutes from "./routes/bookRoutes.js";
 import lessonRoutes from "./routes/lessonRoutes.js";
 import tafsiirRoute from "./routes/tafsiirRoutes.js";
-
+import dashboardRoutes from "./routes/dashboardRoutes.js";
 dotenv.config({ path: "./.env" });
 
 const app = express();
@@ -25,6 +25,7 @@ app.use(cors());
 JSON routes only
 (login, forgot password, admin routes)
 */
+app.use("/api/dashboard", dashboardRoutes);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
