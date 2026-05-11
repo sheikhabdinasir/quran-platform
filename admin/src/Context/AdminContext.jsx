@@ -59,7 +59,6 @@ export const AdminProvider = ({ children }) => {
     },
   }
 );
-
       if (res.data.success) {
         setAdminInfo(res.data.data);
       }
