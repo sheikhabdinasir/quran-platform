@@ -86,10 +86,6 @@ const SidebarContent = ({ onClose, isMobile }) => {
           <MdMenuBook size={22} /> Ku dar Kitaab
         </NavLink>
 
-        <NavLink to="/add-lesson" className={linkClass}>
-          <MdQueueMusic size={22} /> Ku dar Cashar
-        </NavLink>
-
         <NavLink to="/book-list" className={linkClass}>
           <MdMenuBook size={22} /> DHammaan Kutubta
         </NavLink>
