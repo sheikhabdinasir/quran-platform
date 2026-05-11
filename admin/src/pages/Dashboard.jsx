@@ -1,85 +1,190 @@
-import React from "react";
+import React, {
+  useEffect,
+  useState
+} from "react";
+
+import axios from "axios";
 
 const Dashboard = () => {
+
+  const API =
+  `${import.meta.env.VITE_API_URL}/api/dashboard`;
+
+  const [stats,setStats] =
+  useState({
+
+    totalTafsiir:0,
+    totalLectures:0,
+    totalBooks:0,
+    totalJuz:0,
+
+  });
+
+  useEffect(() => {
+
+    fetchStats();
+
+  }, []);
+
+  const fetchStats =
+  async () => {
+
+    try {
+
+      const res =
+      await axios.get(API);
+
+      if(res.data.success){
+
+        setStats(
+          res.data.stats
+        );
+
+      }
+
+    } catch (error) {
+
+      console.log(error);
+
+    }
+
+  };
+
   return (
-    <section className="card">
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
-        <div>
-          <h1
-            style={{
-              fontSize: "1.7rem",
-              fontWeight: 700,
-              marginBottom: "1.8rem",
-              color: "#2C1810",
-            }}
-          >
-            Ku soo dhowow Admin Dashboard-ka
-          </h1>
-        </div>
+
+    <section className="p-4 sm:p-6">
+
+      <div className="mb-8">
+
+        <h1
+          style={{
+            fontSize:"1.9rem",
+            fontWeight:700,
+            color:"#2C1810",
+          }}
+        >
+          Ku soo dhowow Admin Dashboard-ka
+        </h1>
+
+        <p
+          style={{
+            marginTop:"0.5rem",
+            color:"#666",
+          }}
+        >
+          Live statistics from database
+        </p>
+
       </div>
 
-      {/* ===== DASHBOARD STATS GRID ===== */}
+      {/* GRID */}
       <div
-        className="stats-grid"
         style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-          gap: "1.2rem",
+          display:"grid",
+          gridTemplateColumns:
+          "repeat(auto-fit,minmax(230px,1fr))",
+          gap:"1.2rem",
         }}
       >
-        {/* BOX 1 */}
-        <div className="stat-box" style={boxStyle}>
-          <div className="stat-title">Users</div>
-          <div className="stat-value">0</div>
+
+        {/* TAFSIIR */}
+        <div style={goldBox}>
+
+          <div style={titleStyle}>
+            📖 Total Tafsiir
+          </div>
+
+          <div style={valueStyle}>
+            {stats.totalTafsiir}
+          </div>
+
         </div>
 
-        {/* BOX 2 */}
-        <div className="stat-box" style={boxStyle}>
-          <div className="stat-title">Posts</div>
-          <div className="stat-value">0</div>
+        {/* LECTURES */}
+        <div style={blueBox}>
+
+          <div style={titleStyle}>
+            🎤 Total Muxaadaro
+          </div>
+
+          <div style={valueStyle}>
+            {stats.totalLectures}
+          </div>
+
         </div>
 
-        {/* BOX 3 */}
-        <div className="stat-box" style={greenBox}>
-          <div className="stat-title">Active</div>
-          <div className="stat-value">0</div>
+        {/* BOOKS */}
+        <div style={greenBox}>
+
+          <div style={titleStyle}>
+            📚 Total Kutubs
+          </div>
+
+          <div style={valueStyle}>
+            {stats.totalBooks}
+          </div>
+
         </div>
 
-        {/* BOX 4 */}
-        <div className="stat-box" style={redBox}>
-          <div className="stat-title">Inactive</div>
-          <div className="stat-value">0</div>
+        {/* JUZ */}
+        <div style={redBox}>
+
+          <div style={titleStyle}>
+            🕌 Total Juz
+          </div>
+
+          <div style={valueStyle}>
+            {stats.totalJuz}
+          </div>
+
         </div>
+
       </div>
+
     </section>
   );
 };
 
-/* ===== STYLES ===== */
-const boxStyle = {
-  background: "#F5E6E0",
-  borderLeft: "6px solid #D4AF37",
-  padding: "1.5rem",
-  borderRadius: "0.85rem",
-  boxShadow: "0 14px 25px rgba(0,0,0,0.12)",
+/* ===== COMMON ===== */
+
+const titleStyle = {
+  fontSize:"1rem",
+  fontWeight:600,
+  marginBottom:"1rem",
+};
+
+const valueStyle = {
+  fontSize:"2.3rem",
+  fontWeight:800,
+};
+
+/* ===== BOXES ===== */
+
+const goldBox = {
+  background:"#F5E6E0",
+  borderLeft:"6px solid #D4AF37",
+  padding:"1.5rem",
+  borderRadius:"1rem",
+  boxShadow:
+  "0 10px 25px rgba(0,0,0,0.08)",
+};
+
+const blueBox = {
+  ...goldBox,
+  background:"#EFF6FF",
+  borderLeft:"6px solid #2563EB",
 };
 
 const greenBox = {
-  ...boxStyle,
-  background: "#F0FDF4",
-  borderLeft: "6px solid #10B981",
+  ...goldBox,
+  background:"#F0FDF4",
+  borderLeft:"6px solid #10B981",
 };
 
 const redBox = {
-  ...boxStyle,
-  background: "#FEF2F2",
-  borderLeft: "6px solid #DC2626",
+  ...goldBox,
+  background:"#FEF2F2",
+  borderLeft:"6px solid #DC2626",
 };
 
 export default Dashboard;
