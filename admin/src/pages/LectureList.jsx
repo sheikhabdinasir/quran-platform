@@ -123,7 +123,7 @@ axios.delete(
       {/* SEARCH */}
       <input
         className="search-input"
-        placeholder="🔍 Raadi: Shiikh, Muxaadaro ama Description..."
+        placeholder="🔍 Raadi: Shiikh, Muxaadaro IWM..."
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
