@@ -604,14 +604,22 @@ const TafsiirList = () => {
       Edit
     </button>
 
-    <button
-      onClick={() =>
-        toggleItem(item._id)
-      }
-      className="bg-indigo-600 text-white px-3 py-1 rounded"
-    >
-      active
-    </button>
+   <button
+  onClick={() =>
+    toggleItem(item._id)
+  }
+  className={`text-white px-3 py-1 rounded ${
+    item.isActive
+      ? "bg-green-600"
+      : "bg-red-600"
+  }`}
+>
+  {
+    item.isActive
+      ? "Active"
+      : "Inactive"
+  }
+</button>
 
     <button
       onClick={() =>
