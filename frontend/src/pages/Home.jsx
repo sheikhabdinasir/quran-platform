@@ -337,9 +337,9 @@ transparent
 .home-videos-title{
 text-align:center;
 
-color:#F5D76E;
+color:#ffffff;
 
-text-shadow:0 0 18px rgba(212,175,55,.15);
+text-shadow:0 0 18px rgba(255,255,255,.08);
 }
 
 .section-title{
@@ -452,7 +452,7 @@ font-size:1rem;
 
 font-weight:900;
 
-color:#F5D76E;
+color:#ffffff;
 
 margin-bottom:.35rem;
 
@@ -464,7 +464,7 @@ font-size:.94rem;
 
 line-height:1.5;
 
-color:#d8cfc2;
+color:#ffffffcc;
 
 margin-bottom:auto;
 }
@@ -540,7 +540,7 @@ opacity:.7;
 
 margin-bottom:.4rem;
 
-color:#d7d0c5;
+color:#ffffffb3;
 }
 
 .video-card-info h4{
@@ -550,13 +550,13 @@ font-weight:900;
 
 margin-bottom:.3rem;
 
-color:#F5D76E;
+color:#ffffff;
 }
 
 .video-card-info p{
 font-size:.88rem;
 
-color:#d7d0c5;
+color:#ffffffcc;
 
 line-height:1.45;
 }
