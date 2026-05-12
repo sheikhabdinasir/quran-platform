@@ -72,12 +72,10 @@ const AddBook = () => {
               </div>
 
               <h2 className="text-xl sm:text-2xl font-bold text-gray-800">
-                Geli Kitaab Cusub
+                Kaydi Kitaab Cusub
               </h2>
 
-              <p className="text-sm text-gray-500 mt-2">
-                Ku dar kitaab cusub si qurux badan oo responsive ah
-              </p>
+              
             </div>
 
             {/* FORM */}
@@ -85,7 +83,7 @@ const AddBook = () => {
               {/* TITLE */}
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">
-                  Ciwaanka Kitaabka
+                  magaca Kitaabka
                 </label>
 
                 <input
