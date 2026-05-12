@@ -337,9 +337,9 @@ transparent
 .home-videos-title{
 text-align:center;
 
-color:#ffffff;
+color:#F5D76E;
 
-text-shadow:0 0 18px rgba(255,255,255,.08);
+text-shadow:0 0 18px rgba(212,175,55,.15);
 }
 
 .section-title{
@@ -464,7 +464,7 @@ font-size:.94rem;
 
 line-height:1.5;
 
-color:#ffffffcc;
+color:#d8cfc2;
 
 margin-bottom:auto;
 }
@@ -540,7 +540,7 @@ opacity:.7;
 
 margin-bottom:.4rem;
 
-color:#ffffffcc;
+color:#d7d0c5;
 }
 
 .video-card-info h4{
@@ -550,7 +550,7 @@ font-weight:900;
 
 margin-bottom:.3rem;
 
-color:#ffffffb3;
+color:#F5D76E;
 }
 
 .video-card-info p{
