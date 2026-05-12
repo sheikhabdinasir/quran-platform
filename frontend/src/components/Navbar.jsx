@@ -219,6 +219,24 @@ const Navbar = () => {
           padding-left: 2px;
         }
 
+        @media (max-width: 900px) {
+          .nav-tagline { display: none; }
+          .nav-logo {
+            font-size: 1rem;
+            max-width: 160px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
+
+        @media (max-width: 500px) {
+          .nav-logo {
+            font-size: .88rem;
+            max-width: 120px;
+          }
+        }
+
         /* ============================================================
            NAV MENU
         ============================================================ */
@@ -356,12 +374,7 @@ const Navbar = () => {
           .nav-avatar { width: 48px; height: 48px; }
           .nav-avatar-ring { padding: 2px; }
 
-          .nav-logo {
-            font-size: 1.1rem;
-            max-width: 200px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-          }
+
 
           .nav-menu {
             position: absolute;
@@ -415,8 +428,6 @@ const Navbar = () => {
            SMALL MOBILE
         ============================================================ */
         @media (max-width: 500px) {
-          .nav-logo { font-size: .95rem; max-width: 160px; }
-          .nav-avatar { width: 42px; height: 42px; }
           .nav-container { padding: .7rem 1rem; }
         }
       `}</style>
