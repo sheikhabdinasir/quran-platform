@@ -65,9 +65,10 @@ const Navbar = () => {
       {/* BOTTOM ORNAMENT LINE */}
       <div className="nav-bottom-line" />
 
-      <style>{`@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Scheherazade+New:wght@400;700&family=Amiri:wght@400;700&display=swap');
-
-
+      <style>{`@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Scheherazade+New:wght@400;700&family=Amiri:wght@400;700&display=swap');
+      
+      
+      
 /* ============================================================
    CSS VARIABLES
 ============================================================ */
@@ -271,10 +272,6 @@ const Navbar = () => {
 /* ============================================================
    MENU
 ============================================================ */
-
-/* ============================================================
-   MENU
-============================================================ */
 .nav-menu{
   display:flex;
   align-items:center;
@@ -283,35 +280,28 @@ const Navbar = () => {
 
   flex-wrap:wrap;
 }
-
 .nav-menu a{
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Inter', sans-serif;
 
-  font-size:.95rem;
+  font-size: 1rem;
 
-  font-weight:600;
+  font-weight: 700;
 
-  letter-spacing:.5px;
+  letter-spacing: -.3px;
 
-  color:var(--gold);
+  color: #f3f3f3;
 
-  padding:
-  .7rem 1.15rem;
+  padding: .7rem 1.15rem;
 
-  border-radius:12px;
+  border-radius: 14px;
 
-  position:relative;
+  position: relative;
 
-  text-transform:capitalize;
+  text-transform: none;
 
-  border:
-  1px solid transparent;
+  border: 1px solid transparent;
 
-  text-shadow:
-  0 0 10px rgba(212,175,55,.12);
-
-  transition:
-  all .32s ease;
+  transition: all .3s ease;
 }
 
 .nav-menu a::after{
