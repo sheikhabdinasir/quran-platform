@@ -60,7 +60,7 @@ const BookList = () => {
           </h2>
 
           <p className="text-sm text-gray-500 mt-2">
-            Maamul dhammaan kutubta iyo casharrada si casri ah oo responsive ah
+            Maamul dhammaan kutubta iyo casharrada
           </p>
         </div>
       </div>

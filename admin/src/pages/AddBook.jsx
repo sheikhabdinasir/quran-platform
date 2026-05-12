@@ -72,7 +72,7 @@ const AddBook = () => {
               </div>
 
               <h2 className="text-xl sm:text-2xl font-bold text-gray-800">
-                               Geli Kitaab Cusub
+                               kaydi Kitaab Cusub
               </h2>
 
             </div>
@@ -82,7 +82,7 @@ const AddBook = () => {
               {/* TITLE */}
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">
-                  Ciwaanka Kitaabka
+                  magaca Kitaabka
                 </label>
 
                 <input
