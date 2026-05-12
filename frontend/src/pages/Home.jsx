@@ -23,7 +23,10 @@ const Home = () => {
   }, []);
 
   return (
-    <div style={{ background: "#3c08b45c" }}>        {/* HERO color  */}
+    <div style={{
+  background: "linear-gradient(180deg, #17100A 0%, #21160E 100%)",
+  minHeight: "100vh"
+}}>        {/* HERO color  */}
 
       {/* HERO */}
       <section className="hero-section">
