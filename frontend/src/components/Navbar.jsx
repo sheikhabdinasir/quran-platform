@@ -53,9 +53,9 @@ const Navbar = () => {
 
 
           <NavLink to="/lectures" onClick={() => setOpen(false)}>Muxaadarooyin</NavLink>
-          <NavLink to="/favorites" onClick={() => setOpen(false)}>⭐ Favorites</NavLink>
+          <NavLink to="/favorites" onClick={() => setOpen(false)}>Muxaadoryin xul ah</NavLink>
           <NavLink to="/about" onClick={() => setOpen(false)}>About</NavLink>
-          <NavLink to="/contact" onClick={() => setOpen(false)}>Contact</NavLink>
+          <NavLink to="/contact" onClick={() => setOpen(false)}>Contact US</NavLink>
           
      
 
