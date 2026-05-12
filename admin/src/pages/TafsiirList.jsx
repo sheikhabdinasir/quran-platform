@@ -1,6 +1,4 @@
 // src/pages/TafsiirList.jsx
-// FINAL FULL VERSION
-
 import React, {
   useEffect,
   useState,
@@ -509,8 +507,7 @@ const TafsiirList = () => {
       </div>
 
       {/* TABLE */}
-      <div className="overflow-auto">
-
+<div className="overflow-x-auto w-full">
         <table className="w-full border">
 
           <thead className="bg-gray-100">
@@ -594,42 +591,40 @@ const TafsiirList = () => {
                     }
                   </td>
 
-                  <td className="p-3 border space-x-2">
+              <td className="p-3 border">
 
-                    <button
-                      onClick={() =>
-                        openEdit(
-                          item
-                        )
-                      }
-                      className="bg-blue-600 text-white px-3 py-1 rounded"
-                    >
-                      Edit
-                    </button>
+  <div className="flex flex-col sm:flex-row gap-2">
 
-                    <button
-                      onClick={() =>
-                        toggleItem(
-                          item._id
-                        )
-                      }
-                      className="bg-indigo-600 text-white px-3 py-1 rounded"
-                    >
-                      active
-                    </button>
+    <button
+      onClick={() =>
+        openEdit(item)
+      }
+      className="bg-blue-600 text-white px-3 py-1 rounded"
+    >
+      Edit
+    </button>
 
-                    <button
-                      onClick={() =>
-                        setDeleteId(
-                          item._id
-                        )
-                      }
-                      className="bg-red-600 text-white px-3 py-1 rounded"
-                    >
-                      Delete
-                    </button>
+    <button
+      onClick={() =>
+        toggleItem(item._id)
+      }
+      className="bg-indigo-600 text-white px-3 py-1 rounded"
+    >
+      active
+    </button>
 
-                  </td>
+    <button
+      onClick={() =>
+        setDeleteId(item._id)
+      }
+      className="bg-red-600 text-white px-3 py-1 rounded"
+    >
+      Delete
+    </button>
+
+  </div>
+
+</td>
 
                 </tr>
               )
