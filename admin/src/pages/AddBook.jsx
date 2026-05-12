@@ -72,12 +72,9 @@ const AddBook = () => {
               </div>
 
               <h2 className="text-xl sm:text-2xl font-bold text-gray-800">
-                Geli Kitaab Cusub
+                               Geli Kitaab Cusub
               </h2>
 
-              <p className="text-sm text-gray-500 mt-2">
-                Ku dar kitaab cusub si qurux badan oo responsive ah
-              </p>
             </div>
 
             {/* FORM */}
