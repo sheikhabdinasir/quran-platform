@@ -435,8 +435,7 @@ const TafsiirList = () => {
       <div className="flex justify-between mb-6">
 
         <h1 className="text-4xl font-bold">
-          Tafsiir
-          List
+          Maamul dhammaan Tafsiirka
         </h1>
 
         {selected.length >
@@ -616,7 +615,7 @@ const TafsiirList = () => {
                       }
                       className="bg-indigo-600 text-white px-3 py-1 rounded"
                     >
-                      Toggle
+                      active
                     </button>
 
                     <button
