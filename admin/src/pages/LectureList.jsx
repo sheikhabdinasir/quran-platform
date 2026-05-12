@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import AudioPlayer from "../components/AudioPlayer";
 import toast from "react-hot-toast";
 import { playDing } from "../utils/playSound";
 
@@ -170,10 +169,7 @@ axios.delete(
           {/* TITLE */}
           <h3 className="row-title">{l.title}</h3>
 
-          {/* AUDIO */}
-          <div className="row-audio">
-            <AudioPlayer link={l.link} />
-          </div>
+        
 
           {/* ACTIONS */}
           <div className="row-actions">
