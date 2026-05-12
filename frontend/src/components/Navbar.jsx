@@ -65,9 +65,7 @@ const Navbar = () => {
       {/* BOTTOM ORNAMENT LINE */}
       <div className="nav-bottom-line" />
 
-      <style>{`@import url('https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;700&family=Cinzel:wght@500;700&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap');
-
-
+      <style>{`@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Scheherazade+New:wght@400;700&family=Amiri:wght@400;700&display=swap');
 
 
 /* ============================================================
@@ -269,6 +267,7 @@ const Navbar = () => {
   text-transform:uppercase;
 }
 
+
 /* ============================================================
    MENU
 ============================================================ */
@@ -276,39 +275,39 @@ const Navbar = () => {
   display:flex;
   align-items:center;
 
-  gap:.3rem;
+  gap:.45rem;
 
   flex-wrap:wrap;
 }
 
 .nav-menu a{
-  font-family:
-  'Cinzel',
-  serif;
+  font-family: 'Poppins', sans-serif;
 
-  font-size:.78rem;
-  font-weight:500;
+  font-size:.95rem;
 
-  letter-spacing:.8px;
+  font-weight:600;
 
-  text-transform:uppercase;
+  letter-spacing:.5px;
 
-  color:var(--text-muted);
+  color:var(--gold);
 
   padding:
-  .55rem 1rem;
+  .7rem 1.15rem;
 
-  border-radius:4px;
+  border-radius:12px;
 
   position:relative;
 
-  border:1px solid transparent;
+  text-transform:capitalize;
+
+  border:
+  1px solid transparent;
+
+  text-shadow:
+  0 0 10px rgba(212,175,55,.12);
 
   transition:
-  color .28s ease,
-  background .28s ease,
-  border-color .28s ease,
-  transform .25s ease;
+  all .32s ease;
 }
 
 .nav-menu a::after{
@@ -316,14 +315,14 @@ const Navbar = () => {
 
   position:absolute;
 
-  bottom:6px;
+  bottom:7px;
   left:50%;
 
   transform:
   translateX(-50%)
   scaleX(0);
 
-  width:60%;
+  width:65%;
   height:1px;
 
   background:
@@ -334,7 +333,8 @@ const Navbar = () => {
     transparent
   );
 
-  transition:transform .3s ease;
+  transition:
+  transform .32s ease;
 }
 
 .nav-menu a:hover::after,
@@ -345,44 +345,49 @@ const Navbar = () => {
 }
 
 .nav-menu a:hover{
-  color:var(--gold-bright);
+  color:#fff5cc;
 
   background:
-  var(--gold-glow);
+  linear-gradient(
+    135deg,
+    rgba(212,175,55,.18),
+    rgba(212,175,55,.08)
+  );
 
-  border-color:
-  var(--border-soft);
+  border:
+  1px solid rgba(212,175,55,.35);
+
+  box-shadow:
+  0 0 18px rgba(212,175,55,.18);
 
   transform:
-  translateY(-1px);
+  translateY(-2px);
 }
 
 /* ACTIVE */
 .nav-menu a.active{
-  color:var(--deep);
+  color:#1a1207;
 
   font-weight:700;
 
   background:
   linear-gradient(
     135deg,
-    var(--gold-bright) 0%,
-    var(--gold) 50%,
-    var(--gold-dim) 100%
+    #F5D76E,
+    #D4AF37
   );
 
-  border-color:
-  var(--gold-bright);
+  border:
+  1px solid #F5D76E;
 
   box-shadow:
-  0 2px 12px rgba(212,175,55,.35),
-  0 1px 0 rgba(255,255,255,.15) inset;
+  0 0 22px rgba(212,175,55,.45),
+  inset 0 1px 0 rgba(255,255,255,.45);
 }
 
 .nav-menu a.active::after{
   display:none;
 }
-
 /* ============================================================
    HAMBURGER
 ============================================================ */
