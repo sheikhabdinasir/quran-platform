@@ -200,19 +200,31 @@ box-shadow:0 10px 24px rgba(212,175,55,.28);
 transform:translateY(-2px);
 }
 
+
 /* TITLES */
+
 .section-title,
 .home-videos-title{
-color:var(--primary);
+color:#F5D76E;
+text-shadow:0 0 18px rgba(212,175,55,.15);
 }
 
+
 /* CARDS */
+
 .home-card{
 background:linear-gradient(
 180deg,
-#ffffff,
-var(--secondary)
+#22140C,
+#17100A
 );
+
+border:1px solid rgba(212,175,55,.18);
+
+box-shadow:0 10px 24px rgba(0,0,0,.35);
+}
+
+
 border:1px solid rgba(212,175,55,.20);
 box-shadow:0 10px 22px rgba(44,24,16,.08);
 }
@@ -236,9 +248,12 @@ background:#f3e2b0;
 color:#8b6914;
 }
 
+
+
 .home-card h3{
-color:var(--primary);
+color:#F5D76E;
 }
+
 
 .card-link-btn{
 background:linear-gradient(
@@ -251,8 +266,9 @@ color:#fff;
 
 /* VIDEOS */
 .video-card{
-background:#fff;
-border:1px solid rgba(85, 23, 231, 0.14);
+background:#1B120B;
+
+border:1px solid rgba(212,175,55,.18);
 box-shadow:0 10px 24px rgba(44,24,16,.08);
 }
 
@@ -441,7 +457,7 @@ color:#8b6914;
 .home-card h2{
 font-size:1rem;
 font-weight:900;
-color:#2C1810;
+color:#d8cfc2;
 margin-bottom:.35rem;
 line-height:1.35;
 }
@@ -512,7 +528,7 @@ margin-bottom:.4rem;
 font-size:1rem;
 font-weight:900;
 margin-bottom:.3rem;
-color:#2C1810;
+color:#d7d0c5;
 }
 
 .video-card-info p{
