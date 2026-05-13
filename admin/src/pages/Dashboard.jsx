@@ -91,7 +91,7 @@ const Dashboard = () => {
         <div style={goldBox}>
 
           <div style={titleStyle}>
-            📖 Total Tafsiir
+            📖DHammaan tafsiirka
           </div>
 
           <div style={valueStyle}>
@@ -104,7 +104,7 @@ const Dashboard = () => {
         <div style={blueBox}>
 
           <div style={titleStyle}>
-            🎤 Total Muxaadaro
+            🎤 dhammaan  Muxaadaro
           </div>
 
           <div style={valueStyle}>
@@ -130,7 +130,7 @@ const Dashboard = () => {
         <div style={redBox}>
 
           <div style={titleStyle}>
-            🕌 Total Juz
+            🕌 dhammaan  Jus
           </div>
 
           <div style={valueStyle}>
