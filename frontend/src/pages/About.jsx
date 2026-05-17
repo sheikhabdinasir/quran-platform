@@ -159,6 +159,27 @@ const About = () => {
             لِيَدَّبَّرُوا آيَاتِهِ وَلِيَتَذَكَّرَ أُولُو الْأَلْبَابِ ﴾
           </p>
           <span>سورة ص — 38 : 29</span>
+
+
+
+          <div className="mini-ayahs">
+
+  <div className="mini-ayah">
+    <p>﴿ وَقُل رَّبِّ زِدْنِي عِلْمًا ﴾</p>
+    <span>طه — 114</span>
+  </div>
+
+  <div className="mini-ayah">
+    <p>﴿ إِنَّ مَعَ الْعُسْرِ يُسْرًا ﴾</p>
+    <span>الشرح — 6</span>
+  </div>
+
+  <div className="mini-ayah">
+    <p>﴿ فَاذْكُرُونِي أَذْكُرْكُمْ ﴾</p>
+    <span>البقرة — 152</span>
+  </div>
+
+</div>
         </div>
 
       </section>
@@ -460,6 +481,166 @@ const About = () => {
   justify-content: flex-start;
 }
 
+/* ===== ARABIC RTL FIX ===== */
+
+.hero-title,
+.hero-subtitle,
+.about-title,
+.islamic-title,
+.islamic-text,
+.islamic-list,
+.ayah,
+.ayah-box,
+.sheikh-card,
+.sheikh-card p,
+.sheikh-list{
+  direction: rtl;
+  text-align: right;
+}
+
+/* ARABIC TYPOGRAPHY */
+.hero-title,
+.hero-subtitle,
+.about-title,
+.islamic-title,
+.islamic-text,
+.islamic-list li,
+.ayah,
+.sheikh-card p,
+.sheikh-list li{
+  font-family:
+    'Amiri',
+    'Scheherazade New',
+    serif;
+}
+
+/* BETTER ARABIC SPACING */
+.hero-subtitle,
+.islamic-text,
+.sheikh-card p,
+.ayah{
+  line-height: 2.1;
+}
+
+/* AYAH CENTER */
+.ayah-box{
+  text-align:center;
+}
+
+.ayah{
+  text-align:center;
+}
+
+
+/* ===== MINI AYAHS ===== */
+
+.mini-ayahs{
+  display:grid;
+
+  grid-template-columns:
+  repeat(auto-fit,minmax(220px,1fr));
+
+  gap:1rem;
+
+  margin-top:2rem;
+}
+
+.mini-ayah{
+  background:
+  rgba(255,255,255,.05);
+
+  border:
+  1px solid rgba(212,175,55,.18);
+
+  padding:1.2rem;
+
+  border-radius:1rem;
+
+  transition:.35s ease;
+
+  backdrop-filter:blur(4px);
+}
+
+.mini-ayah:hover{
+  transform:translateY(-5px);
+
+  border-color:
+  rgba(212,175,55,.4);
+
+  box-shadow:
+  0 15px 35px rgba(0,0,0,.22);
+}
+
+.mini-ayah p{
+  color:#FFF8F3;
+
+  font-size:1.2rem;
+
+  line-height:2;
+
+  margin-bottom:.7rem;
+
+  font-family:
+  'Amiri',
+  'Scheherazade New',
+  serif;
+}
+
+.mini-ayah span{
+  color:#D4AF37;
+  font-weight:700;
+}
+
+
+
+/* ===== AYAH PREMIUM GLOW ===== */
+
+.ayah-box{
+  position:relative;
+  overflow:hidden;
+}
+
+.ayah-box::before{
+  content:"";
+
+  position:absolute;
+
+  width:320px;
+  height:320px;
+
+  background:
+  radial-gradient(
+    circle,
+    rgba(212,175,55,.14),
+    transparent 70%
+  );
+
+  top:-120px;
+  right:-80px;
+
+  pointer-events:none;
+}
+
+.ayah-box::after{
+  content:"";
+
+  position:absolute;
+
+  width:240px;
+  height:240px;
+
+  background:
+  radial-gradient(
+    circle,
+    rgba(255,255,255,.05),
+    transparent 70%
+  );
+
+  bottom:-100px;
+  left:-80px;
+
+  pointer-events:none;
+}
 
       `}</style>
     </div>
