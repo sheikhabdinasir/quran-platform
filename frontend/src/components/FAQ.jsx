@@ -58,8 +58,8 @@ const faqs = [
     a: (
       <>
         booqo lifaaqa hoose si aad u daalacato tafsiiirka Qur’aanka Kariimka:
-        👉 <Link to="/tafsiir-audio">Tafsiirka</Link>
-      </>
+        👉 <Link     to="/tafsiir">Tafsiirka</Link>
+      </>  
     ),
   },
 ];
