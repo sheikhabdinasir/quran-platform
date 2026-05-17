@@ -170,8 +170,9 @@ const About = () => {
   </div>
 
   <div className="mini-ayah">
-    <p>﴿ إِنَّ مَعَ الْعُسْرِ يُسْرًا ﴾</p>
-    <span>الشرح — 6</span>
+    <p>﴿وَمَا خَلَقْتُ الْجِنَّ وَالْإِنسَ إِلَّا لِيَعْبُدُونِ 
+﴾</p>
+    <span>(56)الذاريات  — </span>
   </div>
 
   <div className="mini-ayah">
