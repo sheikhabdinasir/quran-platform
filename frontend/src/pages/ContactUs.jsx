@@ -37,7 +37,7 @@ const handleSubmit = async (e) => {
 
  Swal.fire({
   icon: "success",
-  title: "Waad Mahadsan Tahay 🤍",
+  title: "Waad Mahadsan Tahay ",
   text: "Fariintaada si guul leh ayaa loo diray.",
   confirmButtonColor: "#D4AF37",
   background: "#FFF8F3",
