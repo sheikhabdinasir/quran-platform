@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import heroImg from "../assets/contantheropicture.jpg";
-
+import emailjs from "@emailjs/browser";
 const fadeIn = { animation: "fadeIn 1.8s ease" };
 const slideUp = { animation: "slideUp 1.4s ease" };
 
@@ -18,17 +18,38 @@ const ContactUs = () => {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    alert("🙏 Mahadsanid! Fariintaada waa la helay.");
+  try {
+
+    await emailjs.send(
+      "service_9tdctoo",
+      "template_xmooapj",
+      {
+        name: form.name,
+        email: form.email,
+        message: form.message,
+      },
+      "CWyJ_tB3o-l40-vEA"
+    );
+
+    alert("✅ Fariintaada si guul leh ayaa loo diray.");
 
     setForm({
       name: "",
       email: "",
       message: "",
     });
-  };
+
+  } catch (error) {
+
+    console.log(error);
+
+    alert("❌ Waxbaa qaldamay. Mar kale isku day.");
+
+  }
+};
 
   return (
     <div
