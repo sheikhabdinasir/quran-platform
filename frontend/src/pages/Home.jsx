@@ -67,11 +67,11 @@ const Home = () => {
           <Link to="/lectures" className="home-card">
             <div className="card-top">
               <div className="card-top-icon">🎧</div>
-              <span className="mini-tag">Audio</span>
+              <span className="mini-tag">dhegeysi </span>
             </div>
 
-            <h3>Muxaadarooyin Audio</h3>
-            <p>Dhagayso muxaadarooyin qiimo leh oo nadiif ah.</p>
+            <h3>Muxaadarooyin  dhagaysi </h3>
+            <p>Halkan ka Dhagayso muxaadarooyinka .</p>
 
             <span className="card-link-btn">Gal →</span>
           </Link>
@@ -82,8 +82,8 @@ const Home = () => {
               <span className="mini-tag">Qur'aan</span>
             </div>
 
-            <h3>Tafsiir Audio</h3>
-            <p>Baro macnaha Qur'aanka si fudud oo qurux badan.</p>
+            <h3>Tafsiirka qur'aanka </h3>
+            <p>Baro macnaha Qur'aanka.</p>
 
             <span className="card-link-btn">Gal →</span>
           </Link>
@@ -95,7 +95,7 @@ const Home = () => {
             </div>
 
             <h3>Muxaadarooyin Xul ah</h3>
-            <p>Casharro la xulay oo si gaar ah kuu anfaca.</p>
+            <p>Casharro  xul ah  oo si gaar ah loo habeeye.</p>
 
             <span className="card-link-btn">Fur →</span>
           </Link>
@@ -110,7 +110,7 @@ const Home = () => {
               {
                 video: short1,
                 title: "Cisadu diinta ayey ku jirtaa",
-                desc: "Diinta ku dhagganoow ⭐⭐⭐⭐",
+                desc: "Diintaada ku dhagganoow ⭐⭐⭐⭐",
               },
               {
                 video: short2,
