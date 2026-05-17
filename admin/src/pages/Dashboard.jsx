@@ -117,7 +117,7 @@ const Dashboard = () => {
         <div style={greenBox}>
 
           <div style={titleStyle}>
-            📚 Total Kutubs
+            📚 dhammaan  Kutubta
           </div>
 
           <div style={valueStyle}>
