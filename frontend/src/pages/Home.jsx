@@ -70,8 +70,8 @@ const Home = () => {
               <span className="mini-tag">dhegeysi </span>
             </div>
 
-            <h3>Muxaadarooyin  dhagaysi </h3>
-            <p>Halkan ka Dhagayso muxaadarooyinka .</p>
+            <h3>Muxaadarooyin  dhegeysi ah </h3>
+            <p>Halkan ka Dhegeyso muxaadarooyinka .</p>
 
             <span className="card-link-btn">Gal →</span>
           </Link>
@@ -95,7 +95,7 @@ const Home = () => {
             </div>
 
             <h3>Muxaadarooyin Xul ah</h3>
-            <p>Casharro  xul ah  oo si gaar ah loo habeeye.</p>
+            <p>muxaadarooyin  xul ah  oo si gaar ah loo habeeye.</p>
 
             <span className="card-link-btn">Fur →</span>
           </Link>
