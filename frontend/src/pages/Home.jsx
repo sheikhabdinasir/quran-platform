@@ -103,7 +103,7 @@ const Home = () => {
 
         {/* VIDEOS */}
         <section className="home-videos">
-          <h2 className="home-videos-title">🎥 Dardaaran</h2>
+          <h2 className="home-videos-title"> ⭐ Dardaaran</h2>
 
           <div className="video-grid">
             {[
