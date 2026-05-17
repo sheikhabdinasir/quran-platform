@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import heroImg from "../assets/contantheropicture.jpg";
 import emailjs from "@emailjs/browser";
+import Swal from "sweetalert2";
 const fadeIn = { animation: "fadeIn 1.8s ease" };
 const slideUp = { animation: "slideUp 1.4s ease" };
 
@@ -34,20 +35,27 @@ const handleSubmit = async (e) => {
       "CWyJ_tB3o-l40-vEA"
     );
 
-    alert("✅ Fariintaada si guul leh ayaa loo diray.");
-
-    setForm({
-      name: "",
-      email: "",
-      message: "",
-    });
+ Swal.fire({
+  icon: "success",
+  title: "Waad Mahadsan Tahay 🤍",
+  text: "Fariintaada si guul leh ayaa loo diray.",
+  confirmButtonColor: "#D4AF37",
+  background: "#FFF8F3",
+  color: "#2C1810",
+});
 
   } catch (error) {
 
     console.log(error);
 
-    alert("❌ Waxbaa qaldamay. Mar kale isku day.");
-
+Swal.fire({
+  icon: "error",
+  title: "Qalad dhacay",
+  text: "Fariinta lama diri karin.",
+  confirmButtonColor: "#932F2F",
+  background: "#FFF8F3",
+  color: "#2C1810",
+});
   }
 };
 
