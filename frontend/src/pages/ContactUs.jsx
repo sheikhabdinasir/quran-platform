@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import heroImg from "../assets/contantheropicture.jpg";
 
-
 const fadeIn = { animation: "fadeIn 1.8s ease" };
 const slideUp = { animation: "slideUp 1.4s ease" };
 
@@ -13,51 +12,90 @@ const ContactUs = () => {
   });
 
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     alert("🙏 Mahadsanid! Fariintaada waa la helay.");
-    setForm({ name: "", email: "", message: "" });
+
+    setForm({
+      name: "",
+      email: "",
+      message: "",
+    });
   };
 
   return (
-    <div style={{ background: "#FFF8F3", minHeight: "100vh" }}>
-      {/* HEADER BACKGROUND IMAGE */}
-     
-     
-     <section
-  style={{
-    padding: "4rem 1rem",
-    backgroundImage: `url(${heroImg})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    position: "relative",
-    minHeight: "40vh",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    color: "white",
-    textAlign: "center",
-  }}
->
+    <div
+      style={{
+        background: "#FFF8F3",
+        minHeight: "100vh",
+      }}
+    >
 
+      {/* HERO */}
+      <section
+        style={{
+          padding: "5rem 1rem",
+          backgroundImage: `url(${heroImg})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          position: "relative",
+          minHeight: "45vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          textAlign: "center",
+          overflow: "hidden",
+        }}
+      >
 
+        {/* DARK OVERLAY */}
         <div
           style={{
             position: "absolute",
             inset: 0,
-            background: "rgba(0,0,0,0.55)",
+            background:
+              "linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.72))",
           }}
-        ></div>
+        />
 
-        <div style={{ position: "relative", zIndex: 10, ...fadeIn }}>
+        {/* GOLD GLOW */}
+        <div
+          style={{
+            position: "absolute",
+            width: "350px",
+            height: "350px",
+            background:
+              "radial-gradient(circle, rgba(212,175,55,.18), transparent 70%)",
+            top: "-120px",
+            right: "-80px",
+          }}
+        />
+
+        <div
+          style={{
+            position: "relative",
+            zIndex: 10,
+            ...fadeIn,
+          }}
+        >
+
           <h1
             style={{
-              fontSize: "2.6rem",
-              fontWeight: 800,
-              textShadow: "0px 4px 12px rgba(0,0,0,0.9)",
+              fontSize: "clamp(2.5rem,5vw,4rem)",
+              fontWeight: 900,
+              color: "#FFD95A",
+
+              textShadow:
+                "0 0 20px rgba(212,175,55,.35), 0 4px 18px rgba(0,0,0,.9)",
+
+              letterSpacing: "-1px",
             }}
           >
             📩 Nala Soo Xiriir
@@ -65,113 +103,163 @@ const ContactUs = () => {
 
           <p
             style={{
-              fontSize: "1.1rem",
-              marginTop: "0.7rem",
-              maxWidth: "700px",
-              margin: "auto",
-              lineHeight: "1.6",
+              fontSize: "1.15rem",
+              marginTop: "1rem",
+              maxWidth: "720px",
+              marginInline: "auto",
+              lineHeight: "2",
+              color: "#FFF8F3",
             }}
           >
-            Haddii aad qabto su’aalo, talooyin ama taageero, fariin noo reeb.
+            Haddii aad qabto su’aalo, talooyin,
+            ama aad doonayso taageero,
+            si xor ah noola soo xiriir.
           </p>
+
         </div>
       </section>
 
-      {/* MAIN SECTION */}
+      {/* MAIN */}
       <section
         style={{
-          maxWidth: "1100px",
+          maxWidth: "1150px",
           margin: "2rem auto",
           padding: "1rem",
           ...slideUp,
         }}
       >
-        {/* Contact Info Cards */}
+
+        {/* CONTACT CARDS */}
         <div
           style={{
             display: "grid",
             gap: "1.5rem",
-            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+
+            gridTemplateColumns:
+              "repeat(auto-fit,minmax(260px,1fr))",
+
             marginBottom: "2rem",
           }}
         >
-          {/* Phone Card */}
+
+          {/* MOBILE */}
           <div
-            style={{
-              background: "white",
-              padding: "1.6rem",
-              borderRadius: "1rem",
-              boxShadow: "0 10px 25px rgba(0,0,0,0.08)",
-              borderLeft: "6px solid #D4AF37",
+            style={cardStyle}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform =
+                "translateY(-6px)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform =
+                "translateY(0)";
             }}
           >
-            <h3 style={{ fontSize: "1.2rem", fontWeight: 700, color: "#2C1810" }}>
+            <h3 style={cardTitle}>
               📞 Mobile
             </h3>
-            <p style={{ marginTop: "0.5rem", color: "#4B5563" }}>
-              +252 634961693 
+
+            <p style={cardText}>
+              +252 634961693
             </p>
           </div>
 
-          {/* Email Card */}
+          {/* EMAIL */}
           <div
-            style={{
-              background: "white",
-              padding: "1.6rem",
-              borderRadius: "1rem",
-              boxShadow: "0 10px 25px rgba(0,0,0,0.08)",
-              borderLeft: "6px solid #932F2F",
+            style={cardStyle}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform =
+                "translateY(-6px)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform =
+                "translateY(0)";
             }}
           >
-            <h3 style={{ fontSize: "1.2rem", fontWeight: 700, color: "#2C1810" }}>
+            <h3 style={cardTitle}>
               📧 Email
             </h3>
-            <p style={{ marginTop: "0.5rem", color: "#4B5563" }}>
+
+            <p style={cardText}>
               shabdinasir@gmail.com
             </p>
           </div>
 
-          {/* Location Card */}
+          {/* WHATSAPP */}
           <div
-            style={{
-              background: "white",
-              padding: "1.6rem",
-              borderRadius: "1rem",
-              boxShadow: "0 10px 25px rgba(0,0,0,0.08)",
-              borderLeft: "6px solid #2C1810",
+            style={cardStyle}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform =
+                "translateY(-6px)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform =
+                "translateY(0)";
             }}
           >
-            <h3 style={{ fontSize: "1.2rem", fontWeight: 700, color: "#2C1810" }}>
-             Goobta
+            <h3 style={cardTitle}>
+              💬 WhatsApp
             </h3>
-            <p style={{ marginTop: "0.5rem", color: "#4B5563" }}>
-              • lasanod  waqoooyi Bari somalia 
+
+            <p style={cardText}>
+              +252 634961693
             </p>
           </div>
+
+          {/* LOCATION */}
+          <div
+            style={cardStyle}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform =
+                "translateY(-6px)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform =
+                "translateY(0)";
+            }}
+          >
+            <h3 style={cardTitle}>
+              📍 Goobta
+            </h3>
+
+            <p style={cardText}>
+              Laascaanood — Soomaaliya
+            </p>
+          </div>
+
         </div>
 
-        {/* CONTACT FORM */}
+        {/* FORM */}
         <div
           style={{
-            background: "white",
+            background: "#ffffff",
             padding: "2rem",
-            borderRadius: "1.2rem",
-            boxShadow: "0 10px 35px rgba(0,0,0,0.09)",
+            borderRadius: "1.5rem",
+
+            boxShadow:
+              "0 18px 40px rgba(0,0,0,.12)",
+
+            border:
+              "1px solid rgba(212,175,55,.2)",
           }}
         >
+
           <h2
             style={{
-              fontSize: "1.7rem",
-              fontWeight: 700,
+              fontSize: "1.8rem",
+              fontWeight: 800,
               color: "#2C1810",
-              marginBottom: "1.3rem",
+              marginBottom: "1.5rem",
             }}
           >
             ✍️ U Soo Dir Fariin
           </h2>
 
           <form onSubmit={handleSubmit}>
-            <label style={labelStyle}>Name</label>
+
+            <label style={labelStyle}>
+              Name
+            </label>
+
             <input
               name="name"
               value={form.name}
@@ -181,7 +269,10 @@ const ContactUs = () => {
               placeholder="Magacaaga..."
             />
 
-            <label style={labelStyle}>Email</label>
+            <label style={labelStyle}>
+              Email
+            </label>
+
             <input
               name="email"
               value={form.email}
@@ -192,72 +283,260 @@ const ContactUs = () => {
               placeholder="hamze@gmail.com"
             />
 
-            <label style={labelStyle}>Message</label>
+            <label style={labelStyle}>
+              Message
+            </label>
+
             <textarea
               name="message"
               value={form.message}
               onChange={handleChange}
               required
-              rows="4"
-              style={{ ...inputStyle, resize: "none" }}
+              rows="5"
+              style={{
+                ...inputStyle,
+                resize: "none",
+              }}
               placeholder="Fariintaada halkan ku qor..."
-            ></textarea>
+            />
 
             <button
               type="submit"
               style={{
-                marginTop: "1rem",
+                marginTop: "1.2rem",
                 width: "100%",
-                padding: "12px",
-                borderRadius: "10px",
-                background: "#D4AF37",
+                padding: "14px",
+
+                borderRadius: "14px",
+
+                background:
+                  "linear-gradient(135deg,#F5D76E,#D4AF37)",
+
                 color: "#2C1810",
+
                 fontSize: "1rem",
-                fontWeight: 700,
+                fontWeight: 800,
+
                 border: "none",
+
                 cursor: "pointer",
-                transition: "0.3s",
+
+                transition: ".35s ease",
+
+                boxShadow:
+                  "0 10px 25px rgba(212,175,55,.35)",
               }}
             >
               ➤ Dir Fariinta
             </button>
+
           </form>
         </div>
+
+        {/* QURAN SECTION */}
+        <div
+          style={{
+            marginTop: "2.5rem",
+
+            background:
+              "linear-gradient(135deg,#2C1810,#1A0F0A)",
+
+            borderRadius: "1.8rem",
+
+            padding: "2.5rem 1.5rem",
+
+            textAlign: "center",
+
+            boxShadow:
+              "0 20px 50px rgba(0,0,0,.25)",
+
+            position: "relative",
+
+            overflow: "hidden",
+          }}
+        >
+
+          <div
+            style={{
+              position: "absolute",
+
+              width: "300px",
+              height: "300px",
+
+              background:
+                "radial-gradient(circle, rgba(212,175,55,.14), transparent 70%)",
+
+              top: "-120px",
+              right: "-80px",
+            }}
+          />
+
+          <h2
+            style={{
+              color: "#FFD95A",
+
+              fontSize: "1.9rem",
+
+              marginBottom: "1.5rem",
+
+              fontWeight: 900,
+            }}
+          >
+            ✨ آيات من القرآن الكريم
+          </h2>
+
+          <p
+            style={{
+              color: "#FFF8F3",
+
+              fontSize: "1.9rem",
+
+              lineHeight: "2.3",
+
+              fontFamily: "'Amiri', serif",
+
+              direction: "rtl",
+            }}
+          >
+            ﴿ وَقُل رَّبِّ زِدْنِي عِلْمًا ﴾
+          </p>
+
+          <span
+            style={{
+              color: "#D4AF37",
+
+              fontWeight: 700,
+
+              display: "block",
+
+              marginTop: ".8rem",
+            }}
+          >
+            سورة طه — 114
+          </span>
+
+        </div>
+
       </section>
 
+      {/* STYLES */}
       <style>
         {`
-          @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+          @keyframes fadeIn{
+            from{
+              opacity:0;
+            }
+
+            to{
+              opacity:1;
+            }
           }
 
-          @keyframes slideUp {
-            from { transform: translateY(30px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+          @keyframes slideUp{
+            from{
+              transform:translateY(30px);
+              opacity:0;
+            }
+
+            to{
+              transform:translateY(0);
+              opacity:1;
+            }
+          }
+
+          input:focus,
+          textarea:focus{
+            outline:none;
+
+            border-color:#D4AF37;
+
+            box-shadow:
+            0 0 0 4px rgba(212,175,55,.15);
+          }
+
+          button:hover{
+            transform:translateY(-3px);
+
+            box-shadow:
+            0 18px 35px rgba(212,175,55,.35);
+          }
+
+          @media(max-width:768px){
+
+            .contact-grid{
+              grid-template-columns:1fr;
+            }
+
           }
         `}
       </style>
+
     </div>
   );
 };
 
-/* SHARED STYLES */
-const labelStyle = {
-  display: "block",
-  fontWeight: 600,
-  color: "#2C1810",
-  marginBottom: "6px",
-  marginTop: "12px",
+/* CARD STYLE */
+const cardStyle = {
+  background: "#ffffff",
+
+  padding: "1.7rem",
+
+  borderRadius: "1.2rem",
+
+  boxShadow:
+    "0 15px 35px rgba(0,0,0,.08)",
+
+  borderTop:
+    "4px solid #D4AF37",
+
+  transition: ".35s ease",
+
+  backdropFilter: "blur(10px)",
 };
 
+/* CARD TITLE */
+const cardTitle = {
+  fontSize: "1.2rem",
+  fontWeight: 800,
+  color: "#2C1810",
+};
+
+/* CARD TEXT */
+const cardText = {
+  marginTop: ".7rem",
+  color: "#4B5563",
+  lineHeight: "1.7",
+};
+
+/* LABEL */
+const labelStyle = {
+  display: "block",
+
+  fontWeight: 700,
+
+  color: "#2C1810",
+
+  marginBottom: "6px",
+
+  marginTop: "14px",
+};
+
+/* INPUT */
 const inputStyle = {
   width: "100%",
-  padding: "12px",
-  borderRadius: "10px",
-  border: "2px solid #D4AF37",
+
+  padding: "14px",
+
+  borderRadius: "12px",
+
+  border:
+    "2px solid rgba(212,175,55,.45)",
+
   background: "#FFF8F3",
+
   fontSize: "1rem",
+
+  transition: ".3s ease",
 };
 
 export default ContactUs;
