@@ -65,10 +65,11 @@ const Navbar = () => {
       {/* BOTTOM ORNAMENT LINE */}
       <div className="nav-bottom-line" />
 
-      <style>{`@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Scheherazade+New:wght@400;700&family=Amiri:wght@400;700&display=swap');
+      <style>{`
+            
       
-      
-      
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Scheherazade+New:wght@400;700&family=Amiri:wght@400;700&display=swap');
+
 /* ============================================================
    CSS VARIABLES
 ============================================================ */
@@ -161,8 +162,7 @@ const Navbar = () => {
 
   margin:auto;
 
-  padding:
-  .85rem 2rem;
+  padding:.85rem 2rem;
 
   display:flex;
   align-items:center;
@@ -268,40 +268,44 @@ const Navbar = () => {
   text-transform:uppercase;
 }
 
-
 /* ============================================================
    MENU
 ============================================================ */
 .nav-menu{
   display:flex;
   align-items:center;
+  justify-content:center;
 
-  gap:.45rem;
-
+gap:.8rem;
   flex-wrap:wrap;
+
+  flex:1;
 }
+
 .nav-menu a{
-  font-family: 'Inter', sans-serif;
+  font-family:'Inter', sans-serif;
 
-  font-size: 1rem;
+  font-size:1rem;
 
-  font-weight: 700;
+  font-weight:700;
 
-  letter-spacing: -.3px;
+  letter-spacing:-.3px;
 
-  color: #f3f3f3;
+  color:#f3f3f3;
 
-  padding: .7rem 1.15rem;
+  padding:.7rem 1.15rem;
 
-  border-radius: 14px;
+  border-radius:14px;
 
-  position: relative;
+  position:relative;
 
-  text-transform: none;
+  text-transform:none;
 
-  border: 1px solid transparent;
+  border:1px solid transparent;
 
-  transition: all .3s ease;
+  transition:all .3s ease;
+
+  white-space:nowrap;
 }
 
 .nav-menu a::after{
@@ -435,12 +439,36 @@ const Navbar = () => {
 }
 
 /* ============================================================
+   LAPTOP FIX
+============================================================ */
+@media(max-width:1300px){
+
+  .nav-container{
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:1rem;
+  }
+
+  .nav-left{
+    width:100%;
+    justify-content:center;
+  }
+
+  .nav-menu{
+    width:100%;
+    justify-content:center;
+    gap:.7rem;
+  }
+
+}
+
+/* ============================================================
    TABLET
 ============================================================ */
 @media(max-width:1100px){
 
   .nav-logo{
-    font-size:1.2rem;
+    font-size:1.1rem;
   }
 
   .nav-tagline{
@@ -450,10 +478,8 @@ const Navbar = () => {
   }
 
   .nav-menu a{
-    padding:
-    .5rem .75rem;
-
-    font-size:.72rem;
+    padding:.6rem .8rem;
+    font-size:.82rem;
   }
 
 }
@@ -475,8 +501,7 @@ const Navbar = () => {
   }
 
   .nav-container{
-    padding:
-    .75rem .9rem;
+    padding:.75rem .9rem;
   }
 
   .hamburger{
@@ -588,31 +613,30 @@ const Navbar = () => {
 @media(max-width:500px){
 
   .nav-container{
-    padding:
-    .7rem .8rem;
+    padding:.7rem .8rem;
   }
 
-.nav-logo{
-  font-size:.9rem;
+  .nav-logo{
+    font-size:.9rem;
 
-  max-width:170px;
+    max-width:170px;
 
-  white-space:nowrap;
+    white-space:nowrap;
 
-  overflow:hidden;
+    overflow:hidden;
 
-  text-overflow:ellipsis;
-}
+    text-overflow:ellipsis;
+  }
 
   .nav-avatar{
     width:42px;
     height:42px;
   }
 
-   .nav-tagline{
-  font-size:.5rem;
-  letter-spacing:.3px;
-}
+  .nav-tagline{
+    font-size:.5rem;
+    letter-spacing:.3px;
+  }
 
 }
 
