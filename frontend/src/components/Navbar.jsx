@@ -441,11 +441,12 @@ gap:.8rem;
 /* ============================================================
    LAPTOP FIX
 ============================================================ */
+
 @media(max-width:1300px){
 
   .nav-container{
     flex-wrap:wrap;
-    justify-content:center;
+    justify-content:space-between;
     gap:1rem;
   }
 
