@@ -17,7 +17,7 @@ const faqs = [
     q: "Wax kharash ah miyaa igaga baxaya?",
     a: (
       <>
-        Maya, waa wx kasta oo halkan ku jira <b>bilaash</b> waxaana  loogu talagalay in muslimiinta somaliyeed ay  ka
+        Maya, waa wax kasta oo halkan ku jira waa <b>bilaash</b> waxaana  loogu talagalay in dadka somaliyeed ay  ka
         faa’iidaystaan cilmiga shiikha.
       </>
     ),
