@@ -450,8 +450,7 @@ gap:.8rem;
   }
 
   .nav-left{
-    width:100%;
-    justify-content:center;
+    justify-content:flex-start;
   }
 
   .nav-menu{
