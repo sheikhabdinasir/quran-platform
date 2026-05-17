@@ -8,7 +8,7 @@ const faqs = [
     a: (
       <>
         Rugtan waxaad ka helaysaa <b>tafsiirka Qur'aanka Kariimka</b>,
-        <b> muxaadarooyin</b> iyo <b>dardaaranno</b> uu ka duubay
+        <b> muxaadarooyin</b> iyo <b>kutub </b> uu akhriyey
         Shiikh Cabdinaasir Xaaji Axmed.
       </>
     ),
@@ -17,7 +17,7 @@ const faqs = [
     q: "Wax kharash ah miyaa igaga baxaya?",
     a: (
       <>
-        Maya, waa <b>bilaash</b> oo loogu talagalay in muslimiintu ka
+        Maya, waa wx kasta oo halkan ku jira <b>bilaash</b> waxaana  loogu talagalay in muslimiinta somaliyeed ay  ka
         faa’iidaystaan cilmiga shiikha.
       </>
     ),
@@ -30,7 +30,6 @@ const faqs = [
         <b> Saxiixul Muslim</b>, <b>Saxiixul Bukhaari</b>,
         iyo kutub fiqhi ah oo kala duwan.
         <br />
-        👉 Booqo halkan: <Link to="/kutub">Kutub</Link>
       </>
     ),
   },
@@ -55,11 +54,10 @@ const faqs = [
     ),
   },
   {
-    q: "Sidee ku geli karaa tafsiirka Qur’aanka?",
+    q: "halkee ka daalacdaa tafsiiirka Qur’aanka?",
     a: (
       <>
-        Tafsiirka Qur’aanka Kariimka waxaad ka heli kartaa halkan:
-        <br />
+        booqo lifaaqa hoose si aad u daalacato tafsiiirka Qur’aanka Kariimka:
         👉 <Link to="/tafsiir-audio">Tafsiirka</Link>
       </>
     ),
