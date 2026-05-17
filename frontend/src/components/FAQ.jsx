@@ -71,8 +71,9 @@ const FAQ = () => {
 
   return (
     <section className="faq-section">
-      <h2 className="faq-title"> Weydiimo iyo War-celinno</h2>
-
+<h2 className="faq-title">
+  <span>Weydiimo iyo War-celinno</span>
+</h2>
       <div className="faq-list">
         {faqs.map((item, i) => (
           <div key={i} className="faq-item">
