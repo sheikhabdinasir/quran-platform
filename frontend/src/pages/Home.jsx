@@ -91,7 +91,7 @@ const Home = () => {
           <Link to="/favorites" className="home-card">
             <div className="card-top">
               <div className="card-top-icon">⭐</div>
-              <span className="mini-tag">Best</span>
+              <span className="mini-tag">xul</span>
             </div>
 
             <h3>Muxaadarooyin Xul ah</h3>
