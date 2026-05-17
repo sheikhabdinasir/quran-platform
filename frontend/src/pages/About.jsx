@@ -545,9 +545,9 @@ const About = () => {
   margin-top:2rem;
 }
 
+
 .mini-ayah{
-  background:
-  rgba(255,255,255,.05);
+  background:#ffffff;
 
   border:
   1px solid rgba(212,175,55,.18);
@@ -572,7 +572,8 @@ const About = () => {
 }
 
 .mini-ayah p{
-  color:#FFF8F3;
+
+  color:#1B120B;
 
   font-size:1.2rem;
 
