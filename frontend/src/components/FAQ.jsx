@@ -71,28 +71,36 @@ const FAQ = () => {
 
   return (
     <section className="faq-section">
-<h2 className="faq-title">
-  <span>Weydiimo iyo War-celinno</span>
-</h2>
+
+      <h2 className="faq-title">
+        <span>Weydiimo iyo War-celinno</span>
+      </h2>
+
       <div className="faq-list">
         {faqs.map((item, i) => (
           <div key={i} className="faq-item">
+
             <button
               className="faq-question"
               onClick={() => setOpenIndex(openIndex === i ? null : i)}
             >
               <span>{item.q}</span>
+
               <span className="icon">
                 {openIndex === i ? "−" : "+"}
               </span>
             </button>
 
             {openIndex === i && (
-              <div className="faq-answer">{item.a}</div>
+              <div className="faq-answer">
+                {item.a}
+              </div>
             )}
+
           </div>
         ))}
       </div>
+
     </section>
   );
 };
