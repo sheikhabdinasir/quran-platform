@@ -43,7 +43,7 @@ const Home = () => {
         <div className="hero-overlay"></div>
 
         <div className="hero-content">
-          <span className="hero-badge">﷽ Islamic Premium Center</span>
+          <span className="hero-badge">﷽ </span>
 
           <h1>مركز الشيخ عبد الناصر الحاج أحمد</h1>
 
