@@ -547,7 +547,7 @@ const About = () => {
 
 
 .mini-ayah{
-  background:##0000FF;
+  background:#ffffff;
 
   border:
   1px solid rgba(212,175,55,.18);
