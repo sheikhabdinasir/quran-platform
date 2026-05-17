@@ -1,81 +1,80 @@
-.faq-section {
-  max-width: 1000px;
-  margin: 5rem auto;
-  padding: 1rem;
-}
 .faq-title{
-  font-size: 2.4rem;
+  font-size: clamp(2rem,5vw,3rem);
   font-weight: 900;
   color: #ffffff;
   text-align: center;
-  margin-bottom: 2.5rem;
+  margin-bottom: 3.5rem;
+
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+
+  padding: 0 2rem 1.2rem 2rem;
+
+  letter-spacing: .5px;
+  text-shadow:
+    0 0 10px rgba(212,175,55,.20),
+    0 0 30px rgba(212,175,55,.12);
 }
 
-/* Item */
-.faq-item {
-  margin-bottom: 1.2rem;
+/* LEGEND GOLD LINE */
+.faq-title::after{
+  content:"";
+  position:absolute;
+
+  left:50%;
+  bottom:0;
+
+  transform:translateX(-50%);
+
+  width:180px;
+  height:4px;
+
+  border-radius:999px;
+
+  background:linear-gradient(
+    90deg,
+    transparent,
+    #D4AF37 20%,
+    #FFD95A 50%,
+    #D4AF37 80%,
+    transparent
+  );
+
+  box-shadow:
+    0 0 15px rgba(212,175,55,.7),
+    0 0 35px rgba(212,175,55,.35);
 }
 
-/* Question Button */
-.faq-question {
-  width: 100%;
-  background: #ffffff;
-  border: 2px solid #e6e6e6;
-  border-radius: 999px;
-  padding: 1.1rem 1.6rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 1.05rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
+/* CENTER ORB */
+.faq-title::before{
+  content:"";
 
-.faq-question:hover {
-  background: #f5f7ff;
-  border-color: #5b5bff;
-}
+  position:absolute;
 
-/* Answer */
-.faq-answer {
-  margin-top: 0.8rem;
-  background: linear-gradient(135deg, #6a85ff, #88aaff);
-  color: #fff;
-  padding: 1.4rem 1.6rem;
-  border-radius: 1.2rem;
-  line-height: 1.8;
-  animation: fadeDown 0.35s ease;
-}
+  left:50%;
+  bottom:-10px;
 
-/* FAQ LINKS */
-.faq-answer a{
-  color:#F5D76E;
-  font-weight:700;
-  text-decoration:none;
-  transition:.3s ease;
-}
+  transform:translateX(-50%);
 
-.faq-answer a:hover{
-  color:#ffffff;
-  text-decoration:underline;
-}
+  width:22px;
+  height:22px;
 
-/* Icon */
-.icon {
-  font-size: 1.8rem;
-  color: #5b5bff;
-  font-weight: 900;
-}
+  border-radius:50%;
 
-/* Animation */
-@keyframes fadeDown {
-  from {
-    opacity: 0;
-    transform: translateY(-8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  background:radial-gradient(
+    circle,
+    #FFF4B0 0%,
+    #FFD95A 40%,
+    #D4AF37 75%,
+    #9c7414 100%
+  );
+
+  border:3px solid rgba(255,255,255,.25);
+
+  box-shadow:
+    0 0 15px rgba(212,175,55,.9),
+    0 0 35px rgba(212,175,55,.55),
+    0 0 55px rgba(212,175,55,.35);
 }
