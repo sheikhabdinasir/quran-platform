@@ -78,7 +78,7 @@ const Footer = () => {
                 fontSize: ".95rem",
               }}
             >
-              Rugtan waxaa loogu talo galay
+              Rugtan waxaad ka helaysaa
               tafsiirka Qur’aanka Kariimka,
               muxaadarooyinka iyo kutubta uu akhriyey shiikh cabdinasir xaaji axmed.
             </p>
