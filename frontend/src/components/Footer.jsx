@@ -310,8 +310,7 @@ const Footer = () => {
               fontSize: ".9rem",
             }}
           >
-            Developed with 🤍 for Islamic Knowledge
-          </p>
+نُوِّرَتْ هٰذِهِ الْمِنَصَّةُ لِنَشْرِ دِينِ الإِسْلَامِ وَعِلْمِ الشَّرِيعَةِ          </p>
 
         </div>
 
