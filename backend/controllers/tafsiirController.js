@@ -197,6 +197,126 @@ export const addTafsiir =
   };
 
 
+
+
+
+
+  
+/* =========================================
+   GET ALL ADMIN
+========================================= */
+export const getAllTafsiir =
+  async (req, res) => {
+
+    try {
+
+      const tafsiir =
+        await TafsiirModel.find().sort({
+          createdAt: -1,
+        });
+
+      res.json({
+        success: true,
+        tafsiir,
+      });
+
+    } catch (error) {
+
+      res.status(500).json({
+        success: false,
+        message: error.message,
+      });
+    }
+  };
+
+/* =========================================
+   GET PUBLIC ACTIVE ONLY
+========================================= */
+export const getPublicTafsiir =
+  async (req, res) => {
+
+    try {
+
+      const tafsiir =
+        await TafsiirModel.find({
+          isActive: true,
+        }).sort({
+          createdAt: -1,
+        });
+
+      res.json({
+        success: true,
+        tafsiir,
+      });
+
+    } catch (error) {
+
+      res.status(500).json({
+        success: false,
+        message: error.message,
+      });
+    }
+  };
+
+/* =========================================
+   DELETE ONE
+========================================= */
+export const deleteTafsiir =
+  async (req, res) => {
+
+    try {
+
+      await TafsiirModel.findByIdAndDelete(
+        req.params.id
+      );
+
+      res.json({
+        success: true,
+        message:
+          "Deleted Successfully",
+      });
+
+    } catch (error) {
+
+      res.status(500).json({
+        success: false,
+        message: error.message,
+      });
+    }
+  };
+
+/* =========================================
+   DELETE MANY
+========================================= */
+export const deleteManyTafsiir =
+  async (req, res) => {
+
+    try {
+
+      const { ids } = req.body;
+
+      await TafsiirModel.deleteMany({
+        _id: {
+          $in: ids,
+        },
+      });
+
+      res.json({
+        success: true,
+        message:
+          "Selected Deleted",
+      });
+
+    } catch (error) {
+
+      res.status(500).json({
+        success: false,
+        message: error.message,
+      });
+    }
+  };
+
+
 /* =========================================
    TOGGLE ACTIVE/HIDDEN
 ========================================= */
