@@ -78,9 +78,9 @@ const Footer = () => {
                 fontSize: ".95rem",
               }}
             >
-              Barxad casri ah oo loogu talagalay
+              Rugtan waxaa loogu talo galay
               tafsiirka Qur’aanka Kariimka,
-              muxaadarooyinka iyo kutubta Islaamka.
+              muxaadarooyinka iyo kutubta uu akhriyey shiikh cabdinasir xaaji axmed.
             </p>
 
             {/* AYAH */}
