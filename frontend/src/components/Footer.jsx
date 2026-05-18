@@ -143,7 +143,7 @@ const Footer = () => {
 
               {[
                 { to: "/", label: "Home" },
-                { to: "/tafsiir-audio", label: "Tafsiir" },
+                { to: "/tafsiir", label: "Tafsiir" },
                 { to: "/kutub", label: "Kutub" },
                 { to: "/lectures", label: "Lectures" },
                 { to: "/contact", label: "Contact" },
