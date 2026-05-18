@@ -228,11 +228,81 @@ const Footer = () => {
             >
 
               {[
-                FaFacebookF,
-                FaYoutube,
-                FaInstagram,
-                FaTiktok,
-              ].map((Icon, i) => (
+  {
+    icon: FaFacebookF,
+    link: "https://www.facebook.com/Sh.cabdinasir/ "
+   },
+
+  {
+    icon: FaYoutube,
+    link: "https://youtube.com/@USERNAME"
+  },
+
+  {
+    icon: FaInstagram,
+    link: "https://instagram.com/USERNAME"
+  },
+
+  {
+    icon: FaTiktok,
+    link: "https://tiktok.com/@USERNAME"
+  },
+
+].map((item, i) => {
+
+  const Icon = item.icon;
+
+  return (
+
+    <a
+      key={i}
+      href={item.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{
+        textDecoration:"none"
+      }}
+    >
+
+      <div
+        style={{
+          width: "42px",
+          height: "42px",
+
+          borderRadius: "50%",
+
+          background:
+            "linear-gradient(135deg,#D4AF37,#F5D76E)",
+
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+
+          cursor: "pointer",
+
+          transition: ".35s ease",
+
+          color: "#2C1810",
+
+          boxShadow:
+            "0 8px 20px rgba(212,175,55,.25)",
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.transform =
+            "translateY(-5px) scale(1.08)";
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.transform =
+            "translateY(0) scale(1)";
+        }}
+      >
+        <Icon size={17} />
+      </div>
+
+    </a>
+  );
+})}
+        
                 <div
                   key={i}
                   style={{
