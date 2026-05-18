@@ -19,6 +19,16 @@ dotenv.config({ path:"./.env" });
 
 const app = express();
 
+```js id="wqvl9u"
+/* ================= STATIC FILES ================= */
+
+app.use(
+  "/uploads",
+  express.static("uploads")
+);
+```
+
+
 /* ================= CORS ================= */
 
 app.use(cors());
