@@ -15,8 +15,9 @@ const convertVideoToAudio = (
   return new Promise(
     (resolve, reject) => {
 
-      const outputDir =
-        "uploads/tafsiir/audio";
+const outputDir =
+  "./uploads/audio";
+
 
       if (
         !fs.existsSync(outputDir)
