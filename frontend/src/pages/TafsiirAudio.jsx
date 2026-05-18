@@ -50,12 +50,7 @@ const TafsiirAudio = () => {
       const { data } =
       await axios.get(API);
 
-      const audios =
-      data.tafsiir.filter(
-        item =>
-        item.mediaType ===
-        "audio"
-      );
+     const audios = data.tafsiir.filter( item => item.audioUrl );
 
       setItems(audios);
 
