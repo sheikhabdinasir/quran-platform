@@ -80,7 +80,8 @@ const Footer = () => {
             >
               Rugtan waxaad ka helaysaa
               tafsiirka Qur’aanka Kariimka,
-              muxaadarooyinka iyo kutubta uu akhriyey shiikh cabdinasir xaaji axmed.
+              muxaadarooyinka iyo kutubta
+              uu akhriyey Shiikh Cabdinaasir Xaaji Axmed.
             </p>
 
             {/* AYAH */}
@@ -118,6 +119,7 @@ const Footer = () => {
               </span>
 
             </div>
+
           </div>
 
           {/* QUICK LINKS */}
@@ -174,6 +176,7 @@ const Footer = () => {
               ))}
 
             </div>
+
           </div>
 
           {/* CONTACT */}
@@ -228,117 +231,84 @@ const Footer = () => {
             >
 
               {[
-  {
-    icon: FaFacebookF,
-    link: "https://www.facebook.com/Sh.cabdinasir/ "
-   },
+                {
+                  icon: FaFacebookF,
+                  link:
+                    "https://www.facebook.com/Sh.cabdinasir/",
+                },
 
-  {
-    icon: FaYoutube,
-    link: "https://youtube.com/@USERNAME"
-  },
+                {
+                  icon: FaYoutube,
+                  link:
+                    "https://youtube.com/@USERNAME",
+                },
 
-  {
-    icon: FaInstagram,
-    link: "https://instagram.com/USERNAME"
-  },
+                {
+                  icon: FaInstagram,
+                  link:
+                    "https://instagram.com/USERNAME",
+                },
 
-  {
-    icon: FaTiktok,
-    link: "https://tiktok.com/@USERNAME"
-  },
+                {
+                  icon: FaTiktok,
+                  link:
+                    "https://tiktok.com/@USERNAME",
+                },
 
-].map((item, i) => {
+              ].map((item, i) => {
 
-  const Icon = item.icon;
+                const Icon = item.icon;
 
-  return (
+                return (
 
-    <a
-      key={i}
-      href={item.link}
-      target="_blank"
-      rel="noopener noreferrer"
-      style={{
-        textDecoration:"none"
-      }}
-    >
+                  <a
+                    key={i}
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      textDecoration: "none",
+                    }}
+                  >
 
-      <div
-        style={{
-          width: "42px",
-          height: "42px",
+                    <div
+                      style={{
+                        width: "42px",
+                        height: "42px",
 
-          borderRadius: "50%",
+                        borderRadius: "50%",
 
-          background:
-            "linear-gradient(135deg,#D4AF37,#F5D76E)",
+                        background:
+                          "linear-gradient(135deg,#D4AF37,#F5D76E)",
 
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
 
-          cursor: "pointer",
+                        cursor: "pointer",
 
-          transition: ".35s ease",
+                        transition: ".35s ease",
 
-          color: "#2C1810",
+                        color: "#2C1810",
 
-          boxShadow:
-            "0 8px 20px rgba(212,175,55,.25)",
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.transform =
-            "translateY(-5px) scale(1.08)";
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.transform =
-            "translateY(0) scale(1)";
-        }}
-      >
-        <Icon size={17} />
-      </div>
+                        boxShadow:
+                          "0 8px 20px rgba(212,175,55,.25)",
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.transform =
+                          "translateY(-5px) scale(1.08)";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.transform =
+                          "translateY(0) scale(1)";
+                      }}
+                    >
+                      <Icon size={17} />
+                    </div>
 
-    </a>
-  );
-})}
-        
-                <div
-                  key={i}
-                  style={{
-                    width: "42px",
-                    height: "42px",
-
-                    borderRadius: "50%",
-
-                    background:
-                      "linear-gradient(135deg,#D4AF37,#F5D76E)",
-
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-
-                    cursor: "pointer",
-
-                    transition: ".35s ease",
-
-                    color: "#2C1810",
-
-                    boxShadow:
-                      "0 8px 20px rgba(212,175,55,.25)",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform =
-                      "translateY(-5px) scale(1.08)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform =
-                      "translateY(0) scale(1)";
-                  }}
-                >
-                  <Icon size={17} />
-                </div>
-              ))}
+                  </a>
+                );
+              })}
 
             </div>
 
@@ -378,9 +348,12 @@ const Footer = () => {
               marginTop: ".6rem",
               color: "#D4AF37",
               fontSize: ".9rem",
+              direction: "rtl",
+              fontFamily: "'Amiri', serif",
             }}
           >
-نُوِّرَتْ هٰذِهِ الْمِنَصَّةُ لِنَشْرِ دِينِ الإِسْلَامِ وَعِلْمِ الشَّرِيعَةِ          </p>
+            نُوِّرَتْ هٰذِهِ الْمِنَصَّةُ لِنَشْرِ دِينِ الإِسْلَامِ وَعِلْمِ الشَّرِيعَةِ
+          </p>
 
         </div>
 
