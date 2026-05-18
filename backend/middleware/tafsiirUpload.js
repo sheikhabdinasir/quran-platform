@@ -95,7 +95,10 @@ const tafsiirUpload = multer({
 
   limits: {
     fileSize:
-      1024 * 1024 * 200,
+    1024 * 1024 * 1000,
+     
+      
+
   },
 });
 
