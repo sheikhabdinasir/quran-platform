@@ -7,37 +7,55 @@ const sendEmail = async (
   text
 ) => {
 
-  const transporter =
-  nodemailer.createTransport({
+  try {
 
-    service: "gmail",
+    const transporter =
+    nodemailer.createTransport({
 
-    auth: {
-      user:
+      service: "gmail",
+
+      auth: {
+        user:
+        process.env.EMAIL_USER,
+
+        pass:
+        process.env.EMAIL_PASS,
+      },
+
+      tls: {
+        rejectUnauthorized:false,
+      },
+
+    });
+
+    const info =
+    await transporter.sendMail({
+
+      from:
       process.env.EMAIL_USER,
 
-      pass:
-      process.env.EMAIL_PASS,
-    },
+      to,
 
-    tls: {
-      rejectUnauthorized:false,
-    },
+      subject,
 
-  });
+      text,
 
-  await transporter.sendMail({
+    });
 
-    from:
-    process.env.EMAIL_USER,
+    console.log(
+      "EMAIL SENT:",
+      info.response
+    );
 
-    to,
+  } catch (error) {
 
-    subject,
+    console.log(
+      "EMAIL ERROR:",
+      error
+    );
 
-    text,
-
-  });
+    throw error;
+  }
 
 };
 
