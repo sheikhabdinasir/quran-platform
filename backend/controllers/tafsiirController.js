@@ -110,6 +110,10 @@ export const getNextPartNumber =
    ADD TAFSIIR
 ========================================= */
 
+/* =========================================
+   ADD TAFSIIR
+========================================= */
+
 export const addTafsiir =
   async (req, res) => {
 
@@ -140,37 +144,17 @@ export const addTafsiir =
         ) {
 
           data.audioUrl =
-            "/" +
-            req.file.path.replace(
-              /\\/g,
-              "/"
-            );
+            req.file.path;
         }
 
         /********************************
-         VIDEO -> AUDIO
+         VIDEO
         ********************************/
 
         else {
 
-          const convertedAudio =
-            await convertVideoToAudio(
-              req.file.path
-            );
-
-          data.audioUrl =
-            "/" +
-            convertedAudio.replace(
-              /\\/g,
-              "/"
-            );
-
           data.videoUrl =
-            "/" +
-            req.file.path.replace(
-              /\\/g,
-              "/"
-            );
+            req.file.path;
         }
       }
 
@@ -195,11 +179,6 @@ export const addTafsiir =
       });
     }
   };
-
-
-
-
-
 
   
 /* =========================================
@@ -261,6 +240,7 @@ export const getPublicTafsiir =
 /* =========================================
    DELETE ONE
 ========================================= */
+
 export const deleteTafsiir =
   async (req, res) => {
 
@@ -352,6 +332,10 @@ export const toggleTafsiirStatus =
 ========================================= */
 
 
+/* =========================================
+   UPDATE TAFSIIR
+========================================= */
+
 export const updateTafsiir =
   async (req, res) => {
 
@@ -383,62 +367,19 @@ export const updateTafsiir =
         ) {
 
           data.audioUrl =
-            "/" +
-            req.file.path.replace(
-              /\\/g,
-              "/"
-            );
+            req.file.path;
 
           data.videoUrl = "";
         }
 
         /********************************
-         VIDEO -> AUDIO
+         VIDEO
         ********************************/
 
         else {
 
-          const convertedAudio =
-            await convertVideoToAudio(
-              req.file.path
-            );
-
-          data.audioUrl =
-            "/" +
-            convertedAudio.replace(
-              /\\/g,
-              "/"
-            );
-
           data.videoUrl =
-            "/" +
-            req.file.path.replace(
-              /\\/g,
-              "/"
-            );
-        }
-      }
-
-      /********************************
-       LINK MODE
-      ********************************/
-
-      if (
-        req.body.sourceType ===
-        "link"
-      ) {
-
-        if (
-          req.body.mediaType ===
-          "audio"
-        ) {
-
-          data.videoUrl = "";
-        }
-
-        else {
-
-          data.audioUrl = "";
+            req.file.path;
         }
       }
 
@@ -476,5 +417,3 @@ export const updateTafsiir =
       });
     }
   };
-
-
