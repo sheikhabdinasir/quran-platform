@@ -100,9 +100,11 @@ const TafsiirPlayerProvider =
     if(list.length)
       setPlaylist(list);
 
-    audioRef.current.src =
-    track.audioUrl ||
-    track.fileUrl;
+audioRef.current.src =
+track.audioUrl?.startsWith("http")
+  ? track.audioUrl
+  : `${import.meta.env.VITE_API_URL}${track.audioUrl}`;
+
 
     audioRef.current.play();
 
@@ -125,9 +127,12 @@ const TafsiirPlayerProvider =
     const time =
     lastSession.time || 0;
 
-    audioRef.current.src =
-    track.audioUrl ||
-    track.fileUrl;
+audioRef.current.src =
+track.audioUrl?.startsWith("http")
+  ? track.audioUrl
+  : `${import.meta.env.VITE_API_URL}${track.audioUrl}`;
+
+
 
     audioRef.current.currentTime =
     time;
