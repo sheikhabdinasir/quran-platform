@@ -1,4 +1,9 @@
 import { useState, useEffect } from "react";
+
+import { useNavigate }
+from "react-router-dom";
+
+
 import { useDuruus } from "../Context/DuruusContext";
 import EditLessonModal from "../components/EditLessonModal";
 
