@@ -1,4 +1,4 @@
-```js id="jlwmu0"
+
 import nodemailer from "nodemailer";
 
 const sendEmail = async (
@@ -42,4 +42,4 @@ const sendEmail = async (
 };
 
 export default sendEmail;
-```
+
