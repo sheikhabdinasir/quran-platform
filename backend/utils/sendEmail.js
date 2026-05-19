@@ -15,15 +15,13 @@ const sendEmail = async (
       service: "gmail",
 
       auth: {
+
         user:
         process.env.EMAIL_USER,
 
         pass:
         process.env.EMAIL_PASS,
-      },
 
-      tls: {
-        rejectUnauthorized:false,
       },
 
     });
@@ -51,7 +49,7 @@ const sendEmail = async (
 
     console.log(
       "EMAIL ERROR:",
-      error
+      error.message
     );
 
     throw error;
