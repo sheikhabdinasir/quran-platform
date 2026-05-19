@@ -130,7 +130,7 @@ const Dashboard = () => {
         <div style={redBox}>
 
           <div style={titleStyle}>
-            🕌 dhammaan  Jus
+            🕌 dhammaan  jusaska
           </div>
 
           <div style={valueStyle}>
