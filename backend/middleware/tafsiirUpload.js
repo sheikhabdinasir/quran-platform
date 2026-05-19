@@ -1,52 +1,39 @@
-
 import multer from "multer";
-import path from "path";
-import fs from "fs";
+
+import {
+  CloudinaryStorage
+} from "multer-storage-cloudinary";
+
+import cloudinary from "../config/cloudinary.js";
 
 /* =========================================
-   CREATE FOLDER
+   CLOUDINARY STORAGE
 ========================================= */
 
-const uploadPath = "uploads/tafsiir";
+const storage =
+new CloudinaryStorage({
 
-if (!fs.existsSync(uploadPath)) {
-  fs.mkdirSync(uploadPath, {
-    recursive: true,
-  });
-}
+  cloudinary,
 
-/* =========================================
-   STORAGE
-========================================= */
-
-const storage = multer.diskStorage({
-  destination: function (
+  params: async (
     req,
-    file,
-    cb
-  ) {
-    cb(null, uploadPath);
-  },
+    file
+  ) => {
 
-  filename: function (
-    req,
-    file,
-    cb
-  ) {
-    const uniqueName =
+    return {
+
+      folder:
+      "tafsiir",
+
+      resource_type:
+      "auto",
+
+      public_id:
       Date.now() +
       "-" +
-      Math.round(
-        Math.random() * 1e9
-      );
-
-    cb(
-      null,
-      uniqueName +
-        path.extname(
-          file.originalname
-        )
-    );
+      file.originalname
+        .split(".")[0],
+    };
   },
 });
 
@@ -54,12 +41,11 @@ const storage = multer.diskStorage({
    FILE FILTER
 ========================================= */
 
-const fileFilter = (
-  req,
-  file,
-  cb
-) => {
+const fileFilter =
+(req, file, cb) => {
+
   const allowed = [
+
     "audio/mpeg",
     "audio/mp3",
     "audio/wav",
@@ -74,8 +60,11 @@ const fileFilter = (
       file.mimetype
     )
   ) {
+
     cb(null, true);
+
   } else {
+
     cb(
       new Error(
         "Only audio/video files allowed"
@@ -88,19 +77,19 @@ const fileFilter = (
    MULTER
 ========================================= */
 
-const tafsiirUpload = multer({
+const tafsiirUpload =
+multer({
+
   storage,
 
   fileFilter,
 
   limits: {
-    fileSize:
-    1024 * 1024 * 1000,
-     
-      
 
+    fileSize:
+    1024 * 1024 * 500,
   },
 });
 
-export default tafsiirUpload;
-
+export default
+tafsiirUpload;

@@ -1,110 +1,12 @@
+import { v2 as cloudinary } from "cloudinary";
+import dotenv from "dotenv";
 
-import multer from "multer";
+dotenv.config({ path: "./.env" });
 
-import {
-  CloudinaryStorage
-} from "multer-storage-cloudinary";
-
-import cloudinary from "../config/cloudinary.js";
-
-/* =========================================
-   CLOUDINARY STORAGE
-========================================= */
-
-const storage =
-new CloudinaryStorage({
-
-  cloudinary,
-
-  params: async (
-    req,
-    file
-  ) => {
-
-    let resourceType =
-    "video";
-
-    if (
-      file.mimetype.startsWith(
-        "audio"
-      )
-    ) {
-
-      resourceType =
-      "video";
-    }
-
-    return {
-
-      folder:
-      "tafsiir",
-
-      resource_type:
-      resourceType,
-
-      public_id:
-      Date.now() +
-      "-" +
-      file.originalname
-        .split(".")[0],
-    };
-  },
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-/* =========================================
-   FILE FILTER
-========================================= */
-
-const fileFilter =
-(req, file, cb) => {
-
-  const allowed = [
-
-    "audio/mpeg",
-    "audio/mp3",
-    "audio/wav",
-
-    "video/mp4",
-    "video/mpeg",
-    "video/quicktime",
-  ];
-
-  if (
-    allowed.includes(
-      file.mimetype
-    )
-  ) {
-
-    cb(null, true);
-
-  } else {
-
-    cb(
-      new Error(
-        "Only audio/video files allowed"
-      )
-    );
-  }
-};
-
-/* =========================================
-   MULTER
-========================================= */
-
-const tafsiirUpload =
-multer({
-
-  storage,
-
-  fileFilter,
-
-  limits: {
-
-    fileSize:
-    1024 * 1024 * 500,
-  },
-});
-
-export default
-tafsiirUpload;
-
+export default cloudinary;
