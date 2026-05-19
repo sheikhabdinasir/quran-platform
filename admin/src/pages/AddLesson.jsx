@@ -1,4 +1,4 @@
-```jsx id="jlwmu8"
+
 import { useState } from "react";
 
 import { useParams }
@@ -405,4 +405,4 @@ const AddLesson = () => {
 
 export default
 AddLesson;
-```
+
