@@ -1,146 +1,408 @@
+```jsx id="jlwmu8"
 import { useState } from "react";
-import { useParams } from "react-router-dom";
-import { useDuruus } from "../Context/DuruusContext";
-import toast from "react-hot-toast";
+
+import { useParams }
+from "react-router-dom";
+
+import { useDuruus }
+from "../Context/DuruusContext";
+
+import toast
+from "react-hot-toast";
 
 const AddLesson = () => {
-  const { addLesson } = useDuruus();
 
-  // GET BOOK ID FROM URL
-  const { bookId } = useParams();
+  const {
+    addLesson
+  } = useDuruus();
 
-  const [data, setData] = useState({
-  title: "",
-  audioUrl: "",
-});
+  /* GET BOOK ID */
+  const {
+    bookId
+  } = useParams();
 
-  const [loading, setLoading] = useState(false);
+  const [data,
+  setData] = useState({
 
-  const submitHandler = async (e) => {
+    title: "",
+
+    order: "",
+
+    audioUrl: "",
+  });
+
+  const [loading,
+  setLoading] =
+  useState(false);
+
+  /*********************************
+   SUBMIT
+  *********************************/
+  const submitHandler =
+  async (e) => {
+
     e.preventDefault();
 
-    // VALIDATION
-    if (!data.title || !data.audioUrl) {
-      toast.error("Fadlan buuxi dhammaan xogta");
+    /* VALIDATION */
+    if (
+      !data.title ||
+
+      !data.order ||
+
+      !data.audioUrl
+    ) {
+
+      toast.error(
+        "Fadlan buuxi dhammaan xogta"
+      );
+
       return;
     }
 
     try {
+
       setLoading(true);
 
-      // SEND LESSON + BOOK ID
+      /* SEND DATA */
       await addLesson({
+
         ...data,
+
         book: bookId,
       });
 
-      toast.success("✅ Casharka si guul ah ayaa loo daray");
+      toast.success(
+        "✅ Casharka waa la keydiyay"
+      );
 
-      // RESET FORM
+      /* RESET */
       setData({
-  title: "",
-  audioUrl: "",
-});
+
+        title: "",
+
+        order: "",
+
+        audioUrl: "",
+      });
+
     } catch (error) {
+
       console.log(error);
-      toast.error("❌ Casharka lama keydin");
+
+      toast.error(
+        "❌ Casharka lama keydin"
+      );
+
     } finally {
+
       setLoading(false);
     }
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 flex justify-center items-start px-4 py-8">
-      <div className="w-full max-w-2xl">
-        
-        {/* CARD */}
-        <div className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden relative">
 
-          {/* TOP LINE */}
-          <div className="h-2 bg-gradient-to-r from-blue-500 to-indigo-500"></div>
+    <div
+      className="
+      min-h-screen
+      bg-gradient-to-br
+      from-blue-50
+      via-white
+      to-indigo-50
+      flex
+      justify-center
+      items-start
+      px-4
+      py-8
+    "
+    >
+
+      <div
+        className="
+        w-full
+        max-w-2xl
+      "
+      >
+
+        {/* CARD */}
+        <div
+          className="
+          bg-white
+          rounded-3xl
+          shadow-xl
+          border
+          border-gray-100
+          overflow-hidden
+        "
+        >
+
+          {/* TOP */}
+          <div
+            className="
+            h-2
+            bg-gradient-to-r
+            from-blue-500
+            to-indigo-500
+          "
+          />
 
           {/* CONTENT */}
           <div className="p-6 sm:p-8">
 
             {/* HEADER */}
             <div className="text-center mb-8">
-              <div className="w-16 h-16 mx-auto rounded-2xl bg-blue-100 flex items-center justify-center text-3xl mb-4">
+
+              <div
+                className="
+                w-16
+                h-16
+                mx-auto
+                rounded-2xl
+                bg-blue-100
+                flex
+                items-center
+                justify-center
+                text-3xl
+                mb-4
+              "
+              >
                 🎧
               </div>
 
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-800">
+              <h2
+                className="
+                text-2xl
+                sm:text-3xl
+                font-bold
+                text-gray-800
+              "
+              >
                 Geli Cashar Cusub
               </h2>
 
-              <p className="text-sm text-gray-500 mt-2">
-                Casharkan wuxuu si toos ah ugu xirnaan doonaa kitaabka
+              <p
+                className="
+                text-sm
+                text-gray-500
+                mt-2
+              "
+              >
+                Casharkan wuxuu
+                si toos ah ugu
+                xirnaan doonaa
+                kitaabka
               </p>
+
             </div>
 
             {/* FORM */}
-            <form onSubmit={submitHandler} className="space-y-6">
+            <form
+              onSubmit={
+                submitHandler
+              }
+
+              className="
+              space-y-6
+            "
+            >
 
               {/* TITLE */}
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
+
+                <label
+                  className="
+                  block
+                  text-sm
+                  font-semibold
+                  text-gray-700
+                  mb-2
+                "
+                >
                   Magaca Casharka
                 </label>
 
                 <input
                   type="text"
-                  placeholder="Tusaale: Casharka 1aad"
-                  value={data.title}
-                  onChange={(e) =>
+
+                  placeholder="
+                  Tusaale:
+                  Casharka 1aad
+                "
+
+                  value={
+                    data.title
+                  }
+
+                  onChange={(e)=>
+
                     setData({
+
                       ...data,
-                      title: e.target.value,
+
+                      title:
+                      e.target.value,
                     })
                   }
-                  className="w-full rounded-xl border border-gray-200 px-4 py-3
-                  focus:outline-none focus:ring-2 focus:ring-blue-500"
+
+                  className="
+                  w-full
+                  rounded-xl
+                  border
+                  border-gray-200
+                  px-4
+                  py-3
+                  focus:outline-none
+                  focus:ring-2
+                  focus:ring-blue-500
+                "
                 />
+
               </div>
 
-             
+              {/* ORDER */}
+              <div>
+
+                <label
+                  className="
+                  block
+                  text-sm
+                  font-semibold
+                  text-gray-700
+                  mb-2
+                "
+                >
+                  Lesson Number
+                </label>
+
+                <input
+                  type="number"
+
+                  placeholder="1"
+
+                  value={
+                    data.order
+                  }
+
+                  onChange={(e)=>
+
+                    setData({
+
+                      ...data,
+
+                      order:
+                      e.target.value,
+                    })
+                  }
+
+                  className="
+                  w-full
+                  rounded-xl
+                  border
+                  border-gray-200
+                  px-4
+                  py-3
+                  focus:outline-none
+                  focus:ring-2
+                  focus:ring-blue-500
+                "
+                />
+
+              </div>
 
               {/* AUDIO URL */}
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
+
+                <label
+                  className="
+                  block
+                  text-sm
+                  font-semibold
+                  text-gray-700
+                  mb-2
+                "
+                >
                   Audio URL
                 </label>
 
                 <input
                   type="text"
-                  placeholder="https://example.com/audio.mp3"
-                  value={data.audioUrl}
-                  onChange={(e) =>
+
+                  placeholder="
+                  https://example.com/audio.mp3
+                "
+
+                  value={
+                    data.audioUrl
+                  }
+
+                  onChange={(e)=>
+
                     setData({
+
                       ...data,
-                      audioUrl: e.target.value,
+
+                      audioUrl:
+                      e.target.value,
                     })
                   }
-                  className="w-full rounded-xl border border-gray-200 px-4 py-3
-                  focus:outline-none focus:ring-2 focus:ring-blue-500"
+
+                  className="
+                  w-full
+                  rounded-xl
+                  border
+                  border-gray-200
+                  px-4
+                  py-3
+                  focus:outline-none
+                  focus:ring-2
+                  focus:ring-blue-500
+                "
                 />
+
               </div>
 
               {/* BUTTON */}
               <button
                 type="submit"
+
                 disabled={loading}
-                className="w-full bg-gradient-to-r from-blue-600 to-indigo-600
-                hover:from-blue-700 hover:to-indigo-700
-                text-white font-semibold py-3 rounded-xl
-                transition duration-200 disabled:opacity-60"
+
+                className="
+                w-full
+                bg-gradient-to-r
+                from-blue-600
+                to-indigo-600
+                hover:from-blue-700
+                hover:to-indigo-700
+                text-white
+                font-semibold
+                py-3
+                rounded-xl
+                transition
+                duration-200
+                disabled:opacity-60
+              "
               >
-                {loading ? "Saving..." : "➕ Kaydi Casharka"}
+
+                {
+                  loading
+                  ? "Saving..."
+                  : "➕ Kaydi Casharka"
+                }
+
               </button>
+
             </form>
+
           </div>
+
         </div>
+
       </div>
+
     </div>
   );
 };
 
-export default AddLesson;
+export default
+AddLesson;
+```
