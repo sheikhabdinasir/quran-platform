@@ -41,7 +41,7 @@ TafsiirPlayerContext
 );
 
 /********************************
- LOAD
+ LOAD DATA
 ********************************/
 
 useEffect(() => {
@@ -85,14 +85,14 @@ console.log(err);
 };
 
 /********************************
- SEARCH
+ FILTER
 ********************************/
 
 const filtered =
 grouped.filter(
-(surah) =>
+(item) =>
 
-surah.surahName
+item.surahName
 .toLowerCase()
 .includes(
 search.toLowerCase()
@@ -103,11 +103,11 @@ search.toLowerCase()
  PLAY
 ********************************/
 
-const playPart =
-(item, surahParts) => {
+const handlePlay =
+(item, parts) => {
 
 const tracks =
-surahParts.filter(
+parts.filter(
 (track) =>
 track.audioUrl
 );
@@ -120,101 +120,52 @@ tracks
 
 return (
 
-<div className="
-min-h-screen
-bg-[#07111F]
-text-white
-px-4
-py-8
-">
+<div className="tafsiir-page">
 
-<div className="
-max-w-6xl
-mx-auto
-">
+<div className="tafsiir-wrap">
 
-{/* HEADER */}
+{/* HERO */}
 
-<div className="
-text-center
-mb-12
-">
+<div className="hero">
 
-<p className="
-text-yellow-400
-text-lg
-mb-3
-">
+<div className="hero-content">
+
+<p className="hero-small">
 ﷽
 </p>
 
-<h1 className="
-text-4xl
-md:text-6xl
-font-bold
-bg-gradient-to-r
-from-yellow-400
-to-amber-500
-bg-clip-text
-text-transparent
-mb-4
-leading-tight
-">
-دروس التفسير
+<h1 className="hero-title">
+القرآن الكريم
 </h1>
 
-<p className="
-text-gray-400
-max-w-2xl
-mx-auto
-leading-relaxed
-">
+<p className="hero-sub">
 استمع إلى تفسير القرآن الكريم
-بجودة عالية وتصميم فاخر
+بصوت الشيخ عبد الناصر حاجي أحمد
 </p>
+
+</div>
 
 </div>
 
 {/* SEARCH */}
 
-<div className="
-mb-10
-">
+<div className="search-box">
 
 <input
 type="text"
-placeholder="
-Search Surah...
-"
+placeholder="ابحث عن سورة..."
 value={search}
 onChange={(e)=>
 setSearch(
 e.target.value
 )
 }
-className="
-w-full
-bg-[#111827]
-border
-border-yellow-500/20
-rounded-2xl
-px-5
-py-4
-text-white
-placeholder-gray-500
-focus:outline-none
-focus:ring-2
-focus:ring-yellow-500
-"
+className="search-input"
 />
 
 </div>
 
 {/* SURAHS */}
-
-<div className="
-space-y-5
-">
 
 {
 filtered.map(
@@ -230,19 +181,13 @@ return (
 key={
 surah.surahNumber
 }
-className="
-bg-[#111827]
-border
-border-yellow-500/10
-rounded-3xl
-overflow-hidden
-shadow-2xl
-"
+className="surah-card"
 >
 
-{/* SURAH HEADER */}
+{/* HEADER */}
 
 <button
+className="surah-header"
 onClick={() =>
 setExpanded(
 isOpen
@@ -250,92 +195,57 @@ isOpen
 : surah.surahNumber
 )
 }
-className="
-w-full
-flex
-items-center
-justify-between
-px-6
-py-5
-hover:bg-[#1F2937]
-transition
-duration-300
-"
 >
 
-<div className="
-flex
-items-center
-gap-4
-">
+<div className="surah-left">
 
-<div className="
-w-14
-h-14
-rounded-2xl
-bg-gradient-to-br
-from-yellow-400
-to-amber-600
-flex
-items-center
-justify-center
-text-black
-font-bold
-shadow-lg
-">
-
+<div className="surah-number">
 {
 surah.surahNumber
 }
-
 </div>
 
-<div className="
-text-left
-">
+<div className="surah-info">
 
-<h2 className="
-text-2xl
-font-bold
-text-yellow-400
-">
-
+<h2>
 {
 surah.surahName
 }
-
 </h2>
 
-<p className="
-text-sm
-text-gray-400
-mt-1
-">
+<div className="surah-meta">
 
+<span>
 {
 surah.parts.length
 }
 {" "}
-Lessons
+دروس
+</span>
 
-</p>
+</div>
 
 </div>
 
 </div>
 
-<div className="
-text-3xl
-text-yellow-400
-">
+<button
+className="surah-play"
+onClick={(e)=>{
 
-{
-isOpen
-? "−"
-: "+"
-}
+e.stopPropagation();
 
-</div>
+handlePlay(
+surah.parts[0],
+surah.parts
+);
+
+}}
+>
+
+▶
+
+</button>
 
 </button>
 
@@ -344,12 +254,7 @@ isOpen
 {
 isOpen && (
 
-<div className="
-border-t
-border-yellow-500/10
-divide-y
-divide-yellow-500/10
-">
+<div className="parts-wrap">
 
 {
 surah.parts.map(
@@ -370,95 +275,23 @@ return (
 key={
 item._id
 }
-className={`
-p-6
-flex
-flex-col
-lg:flex-row
-lg:items-center
-justify-between
-gap-6
-transition
-duration-300
-${
-active
-? `
-bg-yellow-500/5
-`
-: `
-hover:bg-[#0F172A]
-`
-}
-`}
+className="part-item"
 >
 
-{/* LEFT */}
+<div className="part-left">
 
-<div className="
-flex-1
-">
-
-<div className="
-flex
-flex-wrap
-items-center
-gap-3
-mb-3
-">
-
-<span className="
-bg-yellow-500/10
-text-yellow-400
-px-3
-py-1
-rounded-full
-text-sm
-">
-
-Part
-{" "}
-{
-item.partNumber
-}
-
-</span>
-
-<span className="
-bg-white/5
-text-gray-300
-px-3
-py-1
-rounded-full
-text-sm
-">
-
-{
-item.ayahFrom
-}
--
-{
-item.ayahTo
-}
-
-</span>
-
-</div>
-
-<h3 className="
-text-xl
-font-semibold
-mb-2
-">
-
+<h3>
 {
 item.tafsiirTitle
 }
-
 </h3>
 
-<p className="
-text-gray-400
-">
+<p>
+
+Part {
+item.partNumber
+}
+{" • "}
 
 {
 item.sheikhName
@@ -468,15 +301,15 @@ item.sheikhName
 
 </div>
 
-{/* ACTIONS */}
-
-<div className="
-flex
-items-center
-gap-3
-">
+<div
+style={{
+display:"flex",
+gap:"12px"
+}}
+>
 
 <button
+className="part-play"
 onClick={() => {
 
 if(active){
@@ -485,28 +318,13 @@ togglePlay();
 
 }else{
 
-playPart(
+handlePlay(
 item,
 surah.parts
 );
 }
 
 }}
-className="
-w-14
-h-14
-rounded-2xl
-bg-gradient-to-r
-from-yellow-400
-to-amber-500
-text-black
-text-xl
-font-bold
-shadow-lg
-hover:scale-105
-transition
-duration-300
-"
 >
 
 {
@@ -519,18 +337,12 @@ isPlaying
 </button>
 
 <button
+className="part-play"
 onClick={() =>
 toggleFavorite(
 item._id
 )
 }
-className="
-text-3xl
-text-yellow-400
-hover:scale-110
-transition
-duration-300
-"
 >
 
 {
@@ -560,8 +372,6 @@ liked
 
 })
 }
-
-</div>
 
 </div>
 
