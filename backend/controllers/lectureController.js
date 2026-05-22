@@ -10,32 +10,57 @@ const detectMediaType = (link) => {
   return "audio";
 };
 
-// ============================
-// ADD LECTURE
-// ============================
 export const addLecture = async (req, res) => {
   try {
-    const { title, speaker, description, link } = req.body;
 
-    if (!title || !speaker || !description || !link) {
+    const {
+      title,
+      speaker,
+      description,
+    } = req.body;
+
+    if (
+      !title ||
+      !speaker ||
+      !description ||
+      !req.file
+    ) {
       return res.status(400).json({
         success: false,
         message: "Dhammaan meelaha waa khasab",
       });
     }
 
+    const fileUrl = req.file.path;
+
     const lecture = await Lecture.create({
       title,
       speaker,
       description,
-      link,
-      mediaType: detectMediaType(link),
+
+      link: fileUrl,
+
+      mediaType:
+        req.file.mimetype.startsWith("video")
+          ? "video"
+          : "audio",
     });
 
-    res.status(201).json({ success: true, data: lecture });
+    res.status(201).json({
+      success: true,
+      data: lecture,
+    });
+
   } catch (error) {
-    console.error("Add Lecture Error:", error);
-    res.status(500).json({ success: false });
+
+    console.error(
+      "Add Lecture Error:",
+      error
+    );
+
+    res.status(500).json({
+      success: false,
+    });
   }
 };
 
