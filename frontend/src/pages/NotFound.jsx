@@ -14,7 +14,7 @@ const NotFound = () => {
         </div>
 
         <h1 style={styles.title}>
-          Boggaan Lama Helin
+          Lama Helin Boggaan
         </h1>
 
         <p style={styles.text}>
@@ -46,7 +46,7 @@ background:"#FFF8F3"
 },
 
 card:{
-background:"#fff",
+background:"#240abb",
 padding:"3rem 2rem",
 borderRadius:"24px",
 textAlign:"center",
