@@ -17,9 +17,7 @@ const NotFound = () => {
           Lama Helin Boggaan
         </h1>
 
-        <p style={styles.text}>
-          Page-kan ma jiro ama
-        </p>
+       
 
         <Link
           to="/"
