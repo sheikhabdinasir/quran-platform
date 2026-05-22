@@ -1,9 +1,17 @@
 import express from "express";
 
 import {
+
   createLesson,
+
   getLessonsByBook,
+
+  updateLesson,
+
   toggleLesson,
+
+  deleteLesson,
+
 } from "../controllers/lessonController.js";
 
 import upload from "../middleware/upload.js";
@@ -25,11 +33,26 @@ router.get(
   getLessonsByBook
 );
 
+/* ================= UPDATE LESSON ================= */
+
+router.put(
+  "/:id",
+  upload.single("file"),
+  updateLesson
+);
+
 /* ================= TOGGLE ================= */
 
 router.patch(
   "/:id/toggle",
   toggleLesson
+);
+
+/* ================= DELETE ================= */
+
+router.delete(
+  "/:id",
+  deleteLesson
 );
 
 export default router;
