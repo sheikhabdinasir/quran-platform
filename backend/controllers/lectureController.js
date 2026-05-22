@@ -17,13 +17,14 @@ export const addLecture = async (req, res) => {
       title,
       speaker,
       description,
+      link,
     } = req.body;
 
     if (
       !title ||
       !speaker ||
       !description ||
-      !req.file
+      !link
     ) {
       return res.status(400).json({
         success: false,
@@ -31,19 +32,18 @@ export const addLecture = async (req, res) => {
       });
     }
 
-    const fileUrl = req.file.path;
-
     const lecture = await Lecture.create({
+
       title,
+
       speaker,
+
       description,
 
-      link: fileUrl,
+      link,
 
       mediaType:
-        req.file.mimetype.startsWith("video")
-          ? "video"
-          : "audio",
+        detectMediaType(link),
     });
 
     res.status(201).json({
