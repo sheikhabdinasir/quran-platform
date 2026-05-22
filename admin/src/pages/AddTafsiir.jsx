@@ -20,27 +20,42 @@ const AddTafsiir = () => {
 
   const [form, setForm] =
     useState({
+      juzNumber: "",
+
       surahNumber: "",
+
       surahName: "",
+
       partNumber: "",
+
       ayahFrom: "",
+
       ayahTo: "",
+
       tafsiirTitle: "",
+
       sheikhName: "",
+
       description: "",
+
       mediaType: "audio",
+
       sourceType: "link",
+
       audioUrl: "",
+
       videoUrl: "",
     });
 
   /********************************
    HANDLE CHANGE
   ********************************/
+
   const change = (e) => {
 
     setForm((prev) => ({
       ...prev,
+
       [e.target.name]:
         e.target.value,
     }));
@@ -49,6 +64,7 @@ const AddTafsiir = () => {
   /********************************
    HANDLE SURAH
   ********************************/
+
   const handleSurah =
     async (e) => {
 
@@ -64,6 +80,9 @@ const AddTafsiir = () => {
             num
         );
 
+      const surahJuz =
+        selected?.juz || 1;
+
       try {
 
         const { data } =
@@ -71,13 +90,22 @@ const AddTafsiir = () => {
             `${API}/next-part/${num}`
           );
 
-        setSelectedSurah(selected);
+        setSelectedSurah(
+          selected
+        );
 
         setForm((prev) => ({
           ...prev,
-          surahNumber: num,
+
+          juzNumber:
+            surahJuz,
+
+          surahNumber:
+            num,
+
           surahName:
             selected?.surahName || "",
+
           partNumber:
             String(
               data.nextPart || 1
@@ -95,6 +123,7 @@ const AddTafsiir = () => {
   /********************************
    SUBMIT
   ********************************/
+
   const submit =
     async (e) => {
 
@@ -177,17 +206,30 @@ const AddTafsiir = () => {
         setSelectedSurah(null);
 
         setForm({
+          juzNumber: "",
+
           surahNumber: "",
+
           surahName: "",
+
           partNumber: "",
+
           ayahFrom: "",
+
           ayahTo: "",
+
           tafsiirTitle: "",
+
           sheikhName: "",
+
           description: "",
+
           mediaType: "audio",
+
           sourceType: "link",
+
           audioUrl: "",
+
           videoUrl: "",
         });
 
@@ -222,7 +264,10 @@ mx-auto
 
 {/* HEADER */}
 
-<div className="mb-10 text-center">
+<div className="
+mb-10
+text-center
+">
 
 <h1 className="
 text-4xl
