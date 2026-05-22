@@ -237,78 +237,6 @@ export const getPublicTafsiir =
     }
   };
 
-
-
-  /* =========================================
-   GROUPED TAFSIIR
-========================================= */
-
-export const getGroupedTafsiir =
-  async (req, res) => {
-
-    try {
-
-      const tafsiir =
-        await TafsiirModel.find({
-          isActive: true,
-        }).sort({
-          surahNumber: 1,
-          partNumber: 1,
-        });
-
-      const grouped =
-        tafsiir.reduce(
-          (acc, item) => {
-
-            const existing =
-              acc.find(
-                (s) =>
-                  s.surahNumber ===
-                  item.surahNumber
-              );
-
-            if (existing) {
-
-              existing.parts.push(item);
-
-            } else {
-
-              acc.push({
-
-                surahNumber:
-                  item.surahNumber,
-
-                surahName:
-                  item.surahName,
-
-                sheikhName:
-                  item.sheikhName,
-
-                parts: [item],
-              });
-            }
-
-            return acc;
-
-          },
-          []
-        );
-
-      res.json({
-        success: true,
-        grouped,
-      });
-
-    } catch (error) {
-
-      res.status(500).json({
-        success: false,
-        message:
-          error.message,
-      });
-    }
-  };
-  
 /* =========================================
    DELETE ONE
 ========================================= */
@@ -399,7 +327,9 @@ export const toggleTafsiirStatus =
     }
   };
 
-
+/* =========================================
+   UPDATE TAFSIIR
+========================================= */
 
 
 /* =========================================

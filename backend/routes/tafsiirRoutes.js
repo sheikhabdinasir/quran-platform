@@ -10,7 +10,6 @@ import {
   addTafsiir,
   getAllTafsiir,
   getPublicTafsiir,
-  getGroupedTafsiir,
   deleteTafsiir,
   deleteManyTafsiir,
   updateTafsiir,
@@ -26,17 +25,7 @@ router.get("/next-part/:surahNumber", getNextPartNumber);
 
 /* CRUD */
 router.get("/", getAllTafsiir);
-
-router.get(
-  "/public",
-  getPublicTafsiir
-);
-
-/* GROUPED */
-router.get(
-  "/grouped",
-  getGroupedTafsiir
-);
+router.get("/public", getPublicTafsiir);
 
 /* ADD */
 router.post(
