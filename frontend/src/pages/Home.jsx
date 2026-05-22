@@ -70,7 +70,7 @@ const Home = () => {
               <span className="mini-tag">dhegeysi </span>
             </div>
 
-            <h3>Muxaadarooyin  dhegeysi ah </h3>
+            <h3>Muxaadarooyin   </h3>
             <p>Halkan ka Dhegeyso muxaadarooyinka .</p>
 
             <span className="card-link-btn">Gal →</span>
