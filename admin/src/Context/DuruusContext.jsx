@@ -103,36 +103,32 @@ export const DuruusProvider = ({ children }) => {
   };
 
   const addLesson = async (lessonData) => {
-    try {
-      await axios.post(`${API}/lessons`, lessonData);
-    } catch (error) {
-      console.error("Add Lesson Error:", error);
-    }
-  };
+  try {
 
-  const updateLesson = async (id, updatedData) => {
-    try {
-      await axios.put(`${API}/lessons/${id}`, updatedData);
-    } catch (error) {
-      console.error("Update Lesson Error:", error);
-    }
-  };
+    await axios.post(
 
-  const toggleLesson = async (id) => {
-    try {
-      await axios.patch(`${API}/lessons/${id}/toggle`);
-    } catch (error) {
-      console.error("Toggle Lesson Error:", error);
-    }
-  };
+      `${API}/lessons`,
 
-  const deleteLesson = async (id) => {
-    try {
-      await axios.delete(`${API}/lessons/${id}`);
-    } catch (error) {
-      console.error("Delete Lesson Error:", error);
-    }
-  };
+      lessonData,
+
+      {
+        headers: {
+          "Content-Type":
+          "multipart/form-data",
+        },
+      }
+    );
+
+  } catch (error) {
+
+    console.error(
+      "Add Lesson Error:",
+      error
+    );
+
+    throw error;
+  }
+};
 
   return (
     <DuruusContext.Provider

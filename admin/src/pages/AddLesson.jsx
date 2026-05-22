@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 
 import { useParams }
@@ -27,9 +26,12 @@ const AddLesson = () => {
     title: "",
 
     order: "",
-
-    audioUrl: "",
   });
+
+  /* FILE */
+  const [file,
+  setFile] =
+  useState(null);
 
   const [loading,
   setLoading] =
@@ -49,7 +51,7 @@ const AddLesson = () => {
 
       !data.order ||
 
-      !data.audioUrl
+      !file
     ) {
 
       toast.error(
@@ -63,13 +65,34 @@ const AddLesson = () => {
 
       setLoading(true);
 
+      /* FORM DATA */
+      const formData =
+      new FormData();
+
+      formData.append(
+        "title",
+        data.title
+      );
+
+      formData.append(
+        "order",
+        data.order
+      );
+
+      formData.append(
+        "book",
+        bookId
+      );
+
+      formData.append(
+        "file",
+        file
+      );
+
       /* SEND DATA */
-      await addLesson({
-
-        ...data,
-
-        book: bookId,
-      });
+      await addLesson(
+        formData
+      );
 
       toast.success(
         "✅ Casharka waa la keydiyay"
@@ -81,9 +104,9 @@ const AddLesson = () => {
         title: "",
 
         order: "",
-
-        audioUrl: "",
       });
+
+      setFile(null);
 
     } catch (error) {
 
@@ -308,7 +331,7 @@ const AddLesson = () => {
 
               </div>
 
-              {/* AUDIO URL */}
+              {/* AUDIO FILE */}
               <div>
 
                 <label
@@ -320,29 +343,18 @@ const AddLesson = () => {
                   mb-2
                 "
                 >
-                  Audio URL
+                  Audio File
                 </label>
 
                 <input
-                  type="text"
+                  type="file"
 
-                  placeholder="
-                  https://example.com/audio.mp3
-                "
-
-                  value={
-                    data.audioUrl
-                  }
+                  accept="audio/*"
 
                   onChange={(e)=>
-
-                    setData({
-
-                      ...data,
-
-                      audioUrl:
-                      e.target.value,
-                    })
+                    setFile(
+                      e.target.files[0]
+                    )
                   }
 
                   className="
@@ -352,9 +364,6 @@ const AddLesson = () => {
                   border-gray-200
                   px-4
                   py-3
-                  focus:outline-none
-                  focus:ring-2
-                  focus:ring-blue-500
                 "
                 />
 
@@ -404,6 +413,3 @@ const AddLesson = () => {
 };
 
 export default AddLesson;
-
-
-
