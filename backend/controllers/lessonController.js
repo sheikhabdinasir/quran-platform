@@ -81,17 +81,16 @@ export const createLesson = async (req, res) => {
 export const getLessonsByBook = async (req, res) => {
   try {
 
+    
     const lessons =
-    await Lesson.find({
+await Lesson.find({
 
-      book:
-      req.params.bookId,
+  book:
+  req.params.bookId,
 
-      isActive: true,
-
-    }).sort({
-      order: 1,
-    });
+}).sort({
+  order: 1,
+});
 
     res.status(200).json(
       lessons
