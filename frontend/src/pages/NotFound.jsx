@@ -42,11 +42,11 @@ display:"flex",
 justifyContent:"center",
 alignItems:"center",
 padding:"2rem",
-background:"#FFF8F3"
+background:"#52d615"
 },
 
 card:{
-background:"#240abb",
+background:"#ffffff",
 padding:"3rem 2rem",
 borderRadius:"24px",
 textAlign:"center",
