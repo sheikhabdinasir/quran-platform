@@ -14,8 +14,7 @@ import {
 
 } from "../controllers/lessonController.js";
 
-import upload from "../middleware/upload.js";
-
+import upload from "../middleware/multer.js";
 const router = express.Router();
 
 /* ================= ADD LESSON ================= */
