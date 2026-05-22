@@ -1,3 +1,4 @@
+// src/pages/TafsiirList.jsx
 import React, {
   useEffect,
   useState,
@@ -7,631 +8,1103 @@ import axios from "axios";
 import toast from "react-hot-toast";
 
 const TafsiirList = () => {
+ const API =
+  `${import.meta.env.VITE_API_URL}/api/tafsiir`;
+  
 
-const API =
-`${import.meta.env.VITE_API_URL}/api/tafsiir`;
+  const [items, setItems] =
+    useState([]);
 
-const [grouped, setGrouped] =
-useState([]);
+  const [search, setSearch] =
+    useState("");
 
-const [expanded, setExpanded] =
-useState(null);
+  const [filter, setFilter] =
+    useState("all");
 
-const [loading, setLoading] =
-useState(true);
+  const [selected, setSelected] =
+    useState([]);
 
-/********************************
- LOAD DATA
-********************************/
+  const [deleteId, setDeleteId] =
+    useState(null);
 
-const loadData = async () => {
+  const [showBulk, setShowBulk] =
+    useState(false);
 
-try {
+  const [editItem, setEditItem] =
+    useState(null);
 
-setLoading(true);
+  const [file, setFile] =
+    useState(null);
 
-const { data } =
-await axios.get(
-`${API}/grouped`
-);
+  const [juzList, setJuzList] =
+    useState([]);
 
-setGrouped(
-data.grouped || []
-);
+  const [surahs, setSurahs] =
+    useState([]);
 
-} catch {
+  const [form, setForm] =
+    useState({
+      juz: "",
+      surahNumber: "",
+      surahName: "",
+      partNumber: "",
+      ayahFrom: "",
+      ayahTo: "",
+      sheikhName: "",
+      tafsiirTitle: "",
+      description: "",
+      mediaType: "audio",
+      sourceType: "link",
+      audioUrl: "",
+      videoUrl: "",
+    });
 
-toast.error(
-"Failed to load Tafsiir"
-);
+  /********************************
+   LOAD DATA
+  ********************************/
+  const loadData = async () => {
+    try {
+      const { data } =
+        await axios.get(API);
 
-} finally {
+      setItems(
+        data.tafsiir || []
+      );
+    } catch {
+      toast.error(
+        "Failed to load"
+      );
+    }
+  };
 
-setLoading(false);
-}
-};
+  const loadJuz =
+    async () => {
+      try {
+        const { data } =
+          await axios.get(
+            `${API}/juz`
+          );
 
-useEffect(() => {
+        setJuzList(
+          data.juzList ||
+            []
+        );
+      } catch {}
+    };
 
-loadData();
+  useEffect(() => {
+    loadData();
+    loadJuz();
+  }, []);
 
-}, []);
+  /********************************
+   FILTER
+  ********************************/
+  const filtered =
+    items.filter(
+      (item) => {
+        const matchSearch =
+          item.surahName
+            ?.toLowerCase()
+            .includes(
+              search.toLowerCase()
+            ) ||
+          item.sheikhName
+            ?.toLowerCase()
+            .includes(
+              search.toLowerCase()
+            );
 
-/********************************
- TOGGLE ACTIVE
-********************************/
+        const matchType =
+          filter ===
+          "all"
+            ? true
+            : item.mediaType ===
+              filter;
 
-const toggleItem =
-async (id) => {
+        return (
+          matchSearch &&
+          matchType
+        );
+      }
+    );
 
-try {
+  /********************************
+   SELECT
+  ********************************/
+  const toggleSelect =
+    (id) => {
+      if (
+        selected.includes(
+          id
+        )
+      ) {
+        setSelected(
+          selected.filter(
+            (x) =>
+              x !== id
+          )
+        );
+      } else {
+        setSelected([
+          ...selected,
+          id,
+        ]);
+      }
+    };
 
-await axios.patch(
-`${API}/toggle/${id}`
-);
+  const selectAll =
+    () => {
+      if (
+        selected.length ===
+        filtered.length
+      ) {
+        setSelected([]);
+      } else {
+        setSelected(
+          filtered.map(
+            (i) =>
+              i._id
+          )
+        );
+      }
+    };
 
-toast.success(
-"Status Updated"
-);
+  /********************************
+   DELETE
+  ********************************/
+  const removeItem =
+    async (id) => {
+      await axios.delete(
+        `${API}/delete/${id}`
+      );
 
-loadData();
+      toast.success(
+        "Deleted"
+      );
 
-} catch {
+      setDeleteId(
+        null
+      );
 
-toast.error(
-"Failed"
-);
-}
-};
+      loadData();
+    };
 
-/********************************
- DELETE
-********************************/
+  const deleteMany =
+    async () => {
+      await axios.delete(
+        `${API}/delete-many`,
+        {
+          data: {
+            ids:
+              selected,
+          },
+        }
+      );
 
-const removeItem =
-async (id) => {
+      toast.success(
+        "Deleted"
+      );
 
-const confirmDelete =
-window.confirm(
-"Delete this Tafsiir?"
-);
+      setShowBulk(
+        false
+      );
 
-if (
-!confirmDelete
-) return;
+      setSelected(
+        []
+      );
 
-try {
+      loadData();
+    };
 
-await axios.delete(
-`${API}/delete/${id}`
-);
+  /********************************
+   TOGGLE
+  ********************************/
+  const toggleItem =
+    async (id) => {
+      await axios.patch(
+        `${API}/toggle/${id}`
+      );
 
-toast.success(
-"Deleted Successfully"
-);
+      toast.success(
+        "Updated"
+      );
 
-loadData();
+      loadData();
+    };
 
-} catch {
+  /********************************
+   EDIT OPEN
+  ********************************/
+  const openEdit =
+    async (
+      item
+    ) => {
+      setEditItem(
+        item
+      );
 
-toast.error(
-"Delete Failed"
-);
-}
-};
+      setForm({
+        juz:
+          item.juz ||
+          "",
+        surahNumber:
+          item.surahNumber ||
+          "",
+        surahName:
+          item.surahName ||
+          "",
+        partNumber:
+          item.partNumber ||
+          "",
+        ayahFrom:
+          item.ayahFrom ||
+          "",
+        ayahTo:
+          item.ayahTo ||
+          "",
+        sheikhName:
+          item.sheikhName ||
+          "",
+        tafsiirTitle:
+          item.tafsiirTitle ||
+          "",
+        description:
+          item.description ||
+          "",
+        mediaType:
+          item.mediaType ||
+          "audio",
+        sourceType:
+          item.sourceType ||
+          "link",
+        audioUrl:
+          item.audioUrl ||
+          "",
+        videoUrl:
+          item.videoUrl ||
+          "",
+      });
 
-return (
+      if (
+        item.juz
+      ) {
+        const {
+          data,
+        } =
+          await axios.get(
+            `${API}/juz/${item.juz}`
+          );
 
-<div className="
-min-h-screen
-bg-[#0B1120]
-text-white
-px-4
-py-8
-">
+        setSurahs(
+          data.surahs ||
+            []
+        );
+      }
+    };
 
-<div className="
-max-w-7xl
-mx-auto
-">
+  /********************************
+   JUZ CHANGE
+  ********************************/
+  const handleJuz =
+    async (
+      value
+    ) => {
+      setForm({
+        ...form,
+        juz: value,
+        surahNumber:
+          "",
+        surahName:
+          "",
+      });
 
-{/* HEADER */}
+      const {
+        data,
+      } =
+        await axios.get(
+          `${API}/juz/${value}`
+        );
 
-<div className="
-mb-10
-text-center
-">
+      setSurahs(
+        data.surahs ||
+          []
+      );
+    };
 
-<h1 className="
-text-4xl
-md:text-5xl
-font-bold
-bg-gradient-to-r
-from-yellow-400
-to-amber-500
-bg-clip-text
-text-transparent
-mb-3
-">
-Tafsiir Management
-</h1>
+  /********************************
+   SURAH CHANGE
+  ********************************/
+  const handleSurah =
+    async (
+      number
+    ) => {
+      const found =
+        surahs.find(
+          (
+            s
+          ) =>
+            String(
+              s.surahNumber
+            ) ===
+            number
+        );
 
-<p className="
-text-gray-400
-max-w-2xl
-mx-auto
-">
-Maamul dhammaan
-tafsiirka Qur'aanka
-si casri ah.
-</p>
+      const {
+        data,
+      } =
+        await axios.get(
+          `${API}/next-part/${number}`
+        );
 
-</div>
+      setForm({
+        ...form,
+        surahNumber:
+          number,
+        surahName:
+          found?.surahName ||
+          "",
+        partNumber:
+          data.nextPart ||
+          1,
+      });
+    };
 
-{/* LOADING */}
+  /********************************
+   UPDATE
+  ********************************/
+  const updateItem =
+    async () => {
+      try {
+        const fd =
+          new FormData();
 
-{
-loading && (
+        Object.entries(
+          form
+        ).forEach(
+          ([
+            k,
+            v,
+          ]) =>
+            fd.append(
+              k,
+              v
+            )
+        );
 
-<div className="
-text-center
-py-20
-text-yellow-400
-text-xl
-">
-Loading...
-</div>
+        if (
+          file
+        ) {
+          fd.append(
+            "file",
+            file
+          );
+        }
 
-)}
+        await axios.put(
+          `${API}/update/${editItem._id}`,
+          fd
+        );
 
-{/* EMPTY */}
+        toast.success(
+          "Updated Successfully"
+        );
 
-{
-!loading &&
-grouped.length === 0 && (
+        setEditItem(
+          null
+        );
 
-<div className="
-bg-[#111827]
-border
-border-yellow-500/20
-rounded-3xl
-p-10
-text-center
-text-gray-400
-">
-No Tafsiir Found
-</div>
+        setFile(
+          null
+        );
 
-)}
+        loadData();
+      } catch {
+        toast.error(
+          "Update Failed"
+        );
+      }
+    };
 
-{/* GROUPED */}
+  return (
+    <div className="p-6 bg-white rounded-xl shadow">
 
-<div className="
-space-y-6
-">
+      {/* TOP */}
+      <div className="flex justify-between mb-6">
 
-{
-grouped.map(
-(surah) => {
+        <h1 className="text-4xl font-bold">
+          Maamul dhammaan Tafsiirka
+        </h1>
 
-const isOpen =
-expanded ===
-surah.surahNumber;
+        {selected.length >
+          0 && (
+          <button
+            onClick={() =>
+              setShowBulk(
+                true
+              )
+            }
+            className="bg-red-600 text-white px-4 py-2 rounded"
+          >
+            Delete
+            Selected
+            (
+            {
+              selected.length
+            }
+            )
+          </button>
+        )}
 
-return (
+      </div>
 
-<div
-key={
-surah.surahNumber
-}
-className="
-bg-[#111827]
-border
-border-yellow-500/20
-rounded-3xl
-overflow-hidden
-shadow-2xl
-"
+      {/* SEARCH */}
+      <div className="grid md:grid-cols-2 gap-4 mb-6">
+
+        <input
+          placeholder="Search..."
+          value={
+            search
+          }
+          onChange={(
+            e
+          ) =>
+            setSearch(
+              e.target
+                .value
+            )
+          }
+          className="border p-3 rounded"
+        />
+
+        <select
+          value={
+            filter
+          }
+          onChange={(
+            e
+          ) =>
+            setFilter(
+              e.target
+                .value
+            )
+          }
+          className="border p-3 rounded"
+        >
+          <option value="all">
+            All
+          </option>
+
+          <option value="audio">
+            Audio
+          </option>
+
+          <option value="video">
+            Video
+          </option>
+        </select>
+
+      </div>
+
+      {/* TABLE */}
+<div className="overflow-x-auto w-full">
+        <table className="w-full border">
+
+          <thead className="bg-gray-100">
+
+            <tr>
+
+              <th className="p-3 border">
+                <input
+                  type="checkbox"
+                  onChange={
+                    selectAll
+                  }
+                />
+              </th>
+
+              <th className="p-3 border">
+                Surah
+              </th>
+
+              <th className="p-3 border">
+                Sheikh
+              </th>
+
+              <th className="p-3 border">
+                Type
+              </th>
+
+              <th className="p-3 border">
+                Actions
+              </th>
+
+            </tr>
+
+          </thead>
+
+          <tbody>
+
+            {filtered.map(
+              (
+                item
+              ) => (
+                <tr
+                  key={
+                    item._id
+                  }
+                >
+
+                  <td className="p-3 border">
+                    <input
+                      type="checkbox"
+                      checked={selected.includes(
+                        item._id
+                      )}
+                      onChange={() =>
+                        toggleSelect(
+                          item._id
+                        )
+                      }
+                    />
+                  </td>
+
+                  <td className="p-3 border">
+                    {
+                      item.surahNumber
+                    }
+                    .{" "}
+                    {
+                      item.surahName
+                    }
+                  </td>
+
+                  <td className="p-3 border">
+                    {
+                      item.sheikhName
+                    }
+                  </td>
+
+                  <td className="p-3 border uppercase">
+                    {
+                      item.mediaType
+                    }
+                  </td>
+
+              <td className="p-3 border">
+
+  <div className="flex flex-col sm:flex-row gap-2">
+
+    <button
+      onClick={() =>
+        openEdit(item)
+      }
+      className="bg-blue-600 text-white px-3 py-1 rounded"
+    >
+      Edit
+    </button>
+
+   <button
+  onClick={() =>
+    toggleItem(item._id)
+  }
+  className={`text-white px-3 py-1 rounded ${
+    item.isActive
+      ? "bg-green-600"
+      : "bg-red-600"
+  }`}
 >
-
-{/* SURAH HEADER */}
-
-<button
-onClick={() =>
-setExpanded(
-isOpen
-? null
-: surah.surahNumber
-)
-}
-className="
-w-full
-flex
-items-center
-justify-between
-px-6
-py-5
-hover:bg-[#1F2937]
-transition
-duration-300
-"
->
-
-<div className="
-flex
-items-center
-gap-4
-">
-
-<div className="
-w-14
-h-14
-rounded-2xl
-bg-gradient-to-br
-from-yellow-400
-to-amber-600
-flex
-items-center
-justify-center
-text-black
-font-bold
-text-lg
-shadow-lg
-">
-
-{
-surah.surahNumber
-}
-
-</div>
-
-<div className="text-left">
-
-<h2 className="
-text-xl
-font-bold
-text-yellow-400
-">
-{
-surah.surahName
-}
-</h2>
-
-<p className="
-text-sm
-text-gray-400
-mt-1
-">
-{
-surah.parts.length
-}
-{" "}
-Parts
-</p>
-
-</div>
-
-</div>
-
-<div className="
-text-3xl
-text-yellow-400
-">
-
-{
-isOpen
-? "−"
-: "+"
-}
-
-</div>
-
+  {
+    item.isActive
+      ? "Active"
+      : "Inactive"
+  }
 </button>
 
-{/* PARTS */}
+    <button
+      onClick={() =>
+        setDeleteId(item._id)
+      }
+      className="bg-red-600 text-white px-3 py-1 rounded"
+    >
+      Delete
+    </button>
 
-{
-isOpen && (
+  </div>
 
-<div className="
-border-t
-border-yellow-500/10
-divide-y
-divide-yellow-500/10
-">
+</td>
 
-{
-surah.parts.map(
-(item) => (
+                </tr>
+              )
+            )}
 
-<div
-key={
-item._id
-}
-className="
-p-6
-flex
-flex-col
-lg:flex-row
-lg:items-center
-justify-between
-gap-6
-hover:bg-[#0F172A]
-transition
-duration-300
-"
->
+          </tbody>
 
-{/* LEFT */}
+        </table>
 
-<div className="
-flex-1
-">
+      </div>
 
-<div className="
-flex
-flex-wrap
-items-center
-gap-3
-mb-3
-">
+      {/* EDIT MODAL */}
+      {editItem && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 overflow-auto p-5">
 
-<span className="
-bg-yellow-500/10
-text-yellow-400
-px-3
-py-1
-rounded-full
-text-sm
-font-medium
-">
+          <div className="bg-white w-full max-w-2xl rounded-xl p-6">
 
-Part
-{" "}
-{
-item.partNumber
-}
+            <h2 className="text-2xl font-bold mb-5">
+              Edit
+              Tafsiir
+            </h2>
 
-</span>
+            <div className="grid md:grid-cols-2 gap-4">
 
-<span className="
-bg-white/5
-text-gray-300
-px-3
-py-1
-rounded-full
-text-sm
-">
+              <select
+                value={
+                  form.juz
+                }
+                onChange={(
+                  e
+                ) =>
+                  handleJuz(
+                    e
+                      .target
+                      .value
+                  )
+                }
+                className="border p-3 rounded"
+              >
+                <option>
+                  Select
+                  Juz
+                </option>
 
-{
-item.ayahFrom
-}
--
-{
-item.ayahTo
-}
+                {juzList.map(
+                  (
+                    j
+                  ) => (
+                    <option
+                      key={
+                        j
+                      }
+                      value={
+                        j
+                      }
+                    >
+                      Juz{" "}
+                      {
+                        j
+                      }
+                    </option>
+                  )
+                )}
+              </select>
 
-</span>
+              <select
+                value={
+                  form.surahNumber
+                }
+                onChange={(
+                  e
+                ) =>
+                  handleSurah(
+                    e
+                      .target
+                      .value
+                  )
+                }
+                className="border p-3 rounded"
+              >
+                <option>
+                  Select
+                  Surah
+                </option>
 
-<span className="
-bg-white/5
-text-gray-300
-px-3
-py-1
-rounded-full
-text-sm
-uppercase
-">
+                {surahs.map(
+                  (
+                    s
+                  ) => (
+                    <option
+                      key={
+                        s.surahNumber
+                      }
+                      value={
+                        s.surahNumber
+                      }
+                    >
+                      {
+                        s.surahNumber
+                      }
+                      .{" "}
+                      {
+                        s.surahName
+                      }
+                    </option>
+                  )
+                )}
+              </select>
 
-{
-item.mediaType
-}
+              <input
+                value={
+                  form.partNumber
+                }
+                onChange={(
+                  e
+                ) =>
+                  setForm(
+                    {
+                      ...form,
+                      partNumber:
+                        e
+                          .target
+                          .value,
+                    }
+                  )
+                }
+                placeholder="Part Number"
+                className="border p-3 rounded"
+              />
 
-</span>
+              <input
+                value={
+                  form.sheikhName
+                }
+                onChange={(
+                  e
+                ) =>
+                  setForm(
+                    {
+                      ...form,
+                      sheikhName:
+                        e
+                          .target
+                          .value,
+                    }
+                  )
+                }
+                placeholder="Sheikh Name"
+                className="border p-3 rounded"
+              />
 
-</div>
+              <input
+                value={
+                  form.ayahFrom
+                }
+                onChange={(
+                  e
+                ) =>
+                  setForm(
+                    {
+                      ...form,
+                      ayahFrom:
+                        e
+                          .target
+                          .value,
+                    }
+                  )
+                }
+                placeholder="Ayah From"
+                className="border p-3 rounded"
+              />
 
-<h3 className="
-text-xl
-font-semibold
-mb-2
-">
+              <input
+                value={
+                  form.ayahTo
+                }
+                onChange={(
+                  e
+                ) =>
+                  setForm(
+                    {
+                      ...form,
+                      ayahTo:
+                        e
+                          .target
+                          .value,
+                    }
+                  )
+                }
+                placeholder="Ayah To"
+                className="border p-3 rounded"
+              />
 
-{
-item.tafsiirTitle
-}
+              <input
+                value={
+                  form.tafsiirTitle
+                }
+                onChange={(
+                  e
+                ) =>
+                  setForm(
+                    {
+                      ...form,
+                      tafsiirTitle:
+                        e
+                          .target
+                          .value,
+                    }
+                  )
+                }
+                placeholder="Rename Title"
+                className="border p-3 rounded md:col-span-2"
+              />
 
-</h3>
+              <textarea
+                value={
+                  form.description
+                }
+                onChange={(
+                  e
+                ) =>
+                  setForm(
+                    {
+                      ...form,
+                      description:
+                        e
+                          .target
+                          .value,
+                    }
+                  )
+                }
+                placeholder="Description"
+                className="border p-3 rounded md:col-span-2"
+              />
 
-<p className="
-text-gray-400
-mb-4
-">
+              <select
+                value={
+                  form.mediaType
+                }
+                onChange={(
+                  e
+                ) =>
+                  setForm(
+                    {
+                      ...form,
+                      mediaType:
+                        e
+                          .target
+                          .value,
+                    }
+                  )
+                }
+                className="border p-3 rounded"
+              >
+                <option value="audio">
+                  Audio
+                </option>
 
-{
-item.sheikhName
-}
+                <option value="video">
+                  Video
+                </option>
+              </select>
 
-</p>
+              <select
+                value={
+                  form.sourceType
+                }
+                onChange={(
+                  e
+                ) =>
+                  setForm(
+                    {
+                      ...form,
+                      sourceType:
+                        e
+                          .target
+                          .value,
+                    }
+                  )
+                }
+                className="border p-3 rounded"
+              >
+                <option value="link">
+                  External
+                  Link
+                </option>
 
-{
-item.description && (
+                <option value="upload">
+                  Upload
+                  File
+                </option>
+              </select>
 
-<p className="
-text-sm
-text-gray-500
-leading-relaxed
-max-w-3xl
-">
+              {form.sourceType ===
+              "upload" ? (
+                <input
+                  type="file"
+                  onChange={(
+                    e
+                  ) =>
+                    setFile(
+                      e
+                        .target
+                        .files[0]
+                    )
+                  }
+                  className="border p-3 rounded md:col-span-2"
+                />
+              ) : (
+                <input
+                  value={
+                    form.mediaType ===
+                    "audio"
+                      ? form.audioUrl
+                      : form.videoUrl
+                  }
+                  onChange={(
+                    e
+                  ) =>
+                    form.mediaType ===
+                    "audio"
+                      ? setForm(
+                          {
+                            ...form,
+                            audioUrl:
+                              e
+                                .target
+                                .value,
+                          }
+                        )
+                      : setForm(
+                          {
+                            ...form,
+                            videoUrl:
+                              e
+                                .target
+                                .value,
+                          }
+                        )
+                  }
+                  placeholder="Paste URL"
+                  className="border p-3 rounded md:col-span-2"
+                />
+              )}
 
-{
-item.description
-}
+            </div>
 
-</p>
+            <div className="flex justify-end gap-3 mt-6">
 
-)}
+              <button
+                onClick={() =>
+                  setEditItem(
+                    null
+                  )
+                }
+                className="px-4 py-2 border rounded"
+              >
+                Cancel
+              </button>
 
-{/* AUDIO */}
+              <button
+                onClick={
+                  updateItem
+                }
+                className="bg-green-600 text-white px-5 py-2 rounded"
+              >
+                Save
+              </button>
 
-{
-item.audioUrl && (
+            </div>
 
-<audio
-controls
-className="
-w-full
-mt-5
-rounded-xl
-"
->
+          </div>
 
-<source
-src={
-item.audioUrl
-}
-/>
+        </div>
+      )}
 
-</audio>
+      {/* DELETE ONE */}
+      {deleteId && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center">
 
-)}
+          <div className="bg-white p-6 rounded-xl">
 
-{/* VIDEO */}
+            <h2 className="text-xl font-bold mb-3">
+              Warning
+            </h2>
 
-{
-item.videoUrl && (
+            <p className="mb-5">
+              Delete
+              this
+              Tafsiir?
+            </p>
 
-<video
-controls
-className="
-w-full
-max-w-xl
-rounded-2xl
-mt-5
-"
->
+            <div className="flex gap-3 justify-end">
 
-<source
-src={
-item.videoUrl
-}
-/>
+              <button
+                onClick={() =>
+                  setDeleteId(
+                    null
+                  )
+                }
+                className="border px-4 py-2 rounded"
+              >
+                Cancel
+              </button>
 
-</video>
+              <button
+                onClick={() =>
+                  removeItem(
+                    deleteId
+                  )
+                }
+                className="bg-red-600 text-white px-4 py-2 rounded"
+              >
+                Delete
+              </button>
 
-)}
+            </div>
 
-</div>
+          </div>
 
-{/* ACTIONS */}
+        </div>
+      )}
 
-<div className="
-flex
-flex-wrap
-gap-3
-">
+      {/* BULK */}
+      {showBulk && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center">
 
-<button
-onClick={() =>
-toggleItem(
-item._id
-)
-}
-className={`
-px-5
-py-3
-rounded-2xl
-font-medium
-transition
-duration-300
-${
-item.isActive
-? `
-bg-green-500/20
-text-green-400
-hover:bg-green-500/30
-`
-: `
-bg-red-500/20
-text-red-400
-hover:bg-red-500/30
-`
-}
-`}
->
+          <div className="bg-white p-6 rounded-xl">
 
-{
-item.isActive
-? "Active"
-: "Inactive"
-}
+            <h2 className="text-xl font-bold mb-3">
+              Warning
+            </h2>
 
-</button>
+            <p className="mb-5">
+              Delete{" "}
+              {
+                selected.length
+              }{" "}
+              selected?
+            </p>
 
-<button
-className="
-px-5
-py-3
-rounded-2xl
-bg-blue-500/20
-text-blue-400
-hover:bg-blue-500/30
-font-medium
-transition
-duration-300
-"
->
+            <div className="flex gap-3 justify-end">
 
-Edit
+              <button
+                onClick={() =>
+                  setShowBulk(
+                    false
+                  )
+                }
+                className="border px-4 py-2 rounded"
+              >
+                Cancel
+              </button>
 
-</button>
+              <button
+                onClick={
+                  deleteMany
+                }
+                className="bg-red-600 text-white px-4 py-2 rounded"
+              >
+                Delete
+              </button>
 
-<button
-onClick={() =>
-removeItem(
-item._id
-)
-}
-className="
-px-5
-py-3
-rounded-2xl
-bg-red-500/20
-text-red-400
-hover:bg-red-500/30
-font-medium
-transition
-duration-300
-"
->
+            </div>
 
-Delete
+          </div>
 
-</button>
+        </div>
+      )}
 
-</div>
-
-</div>
-
-))
-}
-
-</div>
-
-)}
-
-</div>
-
-);
-})
-}
-
-</div>
-
-</div>
-
-</div>
-);
+    </div>
+  );
 };
 
 export default TafsiirList;
