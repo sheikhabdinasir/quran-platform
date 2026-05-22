@@ -40,10 +40,6 @@ toggleFavorite
 TafsiirPlayerContext
 );
 
-/********************************
- LOAD DATA
-********************************/
-
 useEffect(() => {
 loadData();
 }, []);
@@ -56,7 +52,7 @@ try {
 const { data } =
 await axios.get(API);
 
-const onlyAudio =
+const audioOnly =
 data.grouped.map(
 (surah) => ({
 
@@ -75,22 +71,18 @@ surah.parts.length > 0
 );
 
 setGrouped(
-onlyAudio
+audioOnly
 );
 
-} catch(err) {
+} catch(err){
 
 console.log(err);
 }
 };
 
-/********************************
- FILTER
-********************************/
-
 const filtered =
 grouped.filter(
-(item) =>
+(item)=>
 
 item.surahName
 .toLowerCase()
@@ -99,57 +91,41 @@ search.toLowerCase()
 )
 );
 
-/********************************
- PLAY
-********************************/
-
-const handlePlay =
+const playSurah =
 (item, parts) => {
-
-const tracks =
-parts.filter(
-(track) =>
-track.audioUrl
-);
 
 playTrack(
 item,
-tracks
+parts
 );
 };
 
 return (
 
-<div className="tafsiir-page">
-
-<div className="tafsiir-wrap">
+<div className="premium-page">
 
 {/* HERO */}
 
-<div className="hero">
+<div className="premium-hero">
 
-<div className="hero-content">
-
-<p className="hero-small">
+<p className="hero-bismillah">
 ﷽
 </p>
 
-<h1 className="hero-title">
+<h1 className="premium-title">
 القرآن الكريم
 </h1>
 
-<p className="hero-sub">
+<p className="premium-sub">
 استمع إلى تفسير القرآن الكريم
 بصوت الشيخ عبد الناصر حاجي أحمد
 </p>
 
 </div>
 
-</div>
-
 {/* SEARCH */}
 
-<div className="search-box">
+<div className="premium-search-wrap">
 
 <input
 type="text"
@@ -160,18 +136,20 @@ setSearch(
 e.target.value
 )
 }
-className="search-input"
+className="premium-search"
 />
 
 </div>
 
-{/* SURAHS */}
+{/* LIST */}
+
+<div className="premium-list">
 
 {
 filtered.map(
-(surah) => {
+(surah)=>{
 
-const isOpen =
+const open =
 expanded ===
 surah.surahNumber;
 
@@ -181,61 +159,68 @@ return (
 key={
 surah.surahNumber
 }
-className="surah-card"
+className={`
+premium-card
+${open ? "open" : ""}
+`}
 >
 
-{/* HEADER */}
+{/* TOP */}
 
-<button
-className="surah-header"
-onClick={() =>
+<div
+className="premium-card-top"
+onClick={()=>
 setExpanded(
-isOpen
+open
 ? null
 : surah.surahNumber
 )
 }
 >
 
-<div className="surah-left">
+<div className="premium-left">
 
-<div className="surah-number">
+<div className="premium-number">
+
 {
 surah.surahNumber
 }
+
 </div>
 
-<div className="surah-info">
+<div>
 
-<h2>
+<h2 className="premium-surah">
+
 {
 surah.surahName
 }
+
 </h2>
 
-<div className="surah-meta">
+<p className="premium-meta">
 
-<span>
 {
 surah.parts.length
 }
 {" "}
 دروس
-</span>
+
+</p>
 
 </div>
 
 </div>
 
-</div>
+<div className="premium-actions">
 
 <button
-className="surah-play"
+className="premium-play"
 onClick={(e)=>{
 
 e.stopPropagation();
 
-handlePlay(
+playSurah(
 surah.parts[0],
 surah.parts
 );
@@ -247,18 +232,30 @@ surah.parts
 
 </button>
 
-</button>
+<span className="premium-arrow">
+
+{
+open
+? "⌄"
+: "›"
+}
+
+</span>
+
+</div>
+
+</div>
 
 {/* PARTS */}
 
 {
-isOpen && (
+open && (
 
-<div className="parts-wrap">
+<div className="premium-parts">
 
 {
 surah.parts.map(
-(item) => {
+(item)=>{
 
 const active =
 currentTrack?._id ===
@@ -272,18 +269,21 @@ item._id
 return (
 
 <div
-key={
-item._id
-}
-className="part-item"
+key={item._id}
+className={`
+premium-part
+${active ? "active" : ""}
+`}
 >
 
-<div className="part-left">
+<div className="premium-part-left">
 
 <h3>
+
 {
 item.tafsiirTitle
 }
+
 </h3>
 
 <p>
@@ -301,16 +301,11 @@ item.sheikhName
 
 </div>
 
-<div
-style={{
-display:"flex",
-gap:"12px"
-}}
->
+<div className="premium-part-actions">
 
 <button
-className="part-play"
-onClick={() => {
+className="small-play"
+onClick={()=>{
 
 if(active){
 
@@ -318,7 +313,7 @@ togglePlay();
 
 }else{
 
-handlePlay(
+playSurah(
 item,
 surah.parts
 );
@@ -337,8 +332,8 @@ isPlaying
 </button>
 
 <button
-className="part-play"
-onClick={() =>
+className="small-play"
+onClick={()=>
 toggleFavorite(
 item._id
 )
