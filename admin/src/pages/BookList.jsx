@@ -1,4 +1,3 @@
-
 import {
   useEffect,
   useState,
@@ -42,17 +41,20 @@ const BookList = () => {
     toggleLesson,
   } = useDuruus();
 
-  const [selectedBook,
-  setSelectedBook] =
-  useState(null);
+  const [
+    selectedBook,
+    setSelectedBook
+  ] = useState(null);
 
-  const [editBook,
-  setEditBook] =
-  useState(null);
+  const [
+    editBook,
+    setEditBook
+  ] = useState(null);
 
-  const [editLesson,
-  setEditLesson] =
-  useState(null);
+  const [
+    editLesson,
+    setEditLesson
+  ] = useState(null);
 
   const [
     deleteBookTarget,
@@ -64,9 +66,10 @@ const BookList = () => {
     setDeleteLessonTarget
   ] = useState(null);
 
-  const [search,
-  setSearch] =
-  useState("");
+  const [
+    search,
+    setSearch
+  ] = useState("");
 
   useEffect(() => {
 
@@ -453,9 +456,7 @@ const BookList = () => {
               text-gray-800
             "
             >
-              🎧 Casharrada –
-              {" "}
-              {selectedBook.title}
+              🎧 Casharrada – {selectedBook.title}
             </h3>
 
             <button
@@ -516,6 +517,166 @@ const BookList = () => {
           "
           />
 
+          {/* LESSONS LIST */}
+          {filteredLessons.length === 0 ? (
+
+            <div
+              className="
+              text-center
+              py-10
+              text-gray-500
+            "
+            >
+              Casharro lama helin
+            </div>
+
+          ) : (
+
+            <div
+              className="
+              grid
+              grid-cols-1
+              md:grid-cols-2
+              xl:grid-cols-3
+              gap-4
+            "
+            >
+
+              {filteredLessons.map((lesson) => (
+
+                <div
+                  key={lesson._id}
+
+                  className="
+                  border
+                  border-gray-100
+                  rounded-2xl
+                  p-4
+                  shadow-sm
+                  bg-gray-50
+                "
+                >
+
+                  <div className="mb-3">
+
+                    <p
+                      className="
+                      text-xs
+                      text-gray-500
+                    "
+                    >
+                      Casharka #{lesson.order}
+                    </p>
+
+                    <h4
+                      className="
+                      text-lg
+                      font-semibold
+                      text-gray-800
+                    "
+                    >
+                      {lesson.title}
+                    </h4>
+
+                  </div>
+
+                  {/* AUDIO */}
+                  <audio
+                    controls
+                    src={lesson.audioUrl}
+                    className="w-full"
+                  />
+
+                  {/* ACTIONS */}
+                  <div
+                    className="
+                    flex
+                    flex-wrap
+                    gap-2
+                    mt-4
+                  "
+                  >
+
+                    <button
+                      onClick={() =>
+                        setEditLesson(lesson)
+                      }
+
+                      className="
+                      px-3
+                      py-1
+                      rounded-lg
+                      bg-blue-600
+                      hover:bg-blue-700
+                      text-white
+                      text-sm
+                    "
+                    >
+                      Edit
+                    </button>
+
+                    <button
+                      onClick={() =>
+                        toggleLesson(
+                          lesson._id
+                        )
+                      }
+
+                      className={`
+                      px-3
+                      py-1
+                      rounded-lg
+                      text-white
+                      text-sm
+
+                      ${
+                        lesson.isActive
+
+                        ? "bg-emerald-600"
+
+                        : "bg-gray-400"
+                      }
+                    `}
+                    >
+
+                      {
+                        lesson.isActive
+                        ? "Active"
+                        : "Inactive"
+                      }
+
+                    </button>
+
+                    <button
+                      onClick={() =>
+                        setDeleteLessonTarget(
+                          lesson
+                        )
+                      }
+
+                      className="
+                      px-3
+                      py-1
+                      rounded-lg
+                      bg-red-600
+                      hover:bg-red-700
+                      text-white
+                      text-sm
+                    "
+                    >
+                      Delete
+                    </button>
+
+                  </div>
+
+                </div>
+
+              ))}
+
+            </div>
+
+          )}
+
         </div>
 
       )}
@@ -524,6 +685,4 @@ const BookList = () => {
   );
 };
 
-export default
-BookList;
-
+export default BookList;
