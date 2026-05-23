@@ -5,8 +5,6 @@ import { FiSearch } from "react-icons/fi";
 import { HiOutlineMoon } from "react-icons/hi";
 import { FaBookOpen } from "react-icons/fa";
 
-import { motion } from "framer-motion";
-
 const API =
 `${import.meta.env.VITE_API_URL}/api/duruus/books`;
 
@@ -68,57 +66,35 @@ const Kutub = () => {
 
     <div className="kutub-page">
 
-      {/* BACKGROUND GLOW */}
-      <div className="bg-glow glow-1"></div>
-      <div className="bg-glow glow-2"></div>
-
       {/* LANTERNS */}
-      <img
-        src="https://cdn-icons-png.flaticon.com/512/3659/3659899.png"
-        alt=""
-        className="lantern lantern-left"
-      />
+      <div className="lantern lantern-left">
+        🏮
+      </div>
 
-      <img
-        src="https://cdn-icons-png.flaticon.com/512/3659/3659899.png"
-        alt=""
-        className="lantern lantern-right"
-      />
+      <div className="lantern lantern-right">
+        🏮
+      </div>
 
       {/* HERO */}
-      <section className="hero">
+      <div className="hero">
 
-        <motion.div
-          initial={{ opacity:0, y:-20 }}
-          animate={{ opacity:1, y:0 }}
-          transition={{ duration:0.7 }}
-          className="moon-icon"
-        >
+        <div className="moon-icon">
           <HiOutlineMoon />
-        </motion.div>
+        </div>
 
-        <motion.h1
-          initial={{ opacity:0, y:20 }}
-          animate={{ opacity:1, y:0 }}
-          transition={{ duration:0.7 }}
-          className="kutub-title"
-        >
+        <h1 className="kutub-title">
           Kutubta uu akhriyey
-
           <span>
             Shiikh Cabdinaasir Xaaji Axmed
           </span>
-
-        </motion.h1>
+        </h1>
 
         <div className="divider"></div>
 
         <p className="kutub-sub">
-
           Waxaa kuugu diyaar ah dhammaan
           kutubtii uu akhriyey
-          Shiikh Cabdinaasir Xaaji Axmed.
-
+          shiikh cabdinaasir xaaji axmed.
         </p>
 
         {/* SEARCH */}
@@ -142,7 +118,7 @@ const Kutub = () => {
 
         </div>
 
-      </section>
+      </div>
 
       {/* BOOKS */}
       {
@@ -160,29 +136,14 @@ const Kutub = () => {
 
         ) : (
 
-          <section className="kutub-grid">
+          <div className="kutub-grid">
 
             {
-              filteredBooks.map((book, i) => (
+              filteredBooks.map((book) => (
 
-                <motion.div
-                  initial={{
-                    opacity:0,
-                    y:40
-                  }}
-
-                  animate={{
-                    opacity:1,
-                    y:0
-                  }}
-
-                  transition={{
-                    delay:i * 0.08
-                  }}
-
+                <div
                   key={book._id}
                   className="kutub-card"
-
                   onClick={() =>
                     navigate(`/kutub/${book._id}`)
                   }
@@ -198,8 +159,6 @@ const Kutub = () => {
                       }
                       alt={book.title}
                     />
-
-                    <div className="image-overlay"></div>
 
                     <div className="book-icon">
                       <FaBookOpen />
@@ -221,33 +180,24 @@ const Kutub = () => {
                     <div className="mini-divider"></div>
 
                     <p className="kutub-description">
-
                       {
-                        book.description
-                        ?.slice(0, 90)
-                      || "Sharaxaad lama gelin"
+                        book.description ||
+                        "Sharaxaad lama gelin"
                       }
-
                     </p>
 
                     <button className="details-btn">
-
-                      <FaBookOpen />
-
-                      <span>
-                        عرض التفاصيل
-                      </span>
-
+                      عرض التفاصيل
                     </button>
 
                   </div>
 
-                </motion.div>
+                </div>
 
               ))
             }
 
-          </section>
+          </div>
 
         )
       }
@@ -267,68 +217,32 @@ const Kutub = () => {
       }
 
       body{
-        background:#090201;
+        background:#140402;
       }
 
       .kutub-page{
         position:relative;
         min-height:100vh;
+        padding:4rem 1.2rem 6rem;
         overflow:hidden;
 
-        padding:
-        5rem
-        1rem
-        6rem;
-
         background:
-        radial-gradient(
-        circle at top,
-        rgba(255,180,0,0.12),
-        transparent 25%),
+        radial-gradient(circle at top,
+        rgba(255,170,0,0.08),
+        transparent 35%),
 
         linear-gradient(
         to bottom,
-        #140402,
-        #0d0201,
-        #050101);
+        #1b0703,
+        #120301,
+        #080101);
 
         color:white;
-      }
-
-      /* BG GLOW */
-      .bg-glow{
-        position:absolute;
-        border-radius:50%;
-        filter:blur(120px);
-        z-index:0;
-      }
-
-      .glow-1{
-        width:300px;
-        height:300px;
-
-        background:
-        rgba(212,175,55,0.10);
-
-        top:-50px;
-        left:-100px;
-      }
-
-      .glow-2{
-        width:280px;
-        height:280px;
-
-        background:
-        rgba(255,140,0,0.08);
-
-        bottom:0;
-        right:-80px;
       }
 
       /* PATTERN */
       .kutub-page::before{
         content:"";
-
         position:absolute;
         inset:0;
 
@@ -337,60 +251,40 @@ const Kutub = () => {
         rgba(212,175,55,0.05) 1px,
         transparent 1px);
 
-        background-size:35px 35px;
+        background-size:38px 38px;
 
-        opacity:0.18;
-
+        opacity:0.25;
         pointer-events:none;
-      }
-
-      /* HERO */
-      .hero{
-        max-width:1100px;
-        margin:auto;
-
-        text-align:center;
-
-        position:relative;
-        z-index:2;
       }
 
       /* LANTERNS */
       .lantern{
         position:absolute;
         top:0;
+        font-size:5.8rem;
+        z-index:10;
 
-        width:110px;
-
-        z-index:5;
-
-        opacity:0.95;
-
-        animation:
-        float 4s ease-in-out infinite;
+        animation:float 3s ease-in-out infinite;
 
         filter:
-        drop-shadow(
-        0 0 25px
-        rgba(255,180,60,0.6));
+        drop-shadow(0 0 25px rgba(255,180,60,0.7));
       }
 
       .lantern-left{
-        left:20px;
+        left:28px;
       }
 
       .lantern-right{
-        right:20px;
+        right:28px;
       }
 
       @keyframes float{
-
         0%{
           transform:translateY(0px);
         }
 
         50%{
-          transform:translateY(15px);
+          transform:translateY(12px);
         }
 
         100%{
@@ -398,13 +292,21 @@ const Kutub = () => {
         }
       }
 
-      /* MOON */
+      /* HERO */
+      .hero{
+        max-width:1100px;
+        margin:auto;
+        text-align:center;
+        position:relative;
+        z-index:2;
+      }
+
       .moon-icon{
-        width:85px;
-        height:85px;
+        width:90px;
+        height:90px;
 
         margin:auto;
-        margin-bottom:1.5rem;
+        margin-bottom:1.8rem;
 
         border-radius:24px;
 
@@ -415,18 +317,15 @@ const Kutub = () => {
         background:
         linear-gradient(
         145deg,
-        rgba(212,175,55,0.18),
-        rgba(212,175,55,0.05));
+        rgba(212,175,55,0.15),
+        rgba(212,175,55,0.04));
 
-        border:
-        1px solid
-        rgba(212,175,55,0.4);
+        border:1px solid rgba(212,175,55,0.4);
 
         color:#d4af37;
 
         box-shadow:
-        0 0 30px
-        rgba(212,175,55,0.2);
+        0 0 35px rgba(212,175,55,0.2);
       }
 
       .moon-icon svg{
@@ -436,34 +335,33 @@ const Kutub = () => {
 
       /* TITLE */
       .kutub-title{
-        font-size:4rem;
+        font-size:4.3rem;
+        line-height:1.1;
         font-weight:900;
 
-        line-height:1.1;
-
-        margin-bottom:0.8rem;
+        margin-bottom:0.4rem;
 
         color:white;
 
         text-shadow:
-        0 0 20px
-        rgba(255,255,255,0.05);
+        0 0 25px rgba(255,255,255,0.08);
       }
 
       .kutub-title span{
         display:block;
-
-        margin-top:0.4rem;
-
         color:#d4af37;
+
+        margin-top:0.3rem;
       }
 
-      /* DIVIDER */
+      /* GOLD DIVIDER */
       .divider{
-        width:280px;
+        width:300px;
         height:2px;
 
-        margin:1.5rem auto;
+        margin:1.8rem auto;
+
+        position:relative;
 
         background:
         linear-gradient(
@@ -471,44 +369,33 @@ const Kutub = () => {
         transparent,
         #d4af37,
         transparent);
-
-        position:relative;
       }
 
       .divider::after{
-        content:"✦";
+        content:"✿";
 
         position:absolute;
-
         left:50%;
         top:50%;
 
         transform:
         translate(-50%,-50%);
 
-        background:#0b0201;
+        background:#140402;
 
         padding:0 14px;
 
         color:#d4af37;
-
-        font-size:1.1rem;
+        font-size:1.4rem;
       }
 
       /* SUBTITLE */
       .kutub-sub{
-        color:#dddddd;
+        color:#d5d5d5;
+        font-size:1.1rem;
+        line-height:1.7;
 
-        font-size:1.05rem;
-
-        line-height:1.8;
-
-        max-width:700px;
-
-        margin:
-        auto
-        auto
-        2.5rem;
+        margin-bottom:2.5rem;
       }
 
       /* SEARCH */
@@ -518,20 +405,17 @@ const Kutub = () => {
       }
 
       .search-box{
-        width:100%;
-        max-width:720px;
-
         position:relative;
+        width:100%;
+        max-width:760px;
       }
 
       .search-icon{
         position:absolute;
-
         left:22px;
         top:50%;
 
-        transform:
-        translateY(-50%);
+        transform:translateY(-50%);
 
         color:#d4af37;
 
@@ -544,44 +428,39 @@ const Kutub = () => {
         width:100%;
 
         padding:
-        1.1rem
-        1.4rem
-        1.1rem
-        58px;
+        1.2rem
+        1.6rem
+        1.2rem
+        60px;
 
         border-radius:999px;
 
-        border:
-        1px solid
-        rgba(212,175,55,0.4);
+        border:1.5px solid rgba(212,175,55,0.45);
 
         background:
-        rgba(20,5,2,0.88);
-
-        color:white;
-
-        font-size:1rem;
+        rgba(25,7,3,0.9);
 
         outline:none;
 
-        transition:0.3s;
-
-        backdrop-filter:blur(10px);
+        color:white;
+        font-size:1rem;
 
         box-shadow:
-        inset 0 0 20px rgba(255,180,0,0.03),
-        0 0 20px rgba(0,0,0,0.3);
+        inset 0 0 20px rgba(212,175,55,0.04),
+        0 0 25px rgba(0,0,0,0.35);
+
+        transition:0.3s;
       }
 
       .kutub-search::placeholder{
-        color:#b8b8b8;
+        color:#bdbdbd;
       }
 
       .kutub-search:focus{
         border-color:#d4af37;
 
         box-shadow:
-        0 0 20px rgba(212,175,55,0.2);
+        0 0 25px rgba(212,175,55,0.2);
       }
 
       /* GRID */
@@ -591,13 +470,9 @@ const Kutub = () => {
         display:grid;
 
         grid-template-columns:
-        repeat(auto-fit,minmax(260px,1fr));
+        repeat(auto-fit,minmax(320px,1fr));
 
-        gap:1.4rem;
-
-        max-width:1250px;
-
-        margin-inline:auto;
+        gap:2rem;
 
         position:relative;
         z-index:2;
@@ -605,62 +480,57 @@ const Kutub = () => {
 
       /* CARD */
       .kutub-card{
-        position:relative;
+        background:
+        linear-gradient(
+        to bottom,
+        rgba(25,7,3,0.96),
+        rgba(10,2,1,0.98));
 
-        border-radius:28px;
+        border-radius:30px;
 
         overflow:hidden;
+
+        border:1.5px solid rgba(212,175,55,0.45);
 
         cursor:pointer;
 
         transition:0.4s ease;
 
-        background:
-        linear-gradient(
-        to bottom,
-        rgba(25,7,3,0.98),
-        rgba(10,2,1,0.99));
-
-        border:
-        1px solid
-        rgba(212,175,55,0.35);
-
         box-shadow:
-        0 10px 35px rgba(0,0,0,0.4);
+        0 10px 35px rgba(0,0,0,0.45);
+
+        position:relative;
       }
 
       .kutub-card:hover{
-        transform:
-        translateY(-10px);
-
-        border-color:#d4af37;
+        transform:translateY(-10px);
 
         box-shadow:
-        0 20px 40px rgba(0,0,0,0.55),
-        0 0 20px rgba(212,175,55,0.12);
+        0 20px 45px rgba(0,0,0,0.6),
+        0 0 25px rgba(212,175,55,0.15);
       }
 
       /* IMAGE */
       .kutub-image{
         position:relative;
-        height:200px;
+        height:250px;
         overflow:hidden;
       }
 
       .kutub-image img{
         width:100%;
         height:100%;
-
         object-fit:cover;
 
-        transition:0.5s;
+        transition:0.6s;
       }
 
       .kutub-card:hover img{
         transform:scale(1.08);
       }
 
-      .image-overlay{
+      .kutub-image::after{
+        content:"";
         position:absolute;
         inset:0;
 
@@ -668,20 +538,19 @@ const Kutub = () => {
         linear-gradient(
         to bottom,
         rgba(0,0,0,0),
-        rgba(0,0,0,0.55));
+        rgba(0,0,0,0.45));
       }
 
       /* BOOK ICON */
       .book-icon{
         position:absolute;
+        top:15px;
+        left:15px;
 
-        top:14px;
-        left:14px;
+        width:58px;
+        height:58px;
 
-        width:50px;
-        height:50px;
-
-        border-radius:16px;
+        border-radius:18px;
 
         display:flex;
         align-items:center;
@@ -690,54 +559,48 @@ const Kutub = () => {
         background:
         rgba(20,5,2,0.9);
 
-        border:
-        1px solid
-        rgba(212,175,55,0.5);
+        border:1px solid rgba(212,175,55,0.5);
 
         color:#d4af37;
 
-        z-index:3;
+        z-index:5;
 
         box-shadow:
-        0 0 15px rgba(212,175,55,0.15);
+        0 0 20px rgba(212,175,55,0.2);
       }
 
       .book-icon svg{
-        width:22px;
-        height:22px;
+        width:28px;
+        height:28px;
       }
 
       /* CONTENT */
       .kutub-content{
-        padding:1.3rem;
+        padding:1.7rem;
         text-align:center;
       }
 
       .kutub-book{
-        font-size:1.45rem;
+        font-size:2rem;
         font-weight:800;
-
         color:white;
-
-        margin-bottom:0.6rem;
-      }
-
-      .kutub-sheikh{
-        color:#d4af37;
-
-        font-size:0.95rem;
-        font-weight:600;
 
         margin-bottom:0.8rem;
       }
 
+      .kutub-sheikh{
+        color:#d4af37;
+        font-weight:600;
+
+        margin-bottom:1rem;
+      }
+
       /* MINI DIVIDER */
       .mini-divider{
-        width:100px;
+        width:120px;
         height:2px;
 
-        margin:
-        1rem auto;
+        margin:1rem auto 1.2rem;
 
         position:relative;
 
@@ -750,81 +613,64 @@ const Kutub = () => {
       }
 
       .mini-divider::after{
-        content:"✦";
+        content:"✿";
 
         position:absolute;
-
         left:50%;
         top:50%;
 
         transform:
         translate(-50%,-50%);
 
-        background:#100301;
+        background:#140402;
 
-        padding:0 8px;
+        padding:0 10px;
 
         color:#d4af37;
-
-        font-size:0.9rem;
+        font-size:1rem;
       }
 
-      /* DESCRIPTION */
       .kutub-description{
         color:#dddddd;
+        line-height:1.8;
+        font-size:0.98rem;
 
-        line-height:1.7;
-
-        font-size:0.92rem;
-
-        margin-bottom:1.4rem;
-
-        min-height:70px;
+        margin-bottom:1.8rem;
       }
 
       /* BUTTON */
       .details-btn{
-        width:100%;
+        background:transparent;
 
-        border:none;
+        border:1px solid rgba(212,175,55,0.5);
 
-        padding:0.95rem 1rem;
+        color:#d4af37;
+
+        padding:0.95rem 1.7rem;
 
         border-radius:999px;
 
-        background:
-        linear-gradient(
-        to right,
-        #d4af37,
-        #f4cf65);
-
-        color:#140402;
-
-        font-weight:800;
-
-        font-size:0.95rem;
+        font-size:1rem;
+        font-weight:700;
 
         cursor:pointer;
-
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        gap:0.6rem;
 
         transition:0.3s;
       }
 
       .details-btn:hover{
-        transform:scale(1.03);
+        background:#d4af37;
+        color:#140402;
       }
 
-      /* BOTTOM */
+      /* BOTTOM DIVIDER */
       .bottom-divider{
-        width:320px;
+        width:350px;
         height:2px;
 
-        margin:
-        4rem auto 0;
+        margin:4rem auto 0;
+
+        position:relative;
 
         background:
         linear-gradient(
@@ -832,118 +678,97 @@ const Kutub = () => {
         transparent,
         #d4af37,
         transparent);
-
-        position:relative;
       }
 
       .bottom-divider::after{
-        content:"✦";
+        content:"✿";
 
         position:absolute;
-
         left:50%;
         top:50%;
 
         transform:
         translate(-50%,-50%);
 
-        background:#090201;
+        background:#140402;
 
-        padding:0 12px;
+        padding:0 14px;
 
         color:#d4af37;
+        font-size:1.5rem;
       }
 
-      /* EMPTY */
+      /* LOADING */
       .kutub-loading,
       .kutub-empty{
         text-align:center;
-
         margin-top:4rem;
 
         color:#eee;
-
         font-size:1.1rem;
-      }
-
-      /* TABLET */
-      @media(max-width:992px){
-
-        .kutub-title{
-          font-size:3rem;
-        }
-
-        .lantern{
-          width:85px;
-        }
       }
 
       /* MOBILE */
       @media(max-width:768px){
 
+        .kutub-title{
+          font-size:2.7rem;
+        }
+
+        .lantern{
+          font-size:4rem;
+        }
+
+        .lantern-left{
+          left:10px;
+        }
+
+        .lantern-right{
+          right:10px;
+        }
+
+        .kutub-grid{
+          grid-template-columns:1fr;
+        }
+
+        .kutub-image{
+          height:220px;
+        }
+      }
+
+      @media(max-width:480px){
+
         .kutub-page{
-          padding-top:6rem;
+          padding-top:5rem;
         }
 
         .kutub-title{
-          font-size:2.2rem;
+          font-size:2rem;
         }
 
         .kutub-sub{
           font-size:0.95rem;
         }
 
-        .kutub-grid{
-          grid-template-columns:
-          repeat(auto-fit,minmax(220px,1fr));
+        .kutub-search{
+          padding:
+          1rem
+          1rem
+          1rem
+          55px;
+        }
 
-          gap:1rem;
+        .kutub-book{
+          font-size:1.5rem;
         }
 
         .kutub-image{
-          height:180px;
-        }
-
-        .lantern{
-          width:65px;
-        }
-
-        .lantern-left{
-          left:8px;
-        }
-
-        .lantern-right{
-          right:8px;
+          height:200px;
         }
 
         .divider,
         .bottom-divider{
           width:220px;
-        }
-      }
-
-      /* SMALL MOBILE */
-      @media(max-width:480px){
-
-        .kutub-title{
-          font-size:1.8rem;
-        }
-
-        .kutub-search{
-          font-size:0.92rem;
-        }
-
-        .kutub-book{
-          font-size:1.2rem;
-        }
-
-        .kutub-image{
-          height:170px;
-        }
-
-        .moon-icon{
-          width:75px;
-          height:75px;
         }
       }
 
