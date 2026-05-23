@@ -73,15 +73,11 @@ const LectureListUser = () => {
       <div className="hero">
 
         <h1 className="page-title">
-          Muxaadarooyinka
-          Islaamka
+          Muxaadarooyin
+          
         </h1>
 
-        <p className="hero-subtitle">
-          Dhageyso muxaadarooyin
-          qalbiga nuurinaya
-          oo nafta iftiiminaya
-        </p>
+        
 
       </div>
 
@@ -92,7 +88,7 @@ const LectureListUser = () => {
           className="search-input"
 
           placeholder="
-          🔍 Raadi muxaadaro ama shiikh...
+          🔍 Raadi magaca muxaadarada ama magaca shiikh...
         "
 
           value={search}
