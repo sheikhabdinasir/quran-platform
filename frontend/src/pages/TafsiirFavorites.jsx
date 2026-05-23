@@ -70,7 +70,7 @@ const API =
       <div className="tafsiir-page-wrap">
 
         <h1 className="tafsiir-title">
-          ❤️ Favorites
+          ❤️ xul 
         </h1>
 
         <div className="tafsiir-list">
@@ -83,7 +83,8 @@ const API =
             textAlign:"center"
           }}
           >
-لا توجد مفضلات           </p>
+maad samaysan tafsiir xul ah
+     </p>
           }
 
           {items.map(item => {
