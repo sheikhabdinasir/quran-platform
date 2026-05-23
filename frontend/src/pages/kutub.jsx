@@ -44,7 +44,7 @@ const Kutub = () => {
     <div className="kutub-page">
       {/* PAGE TITLE */}
       <h1 className="kutub-title">
-        📚 halkan ka xulo dhammaan Kutubta
+          halkan ka xulo dhammaan Kutubta
       </h1>
 
       <p className="kutub-sub">
