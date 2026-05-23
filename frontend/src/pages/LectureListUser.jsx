@@ -72,10 +72,6 @@ const LectureListUser = () => {
       {/* HERO */}
       <div className="hero">
 
-        <div className="hero-icon">
-          ☪️
-        </div>
-
         <h1 className="page-title">
           Muxaadarooyinka
           Islaamka
@@ -227,12 +223,18 @@ const LectureListUser = () => {
           min-height:100vh;
 
           background:
+          radial-gradient(
+            circle at top,
+            rgba(18,80,55,.35),
+            transparent 30%
+          ),
+
           linear-gradient(
             180deg,
-            #1A0505 0%,
-            #2A0808 30%,
-            #120404 70%,
-            #050505 100%
+            #03110D 0%,
+            #071B15 30%,
+            #04100D 70%,
+            #020806 100%
           );
 
           padding:
@@ -241,6 +243,27 @@ const LectureListUser = () => {
           position:relative;
 
           overflow:hidden;
+        }
+
+        .lecture-page::before{
+
+          content:"";
+
+          position:absolute;
+
+          inset:0;
+
+          background-image:
+          radial-gradient(
+            rgba(212,175,55,.04) 1px,
+            transparent 1px
+          );
+
+          background-size:40px 40px;
+
+          opacity:.25;
+
+          pointer-events:none;
         }
 
         /* GLOW */
@@ -274,7 +297,7 @@ const LectureListUser = () => {
           width:260px;
           height:260px;
 
-          background:#7A1D1D;
+          background:#14543A;
 
           bottom:-100px;
           left:-100px;
@@ -325,36 +348,8 @@ const LectureListUser = () => {
           max-width:760px;
 
           margin:auto auto 40px;
-        }
 
-        .hero-icon{
-
-          width:100px;
-          height:100px;
-
-          margin:auto;
-
-          border-radius:30px;
-
-          background:
-          linear-gradient(
-            135deg,
-            #D4AF37,
-            #FFD95A
-          );
-
-          display:flex;
-
-          align-items:center;
-
-          justify-content:center;
-
-          font-size:42px;
-
-          box-shadow:
-          0 20px 60px rgba(212,175,55,.35);
-
-          margin-bottom:24px;
+          padding:20px 10px;
         }
 
         .page-title{
@@ -362,7 +357,7 @@ const LectureListUser = () => {
           font-size:clamp(
             2.5rem,
             6vw,
-            4.4rem
+            4.8rem
           );
 
           font-weight:900;
@@ -371,17 +366,10 @@ const LectureListUser = () => {
 
           margin-bottom:16px;
 
-          background:
-          linear-gradient(
-            180deg,
-            #FFE082,
-            #D4AF37
-          );
+          color:#fff;
 
-          -webkit-background-clip:text;
-
-          -webkit-text-fill-color:
-          transparent;
+          text-shadow:
+          0 10px 40px rgba(255,215,90,.25);
         }
 
         .hero-subtitle{
@@ -415,36 +403,28 @@ const LectureListUser = () => {
 
           outline:none;
 
-          padding:18px 24px;
+          padding:22px 26px;
 
           border-radius:999px;
 
           background:
-          rgba(255,215,90,.06);
+          rgba(18,45,35,.72);
 
           color:#fff;
 
           font-size:1rem;
 
-          backdrop-filter:blur(16px);
+          backdrop-filter:blur(18px);
 
           border:
-          1px solid rgba(255,215,90,.12);
+          1px solid rgba(255,215,90,.08);
 
-          transition:.25s;
+          box-shadow:
+          0 10px 30px rgba(0,0,0,.25);
         }
 
         .search-input::placeholder{
           color:rgba(255,255,255,.45);
-        }
-
-        .search-input:focus{
-
-          border:
-          1px solid rgba(212,175,55,.45);
-
-          box-shadow:
-          0 0 0 4px rgba(212,175,55,.15);
         }
 
         /* STATS */
@@ -513,77 +493,56 @@ const LectureListUser = () => {
           gap:18px;
 
           background:
-          rgba(255,215,90,.05);
+          linear-gradient(
+            90deg,
+            rgba(18,45,35,.88),
+            rgba(20,50,38,.78)
+          );
 
           border:
           1px solid rgba(255,215,90,.08);
 
-          backdrop-filter:blur(18px);
+          backdrop-filter:blur(20px);
 
-          padding:20px;
+          padding:24px;
 
-          border-radius:28px;
+          border-radius:30px;
 
           cursor:pointer;
 
-          transition:.3s;
+          transition:.35s;
 
           position:relative;
 
           overflow:hidden;
-        }
 
-        .lecture-card::before{
-
-          content:"";
-
-          position:absolute;
-
-          inset:0;
-
-          background:
-          linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,255,255,.04),
-            transparent
-          );
-
-          transform:
-          translateX(-100%);
-
-          transition:.6s;
-        }
-
-        .lecture-card:hover::before{
-
-          transform:
-          translateX(100%);
+          box-shadow:
+          0 15px 40px rgba(0,0,0,.28);
         }
 
         .lecture-card:hover{
 
           transform:
-          translateY(-5px);
+          translateY(-6px);
 
           border:
-          1px solid rgba(212,175,55,.3);
+          1px solid rgba(255,215,90,.28);
 
           box-shadow:
-          0 20px 40px rgba(0,0,0,.35);
+          0 25px 60px rgba(0,0,0,.45);
         }
 
         /* NUMBER */
 
         .lecture-number{
 
-          min-width:56px;
-          height:56px;
+          min-width:58px;
+          height:58px;
 
-          border-radius:20px;
+          border-radius:18px;
 
           background:
-          rgba(212,175,55,.12);
+          rgba(255,215,90,.12);
 
           color:#FFD54A;
 
@@ -593,23 +552,23 @@ const LectureListUser = () => {
 
           justify-content:center;
 
-          font-weight:800;
+          font-weight:900;
         }
 
         /* ICON */
 
         .lecture-icon{
 
-          width:64px;
-          height:64px;
+          width:68px;
+          height:68px;
 
           border-radius:22px;
 
           background:
           linear-gradient(
             135deg,
-            #D4AF37,
-            #FFD95A
+            #19C15F,
+            #1EEA72
           );
 
           display:flex;
@@ -620,10 +579,10 @@ const LectureListUser = () => {
 
           font-size:1.5rem;
 
-          color:#2C1810;
+          color:#fff;
 
           box-shadow:
-          0 12px 30px rgba(212,175,55,.3);
+          0 15px 35px rgba(30,234,114,.25);
         }
 
         /* INFO */
@@ -664,8 +623,8 @@ const LectureListUser = () => {
 
         .lecture-play{
 
-          min-width:58px;
-          height:58px;
+          min-width:64px;
+          height:64px;
 
           border-radius:50%;
 
@@ -682,14 +641,14 @@ const LectureListUser = () => {
 
           justify-content:center;
 
-          color:#2C1810;
+          color:#1A1208;
 
           font-weight:900;
 
-          font-size:1.15rem;
+          font-size:1.2rem;
 
           box-shadow:
-          0 10px 25px rgba(212,175,55,.35);
+          0 15px 35px rgba(212,175,55,.35);
         }
 
         /* EMPTY */
@@ -715,29 +674,24 @@ const LectureListUser = () => {
         @media(max-width:768px){
 
           .page-title{
-
             font-size:3rem;
           }
 
           .lecture-card{
-
             padding:16px;
           }
 
           .lecture-number{
-
             min-width:46px;
             height:46px;
           }
 
           .lecture-icon{
-
             width:54px;
             height:54px;
           }
 
           .lecture-play{
-
             min-width:48px;
             height:48px;
           }
