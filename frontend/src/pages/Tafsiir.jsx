@@ -119,7 +119,7 @@ const Tafsiir = () => {
         >
 
           <div className="card-icon">
-            ❤️
+            
           </div>
 
           <div className="card-body">

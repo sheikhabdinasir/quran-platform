@@ -70,7 +70,7 @@ const API =
       <div className="tafsiir-page-wrap">
 
         <h1 className="tafsiir-title">
-          ❤️ xul 
+          xul 
         </h1>
 
         <div className="tafsiir-list">
