@@ -112,7 +112,10 @@ const Kutub = () => {
 
 body{
   overflow-x:hidden;
+  background:#02110D;
 }
+
+/* ================= PAGE ================= */
 
 .kutub-page{
 
@@ -121,16 +124,15 @@ body{
   background:
   radial-gradient(
     circle at top,
-    rgba(18,80,55,.35),
-    transparent 30%
+    rgba(0,90,60,.25),
+    transparent 35%
   ),
 
   linear-gradient(
     180deg,
-    #03110D 0%,
-    #071B15 30%,
-    #04100D 70%,
-    #020806 100%
+    #02110D 0%,
+    #032019 45%,
+    #02110D 100%
   );
 
   padding:2rem 1rem 5rem;
@@ -139,6 +141,8 @@ body{
 
   overflow:hidden;
 }
+
+/* ISLAMIC PATTERN */
 
 .kutub-page::before{
 
@@ -150,34 +154,67 @@ body{
 
   background-image:
   radial-gradient(
-    rgba(212,175,55,.04) 1px,
+    rgba(212,175,55,.05) 1px,
     transparent 1px
   );
 
-  background-size:40px 40px;
+  background-size:38px 38px;
 
   opacity:.25;
 
   pointer-events:none;
 }
 
-/* TITLE */
+/* SIDE GLOW */
+
+.kutub-page::after{
+
+  content:"";
+
+  position:absolute;
+
+  width:900px;
+  height:900px;
+
+  border-radius:50%;
+
+  background:
+  radial-gradient(
+    rgba(255,215,90,.08),
+    transparent 70%
+  );
+
+  top:-300px;
+  left:50%;
+
+  transform:translateX(-50%);
+
+  pointer-events:none;
+}
+
+/* ================= TITLE ================= */
 
 .kutub-title{
 
   text-align:center;
 
-  font-size:2.4rem;
+  font-size:clamp(
+    2rem,
+    5vw,
+    4rem
+  );
 
   font-weight:900;
 
-  margin-bottom:.7rem;
+  line-height:1.15;
+
+  margin-bottom:.8rem;
 
   background:
   linear-gradient(
-    135deg,
-    #FFF6D6 0%,
-    #FFD95A 45%,
+    180deg,
+    #FFFFFF 0%,
+    #FFE082 55%,
     #D4AF37 100%
   );
 
@@ -187,68 +224,72 @@ body{
   letter-spacing:-1px;
 
   text-shadow:
-  0 10px 35px rgba(255,215,90,.12);
+  0 8px 35px rgba(255,215,90,.16);
 }
+
+/* SUBTEXT */
 
 .kutub-sub{
 
   text-align:center;
 
   color:
-  rgba(255,245,220,.72);
+  rgba(255,255,255,.75);
 
-  margin-bottom:2.2rem;
+  margin-bottom:2.5rem;
 
   font-size:1rem;
 
-  line-height:1.7;
+  line-height:1.9;
 
-  max-width:700px;
+  max-width:760px;
 
   margin-inline:auto;
 }
 
-/* SEARCH */
+/* ================= SEARCH ================= */
 
 .kutub-search{
 
   width:100%;
 
-  max-width:520px;
+  max-width:720px;
 
   display:block;
 
-  margin:0 auto 2.8rem;
+  margin:0 auto 3rem;
 
-  padding:.95rem 1.2rem;
+  padding:1.1rem 1.4rem;
 
-  border-radius:18px;
+  border-radius:999px;
 
   border:
-  1px solid rgba(255,215,90,.10);
+  1px solid rgba(212,175,55,.35);
 
   outline:none;
 
   font-size:1rem;
 
   background:
-  rgba(18,45,35,.72);
+  rgba(4,40,28,.82);
 
   color:#fff;
 
   backdrop-filter:blur(18px);
 
   box-shadow:
-  0 10px 25px rgba(0,0,0,.22);
+  0 0 0 1px rgba(255,215,90,.08),
+  0 12px 35px rgba(0,0,0,.35),
+  0 0 25px rgba(255,215,90,.08);
 }
 
 .kutub-search::placeholder{
 
   color:
-  rgba(255,255,255,.42);
+  rgba(255,255,255,.48);
 }
 
-/* GRID */
+/* ================= GRID ================= */
 
 .kutub-grid{
 
@@ -263,41 +304,37 @@ body{
   gap:2rem;
 }
 
-/* CARD */
+/* ================= CARD ================= */
 
 .kutub-card{
 
   background:
   linear-gradient(
     180deg,
-    rgba(18,45,35,.95),
-    rgba(10,25,20,.95)
+    rgba(0,42,28,.96),
+    rgba(1,22,15,.98)
   );
 
-  border-radius:24px;
+  border-radius:28px;
 
   overflow:hidden;
-
-  border:
-  1px solid transparent;
-
-  background-clip:padding-box;
-
-  box-shadow:
-  0 12px 35px rgba(0,0,0,.22);
 
   cursor:pointer;
 
   transition:.35s ease;
 
-  animation:fadeUp .5s ease;
-
   position:relative;
+
+  box-shadow:
+  0 14px 40px rgba(0,0,0,.28);
+
+  border:
+  1px solid rgba(212,175,55,.45);
 }
 
-/* PREMIUM BORDER */
+/* OUTER GOLD GLOW */
 
-.kutub-card::after{
+.kutub-card::before{
 
   content:"";
 
@@ -305,17 +342,16 @@ body{
 
   inset:0;
 
-  border-radius:24px;
+  border-radius:28px;
 
-  padding:1.4px;
+  padding:1.5px;
 
   background:
   linear-gradient(
     135deg,
     #FFD95A,
-    #1EEA72,
-    #FFD95A,
-    #14543A
+    rgba(255,217,90,.2),
+    #FFD95A
   );
 
   -webkit-mask:
@@ -327,8 +363,6 @@ body{
   mask-composite:exclude;
 
   pointer-events:none;
-
-  opacity:.95;
 }
 
 /* HOVER */
@@ -336,52 +370,14 @@ body{
 .kutub-card:hover{
 
   transform:
-  translateY(-8px);
+  translateY(-10px);
 
   box-shadow:
-  0 20px 45px rgba(0,0,0,.35);
+  0 25px 55px rgba(0,0,0,.45),
+  0 0 25px rgba(255,215,90,.12);
 }
 
-.kutub-card:hover::after{
-
-  background:
-  linear-gradient(
-    135deg,
-    #FFF6D6,
-    #FFD95A,
-    #1EEA72,
-    #FFD95A
-  );
-}
-
-/* GOLD LINE */
-
-.kutub-card::before{
-
-  content:"";
-
-  position:absolute;
-
-  top:0;
-  left:0;
-
-  width:100%;
-  height:3px;
-
-  background:
-  linear-gradient(
-    90deg,
-    transparent,
-    #FFD95A,
-    transparent
-  );
-
-  opacity:.9;
-
-  z-index:2;
-}
-
-/* IMAGE */
+/* ================= IMAGE ================= */
 
 .kutub-image{
 
@@ -400,13 +396,15 @@ body{
   object-fit:cover;
 
   transition:
-  transform .6s ease;
+  transform .7s ease;
 }
 
 .kutub-card:hover img{
 
   transform:scale(1.08);
 }
+
+/* GOLD OVERLAY */
 
 .kutub-image::after{
 
@@ -420,52 +418,157 @@ body{
   linear-gradient(
     to bottom,
     rgba(0,0,0,.05),
-    rgba(0,0,0,.55)
+    rgba(0,0,0,.58)
   );
 }
 
-/* CONTENT */
+/* SMALL ICON */
 
-.kutub-content{
+.kutub-image::before{
 
-  padding:1.2rem;
-}
+  content:"📖";
 
-.kutub-book{
+  position:absolute;
 
-  font-size:1.15rem;
+  top:14px;
+  left:14px;
 
-  font-weight:800;
+  width:44px;
+  height:44px;
 
-  color:#fff;
+  border-radius:14px;
 
-  margin-bottom:.45rem;
+  display:flex;
 
-  line-height:1.4;
-}
+  align-items:center;
 
-.kutub-sheikh{
+  justify-content:center;
 
-  font-size:.92rem;
+  background:
+  rgba(0,55,38,.92);
+
+  border:
+  1px solid rgba(255,215,90,.35);
 
   color:#FFD95A;
 
-  font-weight:600;
+  font-size:1.1rem;
 
-  margin-bottom:.9rem;
+  z-index:2;
+
+  box-shadow:
+  0 8px 18px rgba(0,0,0,.25);
 }
 
-.kutub-description{
+/* ================= CONTENT ================= */
+
+.kutub-content{
+
+  padding:1.3rem;
+}
+
+/* BOOK TITLE */
+
+.kutub-book{
+
+  font-size:1.35rem;
+
+  font-weight:900;
+
+  color:#fff;
+
+  margin-bottom:.7rem;
+
+  line-height:1.4;
+
+  text-align:center;
+}
+
+/* SHEIKH */
+
+.kutub-sheikh{
+
+  font-size:.95rem;
+
+  color:#FFD95A;
+
+  font-weight:700;
+
+  margin-bottom:1rem;
+
+  text-align:center;
+}
+
+/* DIVIDER */
+
+.kutub-sheikh::after{
+
+  content:"✦";
+
+  display:block;
+
+  color:#FFD95A;
+
+  margin-top:.7rem;
 
   font-size:.9rem;
 
-  color:
-  rgba(255,255,255,.68);
-
-  line-height:1.7;
+  opacity:.9;
 }
 
-/* STATES */
+/* DESCRIPTION */
+
+.kutub-description{
+
+  font-size:.95rem;
+
+  color:
+  rgba(255,255,255,.74);
+
+  line-height:1.8;
+
+  text-align:center;
+}
+
+/* BUTTON STYLE */
+
+.kutub-content::after{
+
+  content:"📖 عرض التفاصيل";
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:8px;
+
+  width:fit-content;
+
+  margin:1.4rem auto 0;
+
+  padding:.9rem 1.4rem;
+
+  border-radius:999px;
+
+  border:
+  1px solid rgba(255,215,90,.45);
+
+  color:#FFD95A;
+
+  font-size:.95rem;
+
+  font-weight:700;
+
+  background:
+  rgba(255,215,90,.04);
+
+  box-shadow:
+  0 10px 25px rgba(0,0,0,.22);
+}
+
+/* ================= STATES ================= */
 
 .kutub-loading,
 .kutub-empty{
@@ -482,81 +585,67 @@ body{
   font-size:1rem;
 }
 
-/* ANIMATION */
-
-@keyframes fadeUp{
-
-  from{
-
-    opacity:0;
-
-    transform:
-    translateY(12px);
-  }
-
-  to{
-
-    opacity:1;
-
-    transform:
-    translateY(0);
-  }
-}
-
-/* TABLET */
+/* ================= MOBILE ================= */
 
 @media(max-width:768px){
 
   .kutub-title{
 
-    font-size:2rem;
+    font-size:2.2rem;
+  }
+
+  .kutub-sub{
+
+    font-size:.94rem;
   }
 
   .kutub-image{
 
-    height:190px;
+    height:200px;
   }
 
   .kutub-grid{
 
-    gap:1.4rem;
+    gap:1.5rem;
   }
 }
 
-/* MOBILE */
+/* ================= SMALL MOBILE ================= */
 
 @media(max-width:480px){
 
   .kutub-title{
 
-    font-size:1.6rem;
+    font-size:1.7rem;
   }
 
   .kutub-sub{
 
-    font-size:.9rem;
+    font-size:.88rem;
+
+    line-height:1.7;
   }
 
   .kutub-image{
 
-    height:160px;
+    height:180px;
   }
 
   .kutub-book{
 
-    font-size:1rem;
+    font-size:1.1rem;
   }
 
   .kutub-description{
 
-    font-size:.84rem;
+    font-size:.85rem;
   }
 
   .kutub-search{
 
     font-size:.9rem;
 
-    padding:.85rem 1rem;
+    padding:1rem 1.1rem;
   }
 }
       `}</style>
