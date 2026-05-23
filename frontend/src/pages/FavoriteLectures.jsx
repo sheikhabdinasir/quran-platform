@@ -66,89 +66,367 @@ const FavoriteLectures = () => {
           </div>
         ))}
       </div>
+<style>{`
 
-      <style>{`
-        .lesson-page {
-          max-width: 800px;
-          margin: auto;
-          padding: 2rem 1rem;
-        }
+  *{
+    box-sizing:border-box;
+  }
 
-        .page-title {
-          text-align: center;
-          font-size: 2rem;
-          font-weight: 800;
-          margin-bottom: 1.5rem;
-          color: #2C1810;
-        }
+  body{
+    overflow-x:hidden;
+  }
 
-        .search-input {
-          width: 100%;
-          max-width: 420px;
-          margin: 0 auto 1.5rem;
-          display: block;
-          padding: 12px 18px;
-          border-radius: 999px;
-          border: 1px solid #ddd;
-        }
+  .lesson-page{
 
-        .lesson-list {
-          display: flex;
-          flex-direction: column;
-          gap: 0.8rem;
-        }
+    min-height:100vh;
 
-        .lesson-row {
-          display: flex;
-          align-items: center;
-          gap: 12px;
-          background: #fff;
-          padding: 12px 16px;
-          border-radius: 14px;
-          cursor: pointer;
-          box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-          transition: 0.2s;
-        }
+    background:
+    radial-gradient(
+      circle at top,
+      rgba(18,80,55,.35),
+      transparent 30%
+    ),
 
-        .lesson-row:hover {
-          background: #F0FDF4;
-        }
+    linear-gradient(
+      180deg,
+      #03110D 0%,
+      #071B15 30%,
+      #04100D 70%,
+      #020806 100%
+    );
 
-        .lesson-icon {
-          width: 42px;
-          height: 42px;
-          border-radius: 50%;
-          background: #FEF3C7;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 18px;
-        }
+    padding:
+    90px 14px 120px;
 
-        .lesson-info {
-          flex: 1;
-          overflow: hidden;
-        }
+    position:relative;
 
-        .lesson-info h4 {
-          font-size: 1rem;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          margin: 0;
-        }
+    overflow:hidden;
+  }
 
-        .lesson-info p {
-          font-size: 0.85rem;
-          opacity: 0.7;
-          margin: 0;
-        }
+  .lesson-page::before{
 
-        .lesson-play {
-          font-size: 1.2rem;
-          color: #16A34A;
-        }
-      `}</style>
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background-image:
+    radial-gradient(
+      rgba(212,175,55,.04) 1px,
+      transparent 1px
+    );
+
+    background-size:40px 40px;
+
+    opacity:.25;
+
+    pointer-events:none;
+  }
+
+  /* TITLE */
+
+  .page-title{
+
+    text-align:center;
+
+    font-size:clamp(
+      1.8rem,
+      5vw,
+      3rem
+    );
+
+    font-weight:900;
+
+    margin-bottom:28px;
+
+    background:
+    linear-gradient(
+      135deg,
+      #FFF6D6 0%,
+      #FFD95A 45%,
+      #D4AF37 100%
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    letter-spacing:-1px;
+
+    text-shadow:
+    0 10px 35px rgba(255,215,90,.12);
+  }
+
+  /* SEARCH */
+
+  .search-input{
+
+    width:100%;
+
+    max-width:620px;
+
+    margin:0 auto 28px;
+
+    display:block;
+
+    border:none;
+
+    outline:none;
+
+    padding:18px 22px;
+
+    border-radius:999px;
+
+    background:
+    rgba(18,45,35,.72);
+
+    color:#fff;
+
+    font-size:.95rem;
+
+    backdrop-filter:blur(18px);
+
+    border:
+    1px solid rgba(255,215,90,.08);
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.22);
+  }
+
+  .search-input::placeholder{
+
+    color:
+    rgba(255,255,255,.42);
+  }
+
+  /* LIST */
+
+  .lesson-list{
+
+    max-width:900px;
+
+    margin:auto;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:16px;
+  }
+
+  /* CARD */
+
+  .lesson-row{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    background:
+    linear-gradient(
+      90deg,
+      rgba(18,45,35,.88),
+      rgba(20,50,38,.78)
+    );
+
+    border:
+    1px solid rgba(255,215,90,.12);
+
+    backdrop-filter:blur(20px);
+
+    padding:18px;
+
+    border-radius:26px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    position:relative;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 12px 30px rgba(0,0,0,.25);
+  }
+
+  .lesson-row:hover{
+
+    transform:
+    translateY(-4px);
+
+    border:
+    1px solid rgba(255,215,90,.22);
+
+    box-shadow:
+    0 18px 45px rgba(0,0,0,.35);
+  }
+
+  /* ICON */
+
+  .lesson-icon{
+
+    width:52px;
+    height:52px;
+
+    border-radius:18px;
+
+    background:
+    linear-gradient(
+      135deg,
+      #19C15F,
+      #1EEA72
+    );
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:1.1rem;
+
+    color:#fff;
+
+    box-shadow:
+    0 10px 25px rgba(30,234,114,.22);
+  }
+
+  /* INFO */
+
+  .lesson-info{
+
+    flex:1;
+
+    min-width:0;
+  }
+
+  .lesson-info h4{
+
+    color:#fff;
+
+    font-size:1rem;
+
+    margin:0 0 5px;
+
+    font-weight:700;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+  }
+
+  .lesson-info p{
+
+    margin:0;
+
+    color:
+    rgba(255,255,255,.58);
+
+    font-size:.84rem;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+  }
+
+  /* PLAY */
+
+  .lesson-play{
+
+    min-width:50px;
+    height:50px;
+
+    border-radius:50%;
+
+    background:
+    linear-gradient(
+      135deg,
+      #D4AF37,
+      #FFD95A
+    );
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:#1A1208;
+
+    font-weight:900;
+
+    font-size:1rem;
+
+    box-shadow:
+    0 12px 28px rgba(212,175,55,.30);
+  }
+
+  /* MOBILE */
+
+  @media(max-width:768px){
+
+    .lesson-page{
+      padding:85px 12px 110px;
+    }
+
+    .page-title{
+      font-size:2rem;
+    }
+
+    .lesson-row{
+      padding:14px;
+      gap:10px;
+      border-radius:22px;
+    }
+
+    .lesson-icon{
+      width:46px;
+      height:46px;
+      border-radius:15px;
+      font-size:1rem;
+    }
+
+    .lesson-play{
+      min-width:42px;
+      height:42px;
+      font-size:.9rem;
+    }
+
+    .lesson-info h4{
+      font-size:.9rem;
+    }
+
+    .lesson-info p{
+      font-size:.75rem;
+    }
+  }
+
+  /* SMALL MOBILE */
+
+  @media(max-width:480px){
+
+    .lesson-row{
+      padding:12px;
+    }
+
+    .page-title{
+      font-size:1.7rem;
+    }
+
+    .search-input{
+      padding:15px 18px;
+      font-size:.88rem;
+    }
+  }
+
+`}</style>
     </section>
   );
 };
