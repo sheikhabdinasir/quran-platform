@@ -279,7 +279,7 @@ Swal.fire({
               marginBottom: "1.5rem",
             }}
           >
-            ✍️ U Soo Dir Fariin
+            ✍️ halkan nuugu Soo Dir Fariintaada
           </h2>
 
           <form onSubmit={handleSubmit}>
