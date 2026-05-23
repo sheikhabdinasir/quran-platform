@@ -273,7 +273,7 @@ const AudioPlayerBar = () => {
 
         )}
 
-      </div>
+       </div>
 
     </div>
   );
