@@ -26,12 +26,9 @@ const AddLesson = () => {
     title: "",
 
     order: "",
-  });
 
-  /* FILE */
-  const [file,
-  setFile] =
-  useState(null);
+    link: "",
+  });
 
   const [loading,
   setLoading] =
@@ -51,7 +48,7 @@ const AddLesson = () => {
 
       !data.order ||
 
-      !file
+      !data.link
     ) {
 
       toast.error(
@@ -85,8 +82,8 @@ const AddLesson = () => {
       );
 
       formData.append(
-        "file",
-        file
+        "audioUrl",
+        data.link
       );
 
       /* SEND DATA */
@@ -104,9 +101,9 @@ const AddLesson = () => {
         title: "",
 
         order: "",
-      });
 
-      setFile(null);
+        link: "",
+      });
 
     } catch (error) {
 
@@ -331,7 +328,7 @@ const AddLesson = () => {
 
               </div>
 
-              {/* AUDIO FILE */}
+              {/* AUDIO LINK */}
               <div>
 
                 <label
@@ -343,18 +340,29 @@ const AddLesson = () => {
                   mb-2
                 "
                 >
-                  Audio File
+                  Audio Link
                 </label>
 
                 <input
-                  type="file"
+                  type="text"
 
-                  accept="audio/*"
+                  placeholder="
+                  https://res.cloudinary.com/...
+                "
+
+                  value={
+                    data.link
+                  }
 
                   onChange={(e)=>
-                    setFile(
-                      e.target.files[0]
-                    )
+
+                    setData({
+
+                      ...data,
+
+                      link:
+                      e.target.value,
+                    })
                   }
 
                   className="
@@ -364,6 +372,9 @@ const AddLesson = () => {
                   border-gray-200
                   px-4
                   py-3
+                  focus:outline-none
+                  focus:ring-2
+                  focus:ring-blue-500
                 "
                 />
 

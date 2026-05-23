@@ -8,6 +8,7 @@ export const createLesson = async (req, res) => {
       title,
       order,
       book,
+      audioUrl,
     } = req.body;
 
     /* ================= VALIDATION ================= */
@@ -15,7 +16,7 @@ export const createLesson = async (req, res) => {
       !title ||
       !order ||
       !book ||
-      !req.file
+      !audioUrl
     ) {
       return res.status(400).json({
         success: false,
@@ -49,8 +50,7 @@ export const createLesson = async (req, res) => {
 
       book,
 
-      audioUrl:
-        req.file.path,
+      audioUrl,
 
       isActive: true,
     });
@@ -81,16 +81,17 @@ export const createLesson = async (req, res) => {
 export const getLessonsByBook = async (req, res) => {
   try {
 
-    
     const lessons =
-await Lesson.find({
+    await Lesson.find({
 
-  book:
-  req.params.bookId,
+      book:
+      req.params.bookId,
 
-}).sort({
-  order: 1,
-});
+      isActive: true,
+
+    }).sort({
+      order: 1,
+    });
 
     res.status(200).json(
       lessons
@@ -118,6 +119,7 @@ export const updateLesson = async (req, res) => {
     const {
       title,
       order,
+      audioUrl,
     } = req.body;
 
     const lesson =
@@ -167,12 +169,8 @@ export const updateLesson = async (req, res) => {
     lesson.order =
       order || lesson.order;
 
-    /* NEW AUDIO */
-    if (req.file) {
-
-      lesson.audioUrl =
-      req.file.path;
-    }
+    lesson.audioUrl =
+      audioUrl || lesson.audioUrl;
 
     await lesson.save();
 
