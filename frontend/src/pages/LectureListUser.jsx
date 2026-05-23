@@ -53,11 +53,11 @@ const LectureListUser = () => {
 
     <section className="lecture-page">
 
-      {/* ISLAMIC BACKGROUND */}
+      {/* ISLAMIC GLOW */}
       <div className="islamic-glow glow1"></div>
       <div className="islamic-glow glow2"></div>
 
-      {/* TOP BAR */}
+      {/* TOP */}
       <div className="top-header">
 
         <button
@@ -77,12 +77,14 @@ const LectureListUser = () => {
         </div>
 
         <h1 className="page-title">
-          Muxaadarooyinka Islaamka
+          Muxaadarooyinka
+          Islaamka
         </h1>
 
         <p className="hero-subtitle">
           Dhageyso muxaadarooyin
           qalbiga nuurinaya
+          oo nafta iftiiminaya
         </p>
 
       </div>
@@ -227,9 +229,10 @@ const LectureListUser = () => {
           background:
           linear-gradient(
             180deg,
-            #06130E 0%,
-            #0B1D16 40%,
-            #10281D 100%
+            #1A0505 0%,
+            #2A0808 30%,
+            #120404 70%,
+            #050505 100%
           );
 
           padding:
@@ -240,7 +243,7 @@ const LectureListUser = () => {
           overflow:hidden;
         }
 
-        /* ISLAMIC GLOW */
+        /* GLOW */
 
         .islamic-glow{
 
@@ -248,7 +251,7 @@ const LectureListUser = () => {
 
           border-radius:50%;
 
-          filter:blur(100px);
+          filter:blur(120px);
 
           opacity:.18;
 
@@ -257,10 +260,10 @@ const LectureListUser = () => {
 
         .glow1{
 
-          width:300px;
-          height:300px;
+          width:320px;
+          height:320px;
 
-          background:#D4AF37;
+          background:#FFD54A;
 
           top:-100px;
           right:-100px;
@@ -271,7 +274,7 @@ const LectureListUser = () => {
           width:260px;
           height:260px;
 
-          background:#16A34A;
+          background:#7A1D1D;
 
           bottom:-100px;
           left:-100px;
@@ -289,10 +292,10 @@ const LectureListUser = () => {
         .back-btn{
 
           background:
-          rgba(255,255,255,.08);
+          rgba(255,215,90,.08);
 
           border:
-          1px solid rgba(255,255,255,.08);
+          1px solid rgba(255,215,90,.12);
 
           color:#F5E6E0;
 
@@ -310,7 +313,7 @@ const LectureListUser = () => {
         .back-btn:hover{
 
           background:
-          rgba(255,255,255,.14);
+          rgba(255,215,90,.16);
         }
 
         /* HERO */
@@ -319,25 +322,25 @@ const LectureListUser = () => {
 
           text-align:center;
 
-          max-width:700px;
+          max-width:760px;
 
-          margin:auto auto 30px;
+          margin:auto auto 40px;
         }
 
         .hero-icon{
 
-          width:90px;
-          height:90px;
+          width:100px;
+          height:100px;
 
           margin:auto;
 
-          border-radius:28px;
+          border-radius:30px;
 
           background:
           linear-gradient(
             135deg,
             #D4AF37,
-            #F5D76E
+            #FFD95A
           );
 
           display:flex;
@@ -346,29 +349,39 @@ const LectureListUser = () => {
 
           justify-content:center;
 
-          font-size:40px;
+          font-size:42px;
 
           box-shadow:
-          0 20px 50px rgba(212,175,55,.35);
+          0 20px 60px rgba(212,175,55,.35);
 
-          margin-bottom:22px;
+          margin-bottom:24px;
         }
 
         .page-title{
 
-          color:#fff;
-
           font-size:clamp(
-            2rem,
-            5vw,
-            3.2rem
+            2.5rem,
+            6vw,
+            4.4rem
           );
 
           font-weight:900;
 
-          margin-bottom:12px;
-
           line-height:1.1;
+
+          margin-bottom:16px;
+
+          background:
+          linear-gradient(
+            180deg,
+            #FFE082,
+            #D4AF37
+          );
+
+          -webkit-background-clip:text;
+
+          -webkit-text-fill-color:
+          transparent;
         }
 
         .hero-subtitle{
@@ -376,9 +389,13 @@ const LectureListUser = () => {
           color:
           rgba(255,255,255,.72);
 
-          font-size:1rem;
+          font-size:1.1rem;
 
-          line-height:1.7;
+          line-height:1.8;
+
+          max-width:620px;
+
+          margin:auto;
         }
 
         /* SEARCH */
@@ -387,7 +404,7 @@ const LectureListUser = () => {
 
           max-width:650px;
 
-          margin:auto auto 25px;
+          margin:auto auto 28px;
         }
 
         .search-input{
@@ -403,7 +420,7 @@ const LectureListUser = () => {
           border-radius:999px;
 
           background:
-          rgba(255,255,255,.08);
+          rgba(255,215,90,.06);
 
           color:#fff;
 
@@ -412,7 +429,7 @@ const LectureListUser = () => {
           backdrop-filter:blur(16px);
 
           border:
-          1px solid rgba(255,255,255,.08);
+          1px solid rgba(255,215,90,.12);
 
           transition:.25s;
         }
@@ -434,30 +451,30 @@ const LectureListUser = () => {
 
         .stats-card{
 
-          width:160px;
+          width:180px;
 
-          margin:0 auto 30px;
+          margin:0 auto 36px;
 
-          padding:18px;
+          padding:20px;
 
-          border-radius:24px;
+          border-radius:28px;
 
           background:
-          rgba(255,255,255,.07);
+          rgba(255,215,90,.05);
 
           backdrop-filter:blur(14px);
 
           text-align:center;
 
           border:
-          1px solid rgba(255,255,255,.06);
+          1px solid rgba(255,215,90,.08);
         }
 
         .stats-number{
 
-          color:#D4AF37;
+          color:#FFD54A;
 
-          font-size:2rem;
+          font-size:2.3rem;
 
           font-weight:900;
         }
@@ -467,14 +484,14 @@ const LectureListUser = () => {
           color:
           rgba(255,255,255,.7);
 
-          font-size:.9rem;
+          font-size:.95rem;
         }
 
         /* LIST */
 
         .lecture-list{
 
-          max-width:900px;
+          max-width:950px;
 
           margin:auto;
 
@@ -482,7 +499,7 @@ const LectureListUser = () => {
 
           flex-direction:column;
 
-          gap:18px;
+          gap:20px;
         }
 
         /* CARD */
@@ -493,19 +510,19 @@ const LectureListUser = () => {
 
           align-items:center;
 
-          gap:16px;
+          gap:18px;
 
           background:
-          rgba(255,255,255,.07);
+          rgba(255,215,90,.05);
 
           border:
-          1px solid rgba(255,255,255,.08);
+          1px solid rgba(255,215,90,.08);
 
           backdrop-filter:blur(18px);
 
-          padding:18px;
+          padding:20px;
 
-          border-radius:26px;
+          border-radius:28px;
 
           cursor:pointer;
 
@@ -547,28 +564,28 @@ const LectureListUser = () => {
         .lecture-card:hover{
 
           transform:
-          translateY(-4px);
+          translateY(-5px);
 
           border:
           1px solid rgba(212,175,55,.3);
 
           box-shadow:
-          0 20px 40px rgba(0,0,0,.25);
+          0 20px 40px rgba(0,0,0,.35);
         }
 
         /* NUMBER */
 
         .lecture-number{
 
-          min-width:52px;
-          height:52px;
+          min-width:56px;
+          height:56px;
 
-          border-radius:18px;
+          border-radius:20px;
 
           background:
-          rgba(212,175,55,.15);
+          rgba(212,175,55,.12);
 
-          color:#D4AF37;
+          color:#FFD54A;
 
           display:flex;
 
@@ -583,16 +600,16 @@ const LectureListUser = () => {
 
         .lecture-icon{
 
-          width:58px;
-          height:58px;
+          width:64px;
+          height:64px;
 
-          border-radius:20px;
+          border-radius:22px;
 
           background:
           linear-gradient(
             135deg,
-            #16A34A,
-            #22C55E
+            #D4AF37,
+            #FFD95A
           );
 
           display:flex;
@@ -601,10 +618,12 @@ const LectureListUser = () => {
 
           justify-content:center;
 
-          font-size:1.4rem;
+          font-size:1.5rem;
+
+          color:#2C1810;
 
           box-shadow:
-          0 12px 30px rgba(34,197,94,.3);
+          0 12px 30px rgba(212,175,55,.3);
         }
 
         /* INFO */
@@ -620,7 +639,7 @@ const LectureListUser = () => {
 
           color:#fff;
 
-          font-size:1.08rem;
+          font-size:1.1rem;
 
           margin:0 0 6px;
 
@@ -636,17 +655,17 @@ const LectureListUser = () => {
           margin:0;
 
           color:
-          rgba(255,255,255,.6);
+          rgba(255,255,255,.62);
 
-          font-size:.92rem;
+          font-size:.93rem;
         }
 
         /* PLAY */
 
         .lecture-play{
 
-          min-width:52px;
-          height:52px;
+          min-width:58px;
+          height:58px;
 
           border-radius:50%;
 
@@ -654,7 +673,7 @@ const LectureListUser = () => {
           linear-gradient(
             135deg,
             #D4AF37,
-            #F5D76E
+            #FFD95A
           );
 
           display:flex;
@@ -663,11 +682,11 @@ const LectureListUser = () => {
 
           justify-content:center;
 
-          color:#111;
+          color:#2C1810;
 
           font-weight:900;
 
-          font-size:1.1rem;
+          font-size:1.15rem;
 
           box-shadow:
           0 10px 25px rgba(212,175,55,.35);
@@ -679,7 +698,7 @@ const LectureListUser = () => {
 
           text-align:center;
 
-          margin-top:60px;
+          margin-top:70px;
 
           color:#fff;
         }
@@ -688,34 +707,39 @@ const LectureListUser = () => {
 
           font-size:4rem;
 
-          margin-bottom:16px;
+          margin-bottom:18px;
         }
 
         /* MOBILE */
 
         @media(max-width:768px){
 
+          .page-title{
+
+            font-size:3rem;
+          }
+
           .lecture-card{
 
-            padding:15px;
+            padding:16px;
           }
 
           .lecture-number{
 
-            min-width:45px;
-            height:45px;
+            min-width:46px;
+            height:46px;
           }
 
           .lecture-icon{
 
-            width:50px;
-            height:50px;
+            width:54px;
+            height:54px;
           }
 
           .lecture-play{
 
-            min-width:46px;
-            height:46px;
+            min-width:48px;
+            height:48px;
           }
         }
 
