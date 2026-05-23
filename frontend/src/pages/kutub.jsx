@@ -106,318 +106,162 @@ const Kutub = () => {
 
       {/* ================= CSS ================= */}
       <style>{`
-  
-  *{
-    box-sizing:border-box;
-  }
-
-  .kutub-page {
-    max-width: 1380px;
-    margin: auto;
-    padding: 2.5rem 1.2rem 5rem;
-    min-height: 100vh;
-
-    background:
-      radial-gradient(circle at top, rgba(16,70,48,0.45), transparent 45%),
-      linear-gradient(to bottom, #021b14, #03110d);
-
-    border-radius: 32px;
-    border: 1px solid rgba(212,175,55,0.25);
-
-    box-shadow:
-      0 0 40px rgba(0,0,0,0.45),
-      inset 0 0 80px rgba(255,215,120,0.03);
-
-    position: relative;
-    overflow: hidden;
-  }
-
-  /* ISLAMIC GLOW */
-  .kutub-page::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:
-      radial-gradient(circle at left top,
-      rgba(212,175,55,0.06), transparent 30%),
-      radial-gradient(circle at right top,
-      rgba(212,175,55,0.06), transparent 30%);
-    pointer-events:none;
-  }
-
-  /* TITLE */
-  .kutub-title {
-    text-align: center;
-    font-size: 3.2rem;
-    font-weight: 900;
-    line-height: 1.15;
-    margin-bottom: 0.7rem;
-    color: #fff;
-
-    text-shadow:
-      0 0 12px rgba(255,255,255,0.08),
-      0 0 25px rgba(212,175,55,0.18);
-  }
-
-  .kutub-title span{
-    color:#d4af37;
-  }
-
-  .kutub-sub {
-    text-align: center;
-    color: #d7d7d7;
-    margin-bottom: 2.3rem;
-    font-size: 1.05rem;
-    font-weight: 400;
-  }
-
-  /* SEARCH */
-  .kutub-search {
-    width: 100%;
-    max-width: 720px;
-    display: block;
-    margin: 0 auto 3rem;
-
-    padding: 1.1rem 1.4rem;
-
-    border-radius: 999px;
-
-    border: 1.5px solid rgba(212,175,55,0.35);
-
-    outline: none;
-
-    font-size: 1rem;
-
-    background:
-      linear-gradient(to right,
-      rgba(8,40,29,0.95),
-      rgba(4,24,18,0.95));
-
-    color: white;
-
-    box-shadow:
-      inset 0 0 15px rgba(255,215,120,0.05),
-      0 0 18px rgba(0,0,0,0.35);
-
-    transition: 0.3s ease;
-  }
-
-  .kutub-search::placeholder{
-    color:#bcbcbc;
-  }
-
-  .kutub-search:focus{
-    border-color:#d4af37;
-
-    box-shadow:
-      0 0 18px rgba(212,175,55,0.22),
-      inset 0 0 15px rgba(255,215,120,0.05);
-  }
-
-  /* GRID */
-  .kutub-grid {
-    display: grid;
-
-    grid-template-columns:
-      repeat(auto-fit, minmax(260px, 1fr));
-
-    gap: 1.5rem;
-  }
-
-  /* CARD */
-  .kutub-card {
-    background:
-      linear-gradient(to bottom,
-      rgba(6,40,28,0.98),
-      rgba(2,19,14,0.98));
-
-    border-radius: 26px;
-
-    overflow: hidden;
-
-    border: 1.5px solid rgba(212,175,55,0.45);
-
-    box-shadow:
-      0 8px 30px rgba(0,0,0,0.45),
-      inset 0 0 25px rgba(255,215,120,0.03);
-
-    cursor: pointer;
-
-    transition: 0.35s ease;
-
-    animation: fadeUp 0.5s ease;
-
-    position: relative;
-  }
-
-  .kutub-card:hover {
-    transform: translateY(-7px);
-
-    box-shadow:
-      0 14px 40px rgba(0,0,0,0.55),
-      0 0 25px rgba(212,175,55,0.15);
-  }
-
-  /* IMAGE */
-  .kutub-image {
-    position: relative;
-    height: 210px;
-    overflow: hidden;
-  }
-
-  .kutub-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s ease;
-  }
-
-  .kutub-card:hover img {
-    transform: scale(1.06);
-  }
-
-  .kutub-image::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-
-    background:
-      linear-gradient(
-        to bottom,
-        rgba(0,0,0,0.05),
-        rgba(0,0,0,0.4)
-      );
-  }
-
-  /* CONTENT */
-  .kutub-content {
-    padding: 1.15rem 1rem 1.4rem;
-    text-align:center;
-  }
-
-  .kutub-book {
-    font-size: 1.65rem;
-    font-weight: 900;
-    color: #fff;
-    margin-bottom: 0.55rem;
-    line-height:1.3;
-  }
-
-  .kutub-sheikh {
-    font-size: 0.95rem;
-    color: #d4af37;
-    font-weight: 700;
-    margin-bottom: 1rem;
-  }
-
-  .kutub-description {
-    font-size: 0.93rem;
-    color: #e1e1e1;
-    line-height: 1.75;
-  }
-
-  /* BUTTON STYLE EFFECT */
-  .kutub-card::after{
-    content:"عرض التفاصيل";
-
-    position:absolute;
-
-    left:50%;
-    transform:translateX(-50%);
-
-    bottom:16px;
-
-    background:transparent;
-
-    border:1px solid rgba(212,175,55,0.65);
-
-    color:#d4af37;
-
-    padding:0.7rem 1.2rem;
-
-    border-radius:999px;
-
-    font-size:0.9rem;
-    font-weight:700;
-
-    opacity:0;
-
-    transition:0.3s ease;
-  }
-
-  .kutub-card:hover::after{
-    opacity:1;
-    bottom:20px;
-  }
-
-  .kutub-loading,
-  .kutub-empty {
-    text-align: center;
-    margin-top: 3rem;
-    font-weight: 600;
-    color: #fff;
-    font-size: 1rem;
-  }
-
-  @keyframes fadeUp {
-    from {
-      opacity: 0;
-      transform: translateY(14px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @media (max-width: 768px) {
-
-    .kutub-title {
-      font-size: 2.3rem;
-    }
-
-    .kutub-grid{
-      gap:1.2rem;
-    }
-
-    .kutub-image {
-      height: 190px;
-    }
-  }
-
-  @media (max-width: 480px) {
-
-    .kutub-page{
-      border-radius:20px;
-      padding:2rem 0.9rem 4rem;
-    }
-
-    .kutub-title {
-      font-size: 1.8rem;
-    }
-
-    .kutub-sub{
-      font-size:0.92rem;
-    }
-
-    .kutub-search{
-      padding:0.95rem 1rem;
-    }
-
-    .kutub-image {
-      height: 170px;
-    }
-
-    .kutub-book {
-      font-size: 1.25rem;
-    }
-
-    .kutub-description{
-      font-size:0.88rem;
-    }
-  }
-`}
-      </style>
+        .kutub-page {
+          max-width: 1200px;
+          margin: auto;
+          padding: 2rem 1rem 4rem;
+        }
+
+        .kutub-title {
+          text-align: center;
+          font-size: 2.4rem;
+          font-weight: 900;
+          color: #15102c;
+          margin-bottom: 0.5rem;
+        }
+
+        .kutub-sub {
+          text-align: center;
+          color: #6b4e16;
+          margin-bottom: 2rem;
+          font-size: 1rem;
+        }
+
+        .kutub-search {
+          width: 100%;
+          max-width: 520px;
+          display: block;
+          margin: 0 auto 2.5rem;
+          padding: 0.85rem 1rem;
+          border-radius: 14px;
+          border: 2px solid #1f0fc7;
+          outline: none;
+          font-size: 1rem;
+          background: #fff;
+        }
+
+        /* GRID */
+        .kutub-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+          gap: 2rem;
+        }
+
+        /* CARD */
+        .kutub-card {
+          background: #fffaf0;
+          border-radius: 20px;
+          overflow: hidden;
+          border: 2px solid #374ed4;
+          box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+          cursor: pointer;
+          transition: 0.35s ease;
+          animation: fadeUp 0.5s ease;
+        }
+
+        .kutub-card:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 20px 45px rgba(0, 0, 0, 0.18);
+        }
+
+        /* IMAGE */
+        .kutub-image {
+          position: relative;
+          height: 220px;
+          overflow: hidden;
+        }
+
+        .kutub-image img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.6s ease;
+        }
+
+        .kutub-card:hover img {
+          transform: scale(1.08);
+        }
+
+        .kutub-image::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(
+            to bottom,
+            rgba(0,0,0,0.05),
+            rgba(0,0,0,0.35)
+          );
+        }
+
+        /* CONTENT */
+        .kutub-content {
+          padding: 1.2rem;
+        }
+
+        .kutub-book {
+          font-size: 1.15rem;
+          font-weight: 800;
+          color: #2c1810;
+          margin-bottom: 0.4rem;
+        }
+
+        .kutub-sheikh {
+          font-size: 0.95rem;
+          color: #5c3b0b;
+          font-weight: 600;
+          margin-bottom: 0.8rem;
+        }
+
+        .kutub-description {
+          font-size: 0.92rem;
+          color: #555;
+          line-height: 1.5;
+        }
+
+        .kutub-loading,
+        .kutub-empty {
+          text-align: center;
+          margin-top: 3rem;
+          font-weight: 600;
+          color: #555;
+          font-size: 1rem;
+        }
+
+        @keyframes fadeUp {
+          from {
+            opacity: 0;
+            transform: translateY(12px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @media (max-width: 768px) {
+          .kutub-title {
+            font-size: 2rem;
+          }
+
+          .kutub-image {
+            height: 190px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .kutub-title {
+            font-size: 1.6rem;
+          }
+
+          .kutub-image {
+            height: 160px;
+          }
+
+          .kutub-book {
+            font-size: 1rem;
+          }
+        }
+      `}</style>
     </div>
   );
 };
