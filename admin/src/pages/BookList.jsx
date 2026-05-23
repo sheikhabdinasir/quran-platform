@@ -746,9 +746,9 @@ const BookList = () => {
     Delete Book
     "
 
-    message="
-    Ma hubtaa inaad tirtirto kitaabkan?
-    "
+    message={`
+Ma hubtaa inaad tirtirto "${deleteBookTarget.title}" ?
+`}
 
     onClose={() =>
       setDeleteBookTarget(null)
@@ -778,9 +778,9 @@ const BookList = () => {
     Delete Lesson
     "
 
-    message="
-    Ma hubtaa inaad tirtirto casharkan?
-    "
+    message={`
+Ma hubtaa inaad tirtirto "${deleteLessonTarget.title}" ?
+`}
 
     onClose={() =>
       setDeleteLessonTarget(null)
