@@ -341,91 +341,84 @@ const LectureListUser = () => {
 
         /* HERO */
 
-        .hero{
+      /* HERO */
 
-          text-align:center;
+.hero{
 
-          max-width:760px;
+  text-align:center;
 
-          margin:auto auto 40px;
+  max-width:760px;
 
-          padding:20px 10px;
-        }
+  margin:auto auto 40px;
 
-        .page-title{
+  padding:10px 10px 30px;
 
-          font-size:clamp(
-            2.5rem,
-            6vw,
-            4.8rem
-          );
+  position:relative;
+}
 
-          font-weight:900;
+/* TITLE */
 
-          line-height:1.1;
+.page-title{
 
-          margin-bottom:16px;
+  font-size:clamp(
+    2.5rem,
+    6vw,
+    4.8rem
+  );
 
-          color:#fff;
+  font-weight:900;
 
-          text-shadow:
-          0 10px 40px rgba(255,215,90,.25);
-        }
+  line-height:1.05;
 
-        .hero-subtitle{
+  margin-bottom:18px;
 
-          color:
-          rgba(255,255,255,.72);
+  background:
+  linear-gradient(
+    135deg,
+    #FFF6D6 0%,
+    #FFD95A 40%,
+    #D4AF37 100%
+  );
 
-          font-size:1.1rem;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 
-          line-height:1.8;
+  text-shadow:
+  0 10px 35px rgba(255,215,90,.18);
 
-          max-width:620px;
+  letter-spacing:-1px;
+}
 
-          margin:auto;
-        }
+/* SUBTITLE */
 
-        /* SEARCH */
+.hero-subtitle{
 
-        .search-wrap{
+  color:
+  rgba(255,245,220,.78);
 
-          max-width:650px;
+  font-size:1.08rem;
 
-          margin:auto auto 28px;
-        }
+  line-height:1.9;
 
-        .search-input{
+  max-width:620px;
 
-          width:100%;
+  margin:auto;
 
-          border:none;
+  background:
+  rgba(255,255,255,.03);
 
-          outline:none;
+  border:
+  1px solid rgba(255,215,90,.08);
 
-          padding:22px 26px;
+  padding:18px 22px;
 
-          border-radius:999px;
+  border-radius:22px;
 
-          background:
-          rgba(18,45,35,.72);
+  backdrop-filter:blur(10px);
 
-          color:#fff;
-
-          font-size:1rem;
-
-          backdrop-filter:blur(18px);
-
-          border:
-          1px solid rgba(255,215,90,.08);
-
-          box-shadow:
-          0 10px 30px rgba(0,0,0,.25);
-        }
-
-        .search-input::placeholder{
-          color:rgba(255,255,255,.45);
-        }
+  box-shadow:
+  0 10px 30px rgba(0,0,0,.18);
+}
 
         /* STATS */
 
