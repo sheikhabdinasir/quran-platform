@@ -94,7 +94,7 @@ const Tafsiir = () => {
           <div className="card-body">
 
             <h2>
-التفسير الصوتي            </h2>
+التفسير             </h2>
 
             <p>
              استمع إلى دروس التفسير في أي وقت
@@ -125,10 +125,11 @@ const Tafsiir = () => {
           <div className="card-body">
 
             <h2>
-المفضلة لديّ            </h2>
+tafsiirka aad xulatay          </h2>
 
             <p>
-احفظ الدروس التي تحبها            </p>
+dhagayso tafsiirka ad xulatay
+           </p>
 
           </div>
 
@@ -153,7 +154,7 @@ const Tafsiir = () => {
           <div className="card-body">
 
             <h2>
-تابع الاستماع            </h2>
+sii wad dhegeysiga     </h2>
 
             <p>
 
