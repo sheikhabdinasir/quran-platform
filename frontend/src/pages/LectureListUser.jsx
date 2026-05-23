@@ -327,22 +327,7 @@ const LectureListUser = () => {
           margin:auto auto 40px;
         }
 
-        .hero-icon{
-
-          width:50px;
-          height:50px;
-
-          margin:auto;
-
-          border-radius:30px;
-
-          background:
-          linear-gradient(
-            135deg,
-            #D4AF37,
-            #FFD95A
-          );
-
+       
           display:flex;
 
           align-items:center;
