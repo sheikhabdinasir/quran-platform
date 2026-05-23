@@ -132,425 +132,563 @@ const Kutub = () => {
       )}
 
       <style>{`
+/* =========================
+   IMPORT FONT
+========================= */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  background:#140402;
+}
+
+/* =========================
+   MAIN PAGE
+========================= */
+
+.kutub-page{
+  position:relative;
+  min-height:100vh;
+  padding:4rem 1.2rem 6rem;
+  overflow:hidden;
+
+  background:
+  radial-gradient(circle at top,
+  rgba(255,170,0,0.08),
+  transparent 35%),
+
+  linear-gradient(
+  to bottom,
+  #1b0703,
+  #120301,
+  #080101);
+
+  color:white;
+}
+
+/* PATTERN */
+.kutub-page::before{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  background-image:
+  radial-gradient(
+  rgba(212,175,55,0.05) 1px,
+  transparent 1px);
+
+  background-size:38px 38px;
+
+  opacity:0.25;
+  pointer-events:none;
+}
+
+/* =========================
+   LANTERNS
+========================= */
+
+.lantern{
+  position:absolute;
+  top:0;
+  font-size:5.8rem;
+  z-index:10;
+
+  animation:float 3s ease-in-out infinite;
+
+  filter:
+  drop-shadow(0 0 25px rgba(255,180,60,0.7));
+}
+
+.lantern-left{
+  left:28px;
+}
+
+.lantern-right{
+  right:28px;
+}
+
+@keyframes float{
+  0%{
+    transform:translateY(0px);
+  }
+
+  50%{
+    transform:translateY(12px);
+  }
+
+  100%{
+    transform:translateY(0px);
+  }
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  max-width:1100px;
+  margin:auto;
+  text-align:center;
+  position:relative;
+  z-index:2;
+}
 
-      *{
-        box-sizing:border-box;
-      }
-
-      body{
-        background:#140402;
-      }
-
-      .kutub-page{
-        position:relative;
-        min-height:100vh;
-        padding:3rem 1rem 5rem;
-        overflow:hidden;
-
-        background:
-        radial-gradient(circle at top,
-        rgba(255,170,0,0.08),
-        transparent 40%),
-
-        linear-gradient(
-        to bottom,
-        #1a0502,
-        #120301,
-        #090101);
-
-        color:white;
-      }
-
-      /* ISLAMIC PATTERN */
-      .kutub-page::before{
-        content:"";
-        position:absolute;
-        inset:0;
-
-        background-image:
-        radial-gradient(
-        rgba(212,175,55,0.05) 1px,
-        transparent 1px);
-
-        background-size:40px 40px;
-
-        opacity:0.3;
-        pointer-events:none;
-      }
-
-      /* LANTERNS */
-      .lantern{
-        position:absolute;
-        top:20px;
-        font-size:5rem;
-        z-index:10;
-        animation:float 3s ease-in-out infinite;
-        filter:drop-shadow(0 0 20px rgba(255,190,70,0.6));
-      }
-
-      .lantern-left{
-        left:40px;
-      }
-
-      .lantern-right{
-        right:40px;
-      }
-
-      @keyframes float{
-        0%{
-          transform:translateY(0px);
-        }
-
-        50%{
-          transform:translateY(12px);
-        }
-
-        100%{
-          transform:translateY(0px);
-        }
-      }
-
-      /* HERO */
-      .hero{
-        text-align:center;
-        max-width:1000px;
-        margin:auto;
-        position:relative;
-        z-index:2;
-      }
-
-      .moon-icon{
-        width:85px;
-        height:85px;
-        margin:auto;
-        border-radius:22px;
-
-        background:
-        linear-gradient(
-        145deg,
-        rgba(212,175,55,0.15),
-        rgba(212,175,55,0.04));
-
-        border:1px solid rgba(212,175,55,0.45);
-
-        display:flex;
-        align-items:center;
-        justify-content:center;
+.moon-icon{
+  width:90px;
+  height:90px;
 
-        font-size:2.5rem;
-        color:#d4af37;
+  margin:auto;
+  margin-bottom:1.8rem;
 
-        margin-bottom:2rem;
+  border-radius:24px;
 
-        box-shadow:
-        0 0 30px rgba(212,175,55,0.18);
-      }
+  display:flex;
+  align-items:center;
+  justify-content:center;
 
-      .kutub-title{
-        font-size:4rem;
-        font-weight:900;
-        line-height:1.15;
-        margin-bottom:1rem;
-        color:white;
-      }
+  background:
+  linear-gradient(
+  145deg,
+  rgba(212,175,55,0.15),
+  rgba(212,175,55,0.04));
 
-      .kutub-title span{
-        display:block;
-        color:#d4af37;
-      }
+  border:1px solid rgba(212,175,55,0.4);
 
-      .divider{
-        width:240px;
-        height:2px;
-        margin:1.5rem auto;
+  color:#d4af37;
+  font-size:2.7rem;
 
-        background:
-        linear-gradient(
-        to right,
-        transparent,
-        #d4af37,
-        transparent);
-      }
+  box-shadow:
+  0 0 35px rgba(212,175,55,0.2);
+}
 
-      .kutub-sub{
-        font-size:1.15rem;
-        color:#d6d6d6;
-        line-height:1.7;
-        margin-bottom:2.5rem;
-      }
+/* TITLE */
+.kutub-title{
+  font-size:4.3rem;
+  line-height:1.1;
+  font-weight:900;
 
-      /* SEARCH */
-      .search-wrap{
-        display:flex;
-        justify-content:center;
-      }
+  margin-bottom:0.4rem;
 
-      .kutub-search{
-        width:100%;
-        max-width:760px;
+  color:white;
 
-        padding:1.2rem 1.5rem;
+  text-shadow:
+  0 0 25px rgba(255,255,255,0.08);
+}
 
-        border-radius:999px;
+.kutub-title span{
+  display:block;
+  color:#d4af37;
 
-        border:1.5px solid rgba(212,175,55,0.4);
+  margin-top:0.3rem;
+}
 
-        outline:none;
+/* GOLD DIVIDER */
+.divider{
+  width:300px;
+  height:2px;
 
-        background:
-        rgba(20,5,2,0.9);
+  margin:1.8rem auto;
 
-        color:white;
+  position:relative;
 
-        font-size:1rem;
+  background:
+  linear-gradient(
+  to right,
+  transparent,
+  #d4af37,
+  transparent);
+}
 
-        box-shadow:
-        inset 0 0 20px rgba(212,175,55,0.05),
-        0 0 20px rgba(0,0,0,0.4);
+.divider::after{
+  content:"✿";
 
-        transition:0.3s;
-      }
+  position:absolute;
+  left:50%;
+  top:50%;
 
-      .kutub-search:focus{
-        border-color:#d4af37;
+  transform:
+  translate(-50%,-50%);
 
-        box-shadow:
-        0 0 25px rgba(212,175,55,0.2);
-      }
+  background:#140402;
 
-      .kutub-search::placeholder{
-        color:#bbb;
-      }
+  padding:0 14px;
 
-      /* GRID */
-      .kutub-grid{
-        margin-top:4rem;
+  color:#d4af37;
+  font-size:1.4rem;
+}
 
-        display:grid;
+/* SUBTITLE */
+.kutub-sub{
+  color:#d5d5d5;
+  font-size:1.1rem;
+  line-height:1.7;
 
-        grid-template-columns:
-        repeat(auto-fit,minmax(290px,1fr));
+  margin-bottom:2.5rem;
+}
 
-        gap:2rem;
+/* =========================
+   SEARCH
+========================= */
 
-        position:relative;
-        z-index:2;
-      }
+.search-wrap{
+  display:flex;
+  justify-content:center;
+}
 
-      /* CARD */
-      .kutub-card{
-        background:
-        linear-gradient(
-        to bottom,
-        rgba(24,6,2,0.95),
-        rgba(10,2,1,0.98));
+.kutub-search{
+  width:100%;
+  max-width:760px;
 
-        border-radius:30px;
+  padding:1.2rem 1.6rem;
 
-        overflow:hidden;
+  border-radius:999px;
 
-        border:1.5px solid rgba(212,175,55,0.4);
+  border:1.5px solid rgba(212,175,55,0.45);
 
-        cursor:pointer;
+  background:
+  rgba(25,7,3,0.9);
 
-        transition:0.4s;
+  outline:none;
 
-        box-shadow:
-        0 10px 35px rgba(0,0,0,0.45);
+  color:white;
+  font-size:1rem;
 
-        position:relative;
-      }
+  box-shadow:
+  inset 0 0 20px rgba(212,175,55,0.04),
+  0 0 25px rgba(0,0,0,0.35);
 
-      .kutub-card:hover{
-        transform:translateY(-10px);
+  transition:0.3s;
+}
 
-        box-shadow:
-        0 20px 45px rgba(0,0,0,0.55),
-        0 0 25px rgba(212,175,55,0.15);
-      }
+.kutub-search::placeholder{
+  color:#bdbdbd;
+}
 
-      /* IMAGE */
-      .kutub-image{
-        position:relative;
-        height:240px;
-        overflow:hidden;
-      }
+.kutub-search:focus{
+  border-color:#d4af37;
 
-      .kutub-image img{
-        width:100%;
-        height:100%;
-        object-fit:cover;
-        transition:0.6s;
-      }
+  box-shadow:
+  0 0 25px rgba(212,175,55,0.2);
+}
 
-      .kutub-card:hover img{
-        transform:scale(1.08);
-      }
+/* =========================
+   GRID
+========================= */
 
-      .kutub-image::after{
-        content:"";
-        position:absolute;
-        inset:0;
+.kutub-grid{
+  margin-top:4rem;
 
-        background:
-        linear-gradient(
-        to bottom,
-        rgba(0,0,0,0),
-        rgba(0,0,0,0.45));
-      }
+  display:grid;
 
-      .book-icon{
-        position:absolute;
-        top:14px;
-        left:14px;
+  grid-template-columns:
+  repeat(auto-fit,minmax(320px,1fr));
 
-        width:55px;
-        height:55px;
+  gap:2rem;
 
-        border-radius:16px;
+  position:relative;
+  z-index:2;
+}
 
-        background:
-        rgba(20,5,2,0.9);
+/* =========================
+   CARD
+========================= */
 
-        border:1px solid rgba(212,175,55,0.5);
+.kutub-card{
+  background:
+  linear-gradient(
+  to bottom,
+  rgba(25,7,3,0.96),
+  rgba(10,2,1,0.98));
 
-        display:flex;
-        align-items:center;
-        justify-content:center;
+  border-radius:30px;
 
-        font-size:1.5rem;
+  overflow:hidden;
 
-        z-index:5;
+  border:1.5px solid rgba(212,175,55,0.45);
 
-        box-shadow:
-        0 0 20px rgba(212,175,55,0.2);
-      }
+  cursor:pointer;
 
-      /* CONTENT */
-      .kutub-content{
-        padding:1.5rem;
-        text-align:center;
-      }
+  transition:0.4s ease;
 
-      .kutub-book{
-        font-size:2rem;
-        font-weight:800;
-        color:white;
-        margin-bottom:0.8rem;
-      }
+  box-shadow:
+  0 10px 35px rgba(0,0,0,0.45);
 
-      .kutub-sheikh{
-        color:#d4af37;
-        font-weight:600;
-        margin-bottom:1rem;
-      }
+  position:relative;
+}
 
-      .mini-divider{
-        width:90px;
-        height:2px;
+.kutub-card:hover{
+  transform:translateY(-10px);
 
-        margin:1rem auto;
+  box-shadow:
+  0 20px 45px rgba(0,0,0,0.6),
+  0 0 25px rgba(212,175,55,0.15);
+}
 
-        background:
-        linear-gradient(
-        to right,
-        transparent,
-        #d4af37,
-        transparent);
-      }
+/* IMAGE */
+.kutub-image{
+  position:relative;
+  height:250px;
+  overflow:hidden;
+}
 
-      .kutub-description{
-        color:#d8d8d8;
-        line-height:1.8;
-        font-size:0.97rem;
-        margin-bottom:1.7rem;
-      }
+.kutub-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
 
-      .details-btn{
-        background:transparent;
-        border:1px solid rgba(212,175,55,0.5);
+  transition:0.6s;
+}
 
-        color:#d4af37;
+.kutub-card:hover img{
+  transform:scale(1.08);
+}
 
-        padding:0.9rem 1.5rem;
+.kutub-image::after{
+  content:"";
+  position:absolute;
+  inset:0;
 
-        border-radius:999px;
+  background:
+  linear-gradient(
+  to bottom,
+  rgba(0,0,0,0),
+  rgba(0,0,0,0.45));
+}
 
-        font-size:1rem;
-        font-weight:700;
+/* BOOK ICON */
+.book-icon{
+  position:absolute;
+  top:15px;
+  left:15px;
 
-        cursor:pointer;
+  width:58px;
+  height:58px;
 
-        transition:0.3s;
-      }
+  border-radius:18px;
 
-      .details-btn:hover{
-        background:#d4af37;
-        color:#140402;
-      }
+  display:flex;
+  align-items:center;
+  justify-content:center;
 
-      .kutub-loading,
-      .kutub-empty{
-        text-align:center;
-        margin-top:4rem;
-        font-size:1.1rem;
-        color:#eee;
-      }
+  background:
+  rgba(20,5,2,0.9);
 
-      /* MOBILE */
-      @media(max-width:768px){
+  border:1px solid rgba(212,175,55,0.5);
 
-        .kutub-title{
-          font-size:2.6rem;
-        }
+  color:#d4af37;
+  font-size:1.5rem;
 
-        .lantern{
-          font-size:3.5rem;
-        }
+  z-index:5;
 
-        .lantern-left{
-          left:10px;
-        }
+  box-shadow:
+  0 0 20px rgba(212,175,55,0.2);
+}
 
-        .lantern-right{
-          right:10px;
-        }
+/* CONTENT */
+.kutub-content{
+  padding:1.7rem;
+  text-align:center;
+}
 
-        .kutub-image{
-          height:210px;
-        }
-      }
+.kutub-book{
+  font-size:2rem;
+  font-weight:800;
+  color:white;
 
-      @media(max-width:480px){
+  margin-bottom:0.8rem;
+}
 
-        .kutub-page{
-          padding-top:5rem;
-        }
+.kutub-sheikh{
+  color:#d4af37;
+  font-weight:600;
 
-        .kutub-title{
-          font-size:2rem;
-        }
+  margin-bottom:1rem;
+}
 
-        .kutub-sub{
-          font-size:0.95rem;
-        }
+/* MINI DIVIDER */
+.mini-divider{
+  width:120px;
+  height:2px;
 
-        .kutub-search{
-          padding:1rem;
-        }
+  margin:1rem auto 1.2rem;
 
-        .kutub-book{
-          font-size:1.5rem;
-        }
+  position:relative;
 
-        .kutub-grid{
-          gap:1.5rem;
-        }
+  background:
+  linear-gradient(
+  to right,
+  transparent,
+  #d4af37,
+  transparent);
+}
 
-        .kutub-image{
-          height:190px;
-        }
-      }
+.mini-divider::after{
+  content:"✿";
+
+  position:absolute;
+  left:50%;
+  top:50%;
+
+  transform:
+  translate(-50%,-50%);
+
+  background:#140402;
+
+  padding:0 10px;
+
+  color:#d4af37;
+  font-size:1rem;
+}
+
+.kutub-description{
+  color:#dddddd;
+  line-height:1.8;
+  font-size:0.98rem;
+
+  margin-bottom:1.8rem;
+}
+
+/* BUTTON */
+.details-btn{
+  background:transparent;
+
+  border:1px solid rgba(212,175,55,0.5);
+
+  color:#d4af37;
+
+  padding:0.95rem 1.7rem;
+
+  border-radius:999px;
+
+  font-size:1rem;
+  font-weight:700;
+
+  cursor:pointer;
+
+  transition:0.3s;
+}
+
+.details-btn:hover{
+  background:#d4af37;
+  color:#140402;
+}
+
+/* BOTTOM DIVIDER */
+.bottom-divider{
+  width:350px;
+  height:2px;
+
+  margin:4rem auto 0;
+
+  position:relative;
+
+  background:
+  linear-gradient(
+  to right,
+  transparent,
+  #d4af37,
+  transparent);
+}
+
+.bottom-divider::after{
+  content:"✿";
+
+  position:absolute;
+  left:50%;
+  top:50%;
+
+  transform:
+  translate(-50%,-50%);
+
+  background:#140402;
+
+  padding:0 14px;
+
+  color:#d4af37;
+  font-size:1.5rem;
+}
+
+/* =========================
+   LOADING
+========================= */
+
+.kutub-loading,
+.kutub-empty{
+  text-align:center;
+  margin-top:4rem;
+
+  color:#eee;
+  font-size:1.1rem;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+  .kutub-title{
+    font-size:2.7rem;
+  }
+
+  .lantern{
+    font-size:4rem;
+  }
+
+  .lantern-left{
+    left:10px;
+  }
+
+  .lantern-right{
+    right:10px;
+  }
+
+  .kutub-grid{
+    grid-template-columns:1fr;
+  }
+
+  .kutub-image{
+    height:220px;
+  }
+}
+
+@media(max-width:480px){
+
+  .kutub-page{
+    padding-top:5rem;
+  }
+
+  .kutub-title{
+    font-size:2rem;
+  }
+
+  .kutub-sub{
+    font-size:0.95rem;
+  }
+
+  .kutub-search{
+    padding:1rem;
+  }
+
+  .kutub-book{
+    font-size:1.5rem;
+  }
+
+  .kutub-image{
+    height:200px;
+  }
+
+  .divider,
+  .bottom-divider{
+    width:220px;
+  }
+}
 
       `}</style>
 
