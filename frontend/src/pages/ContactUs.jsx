@@ -140,9 +140,8 @@ Swal.fire({
               color: "#FFF8F3",
             }}
           >
-            Haddii aad qabto su’aalo, aad nooo waddo talooyin,
-            ama aad doonayso caawimo ,
-            nala soo xidhiidh.
+            Haddii aad qabto su’aalo, aad nooo waddo talooyin
+            ama aad doonayso caawimo  nala soo xidhiidh.
           </p>
 
         </div>
