@@ -479,7 +479,7 @@ const BookList = () => {
               transition
             "
             >
-              ➕ Add Lesson
+              ➕ ku dar cashar
             </button>
 
           </div>
@@ -680,6 +680,126 @@ const BookList = () => {
         </div>
 
       )}
+
+      {/* ================= EDIT BOOK MODAL ================= */}
+
+{editBook && (
+
+  <EditBookModal
+
+    book={editBook}
+
+    onClose={() =>
+      setEditBook(null)
+    }
+
+    onSave={async (id, data) => {
+
+      await updateBook(
+        id,
+        data,
+        aToken
+      );
+
+      setEditBook(null);
+
+      getBooks();
+    }}
+  />
+)}
+
+{/* ================= EDIT LESSON MODAL ================= */}
+
+{editLesson && (
+
+  <EditLessonModal
+
+    lesson={editLesson}
+
+    onClose={() =>
+      setEditLesson(null)
+    }
+
+    onSave={async (id, data) => {
+
+      await updateLesson(
+        id,
+        data
+      );
+
+      await getLessons(
+        selectedBook._id
+      );
+
+      setEditLesson(null);
+    }}
+  />
+)}
+
+{/* ================= DELETE BOOK ================= */}
+
+{deleteBookTarget && (
+
+  <DeleteConfirmModal
+
+    title="
+    Delete Book
+    "
+
+    message="
+    Ma hubtaa inaad tirtirto kitaabkan?
+    "
+
+    onClose={() =>
+      setDeleteBookTarget(null)
+    }
+
+    onConfirm={async () => {
+
+      await deleteBook(
+        deleteBookTarget._id,
+        aToken
+      );
+
+      setDeleteBookTarget(null);
+
+      getBooks();
+    }}
+  />
+)}
+
+{/* ================= DELETE LESSON ================= */}
+
+{deleteLessonTarget && (
+
+  <DeleteConfirmModal
+
+    title="
+    Delete Lesson
+    "
+
+    message="
+    Ma hubtaa inaad tirtirto casharkan?
+    "
+
+    onClose={() =>
+      setDeleteLessonTarget(null)
+    }
+
+    onConfirm={async () => {
+
+      await deleteLesson(
+        deleteLessonTarget._id
+      );
+
+      await getLessons(
+        selectedBook._id
+      );
+
+      setDeleteLessonTarget(null);
+    }}
+  />
+)}
 
     </div>
   );
