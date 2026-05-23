@@ -127,7 +127,7 @@ Swal.fire({
               letterSpacing: "-1px",
             }}
           >
-            📩 Nala Soo Xiriir
+            📩 Nala Soo xidhiidh
           </h1>
 
           <p
@@ -140,9 +140,9 @@ Swal.fire({
               color: "#FFF8F3",
             }}
           >
-            Haddii aad qabto su’aalo, talooyin,
-            ama aad doonayso taageero,
-            si xor ah noola soo xiriir.
+            Haddii aad qabto su’aalo, aad nooo waddo talooyin,
+            ama aad doonayso caawimo ,
+            nala soo xidhiidh.
           </p>
 
         </div>
