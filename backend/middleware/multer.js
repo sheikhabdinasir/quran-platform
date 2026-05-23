@@ -1,10 +1,57 @@
 import multer from "multer";
 
-// Halkan waxa aad ku dari kartaa config Cloudinary haddii aad rabto.
-// Hadda waxaan isticmaaleeynaa memory storage oo fudud.
+import {
+  CloudinaryStorage
+} from "multer-storage-cloudinary";
 
-const storage = multer.memoryStorage();
+import cloudinary
+from "../config/cloudinary.js";
 
-const upload = multer({ storage });
+/* =========================
+   CLOUDINARY STORAGE
+========================= */
+
+const storage =
+new CloudinaryStorage({
+
+  cloudinary,
+
+  params: async (
+    req,
+    file
+  ) => {
+
+    return {
+
+      folder:
+      "lessons",
+
+      resource_type:
+      "auto",
+
+      public_id:
+      Date.now() +
+      "-" +
+      file.originalname
+        .split(".")[0],
+    };
+  },
+});
+
+/* =========================
+   MULTER
+========================= */
+
+const upload =
+multer({
+
+  storage,
+
+  limits: {
+
+    fileSize:
+    1024 * 1024 * 500,
+  },
+});
 
 export default upload;
