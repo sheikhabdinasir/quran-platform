@@ -99,13 +99,23 @@ const AudioPlayerBar = () => {
      INVALID LINK DETECTION
   ========================= */
 
-  const invalidAudio =
+ const invalidAudio =
 
-    !isLoading &&
+  currentLesson?.audioUrl &&
 
-    !duration &&
+  !isLoading &&
 
-    currentLesson.audioUrl;
+  (
+    duration === 0 ||
+
+    duration === Infinity ||
+
+    isNaN(duration)
+  );
+
+
+
+
 
   /* 🔹 MINIMIZED */
   if (isHidden) {
@@ -152,8 +162,8 @@ const AudioPlayerBar = () => {
 
         onClick={() =>
 
-          !hasError &&
-          navigate("/now-playing")
+         !invalidAudio &&
+navigate("/now-playing")
         }
       >
 
