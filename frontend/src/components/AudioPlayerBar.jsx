@@ -206,15 +206,47 @@ const AudioPlayerBar = () => {
         {/* ❌ INVALID AUDIO */}
         {invalidAudio || hasError ? (
 
-          <>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "10px",
+            }}
+          >
+
+            <span
+              style={{
+                color: "#ffb4b4",
+                fontSize: "13px",
+                fontWeight: "600",
+              }}
+            >
+              Invalid Audio
+            </span>
+
             <button
               className="close-btn"
 
               onClick={stopPlayer}
+
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                width: "36px",
+                height: "36px",
+                borderRadius: "50%",
+                background: "#ef4444",
+                color: "#fff",
+                fontSize: "18px",
+                border: "none",
+                cursor: "pointer",
+              }}
             >
               ✕
             </button>
-          </>
+
+          </div>
 
         ) : isLoading ? (
 
@@ -273,7 +305,7 @@ const AudioPlayerBar = () => {
 
         )}
 
-       </div>
+      </div>
 
     </div>
   );
