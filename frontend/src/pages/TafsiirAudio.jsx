@@ -70,9 +70,9 @@ const TafsiirAudio = () => {
       }
     };
 
-  /* ✅ SEARCH + SORT */
-  const filtered = items
-    .filter(item =>
+  /* ✅ SEARCH */
+  const filtered =
+    items.filter(item =>
 
       item.surahName
         ?.toLowerCase()
@@ -85,34 +85,7 @@ const TafsiirAudio = () => {
         .includes(
           search.toLowerCase()
         )
-    )
-
-    /* ✅ SURAH ORDER */
-    .sort((a, b) => {
-
-      if (
-        a.surahNumber !==
-        b.surahNumber
-      ) {
-
-        return (
-          a.surahNumber -
-          b.surahNumber
-        );
-      }
-
-      /* ✅ AYAH ORDER */
-      return (
-        Number(
-          a.ayahFrom || 1
-        ) -
-
-        Number(
-          b.ayahFrom || 1
-        )
-      );
-
-    });
+    );
 
   return (
     <div className="tafsiir-page">
@@ -242,27 +215,27 @@ const TafsiirAudio = () => {
                     className="tafsiir-info"
                   >
 
-                    
+                    <h3 dir="rtl">
 
-                  <div
-  className="tafsiir-info"
->
+                      {
+                        item.surahName
+                      }
 
-  <p dir="rtl">
+                    </h3>
 
-    من الآية {
-      item.ayahFrom
-    }
+                    <p dir="rtl">
 
-    {" "}إلى{" "}
+                      الجزء {
+                        item.partNumber
+                      }
 
-    {
-      item.ayahTo
-    }
+                      {" • "}
 
-  </p>
+                      {
+                        item.sheikhName
+                      }
 
-</div>  
+                    </p>
 
                   </div>
 
