@@ -41,7 +41,7 @@ const TafsiirNowPlaying = () => {
       </div>
 
       <p className="now-small">
-        Tafsiir Audio
+        Tafsiir 
       </p>
 
       <h1 className="now-title">
