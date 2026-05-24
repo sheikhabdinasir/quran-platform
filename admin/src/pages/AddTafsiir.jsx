@@ -19,6 +19,7 @@ const AddTafsiir = () => {
   const [form, setForm] =
     useState({
 
+      juzNumber: "1",
       surahNumber: "",
       surahName: "",
 
