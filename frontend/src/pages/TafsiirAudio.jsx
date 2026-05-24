@@ -71,21 +71,44 @@ const TafsiirAudio = () => {
     };
 
   /* ✅ SEARCH */
-  const filtered =
-    items.filter(item =>
+ const filtered = items
+  .filter(item =>
 
-      item.surahName
-        ?.toLowerCase()
-        .includes(
-          search.toLowerCase()
-        ) ||
+    item.surahName
+      ?.toLowerCase()
+      .includes(
+        search.toLowerCase()
+      ) ||
 
-      item.sheikhName
-        ?.toLowerCase()
-        .includes(
-          search.toLowerCase()
-        )
+    item.sheikhName
+      ?.toLowerCase()
+      .includes(
+        search.toLowerCase()
+      )
+  )
+
+  /* ✅ SORT SURAH + PART */
+  .sort((a, b) => {
+
+    /* 1️⃣ SURAH ORDER */
+    if (
+      a.surahNumber !==
+      b.surahNumber
+    ) {
+
+      return (
+        a.surahNumber -
+        b.surahNumber
+      );
+    }
+
+    /* 2️⃣ PART ORDER */
+    return (
+      Number(a.partNumber || 1) -
+      Number(b.partNumber || 1)
     );
+
+  });
 
   return (
     <div className="tafsiir-page">
