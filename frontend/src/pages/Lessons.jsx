@@ -154,7 +154,7 @@ const Lessons = () => {
         .back-btn {
           background: none;
           border: none;
-          color: rgb(5, 58, 173);
+          color: rgb(34, 209, 57);
           font-size: 15px;
           cursor: pointer;
           margin-bottom: 1rem;
