@@ -126,8 +126,7 @@ const TafsiirAudio = () => {
         {/* TITLE */}
         <h1 className="tafsiir-title">
 
-          مرحبًا بكم في تعلم تفسير القرآن الكريم
-
+ku soo dhawow barashada tafsiirka quráanka kariimka
         </h1>
 
         {/* SEARCH */}
@@ -159,7 +158,7 @@ const TafsiirAudio = () => {
               }}
             >
 
-              ⏳ جاري التحميل...
+              ⏳sug...
 
             </div>
           )
@@ -189,7 +188,7 @@ const TafsiirAudio = () => {
                   }}
                 >
 
-                  لا يوجد تفسير
+                  tafsiir lama helin
 
                 </h2>
 
