@@ -5,6 +5,7 @@ import React, {
 } from "react";
 
 import axios from "axios";
+
 import "../tafsiir.css";
 
 import {
@@ -36,8 +37,11 @@ const TafsiirAudio = () => {
     TafsiirPlayerContext
   );
 
+  /* LOAD */
   useEffect(() => {
+
     loadData();
+
   }, []);
 
   const loadData =
@@ -50,7 +54,6 @@ const TafsiirAudio = () => {
         const { data } =
           await axios.get(API);
 
-        /* ✅ AUDIO + VIDEO */
         const media =
           data.tafsiir.filter(
             item =>
@@ -70,9 +73,10 @@ const TafsiirAudio = () => {
       }
     };
 
-  /* ✅ SEARCH */
-  const filtered =
-    items.filter(item =>
+  /* FILTER + SORT */
+  const filtered = items
+
+    .filter(item =>
 
       item.surahName
         ?.toLowerCase()
@@ -85,24 +89,57 @@ const TafsiirAudio = () => {
         .includes(
           search.toLowerCase()
         )
-    );
+    )
+
+    .sort((a, b) => {
+
+      /* SURAH ORDER */
+      if (
+        a.surahNumber !==
+        b.surahNumber
+      ) {
+
+        return (
+          a.surahNumber -
+          b.surahNumber
+        );
+      }
+
+      /* AYAH ORDER */
+      return (
+        Number(
+          a.ayahFrom || 1
+        ) -
+
+        Number(
+          b.ayahFrom || 1
+        )
+      );
+    });
 
   return (
+
     <div className="tafsiir-page">
 
       <div className="tafsiir-page-wrap">
 
         {/* TITLE */}
         <h1 className="tafsiir-title">
+
           مرحبًا بكم في تعلم تفسير القرآن الكريم
+
         </h1>
 
         {/* SEARCH */}
         <input
           type="text"
+
           className="tafsiir-search"
+
           placeholder="ابحث عن السورة أو الشيخ..."
+
           value={search}
+
           onChange={(e) =>
             setSearch(
               e.target.value
@@ -121,7 +158,9 @@ const TafsiirAudio = () => {
                 color: "#666"
               }}
             >
+
               ⏳ جاري التحميل...
+
             </div>
           )
         }
@@ -149,12 +188,15 @@ const TafsiirAudio = () => {
                     marginBottom: "10px"
                   }}
                 >
-                  لا يوجد تفسير ghjgfgfhgfh nhgfjgyjgyj  /TafsiirAudio.jsx
 
-                </h2> 
+                  لا يوجد تفسير
+
+                </h2>
 
                 <p>
+
                   لم يتم إضافة أي تفسير حتى الآن
+
                 </p>
 
               </div>
@@ -177,6 +219,7 @@ const TafsiirAudio = () => {
 
                 <div
                   key={item._id}
+
                   className={
                     active
                       ? "tafsiir-row active"
@@ -187,6 +230,7 @@ const TafsiirAudio = () => {
                   {/* PLAY */}
                   <button
                     className="tafsiir-play-btn"
+
                     onClick={() => {
 
                       if (active) {
@@ -203,12 +247,14 @@ const TafsiirAudio = () => {
 
                     }}
                   >
+
                     {
                       active &&
-                        isPlaying
+                      isPlaying
                         ? "❚❚"
                         : "▶"
                     }
+
                   </button>
 
                   {/* INFO */}
@@ -216,24 +262,16 @@ const TafsiirAudio = () => {
                     className="tafsiir-info"
                   >
 
-                    <h3 dir="rtl">
-
-                      {
-                        item.surahName
-                      }
-
-                    </h3>
-
                     <p dir="rtl">
 
-                      الجزء {
-                        item.partNumber
+                      من الآية {
+                        item.ayahFrom
                       }
 
-                      {" • "}
+                      {" "}إلى{" "}
 
                       {
-                        item.sheikhName
+                        item.ayahTo
                       }
 
                     </p>
@@ -243,17 +281,20 @@ const TafsiirAudio = () => {
                   {/* FAVORITE */}
                   <button
                     className="tafsiir-fav"
+
                     onClick={() =>
                       toggleFavorite(
                         item._id
                       )
                     }
                   >
+
                     {
                       liked
                         ? "★"
                         : "☆"
                     }
+
                   </button>
 
                 </div>
