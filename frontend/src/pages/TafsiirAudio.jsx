@@ -70,45 +70,49 @@ const TafsiirAudio = () => {
       }
     };
 
-  /* ✅ SEARCH */
- const filtered = items
-  .filter(item =>
+  /* ✅ SEARCH + SORT */
+  const filtered = items
+    .filter(item =>
 
-    item.surahName
-      ?.toLowerCase()
-      .includes(
-        search.toLowerCase()
-      ) ||
+      item.surahName
+        ?.toLowerCase()
+        .includes(
+          search.toLowerCase()
+        ) ||
 
-    item.sheikhName
-      ?.toLowerCase()
-      .includes(
-        search.toLowerCase()
-      )
-  )
+      item.sheikhName
+        ?.toLowerCase()
+        .includes(
+          search.toLowerCase()
+        )
+    )
 
-  /* ✅ SORT SURAH + PART */
-  .sort((a, b) => {
+    /* ✅ SURAH ORDER */
+    .sort((a, b) => {
 
-    /* 1️⃣ SURAH ORDER */
-    if (
-      a.surahNumber !==
-      b.surahNumber
-    ) {
-
-      return (
-        a.surahNumber -
+      if (
+        a.surahNumber !==
         b.surahNumber
+      ) {
+
+        return (
+          a.surahNumber -
+          b.surahNumber
+        );
+      }
+
+      /* ✅ AYAH ORDER */
+      return (
+        Number(
+          a.ayahFrom || 1
+        ) -
+
+        Number(
+          b.ayahFrom || 1
+        )
       );
-    }
 
-    /* 2️⃣ PART ORDER */
-    return (
-      Number(a.partNumber || 1) -
-      Number(b.partNumber || 1)
-    );
-
-  });
+    });
 
   return (
     <div className="tafsiir-page">
@@ -238,28 +242,19 @@ const TafsiirAudio = () => {
                     className="tafsiir-info"
                   >
 
-                    <h3 dir="rtl">
+                    <p dir="rtl">
 
-                      {
-                        item.surahName
+                      من الآية {
+                        item.ayahFrom
                       }
 
-                    </h3>
+                      {" "}إلى{" "}
 
-                    
-<p dir="rtl">
+                      {
+                        item.ayahTo
+                      }
 
-  من الآية {
-    item.ayahFrom
-  }
-
-  {" "}إلى{" "}
-
-  {
-    item.ayahTo
-  }
-
-</p>
+                    </p>
 
                   </div>
 
