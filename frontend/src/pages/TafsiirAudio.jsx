@@ -149,7 +149,7 @@ const TafsiirAudio = () => {
                     marginBottom: "10px"
                   }}
                 >
-                  لا يوجد تفسير
+                  لا يوجد تفسير ghjgfgfhgfh
                 </h2>
 
                 <p>
