@@ -1,7 +1,5 @@
 import Book from "../models/BookModel.js";
 import Lesson from "../models/LessonModel.js";
-import cloudinary from "../config/cloudinary.js";
-import streamifier from "streamifier";
 
 /* ================= CREATE BOOK ================= */
 export const createBook = async (req, res) => {
@@ -20,29 +18,10 @@ export const createBook = async (req, res) => {
 
     let imageUrl = "";
 
-    /* ================= IMAGE UPLOAD ================= */
-    if (req.file) {
-      const uploadFromBuffer = () => {
-        return new Promise((resolve, reject) => {
-          const stream = cloudinary.uploader.upload_stream(
-            {
-              folder: "books",
-            },
-            (error, result) => {
-              if (result) resolve(result);
-              else reject(error);
-            }
-          );
+if (req.file) {
 
-          streamifier
-            .createReadStream(req.file.buffer)
-            .pipe(stream);
-        });
-      };
-
-      const result = await uploadFromBuffer();
-      imageUrl = result.secure_url;
-    }
+  imageUrl = req.file.path;
+}
 
     /* ================= CREATE ================= */
     const book = await Book.create({
@@ -105,31 +84,14 @@ export const updateBook = async (req, res) => {
       });
     }
 
+   
+
     let imageUrl = book.image;
 
-    /* ================= NEW IMAGE UPLOAD ================= */
-    if (req.file) {
-      const uploadFromBuffer = () => {
-        return new Promise((resolve, reject) => {
-          const stream = cloudinary.uploader.upload_stream(
-            {
-              folder: "books",
-            },
-            (error, result) => {
-              if (result) resolve(result);
-              else reject(error);
-            }
-          );
+if (req.file) {
 
-          streamifier
-            .createReadStream(req.file.buffer)
-            .pipe(stream);
-        });
-      };
-
-      const result = await uploadFromBuffer();
-      imageUrl = result.secure_url;
-    }
+  imageUrl = req.file.path;
+}
 
     /* ================= UPDATE DATA ================= */
     book.title = title || book.title;
