@@ -223,19 +223,14 @@ const TafsiirAudio = () => {
 
                     </h3>
 
-                    <p dir="rtl">
+                    
+<p dir="rtl">
 
-                      الجزء {
-                        item.partNumber
-                      }
+  {
+    item.sheikhName
+  }
 
-                      {" • "}
-
-                      {
-                        item.sheikhName
-                      }
-
-                    </p>
+</p>
 
                   </div>
 
