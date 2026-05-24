@@ -224,7 +224,7 @@ const Lessons = () => {
         .lesson-text p {
           margin: 2px 0 0;
           font-size: 13px;
-          color: #0812a0;
+          color: #a00842;
         }
 
         .lesson-bookmark,
