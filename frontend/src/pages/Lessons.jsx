@@ -78,7 +78,7 @@ const Lessons = () => {
       {/* HEADER */}
       {book && (
         <div className="lessons-header">
-          <h2>📘 Kusoo dhawoow</h2>
+          <h2> Kusoo dhawoow</h2>
           <h1>{book.title}</h1>
           <p>🎙 {book.sheikhName}</p>
         </div>
@@ -154,7 +154,7 @@ const Lessons = () => {
         .back-btn {
           background: none;
           border: none;
-          color: #145314;
+          color: rgb(5, 58, 173);
           font-size: 15px;
           cursor: pointer;
           margin-bottom: 1rem;
