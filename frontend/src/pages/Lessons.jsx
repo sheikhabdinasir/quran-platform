@@ -194,7 +194,7 @@ const Lessons = () => {
           padding: 12px 14px;
           border-radius: 14px;
           background: #ffffff;
-          box-shadow: 0 8px 20px rgba(218, 204, 9, 0.23);  hh
+          box-shadow: 0 8px 20px rgba(30, 26, 82, 0.23);  
           cursor: pointer;
         }
 
