@@ -135,7 +135,7 @@ ku soo dhawow barashada tafsiirka quráanka kariimka
 
           className="tafsiir-search"
 
-          placeholder="ابحث عن السورة أو الشيخ..."
+          placeholder="🔍 Raadi magaca suuradda..."
 
           value={search}
 
@@ -194,8 +194,7 @@ ku soo dhawow barashada tafsiirka quráanka kariimka
 
                 <p>
 
-                  لم يتم إضافة أي تفسير حتى الآن
-
+                  Tafsiir lama heli karo hadda
                 </p>
 
               </div>
