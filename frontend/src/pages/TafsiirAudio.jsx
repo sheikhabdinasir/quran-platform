@@ -149,8 +149,9 @@ const TafsiirAudio = () => {
                     marginBottom: "10px"
                   }}
                 >
-                  لا يوجد تفسير ghjgfgfhgfh
-                </h2>
+                  لا يوجد تفسير ghjgfgfhgfh nhgfjgyjgyj  /TafsiirAudio.jsx
+
+                </h2> 
 
                 <p>
                   لم يتم إضافة أي تفسير حتى الآن
