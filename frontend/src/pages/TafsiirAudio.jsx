@@ -261,6 +261,13 @@ const TafsiirAudio = () => {
                   <div
                     className="tafsiir-info"
                   >
+                    <h3 dir="rtl">
+
+  {
+    item.surahName
+  }
+
+</h3>
 
                     <p dir="rtl">
 
