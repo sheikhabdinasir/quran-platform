@@ -242,19 +242,9 @@ const TafsiirAudio = () => {
                     className="tafsiir-info"
                   >
 
-                    <p dir="rtl">
+                    
 
-                      من الآية {
-                        item.ayahFrom
-                      }
-
-                      {" "}إلى{" "}
-
-                      {
-                        item.ayahTo
-                      }
-
-                    </p>
+                    
 
                   </div>
 
