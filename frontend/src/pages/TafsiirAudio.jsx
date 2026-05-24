@@ -36,12 +36,8 @@ const TafsiirAudio = () => {
     TafsiirPlayerContext
   );
 
-  /* ================= LOAD ================= */
-
   useEffect(() => {
-
     loadData();
-
   }, []);
 
   const loadData =
@@ -54,6 +50,7 @@ const TafsiirAudio = () => {
         const { data } =
           await axios.get(API);
 
+        /* ✅ AUDIO + VIDEO */
         const media =
           data.tafsiir.filter(
             item =>
@@ -73,107 +70,62 @@ const TafsiirAudio = () => {
       }
     };
 
-  /* ================= FILTER + SORT ================= */
+  /* ✅ SEARCH */
+ const filtered = items
+  .filter(item =>
 
-  const filtered = items
+    item.surahName
+      ?.toLowerCase()
+      .includes(
+        search.toLowerCase()
+      ) ||
 
-    .filter(item =>
+    item.sheikhName
+      ?.toLowerCase()
+      .includes(
+        search.toLowerCase()
+      )
+  )
 
-      item.surahName
-        ?.toLowerCase()
-        .includes(
-          search.toLowerCase()
-        ) ||
+  /* ✅ SORT SURAH + PART */
+  .sort((a, b) => {
 
-      item.sheikhName
-        ?.toLowerCase()
-        .includes(
-          search.toLowerCase()
-        )
-    )
+    /* 1️⃣ SURAH ORDER */
+    if (
+      a.surahNumber !==
+      b.surahNumber
+    ) {
 
-    .sort((a, b) => {
-
-      /* ✅ SURAH ORDER */
-      if (
-        a.surahNumber !==
-        b.surahNumber
-      ) {
-
-        return (
-          a.surahNumber -
-          b.surahNumber
-        );
-      }
-
-      /* ✅ AYAH ORDER */
       return (
-        Number(
-          a.ayahFrom || 1
-        ) -
-
-        Number(
-          b.ayahFrom || 1
-        )
+        a.surahNumber -
+        b.surahNumber
       );
-    });
-
-  /* ================= GROUP ================= */
-
-  const grouped = {};
-
-  filtered.forEach(item => {
-
-    const key =
-      item.surahNumber;
-
-    if (!grouped[key]) {
-
-      grouped[key] = {
-
-        surahName:
-          item.surahName,
-
-        surahNumber:
-          item.surahNumber,
-
-        items: [],
-      };
     }
 
-    grouped[key]
-      .items
-      .push(item);
+    /* 2️⃣ PART ORDER */
+    return (
+      Number(a.partNumber || 1) -
+      Number(b.partNumber || 1)
+    );
+
   });
 
-  const groupedSurahs =
-    Object.values(grouped);
-
   return (
-
     <div className="tafsiir-page">
 
       <div className="tafsiir-page-wrap">
 
-        {/* ================= TITLE ================= */}
-
+        {/* TITLE */}
         <h1 className="tafsiir-title">
-
           مرحبًا بكم في تعلم تفسير القرآن الكريم
-
         </h1>
 
-        {/* ================= SEARCH ================= */}
-
+        {/* SEARCH */}
         <input
           type="text"
-
           className="tafsiir-search"
-
           placeholder="ابحث عن السورة أو الشيخ..."
-
           value={search}
-
           onChange={(e) =>
             setSearch(
               e.target.value
@@ -181,8 +133,7 @@ const TafsiirAudio = () => {
           }
         />
 
-        {/* ================= LOADING ================= */}
-
+        {/* LOADING */}
         {
           loading && (
 
@@ -193,221 +144,140 @@ const TafsiirAudio = () => {
                 color: "#666"
               }}
             >
-
               ⏳ جاري التحميل...
-
             </div>
           )
         }
 
-        {/* ================= EMPTY ================= */}
+        {/* LIST */}
+        <div className="tafsiir-list">
 
-        {
-          !loading &&
-          groupedSurahs.length === 0 && (
+          {/* EMPTY */}
+          {
+            !loading &&
+            filtered.length === 0 && (
 
-            <div
-              style={{
-                textAlign: "center",
-                padding: "50px 20px",
-                color: "#777"
-              }}
-            >
-
-              <h2
+              <div
                 style={{
-                  fontSize: "24px",
-                  marginBottom: "10px"
+                  textAlign: "center",
+                  padding: "50px 20px",
+                  width: "100%",
+                  color: "#777"
                 }}
               >
 
-                لا يوجد تفسير
+                <h2
+                  style={{
+                    fontSize: "24px",
+                    marginBottom: "10px"
+                  }}
+                >
+                  لا يوجد تفسير
+                </h2>
 
-              </h2>
+                <p>
+                  لم يتم إضافة أي تفسير حتى الآن
+                </p>
 
-              <p>
-
-                لم يتم إضافة أي تفسير حتى الآن
-
-              </p>
-
-            </div>
-          )
-        }
-
-        {/* ================= LIST ================= */}
-
-        <div className="tafsiir-list">
+              </div>
+            )
+          }
 
           {
-            groupedSurahs.map(
-              (surah) => (
+            filtered.map(item => {
+
+              const active =
+                currentTrack?._id ===
+                item._id;
+
+              const liked =
+                favorites.includes(
+                  item._id
+                );
+
+              return (
 
                 <div
-                  key={
-                    surah.surahNumber
+                  key={item._id}
+                  className={
+                    active
+                      ? "tafsiir-row active"
+                      : "tafsiir-row"
                   }
-
-                  className="mb-8"
                 >
 
-                  {/* ================= SURAH HEADER ================= */}
+                  {/* PLAY */}
+                  <button
+                    className="tafsiir-play-btn"
+                    onClick={() => {
 
-                  <div
-                    style={{
-                      background:
-                        "linear-gradient(135deg,#0f172a,#1e293b)",
+                      if (active) {
 
-                      color: "#fff",
+                        togglePlay();
 
-                      padding:
-                        "16px 20px",
+                      } else {
 
-                      borderRadius:
-                        "18px",
-
-                      marginBottom:
-                        "16px",
-
-                      boxShadow:
-                        "0 10px 25px rgba(0,0,0,0.15)"
-                    }}
-                  >
-
-                    <h2
-                      dir="rtl"
-
-                      style={{
-                        margin: 0,
-                        fontSize: "28px",
-                        fontWeight: "700"
-                      }}
-                    >
-
-                      📖 {
-                        surah.surahName
+                        playTrack(
+                          item,
+                          filtered
+                        );
                       }
 
-                    </h2>
+                    }}
+                  >
+                    {
+                      active &&
+                        isPlaying
+                        ? "❚❚"
+                        : "▶"
+                    }
+                  </button>
+
+                  {/* INFO */}
+                  <div
+                    className="tafsiir-info"
+                  >
+
+                    <h3 dir="rtl">
+
+                      {
+                        item.surahName
+                      }
+
+                    </h3>
+
+                    
+<p dir="rtl">
+
+  {
+    item.sheikhName
+  }
+
+</p>
 
                   </div>
 
-                  {/* ================= AYAH PARTS ================= */}
-
-                  {
-                    surah.items.map(
-                      (item) => {
-
-                        const active =
-                          currentTrack?._id ===
-                          item._id;
-
-                        const liked =
-                          favorites.includes(
-                            item._id
-                          );
-
-                        return (
-
-                          <div
-                            key={item._id}
-
-                            className={
-                              active
-                                ? "tafsiir-row active"
-                                : "tafsiir-row"
-                            }
-                          >
-
-                            {/* ================= PLAY ================= */}
-
-                            <button
-                              className="tafsiir-play-btn"
-
-                              onClick={() => {
-
-                                if (active) {
-
-                                  togglePlay();
-
-                                } else {
-
-                                  playTrack(
-                                    item,
-                                    filtered
-                                  );
-                                }
-                              }}
-                            >
-
-                              {
-                                active &&
-                                isPlaying
-                                  ? "❚❚"
-                                  : "▶"
-                              }
-
-                            </button>
-
-                            {/* ================= INFO ================= */}
-
-                            <div
-                              className="tafsiir-info"
-                            >
-
-                              <h3 dir="rtl">
-
-                                من الآية {
-                                  item.ayahFrom
-                                }
-
-                                {" "}إلى{" "}
-
-                                {
-                                  item.ayahTo
-                                }
-
-                              </h3>
-
-                              <p dir="rtl">
-
-                                {
-                                  item.sheikhName
-                                }
-
-                              </p>
-
-                            </div>
-
-                            {/* ================= FAVORITE ================= */}
-
-                            <button
-                              className="tafsiir-fav"
-
-                              onClick={() =>
-                                toggleFavorite(
-                                  item._id
-                                )
-                              }
-                            >
-
-                              {
-                                liked
-                                  ? "★"
-                                  : "☆"
-                              }
-
-                            </button>
-
-                          </div>
-                        );
-                      }
-                    )
-                  }
+                  {/* FAVORITE */}
+                  <button
+                    className="tafsiir-fav"
+                    onClick={() =>
+                      toggleFavorite(
+                        item._id
+                      )
+                    }
+                  >
+                    {
+                      liked
+                        ? "★"
+                        : "☆"
+                    }
+                  </button>
 
                 </div>
-              )
-            )
+
+              );
+
+            })
           }
 
         </div>
