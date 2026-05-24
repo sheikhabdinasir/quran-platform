@@ -167,7 +167,7 @@ const Lessons = () => {
 
         .lessons-header h1 {
           font-size: 2rem;
-          color: #46040fb2;
+          color: #f30b32b2;
           margin: .3rem 0;
         }
 
