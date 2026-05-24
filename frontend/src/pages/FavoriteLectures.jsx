@@ -26,7 +26,7 @@ const FavoriteLectures = () => {
 
   return (
     <section className="lesson-page">
-      <h2 className="page-title">⭐ Muxaadarooyin Xul ah</h2>
+      <h2 className="page-title"> Muxaadarooyin Xul ah</h2>
 
       <input
         className="search-input"
