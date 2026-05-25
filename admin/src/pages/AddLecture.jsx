@@ -98,7 +98,7 @@ const AddLecture = () => {
               name="link"
               value={form.link}
               onChange={handleChange}
-              placeholder="https://youtube.com/..."
+              placeholder=" LINK... .."
               className="w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-yellow-400 outline-none"
             />
           </div>
