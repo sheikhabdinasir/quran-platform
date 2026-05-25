@@ -119,7 +119,7 @@ Swal.fire({
             style={{
               fontSize: "clamp(2.5rem,5vw,4rem)",
               fontWeight: 900,
-              color: "#FFD95A",
+              color: "#5a65ff",
 
               textShadow:
                 "0 0 20px rgba(212,175,55,.35), 0 4px 18px rgba(0,0,0,.9)",
@@ -127,7 +127,7 @@ Swal.fire({
               letterSpacing: "-1px",
             }}
           >
-              Nala Soo xidhiidh
+             Nala Soo xidhiidh
           </h1>
 
           <p
@@ -137,7 +137,7 @@ Swal.fire({
               maxWidth: "720px",
               marginInline: "auto",
               lineHeight: "2",
-              color: "#4609d3",
+              color: "#FFF8F3",
             }}
           >
             Haddii aad qabto su’aalo, aad nooo waddo talooyin
