@@ -132,7 +132,7 @@ baro tafsiirka quráanka
   xul            </h2>
 
             <p>
-              dhegeysi tafsiirka aad xulatay
+              dhegeyso tafsiirka aad xulatay
             </p>
 
           </div>
