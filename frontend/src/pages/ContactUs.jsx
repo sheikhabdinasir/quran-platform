@@ -127,7 +127,7 @@ Swal.fire({
               letterSpacing: "-1px",
             }}
           >
-            📩 Nala Soo xidhiidh
+              Nala Soo xidhiidh
           </h1>
 
           <p
@@ -137,7 +137,7 @@ Swal.fire({
               maxWidth: "720px",
               marginInline: "auto",
               lineHeight: "2",
-              color: "#FFF8F3",
+              color: "#4609d3",
             }}
           >
             Haddii aad qabto su’aalo, aad nooo waddo talooyin
