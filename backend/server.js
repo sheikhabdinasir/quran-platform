@@ -31,27 +31,8 @@ app.use(
 
 /* ================= CORS ================= */
 
-app.use(
+app.use(cors());
 
-  cors({
-
-    origin: [
-      "https://quran-admin-nine.vercel.app",
-    ],
-
-    methods: [
-      "GET",
-      "POST",
-      "PUT",
-      "PATCH",
-      "DELETE",
-    ],
-
-    credentials: true,
-
-  })
-
-);
 /* ================= BODY PARSER ================= */
 
 app.use(express.json());
