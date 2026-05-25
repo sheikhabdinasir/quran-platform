@@ -31,8 +31,7 @@ const sendEmail = async (
 
   await transporter.sendMail({
 
-    from:
-      process.env.EMAIL_USER,
+    from: '"Tafsiir Platform" <no-reply@tafsiir.com>',
 
     to,
 
