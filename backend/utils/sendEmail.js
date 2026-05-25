@@ -13,7 +13,9 @@ const sendEmail = async (
         process.env.EMAIL_HOST,
 
       port:
-        process.env.EMAIL_PORT,
+        Number(
+          process.env.EMAIL_PORT
+        ),
 
       secure: false,
 
@@ -27,11 +29,14 @@ const sendEmail = async (
 
       },
 
+      connectionTimeout: 10000,
+
     });
 
   await transporter.sendMail({
 
-    from: '"Tafsiir Platform" <no-reply@tafsiir.com>',
+    from:
+      process.env.EMAIL_USER,
 
     to,
 
