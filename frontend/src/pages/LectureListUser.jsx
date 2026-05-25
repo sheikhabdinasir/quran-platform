@@ -88,7 +88,7 @@ const LectureListUser = () => {
           className="search-input"
 
           placeholder="
-          🔍 Raadi magaca muxaadarada ama magaca shiikh...
+          🔍  Raadi magaca muxaadarada...
         "
 
           value={search}
