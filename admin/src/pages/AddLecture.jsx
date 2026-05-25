@@ -19,7 +19,7 @@ const AddLecture = () => {
     e.preventDefault();
 
     if (!form.title || !form.speaker || !form.description || !form.link) {
-      toast.error("❌ Fadlan buuxi dhammaan meelaha");
+      toast.error("❌ Fadlan buuxi dhammaan xogta");
       return;
     }
 
@@ -30,7 +30,7 @@ const AddLecture = () => {
 );
 
       playDing();
-      toast.success("✅ Muxaadarada si guul ah ayaa loo daray");
+      toast.success("✅ Muxaadarada si guul ah ayaa loogu daray");
 
       setForm({
         title: "",
