@@ -66,13 +66,11 @@ const Tafsiir = () => {
           <h1 className="hero-title">
 
             دروسُ التفسيرِ للشيخِ عبد الناصر حاجي أحمد
-
           </h1>
 
           <p className="hero-subtitle">
 
-            تعلَّم تفسيرَ القرآنِ الكريمِ
-
+baro tafsiirka quráanka 
           </p>
 
         </div>
@@ -100,12 +98,10 @@ const Tafsiir = () => {
           <div className="card-body">
 
             <h2>
-              التفسير الصوتي
-            </h2>
+ tafsiir             </h2>
 
             <p>
-              استمع إلى دروس التفسير في أي وقت
-            </p>
+ bilow tafsiirka            </p>
 
           </div>
 
@@ -133,11 +129,10 @@ const Tafsiir = () => {
           <div className="card-body">
 
             <h2>
-              المفضلة
-            </h2>
+  xul            </h2>
 
             <p>
-              استمع إلى التفسير الذي حفظته
+              dhegeysi tafsiirka aad xulatay
             </p>
 
           </div>
@@ -164,7 +159,7 @@ const Tafsiir = () => {
           <div className="card-body">
 
             <h2>
-              تابع الاستماع
+              Sii wado dhegeysiga
             </h2>
 
             <p>
