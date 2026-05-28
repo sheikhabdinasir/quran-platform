@@ -130,23 +130,18 @@ maad samaysan tafsiir xul ah
                   }
                 </button>
 
-                <div className="tafsiir-info">
+              
+              <div className="tafsiir-info">
 
-                  <h3>
-                    {
-                      item.surahName
-                    }
-                  </h3>
+  <h3 dir="rtl">
+    {item.surahName}
+  </h3>
 
-                  <p>
-                    Part {
-                      item.partNumber
-                    } • {
-                      item.sheikhName
-                    }
-                  </p>
+  <p dir="rtl">
+    من الآية {item.ayahFrom} إلى {item.ayahTo}
+  </p>
 
-                </div>
+</div>
 
                 <button
                   className="tafsiir-fav"

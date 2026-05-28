@@ -70,7 +70,7 @@ const Tafsiir = () => {
 
           <p className="hero-subtitle">
 
-baro tafsiirka quráanka 
+Baro Tafsiirka Quráanka 
           </p>
 
         </div>
