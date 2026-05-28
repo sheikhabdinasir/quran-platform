@@ -126,7 +126,9 @@ const TafsiirAudio = () => {
         {/* TITLE */}
         <h1 className="tafsiir-title">
 
-ku soo dhawow barashada tafsiirka quráanka kariimka
+
+ku soo dhawow barashada Tafsiirka quráanka kariimka
+
         </h1>
 
         {/* SEARCH */}

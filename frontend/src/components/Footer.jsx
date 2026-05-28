@@ -78,8 +78,10 @@ const Footer = () => {
                 fontSize: ".95rem",
               }}
             >
+
+
               Rugtan waxaad ka helaysaa
-              tafsiirka Qur’aanka Kariimka,
+              Tafsiirka Qur’aanka Kariimka,
               muxaadarooyinka iyo kutubta
               uu akhriyey Shiikh Cabdinaasir Xaaji Axmed.
             </p>
@@ -106,7 +108,9 @@ const Footer = () => {
                   lineHeight: "2.2",
                 }}
               >
+
                 ﴿ وَقُل رَّبِّ زِدْنِي عِلْمًا ﴾
+                
               </p>
 
               <span

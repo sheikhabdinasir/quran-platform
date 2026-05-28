@@ -34,12 +34,17 @@ const Navbar = () => {
             <img src={profileImg} alt="Profile" className="nav-avatar" />
           </div>
           <div className="nav-brand">
-            <Link to="/" className="nav-logo">الشيخ عبد الناصر حاج أحمد</Link>
+
+            <Link to="/" className="nav-logo">الشيخ عبد الناصر حاج أحمد
+            </Link>
+
             <span className="nav-tagline">عالم • مُفَسِّر • داعية</span>
           </div>
         </div>
 
         {/* HAMBURGER */}
+
+
         <button
           className={`hamburger ${open ? "active" : ""}`}
           onClick={() => setOpen(!open)}
@@ -49,6 +54,7 @@ const Navbar = () => {
           <span />
           <span />
         </button>
+
 
         {/* MENU */}
         <nav className={`nav-menu ${open ? "show" : ""}`}>
@@ -62,13 +68,15 @@ const Navbar = () => {
         </nav>
       </div>
 
+
       {/* BOTTOM ORNAMENT LINE */}
       <div className="nav-bottom-line" />
 
       <style>{`
             
-      
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Scheherazade+New:wght@400;700&family=Amiri:wght@400;700&display=swap');
+
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Scheherazade+New:wght@400;700&family=Amiri:wght@400;700&display=swap');
 
 /* ============================================================
    CSS VARIABLES
