@@ -59,14 +59,7 @@ const LectureList = () => {
     fetchLectures();
   };
 
-  /* ================= FAVORITE ================= */
-  const toggleFavorite = async (id) => {
-    await axios.put(`${import.meta.env.VITE_API_URL}/api/lectures/favorite/${id}`);
-    playDing();
-    toast.success("⭐ Favorite waa la beddelay");
-    fetchLectures();
-  };
-
+  
   /* ================= DELETE ================= */
   const openDelete = (mode, id = null) => {
     setDeleteMode(mode);
@@ -171,15 +164,11 @@ axios.delete(
 
         
 
-          {/* ACTIONS */}
-          <div className="row-actions">
+        <div className="row-actions">
 
-            <button
-              className={`btn ${l.isFavorite ? "gold" : "gray"}`}
-              onClick={() => toggleFavorite(l._id)}
-            >
-              {l.isFavorite ? "⭐ Favorite" : "☆ Favorite"}
-            </button>
+  
+
+  
 
             <button
               className="btn blue"
