@@ -21,7 +21,7 @@ const lectures = lectureFavorites;
 
       <input
         className="search-input"
-        placeholder="🔍 Raadi muxaadaro ama shiikh..."
+        placeholder="🔍 Raadi muxaadaro..."
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
