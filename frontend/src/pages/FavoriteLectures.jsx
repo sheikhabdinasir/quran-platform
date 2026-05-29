@@ -1,23 +1,14 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useState } from "react";
 import { usePublic } from "../Context/PublicContext";
 const FavoriteLectures = () => {
-  const [lectures, setLectures] = useState([]);
   const [search, setSearch] = useState("");
 
-  const { playLesson } = usePublic();
-
-  useEffect(() => {
-    
-    axios
-  .get(
-    `${import.meta.env.VITE_API_URL}/api/lectures/favorites`
-  )
-
-      .then((res) => setLectures(res.data.data || []))
-      .catch(console.error);
-  }, []);
-
+const {
+  playLesson,
+  lectureFavorites
+} = usePublic();
+ 
+const lectures = lectureFavorites;
   const filtered = lectures.filter(
     (l) =>
       l.title.toLowerCase().includes(search.toLowerCase()) ||
