@@ -98,10 +98,10 @@ Baro Tafsiirka Quráanka
           <div className="card-body">
 
             <h2>
- tafsiir             </h2>
+ Tafsiir             </h2>
 
             <p>
- bilow tafsiirka            </p>
+ Bilow tafsiirka            </p>
 
           </div>
 
@@ -129,10 +129,10 @@ Baro Tafsiirka Quráanka
           <div className="card-body">
 
             <h2>
-  xul            </h2>
+  Xul            </h2>
 
             <p>
-              dhegeyso tafsiirka aad xulatay
+              dhegeyso Tafsiirka aad xulatay
             </p>
 
           </div>
@@ -159,7 +159,7 @@ Baro Tafsiirka Quráanka
           <div className="card-body">
 
             <h2>
-              Sii wado dhegeysiga
+              Sii wado dhegeysiga...
             </h2>
 
             <p>
