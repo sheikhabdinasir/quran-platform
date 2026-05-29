@@ -99,9 +99,9 @@ const AudioPlayerBar = () => {
           </button>
 
           {/* ❌ CLOSE */}
-         <button className="close-btn" onClick={stopPlayer}>
-  ❌ Cancel
-</button>
+          <button className="close-btn" onClick={stopPlayer}>
+            ✕
+          </button>
         </div>
       )}
     </div>

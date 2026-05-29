@@ -175,22 +175,17 @@
 }
 
 /* CLOSE BUTTON */
-
 .close-btn {
-  background: #dc2626;
-  color: white;
+  background: transparent;
   border: none;
-  border-radius: 10px;
-  padding: 8px 12px;
+  font-size: 18px;
+  color: #ccc;
   cursor: pointer;
-  font-size: 14px;
-  font-weight: 700;
-  margin-left: 8px;
-  flex-shrink: 0;
+  margin-left: 6px;
 }
 
 .close-btn:hover {
-  background: #b91c1c;
+  color: #ff6b6b;
 }
 
 
