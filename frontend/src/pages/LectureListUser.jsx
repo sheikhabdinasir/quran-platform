@@ -9,8 +9,11 @@ const LectureListUser = () => {
   const [lectures, setLectures] = useState([]);
   const [search, setSearch] = useState("");
 
-  const { playLesson } = usePublic();
-  const navigate = useNavigate();
+const {
+  playLesson,
+  toggleLectureFavorite,
+  isLectureFavorite
+} = usePublic();  const navigate = useNavigate();
 
   /* ================= FETCH ================= */
 
@@ -117,9 +120,12 @@ const LectureListUser = () => {
 
       {/* LIST */}
       <div className="lecture-list">
+{filtered.map((l, index) => {
 
-        {filtered.map((l, index) => (
+  const liked =
+    isLectureFavorite(l._id);
 
+  return (
           <div
             key={l._id}
 
@@ -177,13 +183,33 @@ const LectureListUser = () => {
             </div>
 
             {/* PLAY */}
-            <div className="lecture-play">
-              ▶
-            </div>
+          <div
+  onClick={(e) => {
+    e.stopPropagation();
 
-          </div>
-        ))}
+    toggleLectureFavorite({
+      _id: l._id,
+      title: l.title,
+      speaker: l.speaker,
+      link: l.link,
+    });
+  }}
+  className="lecture-favorite"
+>
+  {liked ? "⭐" : "☆"}
+</div>
 
+
+<div className="lecture-play">
+  ▶
+</div>
+
+
+         </div>
+
+  );
+
+})}
       </div>
 
       {/* EMPTY */}
@@ -407,35 +433,51 @@ const LectureListUser = () => {
 
   .search-input{
 
-    width:100%;
+  width:100%;
 
-    border:none;
+  border:none;
 
-    outline:none;
+  outline:none;
 
-    padding:18px 22px;
+  padding:18px 22px;
 
-    border-radius:999px;
+  border-radius:999px;
 
-    background:
-    rgba(18,45,35,.72);
+  background:
+  rgba(18,45,35,.72);
 
-    color:#fff;
+  color:#fff;
 
-    font-size:.95rem;
+  font-size:.95rem;
 
-    backdrop-filter:blur(18px);
+  backdrop-filter:blur(18px);
 
-    border:
-    1px solid rgba(255,215,90,.08);
+  border:
+  1px solid rgba(255,215,90,.08);
 
-    box-shadow:
-    0 10px 25px rgba(0,0,0,.22);
-  }
+  box-shadow:
+  0 10px 25px rgba(0,0,0,.22);
+}
 
-  .search-input::placeholder{
-    color:rgba(255,255,255,.42);
-  }
+.search-input::placeholder{
+  color:rgba(255,255,255,.42);
+}
+
+
+
+.lecture-favorite{
+
+  min-width:50px;
+  height:50px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-size:1.4rem;
+
+  cursor:pointer;
+}
 
   /* STATS */
 
@@ -759,6 +801,8 @@ const LectureListUser = () => {
     .search-input{
       padding:15px 18px;
       font-size:.88rem;
+
+     
     }
   }
 

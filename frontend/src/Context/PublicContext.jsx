@@ -35,6 +35,10 @@ export const PublicProvider = ({ children }) => {
     const saved = localStorage.getItem("bookmarkedLessons");
     return saved ? JSON.parse(saved) : [];
   });
+  const [lectureFavorites, setLectureFavorites] = useState(() => {
+  const saved = localStorage.getItem("lectureFavorites");
+  return saved ? JSON.parse(saved) : [];
+});
 
   const currentLesson =
     currentIndex !== null ? playlist[currentIndex] : null;
@@ -221,10 +225,42 @@ export const PublicProvider = ({ children }) => {
     });
   };
 
-  const isBookmarked = (lessonId) =>
-    bookmarks.some(
-      (lesson) => lesson._id === lessonId
+ const isBookmarked = (lessonId) =>
+  bookmarks.some(
+    (lesson) => lesson._id === lessonId
+  );
+
+    /* ================= LECTURE FAVORITES ================= */
+
+const toggleLectureFavorite = (lecture) => {
+
+  setLectureFavorites((prev) => {
+
+    const exists = prev.find(
+      (item) => item._id === lecture._id
     );
+
+    const updated = exists
+      ? prev.filter(
+          (item) => item._id !== lecture._id
+        )
+      : [...prev, lecture];
+
+    localStorage.setItem(
+      "lectureFavorites",
+      JSON.stringify(updated)
+    );
+
+    return updated;
+
+  });
+
+};
+
+const isLectureFavorite = (lectureId) =>
+  lectureFavorites.some(
+    (lecture) => lecture._id === lectureId
+  );
 
   /* ================= AUDIO EVENTS ================= */
   useEffect(() => {
@@ -321,8 +357,12 @@ export const PublicProvider = ({ children }) => {
         isLoading,
 
         bookmarks,
-        toggleBookmark,
-        isBookmarked,
+toggleBookmark,
+isBookmarked,
+
+lectureFavorites,
+toggleLectureFavorite,
+isLectureFavorite,
       }}
     >
       {children}
