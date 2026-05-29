@@ -104,7 +104,7 @@ const Dashboard = () => {
         <div style={blueBox}>
 
           <div style={titleStyle}>
-            🎤 dhammaan  Muxaadaro
+            🎤 dhammaan  Muxaadarooyinka
           </div>
 
           <div style={valueStyle}>
