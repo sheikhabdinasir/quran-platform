@@ -17,7 +17,7 @@ const faqs = [
     q: "Wax kharash ah miyaa igaga baxaya?",
     a: (
       <>
-        Maya, waa wax kasta oo halkan ku jira waa <b>bilaash</b> waxaana  loogu talagalay in dadka somaliyeed ay  ka
+        Maya, waa wax kasta oo halkan ku jira waa <b>Bilaash</b> waxaana  loogu talagalay in dadka somaliyeed inay  ka
         faa’iidaystaan cilmiga shiikha.
       </>
     ),
@@ -39,7 +39,7 @@ const faqs = [
       <>
         Waxaad si fudud ku geli kartaa adoo booqanaya:
         <br />
-        👉 <Link to="/kutub">Bogga Kutubta</Link>
+        👉 <Link to="/kutub"> Kutubta</Link>
       </>
     ),
   },
@@ -57,7 +57,7 @@ const faqs = [
     q: "halkee ka daalacdaa tafsiiirka Qur’aanka?",
     a: (
       <>
-        booqo lifaaqa hoose si aad u daalacato tafsiiirka Qur’aanka Kariimka:
+        Booqo lifaaqa hoose si aad u daalacato Tafsiiirka Qur’aanka Kariimka:
         👉 <Link     to="/tafsiir">Tafsiirka</Link>
       </>  
     ),
