@@ -85,14 +85,9 @@ export const adminProfile = async (req, res) => {
 /* ==============================
    FORGOT PASSWORD
 ============================== */
-/* ==============================
-   FORGOT PASSWORD
-============================== */
 export const forgotAdminPassword = async (req, res) => {
   try {
     const { email } = req.body;
-
-    console.log("Email received:", email);
 
     // check empty
     if (!email) {
@@ -103,8 +98,6 @@ export const forgotAdminPassword = async (req, res) => {
     }
 
     const admin = await Admin.findOne({ email });
-
-    console.log("Admin found:", admin);
 
     if (!admin) {
       return res.status(404).json({
@@ -127,8 +120,8 @@ export const forgotAdminPassword = async (req, res) => {
 
     await admin.save();
 
-    const resetUrl = `https://quran-admin-nine.vercel.app/reset-password/${resetToken}`;
-
+    // frontend reset link
+const resetUrl = `https://quran-admin-nine.vercel.app/reset-password/${resetToken}`;
     const message = `
 You requested a password reset for Tafsiir Admin Dashboard.
 
@@ -147,10 +140,7 @@ If you did not request this, ignore this email.
     });
   } catch (error) {
     console.log("Forgot Password Error:", error.message);
-    res.status(500).json({
-      success: false,
-      message: "Server error",
-    });
+    res.status(500).json({ success: false, message: "Server error" });
   }
 };
 
