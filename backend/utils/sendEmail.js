@@ -1,6 +1,8 @@
 import nodemailer from "nodemailer";
 
 const sendEmail = async (to, subject, text) => {
+  console.log("HOST:", process.env.EMAIL_HOST);
+console.log("USER:", process.env.EMAIL_USER);
   const transporter = nodemailer.createTransport({
     host: process.env.EMAIL_HOST,
     port: Number(process.env.EMAIL_PORT),
