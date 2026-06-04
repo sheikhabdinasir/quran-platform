@@ -12,7 +12,7 @@ import bookRoutes from "./routes/bookRoutes.js";
 import lessonRoutes from "./routes/lessonRoutes.js";
 import tafsiirRoute from "./routes/tafsiirRoutes.js";
 import dashboardRoutes from "./routes/dashboardRoutes.js";
-
+import contactRoute from "./routes/contactRoute.js";
 /* ================= CONFIG ================= */
 
 dotenv.config({ path:"./.env" });
@@ -110,7 +110,7 @@ app.use(
   "/api/duruus",
   duruusRoute
 );
-
+app.use("/api/contact", contactRoute);
 /* ================= TEST ================= */
 
 app.get("/", (req,res) => {

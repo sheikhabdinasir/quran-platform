@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import heroImg from "../assets/contantheropicture.jpg";
-import emailjs from "@emailjs/browser";
+import axios from "axios";
 import Swal from "sweetalert2";
 const fadeIn = { animation: "fadeIn 1.8s ease" };
 const slideUp = { animation: "slideUp 1.4s ease" };
@@ -19,43 +19,42 @@ const ContactUs = () => {
     });
   };
 
+
+
 const handleSubmit = async (e) => {
   e.preventDefault();
 
   try {
 
-    await emailjs.send(
-      "service_9tdctoo",
-      "template_xmooapj",
-      {
-        name: form.name,
-        email: form.email,
-        message: form.message,
-      },
-      "CWyJ_tB3o-l40-vEA"
+    const res = await axios.post(
+      `${import.meta.env.VITE_API_URL}/api/contact`,
+      form
     );
 
- Swal.fire({
-  icon: "guul",
-  title: "Waad Mahadsan Tahay ",
-  text: "Fariintaada si guul leh ayaa loo diray.",
-  confirmButtonColor: "#D4AF37",
-  background: "#FFF8F3",
-  color: "#2C1810",
-});
+    if (res.data.success) {
+
+      Swal.fire({
+        icon: "success",
+        title: "Waad Mahadsan Tahay",
+        text: "Fariintaada si guul leh ayaa loo diray.",
+      });
+
+      setForm({
+        name: "",
+        email: "",
+        message: "",
+      });
+    }
 
   } catch (error) {
 
-    console.log(error);
+    Swal.fire({
+      icon: "error",
+      title: "Qalad ayaa dhacay",
+      text: "Fariintaada lama dirin.",
+    });
 
-Swal.fire({
-  icon: "error",
-  title: "Qalad ayaa dhacay",
-  text: "Fariintaada lama dirin.",
-  confirmButtonColor: "#932F2F",
-  background: "#FFF8F3",
-  color: "#2C1810",
-});
+    console.log(error);
   }
 };
 
