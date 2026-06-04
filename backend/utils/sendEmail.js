@@ -20,7 +20,7 @@ console.log("USER:", process.env.EMAIL_USER);
     text,
   });
 
-  console.log("✅ Email sent:", info.messageId);
+  console.log("✅  Email sent:", info.messageId);
 };
 
 export default sendEmail;
