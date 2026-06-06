@@ -93,7 +93,7 @@ ${message}
 
     res.json({
       success: true,
-      message: "Fariinta waa la diray",
+      message: "Fariintaada waa la diray",
     });
 
   } catch (error) {
