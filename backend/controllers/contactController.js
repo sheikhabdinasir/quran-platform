@@ -21,7 +21,7 @@ Email: ${email}
 Message:
 ${message}
 `;
-
+console.log("CONTACT EMAIL:", process.env.ADMIN_EMAIL);
     await sendEmail(
       process.env.ADMIN_EMAIL,
       "New Contact Message",
