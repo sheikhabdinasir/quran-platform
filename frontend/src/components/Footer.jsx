@@ -206,13 +206,13 @@ const Footer = () => {
 
               <div style={contactItem}>
                 <FaPhoneAlt color="#D4AF37" />
-                <span>+252 634961693</span>
+                <span>+252 63 4498835</span>
               </div>
 
               <div style={contactItem}>
                 <FaEnvelope color="#D4AF37" />
                 <span>
-                  shabdinasir@gmail.com
+                  shcabdinaasir12@gmail.com
                 </span>
               </div>
 
