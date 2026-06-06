@@ -12,7 +12,7 @@ const sendEmail = async (to, subject, text) => {
   });
 
   const info = await transporter.sendMail({
-    from: `"Tafsiir Platform" <${process.env.EMAIL_USER}>`,
+    from: `"Tafsiir Platform" <shcabdinaasir12@gmail.com>`,
     to,
     subject,
     text,
