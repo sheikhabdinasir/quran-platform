@@ -21,12 +21,12 @@ Email: ${email}
 Message:
 ${message}
 `;
-console.log("CONTACT EMAIL:", process.env.ADMIN_EMAIL);
- await sendEmail(
-  "shcabdinaasir12@gmail.com",
-  "New Contact Message",
-  emailText
-);
+
+    await sendEmail(
+      process.env.ADMIN_EMAIL,
+      "New Contact Message",
+      emailText
+    );
 
     res.json({
       success: true,
