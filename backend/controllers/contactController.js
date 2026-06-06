@@ -12,14 +12,23 @@ export const sendContactMessage = async (req, res) => {
         message: "Dhammaan xogta waa loo baahan yahay",
       });
     }
+const emailText = `
+📩 NEW CONTACT MESSAGE
 
-    const emailText = `
-Name: ${name}
+━━━━━━━━━━━━━━━━━━
 
-Email: ${email}
+👤 Name:
+${name}
 
-Message:
+📧 Email:
+${email}
+
+💬 Message:
 ${message}
+
+━━━━━━━━━━━━━━━━━━
+
+Sent From: Tafsiir Platform
 `;
 
     await sendEmail(

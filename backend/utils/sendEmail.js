@@ -12,12 +12,13 @@ const sendEmail = async (to, subject, text) => {
   });
 
   const info = await transporter.sendMail({
-from: process.env.ADMIN_EMAIL,    to,
+    from: `"Tafsiir Platform" <${process.env.EMAIL_USER}>`,
+    to,
     subject,
     text,
   });
 
-  console.log(info.messageId);
+  console.log("✅ Email sent:", info.messageId);
 };
 
 export default sendEmail;
