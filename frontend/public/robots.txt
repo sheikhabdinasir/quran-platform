@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://quraan-platform-kohl.vercel.app/sitemap.xml
