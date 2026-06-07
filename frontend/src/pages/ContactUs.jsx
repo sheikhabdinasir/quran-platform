@@ -36,7 +36,7 @@ const handleSubmit = async (e) => {
       Swal.fire({
         icon: "success",
         title: "Waad Mahadsan Tahay",
-        text: "Fariintaada si guul leh ayaa loo diray.",
+        text: "Fariintaada si guul ah ayaa loo diray.",
       });
 
       setForm({
@@ -58,7 +58,7 @@ const handleSubmit = async (e) => {
 
   else if (error.code === "ERR_NETWORK") {
     errorMessage =
-      "Unable to connect to the server. Please try again.";
+      "Unable to connect. Please try again.";
   }
 
   else if (error.response?.data?.message) {
