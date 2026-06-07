@@ -46,16 +46,34 @@ const handleSubmit = async (e) => {
       });
     }
 
-  } catch (error) {
-
-    Swal.fire({
-      icon: "error",
-      title: "Qalad ayaa dhacay",
-      text: "Fariintaada lama dirin.",
-    });
-
-    console.log(error);
   }
+  catch (error) {
+
+  let errorMessage = "Fariintaada lama dirin.";
+
+  if (!navigator.onLine) {
+    errorMessage =
+      "Internet ma jiro. Fadlan hubi connection-kaaga.";
+  }
+
+  else if (error.code === "ERR_NETWORK") {
+    errorMessage =
+      "Server-ka lama gaari karo. Isku day mar kale.";
+  }
+
+  else if (error.response?.data?.message) {
+    errorMessage =
+      error.response.data.message;
+  }
+
+  Swal.fire({
+    icon: "error",
+    title: "Qalad ayaa dhacay",
+    text: errorMessage,
+  });
+
+  console.log(error);
+}
 };
 
   return (

@@ -32,10 +32,24 @@ const ForgotPassword = () => {
       } else {
         setError(res.data.message || "Something went wrong");
       }
-    } catch (err) {
-      setError(err.response?.data?.message || "Server error/ try again");
-    }
+   
+} catch (err) {
 
+  if (!navigator.onLine) {
+    setError("Internet ma jiro. Fadlan hubi connection-kaaga.");
+  }
+
+  else if (err.code === "ERR_NETWORK") {
+    setError("Server-ka lama gaari karo. Isku day mar kale.");
+  }
+
+  else {
+    setError(
+      err.response?.data?.message ||
+      "Wax cilad ah ayaa dhacday. Isku day mar kale."
+    );
+  }
+}
     setLoading(false);
   };
 
