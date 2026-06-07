@@ -12,7 +12,8 @@ const ForgotPassword = () => {
     e.preventDefault();
 
     if (!email) {
-      setError("Fadlan geli email-ka");
+
+      setError("Please enter your email address");
       return;
     }
 
@@ -28,25 +29,31 @@ const ForgotPassword = () => {
       });
 
       if (res.data.success) {
-        setMessage("  email-kaaga  ayaa laguugu diray link.");
+       
+        setMessage("A password reset link has been sent to your email.");
       } else {
         setError(res.data.message || "Something went wrong");
       }
-   
-} catch (err) {
+  
+
+      } catch (err) {
 
   if (!navigator.onLine) {
-    setError("Internet ma jiro. Fadlan hubi connection-kaaga.");
+    setError(
+      "No internet connection. Please check your network."
+    );
   }
 
   else if (err.code === "ERR_NETWORK") {
-    setError("Server-ka lama gaari karo. Isku day mar kale.");
+    setError(
+      "Unable to connect to the server. Please try again."
+    );
   }
 
   else {
     setError(
       err.response?.data?.message ||
-      "Wax cilad ah ayaa dhacday. Isku day mar kale."
+      "Something went wrong. Please try again."
     );
   }
 }

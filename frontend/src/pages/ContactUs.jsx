@@ -49,16 +49,16 @@ const handleSubmit = async (e) => {
   }
   catch (error) {
 
-  let errorMessage = "Fariintaada lama dirin.";
+  let errorMessage = "Message could not be sent.";
 
   if (!navigator.onLine) {
     errorMessage =
-      "Internet ma jiro. Fadlan hubi connection-kaaga.";
+      "No internet connection. Please check your network.";
   }
 
   else if (error.code === "ERR_NETWORK") {
     errorMessage =
-      "Server-ka lama gaari karo. Isku day mar kale.";
+      "Unable to connect to the server. Please try again.";
   }
 
   else if (error.response?.data?.message) {
@@ -68,7 +68,7 @@ const handleSubmit = async (e) => {
 
   Swal.fire({
     icon: "error",
-    title: "Qalad ayaa dhacay",
+    title: "Error",
     text: errorMessage,
   });
 
