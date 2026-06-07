@@ -20,19 +20,15 @@ const AddLesson = () => {
     bookId
   } = useParams();
 
-  const [data,
-  setData] = useState({
-
-    title: "",
-
-    order: "",
-
-    link: "",
-  });
+ const [data, setData] = useState({
+  title: "",
+  order: "",
+});
 
   const [loading,
   setLoading] =
   useState(false);
+  const [audioFile, setAudioFile] = useState(null);
 
   /*********************************
    SUBMIT
@@ -43,13 +39,14 @@ const AddLesson = () => {
     e.preventDefault();
 
     /* VALIDATION */
-    if (
-      !data.title ||
-
-      !data.order ||
-
-      !data.link
-    ) {
+ if (
+  !data.title ||
+  !data.order ||
+  !audioFile
+) 
+    
+    
+    {
 
       toast.error(
         "Fadlan buuxi dhammaan xogta"
@@ -82,9 +79,9 @@ const AddLesson = () => {
       );
 
       formData.append(
-        "audioUrl",
-        data.link
-      );
+  "file",
+  audioFile
+);
 
       /* SEND DATA */
       await addLesson(
@@ -96,14 +93,12 @@ const AddLesson = () => {
       );
 
       /* RESET */
-      setData({
+     setData({
+  title: "",
+  order: "",
+});
 
-        title: "",
-
-        order: "",
-
-        link: "",
-      });
+setAudioFile(null);
 
     } catch (error) {
 
@@ -328,57 +323,39 @@ const AddLesson = () => {
 
               </div>
 
-              {/* AUDIO LINK */}
-              <div>
+            <div>
 
-                <label
-                  className="
-                  block
-                  text-sm
-                  font-semibold
-                  text-gray-700
-                  mb-2
-                "
-                >
-                  Audio Link
-                </label>
+  <label
+    className="
+    block
+    text-sm
+    font-semibold
+    text-gray-700
+    mb-2
+  "
+  >
+    Audio File (MP3)
+  </label>
 
-                <input
-                  type="text"
+  <input
+    type="file"
+    accept=".mp3,audio/*"
+    onChange={(e) =>
+      setAudioFile(
+        e.target.files[0]
+      )
+    }
+    className="
+    w-full
+    rounded-xl
+    border
+    border-gray-200
+    px-4
+    py-3
+  "
+  />
 
-                  placeholder="
-                  https://res.cloudinary.com/...
-                "
-
-                  value={
-                    data.link
-                  }
-
-                  onChange={(e)=>
-
-                    setData({
-
-                      ...data,
-
-                      link:
-                      e.target.value,
-                    })
-                  }
-
-                  className="
-                  w-full
-                  rounded-xl
-                  border
-                  border-gray-200
-                  px-4
-                  py-3
-                  focus:outline-none
-                  focus:ring-2
-                  focus:ring-blue-500
-                "
-                />
-
-              </div>
+</div>
 
               {/* BUTTON */}
               <button

@@ -2,80 +2,83 @@ import Lesson from "../models/LessonModel.js";
 
 /* ================= CREATE LESSON ================= */
 export const createLesson = async (req, res) => {
-  try {
+try {
+const { title, order, book } = req.body;
 
-    const {
-      title,
-      order,
-      book,
-      audioUrl,
-    } = req.body;
 
-    /* ================= VALIDATION ================= */
-    if (
-      !title ||
-      !order ||
-      !book ||
-      !audioUrl
-    ) {
-      return res.status(400).json({
-        success: false,
-        message:
-          "Title, order, book and audio are required",
-      });
-    }
+/* ================= VALIDATION ================= */
+if (
+  !title ||
+  !order ||
+  !book ||
+  !req.file
+) {
+  return res.status(400).json({
+    success: false,
+    message:
+      "Title, order, book and audio file are required",
+  });
+}
 
-    /* ================= CHECK DUPLICATE ================= */
-    const existingLesson =
-    await Lesson.findOne({
-      book,
-      order,
-    });
+/* ================= CHECK DUPLICATE ================= */
+const existingLesson =
+  await Lesson.findOne({
+    book,
+    order,
+  });
 
-    if (existingLesson) {
-      return res.status(400).json({
-        success: false,
-        message:
-          `Lesson number ${order} hore ayuu uga jiraa book-kan`,
-      });
-    }
+if (existingLesson) {
+  return res.status(400).json({
+    success: false,
+    message:
+      `Lesson number ${order} hore ayuu uga jiraa book-kan`,
+  });
+}
 
-    /* ================= CREATE LESSON ================= */
-    const lesson =
-    await Lesson.create({
+/* ================= CREATE LESSON ================= */
+const lesson =
+  await Lesson.create({
+    title,
 
-      title,
+    order,
 
-      order,
+    book,
 
-      book,
+    audioUrl: req.file.path,
 
-      audioUrl,
+    publicId: req.file.filename,
 
-      isActive: true,
-    });
+    isActive: true,
+  });
 
-    res.status(201).json({
-      success: true,
-      message:
-        "Lesson created successfully",
-      lesson,
-    });
+res.status(201).json({
+  success: true,
+  message:
+    "Lesson created successfully",
+  lesson,
+});
 
-  } catch (error) {
 
-    console.error(
-      "Create Lesson Error:",
-      error
-    );
+} catch (error) {
 
-    res.status(500).json({
-      success: false,
-      message:
-        error.message,
-    });
-  }
+
+console.error(
+  "Create Lesson Error:",
+  error
+);
+
+res.status(500).json({
+  success: false,
+  message:
+    error.message,
+});
+
+
+}
 };
+
+
+   
 
 /* ================= GET LESSONS BY BOOK ================= */
 export const getLessonsByBook = async (req, res) => {

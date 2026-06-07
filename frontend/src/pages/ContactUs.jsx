@@ -325,7 +325,7 @@ const handleSubmit = async (e) => {
               required
               type="email"
               style={inputStyle}
-              placeholder="hamze@gmail.com"
+              placeholder="shcabdinaasir12@gmail.com"
             />
 
             <label style={labelStyle}>

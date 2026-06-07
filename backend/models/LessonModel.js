@@ -9,7 +9,13 @@ const lessonSchema = new mongoose.Schema(
     audioUrl: {
       type: String,
       required: true,
+      
     },
+    publicId: {
+  type: String,
+  default: "",
+},
+
     order: {
       type: Number,
       required: true,
