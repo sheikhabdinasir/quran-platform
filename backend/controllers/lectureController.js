@@ -58,9 +58,13 @@ export const addLecture = async (req, res) => {
 // ============================
 export const getActiveLectures = async (req, res) => {
   try {
-    const list = await Lecture.find({ isActive: true }).sort({
-      createdAt: -1,
-    });
+ 
+    const list = await Lecture.find({
+  isActive: true,
+  isDeleted: false,
+}).sort({
+  createdAt: -1,
+});
     res.json({ success: true, data: list });
   } catch (error) {
     res.status(500).json({ success: false });
@@ -72,7 +76,12 @@ export const getActiveLectures = async (req, res) => {
 // ============================
 export const getAdminLectures = async (req, res) => {
   try {
-    const list = await Lecture.find().sort({ createdAt: -1 });
+  const list = await Lecture.find({
+  isDeleted: false,
+}).sort({
+  createdAt: -1,
+});
+    
     res.json({ success: true, data: list });
   } catch (error) {
     res.status(500).json({ success: false });
@@ -141,10 +150,24 @@ export const toggleLecture = async (req, res) => {
 // ============================
 export const deleteLecture = async (req, res) => {
   try {
-    await Lecture.findByIdAndDelete(req.params.id);
-    res.json({ success: true });
+
+    await Lecture.findByIdAndUpdate(
+      req.params.id,
+      {
+        isDeleted: true,
+      }
+    );
+
+    res.json({
+      success: true,
+    });
+
   } catch (error) {
-    res.status(500).json({ success: false });
+
+    res.status(500).json({
+      success: false,
+    });
+
   }
 };
 
@@ -173,13 +196,25 @@ export const toggleFavorite = async (req, res) => {
 // ============================
 export const getFavoriteLectures = async (req, res) => {
   try {
+
     const list = await Lecture.find({
       isActive: true,
       isFavorite: true,
-    }).sort({ createdAt: -1 });
+      isDeleted: false,
+    }).sort({
+      createdAt: -1,
+    });
 
-    res.json({ success: true, data: list });
+    res.json({
+      success: true,
+      data: list,
+    });
+
   } catch (error) {
-    res.status(500).json({ success: false });
+
+    res.status(500).json({
+      success: false,
+    });
+
   }
 };

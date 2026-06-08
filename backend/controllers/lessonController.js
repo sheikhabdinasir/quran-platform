@@ -91,7 +91,7 @@ export const getLessonsByBook = async (req, res) => {
       req.params.bookId,
 
       isActive: true,
-
+      isDeleted: false,
     }).sort({
       order: 1,
     });
@@ -260,7 +260,9 @@ export const deleteLesson = async (req, res) => {
       });
     }
 
-    await lesson.deleteOne();
+   lesson.isDeleted = true;
+
+await lesson.save();
 
     res.status(200).json({
       success: true,
