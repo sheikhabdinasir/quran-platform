@@ -62,10 +62,6 @@ const tafsiirSchema = new mongoose.Schema(
       default: "upload",
     },
 
-    videoUrl: {
-      type: String,
-      default: "",
-    },
 
     audioUrl: {
       type: String,

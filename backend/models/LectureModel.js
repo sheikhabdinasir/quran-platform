@@ -33,12 +33,6 @@ publicId: {
   required: true,
 },
 
-    // TYPE: audio | video (AUTO)
-    mediaType: {
-  type: String,
-  default: "audio",
-},
-
     // Active / Inactive
     isActive: {
       type: Boolean,
