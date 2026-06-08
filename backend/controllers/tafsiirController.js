@@ -244,20 +244,19 @@ export const addTafsiir =
           body.mediaType ===
           "audio"
         ) {
-
-          data.audioUrl =
-            req.file.path;
+data.audioUrl = req.file.path;
+data.cloudinaryPublicId = req.file.filename;
         }
 
         /********************************
          VIDEO
         ********************************/
 
-        else {
+       else {
 
-          data.videoUrl =
-            req.file.path;
-        }
+  data.videoUrl = req.file.path;
+  data.cloudinaryPublicId = req.file.filename;
+}
       }
 
       const created =
@@ -462,27 +461,27 @@ export const updateTafsiir =
         /********************************
          AUDIO
         ********************************/
+if (
+  req.body.mediaType ===
+  "audio"
+) {
 
-        if (
-          req.body.mediaType ===
-          "audio"
-        ) {
+  data.audioUrl = req.file.path;
+  data.cloudinaryPublicId = req.file.filename;
 
-          data.audioUrl =
-            req.file.path;
-
-          data.videoUrl = "";
-        }
-
+  data.videoUrl = "";
+}
         /********************************
          VIDEO
         ********************************/
 
-        else {
+      else {
 
-          data.videoUrl =
-            req.file.path;
-        }
+  data.videoUrl = req.file.path;
+  data.cloudinaryPublicId = req.file.filename;
+
+  data.audioUrl = "";
+}
       }
 
       const updated =

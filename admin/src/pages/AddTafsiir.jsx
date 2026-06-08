@@ -35,8 +35,7 @@ const AddTafsiir = () => {
       description: "",
 
       mediaType: "audio",
-
-      sourceType: "link",
+      sourceType: "upload",
 
       audioUrl: "",
       videoUrl: "",
@@ -127,7 +126,10 @@ const AddTafsiir = () => {
     async (e) => {
 
       e.preventDefault();
-
+if (!file) {
+  toast.error("MP3 file dooro");
+  return;
+}
       try {
 
         setLoading(true);
@@ -250,111 +252,28 @@ const AddTafsiir = () => {
           placeholder="Part Number"
         />
 
-        {/* ================= MEDIA TYPE ================= */}
+    
 
-        <select
-          name="mediaType"
-
-          value={
-            form.mediaType ||
-            "audio"
-          }
-
-          onChange={change}
-
-          className="border p-3 rounded"
-        >
-
-          <option value="audio">
-            Audio
-          </option>
-
-          <option value="video">
-            Video
-          </option>
-
-        </select>
+     
 
         {/* ================= SOURCE TYPE ================= */}
 
-        <select
-          name="sourceType"
 
-          value={
-            form.sourceType ||
-            "link"
-          }
 
-          onChange={change}
 
-          className="border p-3 rounded"
-        >
 
-          <option value="link">
-            External Link
-          </option>
 
-          <option value="upload">
-            Upload File
-          </option>
+{/* ================= AUDIO FILE ================= */}
 
-        </select>
+<input
+  type="file"
+  accept=".mp3,audio/*"
+  onChange={(e) =>
+    setFile(e.target.files[0])
+  }
+  className="border p-3 rounded"
+/>
 
-        {/* ================= FILE / LINK ================= */}
-
-        {
-          form.sourceType ===
-          "upload" ? (
-
-            <input
-              type="file"
-
-              onChange={(e) =>
-                setFile(
-                  e.target.files[0]
-                )
-              }
-
-              className="border p-3 rounded"
-            />
-
-          ) : form.mediaType ===
-            "audio" ? (
-
-            <input
-              name="audioUrl"
-
-              value={
-                form.audioUrl ||
-                ""
-              }
-
-              onChange={change}
-
-              placeholder="Audio URL"
-
-              className="border p-3 rounded"
-            />
-
-          ) : (
-
-            <input
-              name="videoUrl"
-
-              value={
-                form.videoUrl ||
-                ""
-              }
-
-              onChange={change}
-
-              placeholder="Video URL"
-
-              className="border p-3 rounded"
-            />
-
-          )
-        }
 
         {/* ================= AYAH ================= */}
 
