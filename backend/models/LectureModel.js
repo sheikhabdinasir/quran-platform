@@ -23,17 +23,21 @@ const lectureSchema = new mongoose.Schema(
     },
 
     // Link (YouTube / MP3 / Audio)
-    link: {
-      type: String,
-      required: true,
-    },
+    audioUrl: {
+  type: String,
+  required: true,
+},
+
+publicId: {
+  type: String,
+  required: true,
+},
 
     // TYPE: audio | video (AUTO)
     mediaType: {
-      type: String,
-      enum: ["audio", "video"],
-      required: true,
-    },
+  type: String,
+  default: "audio",
+},
 
     // Active / Inactive
     isActive: {

@@ -4,12 +4,14 @@ import toast from "react-hot-toast";
 import { playDing } from "../utils/playSound";
 
 const AddLecture = () => {
+  
   const [form, setForm] = useState({
-    title: "",
-    speaker: "",
-    description: "",
-    link: "",
-  });
+  title: "",
+  speaker: "",
+  description: "",
+});
+
+const [audioFile, setAudioFile] = useState(null);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -18,26 +20,46 @@ const AddLecture = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!form.title || !form.speaker || !form.description || !form.link) {
+    if (
+  !form.title ||
+  !form.speaker ||
+  !form.description ||
+  !audioFile
+) {
       toast.error("❌ Fadlan buuxi dhammaan xogta");
       return;
     }
 
     try {
-     await axios.post(
+
+      const formData = new FormData();
+
+formData.append("title", form.title);
+formData.append("speaker", form.speaker);
+formData.append("description", form.description);
+formData.append("file", audioFile);
+
+await axios.post(
   `${import.meta.env.VITE_API_URL}/api/lectures/add`,
-  form
+  formData,
+  {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  }
 );
 
       playDing();
       toast.success("✅ Muxaadarada si guul ah ayaa loogu daray");
 
-      setForm({
-        title: "",
-        speaker: "",
-        description: "",
-        link: "",
-      });
+     setForm({
+  title: "",
+  speaker: "",
+  description: "",
+});
+
+setAudioFile(null);
+
     } catch (error) {
       toast.error("❌ Khalad ayaa dhacay");
     }
@@ -91,17 +113,20 @@ const AddLecture = () => {
             />
           </div>
 
-          {/* LINK */}
-          <div>
-            <label className="block font-semibold mb-1">Link</label>
-            <input
-              name="link"
-              value={form.link}
-              onChange={handleChange}
-              placeholder=" LINK... .."
-              className="w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-yellow-400 outline-none"
-            />
-          </div>
+     <div>
+  <label className="block font-semibold mb-1">
+    Audio File (MP3)
+  </label>
+
+  <input
+    type="file"
+    accept=".mp3,audio/*"
+    onChange={(e) =>
+      setAudioFile(e.target.files[0])
+    }
+    className="w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-yellow-400 outline-none"
+  />
+</div>
 
           {/* BUTTON */}
           <button

@@ -3,48 +3,37 @@ import Lecture from "../models/LectureModel.js";
 // ============================
 // Detect media type
 // ============================
-const detectMediaType = (link) => {
-  if (link.includes("youtube.com") || link.includes("youtu.be")) {
-    return "audio";
-  }
-  return "audio";
-};
+
 
 export const addLecture = async (req, res) => {
   try {
 
     const {
-      title,
-      speaker,
-      description,
-      link,
-    } = req.body;
+  title,
+  speaker,
+  description,
+} = req.body;
 
-    if (
-      !title ||
-      !speaker ||
-      !description ||
-      !link
-    ) {
+   if (
+  !title ||
+  !speaker ||
+  !description ||
+  !req.file
+) {
       return res.status(400).json({
         success: false,
         message: "Dhammaan meelaha waa khasab",
       });
     }
 
-    const lecture = await Lecture.create({
-
-      title,
-
-      speaker,
-
-      description,
-
-      link,
-
-      mediaType:
-        detectMediaType(link),
-    });
+   const lecture = await Lecture.create({
+  title,
+  speaker,
+  description,
+  audioUrl: req.file.path,
+  publicId: req.file.filename,
+  mediaType: "audio",
+});
 
     res.status(201).json({
       success: true,
@@ -107,23 +96,25 @@ export const getSingleLecture = async (req, res) => {
 // ============================
 export const updateLecture = async (req, res) => {
   try {
-    const { title, speaker, description, link } = req.body;
+   const { title, speaker, description } = req.body;
 
-    if (!title || !speaker || !description || !link) {
-      return res.status(400).json({ success: false });
-    }
+if (!title || !speaker || !description) {
+  return res.status(400).json({ success: false });
+}
+
+    
 
     const updated = await Lecture.findByIdAndUpdate(
-      req.params.id,
-      {
-        title,
-        speaker,
-        description,
-        link,
-        mediaType: detectMediaType(link),
-      },
-      { new: true }
-    );
+  req.params.id,
+  {
+    title,
+    speaker,
+    description,
+    
+    mediaType: "audio",
+  },
+  { new: true }
+);
 
     res.json({ success: true, data: updated });
   } catch (error) {
