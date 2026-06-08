@@ -133,24 +133,19 @@ const {
 
             onClick={() =>
 
-              playLesson(
+           playLesson(
+  {
+    _id: l._id,
+    title: l.title,
+    audioUrl: l.audioUrl,
+  },
 
-                {
-                  _id: l._id,
-
-                  title: l.title,
-
-                  audioUrl: l.link,
-                },
-
-                filtered.map((x) => ({
-                  _id: x._id,
-
-                  title: x.title,
-
-                  audioUrl: x.link,
-                }))
-              )
+  filtered.map((x) => ({
+    _id: x._id,
+    title: x.title,
+    audioUrl: x.audioUrl,
+  }))
+)
             }
           >
 
@@ -187,12 +182,12 @@ const {
   onClick={(e) => {
     e.stopPropagation();
 
-    toggleLectureFavorite({
-      _id: l._id,
-      title: l.title,
-      speaker: l.speaker,
-      link: l.link,
-    });
+   toggleLectureFavorite({
+  _id: l._id,
+  title: l.title,
+  speaker: l.speaker,
+  audioUrl: l.audioUrl,
+});
   }}
   className="lecture-favorite"
 >
