@@ -18,8 +18,7 @@ const TafsiirList = () => {
   const [search, setSearch] =
     useState("");
 
-  const [filter, setFilter] =
-    useState("all");
+
 
   const [selected, setSelected] =
     useState([]);
@@ -53,10 +52,8 @@ const TafsiirList = () => {
       sheikhName: "",
       tafsiirTitle: "",
       description: "",
-      mediaType: "audio",
-      sourceType: "link",
-      audioUrl: "",
-      videoUrl: "",
+
+      
     });
 
   /********************************
@@ -115,17 +112,10 @@ const TafsiirList = () => {
               search.toLowerCase()
             );
 
-        const matchType =
-          filter ===
-          "all"
-            ? true
-            : item.mediaType ===
-              filter;
 
-        return (
-          matchSearch &&
-          matchType
-        );
+
+      return matchSearch;
+
       }
     );
 
@@ -272,18 +262,9 @@ const TafsiirList = () => {
         description:
           item.description ||
           "",
-        mediaType:
-          item.mediaType ||
-          "audio",
-        sourceType:
-          item.sourceType ||
-          "link",
-        audioUrl:
-          item.audioUrl ||
-          "",
-        videoUrl:
-          item.videoUrl ||
-          "",
+ 
+
+          
       });
 
       if (
@@ -477,32 +458,8 @@ const TafsiirList = () => {
           className="border p-3 rounded"
         />
 
-        <select
-          value={
-            filter
-          }
-          onChange={(
-            e
-          ) =>
-            setFilter(
-              e.target
-                .value
-            )
-          }
-          className="border p-3 rounded"
-        >
-          <option value="all">
-            All
-          </option>
+     
 
-          <option value="audio">
-            Audio
-          </option>
-
-          <option value="video">
-            Video
-          </option>
-        </select>
 
       </div>
 
@@ -531,9 +488,7 @@ const TafsiirList = () => {
                 Sheikh
               </th>
 
-              <th className="p-3 border">
-                Type
-              </th>
+            
 
               <th className="p-3 border">
                 Actions
@@ -585,11 +540,7 @@ const TafsiirList = () => {
                     }
                   </td>
 
-                  <td className="p-3 border uppercase">
-                    {
-                      item.mediaType
-                    }
-                  </td>
+                 
 
               <td className="p-3 border">
 
@@ -868,116 +819,16 @@ const TafsiirList = () => {
                 className="border p-3 rounded md:col-span-2"
               />
 
-              <select
-                value={
-                  form.mediaType
-                }
-                onChange={(
-                  e
-                ) =>
-                  setForm(
-                    {
-                      ...form,
-                      mediaType:
-                        e
-                          .target
-                          .value,
-                    }
-                  )
-                }
-                className="border p-3 rounded"
-              >
-                <option value="audio">
-                  Audio
-                </option>
-
-                <option value="video">
-                  Video
-                </option>
-              </select>
-
-              <select
-                value={
-                  form.sourceType
-                }
-                onChange={(
-                  e
-                ) =>
-                  setForm(
-                    {
-                      ...form,
-                      sourceType:
-                        e
-                          .target
-                          .value,
-                    }
-                  )
-                }
-                className="border p-3 rounded"
-              >
-                <option value="link">
-                  External
-                  Link
-                </option>
-
-                <option value="upload">
-                  Upload
-                  File
-                </option>
-              </select>
-
-              {form.sourceType ===
-              "upload" ? (
-                <input
-                  type="file"
-                  onChange={(
-                    e
-                  ) =>
-                    setFile(
-                      e
-                        .target
-                        .files[0]
-                    )
-                  }
-                  className="border p-3 rounded md:col-span-2"
-                />
-              ) : (
-                <input
-                  value={
-                    form.mediaType ===
-                    "audio"
-                      ? form.audioUrl
-                      : form.videoUrl
-                  }
-                  onChange={(
-                    e
-                  ) =>
-                    form.mediaType ===
-                    "audio"
-                      ? setForm(
-                          {
-                            ...form,
-                            audioUrl:
-                              e
-                                .target
-                                .value,
-                          }
-                        )
-                      : setForm(
-                          {
-                            ...form,
-                            videoUrl:
-                              e
-                                .target
-                                .value,
-                          }
-                        )
-                  }
-                  placeholder="Paste URL"
-                  className="border p-3 rounded md:col-span-2"
-                />
-              )}
-
+            <input
+  type="file"
+  accept="audio/*"
+  onChange={(e) =>
+    setFile(
+      e.target.files[0]
+    )
+  }
+  className="border p-3 rounded md:col-span-2"
+/>
             </div>
 
             <div className="flex justify-end gap-3 mt-6">

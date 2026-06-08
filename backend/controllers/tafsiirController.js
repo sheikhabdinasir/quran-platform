@@ -1,7 +1,6 @@
 // backend/controllers/tafsiirController.js
 
 import TafsiirModel from "../models/TafsiirModel.js";
-import convertVideoToAudio from "../utils/convertVideoToAudio.js";
 /* =========================================
    GET ALL JUZ
 ========================================= */
@@ -208,9 +207,7 @@ export const getNextPartNumber =
     }
   };
 
-/* =========================================
-   ADD TAFSIIR
-========================================= */
+
 
 /* =========================================
    ADD TAFSIIR
@@ -233,31 +230,12 @@ export const addTafsiir =
 
       if (req.file) {
 
-        data.sourceType =
-          "upload";
+  data.audioUrl =
+    req.file.path;
 
-        /********************************
-         AUDIO
-        ********************************/
-
-        if (
-          body.mediaType ===
-          "audio"
-        ) {
-data.audioUrl = req.file.path;
-data.cloudinaryPublicId = req.file.filename;
-        }
-
-        /********************************
-         VIDEO
-        ********************************/
-
-       else {
-
-  data.videoUrl = req.file.path;
-  data.cloudinaryPublicId = req.file.filename;
+  data.cloudinaryPublicId =
+    req.file.filename;
 }
-      }
 
       const created =
         await TafsiirModel.create(
@@ -439,9 +417,6 @@ export const toggleTafsiirStatus =
     }
   };
 
-/* =========================================
-   UPDATE TAFSIIR
-========================================= */
 
 
 /* =========================================
@@ -462,38 +437,16 @@ export const updateTafsiir =
 
       /********************************
        FILE UPLOAD
-      ********************************/
+      ========================================= */
 
-      if (req.file) {
+       if (req.file) {
 
-        data.sourceType =
-          "upload";
+  data.audioUrl =
+    req.file.path;
 
-        /********************************
-         AUDIO
-        ********************************/
-if (
-  req.body.mediaType ===
-  "audio"
-) {
-
-  data.audioUrl = req.file.path;
-  data.cloudinaryPublicId = req.file.filename;
-
-  data.videoUrl = "";
+  data.cloudinaryPublicId =
+    req.file.filename;
 }
-        /********************************
-         VIDEO
-        ********************************/
-
-      else {
-
-  data.videoUrl = req.file.path;
-  data.cloudinaryPublicId = req.file.filename;
-
-  data.audioUrl = "";
-}
-      }
 
       const updated =
         await TafsiirModel.findByIdAndUpdate(
