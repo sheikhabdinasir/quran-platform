@@ -59,7 +59,7 @@ const tafsiirSchema = new mongoose.Schema(
     sourceType: {
       type: String,
       enum: ["upload", "link"],
-      default: "upload",F
+      default: "upload",
     },
 
     videoUrl: {
