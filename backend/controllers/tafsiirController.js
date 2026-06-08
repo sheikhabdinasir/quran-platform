@@ -290,10 +290,12 @@ export const getAllTafsiir =
 
     try {
 
-      const tafsiir =
-        await TafsiirModel.find().sort({
-          createdAt: -1,
-        });
+     const tafsiir =
+  await TafsiirModel.find({
+    isDeleted: false,
+  }).sort({
+    createdAt: -1,
+  });
 
       res.json({
         success: true,
@@ -317,12 +319,13 @@ export const getPublicTafsiir =
 
     try {
 
-      const tafsiir =
-        await TafsiirModel.find({
-          isActive: true,
-        }).sort({
-          createdAt: -1,
-        });
+         const tafsiir =
+  await TafsiirModel.find({
+    isActive: true,
+    isDeleted: false,
+  }).sort({
+    createdAt: -1,
+  });
 
       res.json({
         success: true,
@@ -347,9 +350,12 @@ export const deleteTafsiir =
 
     try {
 
-      await TafsiirModel.findByIdAndDelete(
-        req.params.id
-      );
+     await TafsiirModel.findByIdAndUpdate(
+  req.params.id,
+  {
+    isDeleted: true,
+  }
+);
 
       res.json({
         success: true,
@@ -376,11 +382,16 @@ export const deleteManyTafsiir =
 
       const { ids } = req.body;
 
-      await TafsiirModel.deleteMany({
-        _id: {
-          $in: ids,
-        },
-      });
+       await TafsiirModel.updateMany(
+  {
+    _id: {
+      $in: ids,
+    },
+  },
+  {
+    isDeleted: true,
+  }
+);
 
       res.json({
         success: true,

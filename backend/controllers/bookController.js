@@ -49,9 +49,12 @@ if (req.file) {
 /* ================= GET BOOKS ================= */
 export const getBooks = async (req, res) => {
   try {
-    const books = await Book.find().sort({
-      createdAt: -1,
-    });
+
+     const books = await Book.find({
+  isDeleted: false,
+}).sort({
+  createdAt: -1,
+});
 
     res.json({
       success: true,
@@ -150,11 +153,23 @@ export const toggleBook = async (req, res) => {
 /* ================= DELETE BOOK ================= */
 export const deleteBook = async (req, res) => {
   try {
-    await Lesson.deleteMany({
-      book: req.params.id,
-    });
 
-    await Book.findByIdAndDelete(req.params.id);
+
+      await Lesson.updateMany(
+  {
+    book: req.params.id,
+  },
+  {
+    isDeleted: true,
+  }
+);
+
+await Book.findByIdAndUpdate(
+  req.params.id,
+  {
+    isDeleted: true,
+  }
+);
 
     res.json({
       success: true,
