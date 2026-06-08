@@ -50,17 +50,7 @@ const tafsiirSchema = new mongoose.Schema(
       default: "",
     },
 
-    mediaType: {
-      type: String,
-      enum: ["video", "audio"],
-      required: true,
-    },
 
-    sourceType: {
-      type: String,
-      enum: ["upload", "link"],
-      default: "upload",
-    },
 
 
     audioUrl: {
