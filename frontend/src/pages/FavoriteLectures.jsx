@@ -32,18 +32,20 @@ const lectures = lectureFavorites;
             key={l._id}
             className="lesson-row"
             onClick={() =>
-              playLesson(
-                {
-                  _id: l._id,
-                  title: l.title,
-                  audioUrl: l.link,
-                },
-                filtered.map((x) => ({
-                  _id: x._id,
-                  title: x.title,
-                  audioUrl: x.link,
-                }))
-              )
+
+playLesson(
+  {
+    _id: l._id,
+    title: l.title,
+    audioUrl: l.audioUrl,
+  },
+  filtered.map((x) => ({
+    _id: x._id,
+    title: x.title,
+    audioUrl: x.audioUrl,
+  }))
+)
+
             }
           >
             <div className="lesson-icon">🎧</div>
