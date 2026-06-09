@@ -26,15 +26,13 @@ export const addLecture = async (req, res) => {
       });
     }
 
-   const lecture = await Lecture.create({
+ const lecture = await Lecture.create({
   title,
   speaker,
   description,
   audioUrl: req.file.path,
   publicId: req.file.filename,
-  mediaType: "audio",
 });
-
     res.status(201).json({
       success: true,
       data: lecture,
@@ -59,9 +57,8 @@ export const addLecture = async (req, res) => {
 export const getActiveLectures = async (req, res) => {
   try {
  
-    const list = await Lecture.find({
+   const list = await Lecture.find({
   isActive: true,
-  isDeleted: false,
 }).sort({
   createdAt: -1,
 });
@@ -76,12 +73,10 @@ export const getActiveLectures = async (req, res) => {
 // ============================
 export const getAdminLectures = async (req, res) => {
   try {
-  const list = await Lecture.find({
-  isDeleted: false,
-}).sort({
+
+    const list = await Lecture.find().sort({
   createdAt: -1,
 });
-    
     res.json({ success: true, data: list });
   } catch (error) {
     res.status(500).json({ success: false });
@@ -113,14 +108,12 @@ if (!title || !speaker || !description) {
 
     
 
-    const updated = await Lecture.findByIdAndUpdate(
+const updated = await Lecture.findByIdAndUpdate(
   req.params.id,
   {
     title,
     speaker,
     description,
-    
-    mediaType: "audio",
   },
   { new: true }
 );
@@ -150,24 +143,27 @@ export const toggleLecture = async (req, res) => {
 // ============================
 export const deleteLecture = async (req, res) => {
   try {
+    const lecture = await Lecture.findByIdAndDelete(req.params.id);
 
-    await Lecture.findByIdAndUpdate(
-      req.params.id,
-      {
-        isDeleted: true,
-      }
-    );
+    if (!lecture) {
+      return res.status(404).json({
+        success: false,
+        message: "Lecture lama helin",
+      });
+    }
 
     res.json({
       success: true,
+      message: "Lecture si guul leh ayaa loo tirtiray",
     });
 
   } catch (error) {
+    console.error("Delete Lecture Error:", error);
 
     res.status(500).json({
       success: false,
+      message: "Khalad ayaa dhacay",
     });
-
   }
 };
 
@@ -198,13 +194,11 @@ export const getFavoriteLectures = async (req, res) => {
   try {
 
     const list = await Lecture.find({
-      isActive: true,
-      isFavorite: true,
-      isDeleted: false,
-    }).sort({
-      createdAt: -1,
-    });
-
+  isActive: true,
+  isFavorite: true,
+}).sort({
+  createdAt: -1,
+});
     res.json({
       success: true,
       data: list,
