@@ -25,6 +25,7 @@ const existingLesson =
   await Lesson.findOne({
     book,
     order,
+    isDeleted: false,
   });
 
 if (existingLesson) {
@@ -141,19 +142,16 @@ export const updateLesson = async (req, res) => {
     /* ================= CHECK DUPLICATE ================= */
     if (order !== lesson.order) {
 
-      const exists =
-      await Lesson.findOne({
+     const exists =
+await Lesson.findOne({
+  book: lesson.book,
+  order,
+  isDeleted: false,
+  _id: {
+    $ne: lesson._id,
+  },
+});
 
-        book:
-        lesson.book,
-
-        order,
-
-        _id: {
-          $ne:
-          lesson._id,
-        },
-      });
 
       if (exists) {
         return res.status(400).json({
