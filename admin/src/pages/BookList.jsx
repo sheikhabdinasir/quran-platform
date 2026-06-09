@@ -265,25 +265,31 @@ const BookList = () => {
                     {book.title}
                   </h3>
 
-                  <p
-                    className="
-                    text-xs
-                    text-gray-600
-                    mb-1
-                  "
-                  >
-                    👳 Sheikh:
+                         
+                         <p
+  className="
+  text-xs
+  text-gray-600
+  mb-1
+"
+>
+  <span
+    className="
+    font-bold
+    text-[#932F2F]
+    "
+  >
+    👳 Sheikh:
+  </span>
 
-                    <span
-                      className="
-                      font-medium
-                    "
-                    >
-                      {" "}
-                      {book.sheikhName}
-                    </span>
+  <span>
+    {" "}
+    {book.sheikhName}
+  </span>
+</p>
 
-                  </p>
+
+
 
                   <p
                     className="
