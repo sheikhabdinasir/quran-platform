@@ -50,41 +50,44 @@ const tafsiirSchema = new mongoose.Schema(
       default: "",
     },
 
-
-
-
+    // Audio URL (Cloudinary)
     audioUrl: {
       type: String,
       default: "",
     },
 
+    // Optional thumbnail image
     thumbnail: {
       type: String,
       default: "",
     },
 
+    // Duration in seconds
     duration: {
       type: Number,
       default: 0,
     },
 
+    // Cloudinary Public ID
     cloudinaryPublicId: {
       type: String,
       default: "",
     },
 
+    // Active / Inactive
     isActive: {
       type: Boolean,
       default: true,
     },
-    isDeleted: {
-  type: Boolean,
-  default: false,
-},
   },
-  { timestamps: true }
+  {
+    timestamps: true,
+  }
 );
 
-const TafsiirModel = mongoose.model("Tafsiir", tafsiirSchema);
+const TafsiirModel = mongoose.model(
+  "Tafsiir",
+  tafsiirSchema
+);
 
 export default TafsiirModel;

@@ -1,7 +1,6 @@
-// routes/tafsiirRoutes.js
-
 import express from "express";
 import tafsiirUpload from "../middleware/tafsiirUpload.js";
+import { authAdmin } from "../middleware/authAdmin.js";
 
 import {
   getAllJuz,
@@ -23,13 +22,14 @@ router.get("/juz", getAllJuz);
 router.get("/juz/:juz", getSurahsByJuz);
 router.get("/next-part/:surahNumber", getNextPartNumber);
 
-/* CRUD */
+/* GET */
 router.get("/", getAllTafsiir);
 router.get("/public", getPublicTafsiir);
 
 /* ADD */
 router.post(
   "/add",
+  authAdmin,
   tafsiirUpload.single("file"),
   addTafsiir
 );
@@ -37,6 +37,7 @@ router.post(
 /* UPDATE */
 router.put(
   "/update/:id",
+  authAdmin,
   tafsiirUpload.single("file"),
   updateTafsiir
 );
@@ -44,18 +45,21 @@ router.put(
 /* DELETE ONE */
 router.delete(
   "/delete/:id",
+  authAdmin,
   deleteTafsiir
 );
 
 /* DELETE MANY */
 router.delete(
   "/delete-many",
+  authAdmin,
   deleteManyTafsiir
 );
 
 /* TOGGLE */
 router.patch(
   "/toggle/:id",
+  authAdmin,
   toggleTafsiirStatus
 );
 

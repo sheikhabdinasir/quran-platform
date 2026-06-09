@@ -268,13 +268,10 @@ export const getAllTafsiir =
 
     try {
 
-     const tafsiir =
-  await TafsiirModel.find({
-    isDeleted: false,
-  }).sort({
+  const tafsiir =
+  await TafsiirModel.find().sort({
     createdAt: -1,
   });
-
       res.json({
         success: true,
         tafsiir,
@@ -300,7 +297,6 @@ export const getPublicTafsiir =
          const tafsiir =
   await TafsiirModel.find({
     isActive: true,
-    isDeleted: false,
   }).sort({
     createdAt: -1,
   });
@@ -328,12 +324,19 @@ export const deleteTafsiir =
 
     try {
 
-     await TafsiirModel.findByIdAndUpdate(
-  req.params.id,
-  {
-    isDeleted: true,
-  }
-);
+const tafsiir =
+  await TafsiirModel.findByIdAndDelete(
+    req.params.id
+  );
+
+if (!tafsiir) {
+  return res.status(404).json({
+    success: false,
+    message: "Tafsiir not found",
+  });
+}
+
+
 
       res.json({
         success: true,
@@ -360,16 +363,13 @@ export const deleteManyTafsiir =
 
       const { ids } = req.body;
 
-       await TafsiirModel.updateMany(
-  {
-    _id: {
-      $in: ids,
-    },
+await TafsiirModel.deleteMany({
+  _id: {
+    $in: ids,
   },
-  {
-    isDeleted: true,
-  }
-);
+});
+
+
 
       res.json({
         success: true,
@@ -390,6 +390,8 @@ export const deleteManyTafsiir =
 /* =========================================
    TOGGLE ACTIVE/HIDDEN
 ========================================= */
+
+
 export const toggleTafsiirStatus =
   async (req, res) => {
     try {
@@ -398,6 +400,13 @@ export const toggleTafsiirStatus =
           req.params.id
         );
 
+      if (!item) {
+        return res.status(404).json({
+          success: false,
+          message: "Tafsiir not found",
+        });
+      }
+
       item.isActive =
         !item.isActive;
 
@@ -405,19 +414,17 @@ export const toggleTafsiirStatus =
 
       res.json({
         success: true,
-        message:
-          "Status Updated",
+        message: "Status Updated",
       });
+
     } catch (error) {
+
       res.status(500).json({
         success: false,
-        message:
-          error.message,
+        message: error.message,
       });
     }
   };
-
-
 
 /* =========================================
    UPDATE TAFSIIR

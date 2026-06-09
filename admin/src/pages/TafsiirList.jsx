@@ -41,20 +41,19 @@ const TafsiirList = () => {
   const [surahs, setSurahs] =
     useState([]);
 
-  const [form, setForm] =
-    useState({
-      juz: "",
-      surahNumber: "",
-      surahName: "",
-      partNumber: "",
-      ayahFrom: "",
-      ayahTo: "",
-      sheikhName: "",
-      tafsiirTitle: "",
-      description: "",
 
-      
-    });
+const [form, setForm] =
+  useState({
+    juzNumber: "",
+    surahNumber: "",
+    surahName: "",
+    partNumber: "",
+    ayahFrom: "",
+    ayahTo: "",
+    sheikhName: "",
+    tafsiirTitle: "",
+    description: "",
+  });
 
   /********************************
    LOAD DATA
@@ -163,22 +162,27 @@ const TafsiirList = () => {
   /********************************
    DELETE
   ********************************/
-  const removeItem =
-    async (id) => {
+
+
+const removeItem =
+  async (id) => {
+    try {
       await axios.delete(
         `${API}/delete/${id}`
       );
 
-      toast.success(
-        "Deleted"
-      );
+      toast.success("Deleted");
 
-      setDeleteId(
-        null
-      );
+      setDeleteId(null);
 
       loadData();
-    };
+
+    } catch {
+      toast.error(
+        "Delete Failed"
+      );
+    }
+};
 
   const deleteMany =
     async () => {
@@ -235,9 +239,7 @@ const TafsiirList = () => {
       );
 
       setForm({
-        juz:
-          item.juz ||
-          "",
+       juzNumber: item.juzNumber || "",
         surahNumber:
           item.surahNumber ||
           "",
@@ -267,51 +269,40 @@ const TafsiirList = () => {
           
       });
 
-      if (
-        item.juz
-      ) {
-        const {
-          data,
-        } =
-          await axios.get(
-            `${API}/juz/${item.juz}`
-          );
+    if (item.juzNumber) {
+  const { data } =
+    await axios.get(
+      `${API}/juz/${item.juzNumber}`
+    );
 
-        setSurahs(
-          data.surahs ||
-            []
-        );
-      }
+  setSurahs(
+    data.surahs || []
+  );
+}
     };
 
   /********************************
    JUZ CHANGE
   ********************************/
-  const handleJuz =
-    async (
-      value
-    ) => {
-      setForm({
-        ...form,
-        juz: value,
-        surahNumber:
-          "",
-        surahName:
-          "",
-      });
 
-      const {
-        data,
-      } =
-        await axios.get(
-          `${API}/juz/${value}`
-        );
+   const handleJuz =
+  async (value) => {
+    setForm({
+      ...form,
+      juzNumber: value,
+      surahNumber: "",
+      surahName: "",
+    });
 
-      setSurahs(
-        data.surahs ||
-          []
+    const { data } =
+      await axios.get(
+        `${API}/juz/${value}`
       );
-    };
+
+    setSurahs(
+      data.surahs || []
+    );
+  };
 
   /********************************
    SURAH CHANGE
@@ -610,7 +601,7 @@ const TafsiirList = () => {
 
               <select
                 value={
-                  form.juz
+               form.juzNumber
                 }
                 onChange={(
                   e
@@ -821,7 +812,7 @@ const TafsiirList = () => {
 
             <input
   type="file"
-  accept="audio/*"
+accept=".mp3,audio/*"
   onChange={(e) =>
     setFile(
       e.target.files[0]

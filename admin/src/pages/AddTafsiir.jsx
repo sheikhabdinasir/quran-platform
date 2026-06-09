@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 
 const API =
 `${import.meta.env.VITE_API_URL}/api/tafsiir`;
+
 
 const AddTafsiir = () => {
 
@@ -12,6 +13,9 @@ const AddTafsiir = () => {
 
   const [file, setFile] =
     useState(null);
+
+  // ⬇️ HALKAN KU DAR
+  const fileInputRef = useRef(null);
 
   const [loading, setLoading] =
     useState(false);
@@ -34,11 +38,7 @@ const AddTafsiir = () => {
 
       description: "",
 
-      mediaType: "audio",
-      sourceType: "upload",
-
-      audioUrl: "",
-      videoUrl: "",
+  
 
     });
 
@@ -166,6 +166,22 @@ if (!file) {
         toast.success(
           data.message
         );
+        setFile(null);
+
+setForm({
+  juzNumber: "1",
+  surahNumber: "",
+  surahName: "",
+  partNumber: "",
+  ayahFrom: "",
+  ayahTo: "",
+  tafsiirTitle: "",
+  sheikhName: "",
+  description: "",
+});
+if (fileInputRef.current) {
+  fileInputRef.current.value = "";
+}
 
       } catch (error) {
 
@@ -252,20 +268,11 @@ if (!file) {
           placeholder="Part Number"
         />
 
-    
-
-     
-
-        {/* ================= SOURCE TYPE ================= */}
-
-
-
-
-
-
 {/* ================= AUDIO FILE ================= */}
 
+
 <input
+  ref={fileInputRef}
   type="file"
   accept=".mp3,audio/*"
   onChange={(e) =>
@@ -273,7 +280,6 @@ if (!file) {
   }
   className="border p-3 rounded"
 />
-
 
         {/* ================= AYAH ================= */}
 
