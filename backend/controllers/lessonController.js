@@ -121,10 +121,9 @@ export const updateLesson = async (req, res) => {
   try {
 
     const {
-      title,
-      order,
-      audioUrl,
-    } = req.body;
+  title,
+  order,
+} = req.body;
 
     const lesson =
     await Lesson.findById(
@@ -161,40 +160,45 @@ await Lesson.findOne({
         });
       }
     }
+/* ================= UPDATE ================= */
 
-    /* ================= UPDATE ================= */
+lesson.title =
+  title || lesson.title;
 
-    lesson.title =
-      title || lesson.title;
+lesson.order =
+  order || lesson.order;
 
-    lesson.order =
-      order || lesson.order;
+if (req.file) {
 
-    lesson.audioUrl =
-      audioUrl || lesson.audioUrl;
+  lesson.audioUrl =
+    req.file.path;
 
-    await lesson.save();
+  lesson.publicId =
+    req.file.filename;
+}
 
-    res.status(200).json({
-      success: true,
-      message:
-        "Lesson updated successfully",
-      lesson,
-    });
+await lesson.save();
 
-  } catch (error) {
+res.status(200).json({
+  success: true,
+  message:
+    "Lesson updated successfully",
+  lesson,
+});
 
-    console.error(
-      "Update Lesson Error:",
-      error
-    );
+} catch (error) {
 
-    res.status(500).json({
-      success: false,
-      message:
-        error.message,
-    });
-  }
+  console.error(
+    "Update Lesson Error:",
+    error
+  );
+
+  res.status(500).json({
+    success: false,
+    message:
+      error.message,
+  });
+}
 };
 
 /* ================= TOGGLE LESSON ================= */
