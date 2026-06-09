@@ -35,8 +35,6 @@ const TafsiirList = () => {
   const [file, setFile] =
     useState(null);
 
-  const [juzList, setJuzList] =
-    useState([]);
 
   const [surahs, setSurahs] =
     useState([]);
@@ -73,26 +71,10 @@ const [form, setForm] =
     }
   };
 
-  const loadJuz =
-    async () => {
-      try {
-        const { data } =
-          await axios.get(
-            `${API}/juz`
-          );
-
-        setJuzList(
-          data.juzList ||
-            []
-        );
-      } catch {}
-    };
-
-  useEffect(() => {
-    loadData();
-    loadJuz();
-  }, []);
-
+ 
+useEffect(() => {
+  loadData();
+}, []);
   /********************************
    FILTER
   ********************************/
@@ -307,24 +289,7 @@ await axios.patch(
    JUZ CHANGE
   ********************************/
 
-   const handleJuz =
-  async (value) => {
-    setForm({
-      ...form,
-      juzNumber: value,
-      surahNumber: "",
-      surahName: "",
-    });
-
-    const { data } =
-      await axios.get(
-        `${API}/juz/${value}`
-      );
-
-    setSurahs(
-      data.surahs || []
-    );
-  };
+  
 
   /********************************
    SURAH CHANGE
@@ -628,46 +593,7 @@ await axios.put(
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
 
-              <select
-                value={
-               form.juzNumber
-                }
-                onChange={(
-                  e
-                ) =>
-                  handleJuz(
-                    e
-                      .target
-                      .value
-                  )
-                }
-                className="border p-3 rounded"
-              >
-                <option>
-                  Select
-                  Juz
-                </option>
-
-                {juzList.map(
-                  (
-                    j
-                  ) => (
-                    <option
-                      key={
-                        j
-                      }
-                      value={
-                        j
-                      }
-                    >
-                      Juz{" "}
-                      {
-                        j
-                      }
-                    </option>
-                  )
-                )}
-              </select>
+             
 
               <select
                 value={
@@ -713,26 +639,12 @@ await axios.put(
                 )}
               </select>
 
-              <input
-                value={
-                  form.partNumber
-                }
-                onChange={(
-                  e
-                ) =>
-                  setForm(
-                    {
-                      ...form,
-                      partNumber:
-                        e
-                          .target
-                          .value,
-                    }
-                  )
-                }
-                placeholder="Part Number"
-                className="border p-3 rounded"
-              />
+          <input
+  readOnly
+  value={form.partNumber}
+  placeholder="Part Number"
+  className="border p-3 rounded bg-gray-100"
+/>
 
               <input
                 value={
