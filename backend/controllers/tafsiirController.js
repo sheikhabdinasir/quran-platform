@@ -217,7 +217,8 @@ export const addTafsiir =
   async (req, res) => {
 
     try {
-
+console.log("BODY:", req.body);
+console.log("FILE:", req.file);
       const body = req.body;
 
       const data = {
