@@ -50,11 +50,10 @@ if (req.file) {
 export const getBooks = async (req, res) => {
   try {
 
-     const books = await Book.find({
-  isDeleted: false,
-}).sort({
+    const books = await Book.find().sort({
   createdAt: -1,
 });
+
 
     res.json({
       success: true,
@@ -97,10 +96,21 @@ if (req.file) {
 }
 
     /* ================= UPDATE DATA ================= */
-    book.title = title || book.title;
-    book.sheikhName = sheikhName || book.sheikhName;
-    book.description = description || book.description;
-    book.image = imageUrl;
+ 
+    if (title !== undefined) {
+  book.title = title;
+}
+
+if (sheikhName !== undefined) {
+  book.sheikhName = sheikhName;
+}
+
+if (description !== undefined) {
+  book.description = description;
+}
+
+book.image = imageUrl;
+
 
     await book.save();
 
@@ -155,26 +165,30 @@ export const deleteBook = async (req, res) => {
   try {
 
 
-      await Lesson.updateMany(
-  {
-    book: req.params.id,
-  },
-  {
-    isDeleted: true,
-  }
-);
 
-await Book.findByIdAndUpdate(
-  req.params.id,
-  {
-    isDeleted: true,
-  }
-);
+    const book = await Book.findById(req.params.id);
 
-    res.json({
-      success: true,
-      message: "Book deleted successfully",
-    });
+if (!book) {
+  return res.status(404).json({
+    success: false,
+    message: "Book not found",
+  });
+}
+
+/* HARD DELETE ALL LESSONS */
+await Lesson.deleteMany({
+  book: req.params.id,
+});
+
+/* HARD DELETE BOOK */
+await Book.findByIdAndDelete(req.params.id);
+
+res.json({
+  success: true,
+  message: "Book and its lessons deleted successfully",
+});
+
+
   } catch (error) {
     console.error("Delete Book Error:", error);
 

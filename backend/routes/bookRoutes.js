@@ -22,6 +22,7 @@ Admin adds:
 */
 router.post(
   "/",
+  authAdmin,
   upload.single("image"),
   createBook
 );

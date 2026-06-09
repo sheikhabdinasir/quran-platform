@@ -21,12 +21,14 @@ if (
 }
 
 /* ================= CHECK DUPLICATE ================= */
+
 const existingLesson =
   await Lesson.findOne({
     book,
     order,
-    isDeleted: false,
   });
+
+
 
 if (existingLesson) {
   return res.status(400).json({
@@ -85,17 +87,15 @@ res.status(500).json({
 export const getLessonsByBook = async (req, res) => {
   try {
 
-    const lessons =
-    await Lesson.find({
+   const lessons =
+await Lesson.find({
+  book: req.params.bookId,
+  isActive: true,
+}).sort({
+  order: 1,
+});
 
-      book:
-      req.params.bookId,
 
-      isActive: true,
-      isDeleted: false,
-    }).sort({
-      order: 1,
-    });
 
     res.status(200).json(
       lessons
@@ -138,28 +138,30 @@ export const updateLesson = async (req, res) => {
       });
     }
 
+
+
     /* ================= CHECK DUPLICATE ================= */
-    if (order !== lesson.order) {
+if (order !== lesson.order) {
 
-     const exists =
-await Lesson.findOne({
-  book: lesson.book,
-  order,
-  isDeleted: false,
-  _id: {
-    $ne: lesson._id,
-  },
-});
+  const exists =
+    await Lesson.findOne({
+      book: lesson.book,
+      order,
+      _id: {
+        $ne: lesson._id,
+      },
+    });
 
+  if (exists) {
+    return res.status(400).json({
+      success: false,
+      message:
+        `Lesson number ${order} hore ayuu uga jiraa book-kan`,
+    });
+  }
+}
 
-      if (exists) {
-        return res.status(400).json({
-          success: false,
-          message:
-            `Lesson number ${order} hore ayuu uga jiraa book-kan`,
-        });
-      }
-    }
+     
 /* ================= UPDATE ================= */
 
 lesson.title =
@@ -245,31 +247,25 @@ export const toggleLesson = async (req, res) => {
   }
 };
 
+
 /* ================= DELETE LESSON ================= */
 export const deleteLesson = async (req, res) => {
   try {
 
-    const lesson =
-    await Lesson.findById(
+    const lesson = await Lesson.findByIdAndDelete(
       req.params.id
     );
 
     if (!lesson) {
       return res.status(404).json({
         success: false,
-        message:
-          "Lesson not found",
+        message: "Lesson not found",
       });
     }
 
-   lesson.isDeleted = true;
-
-await lesson.save();
-
     res.status(200).json({
       success: true,
-      message:
-        "Lesson deleted successfully",
+      message: "Lesson deleted successfully",
     });
 
   } catch (error) {
@@ -281,8 +277,7 @@ await lesson.save();
 
     res.status(500).json({
       success: false,
-      message:
-        error.message,
+      message: error.message,
     });
   }
 };
