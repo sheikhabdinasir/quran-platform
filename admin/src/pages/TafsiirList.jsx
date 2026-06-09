@@ -617,16 +617,16 @@ await axios.put(
 
       {/* EDIT MODAL */}
       {editItem && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 overflow-auto p-5">
+       <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4 overflow-y-auto">
 
-          <div className="bg-white w-full max-w-2xl rounded-xl p-6">
+        <div className="bg-white w-full max-w-3xl rounded-2xl p-4 sm:p-6 max-h-[90vh] overflow-y-auto">
 
             <h2 className="text-2xl font-bold mb-5">
               Edit
               Tafsiir
             </h2>
 
-            <div className="grid md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
 
               <select
                 value={
@@ -851,7 +851,7 @@ accept=".mp3,audio/*"
 />
             </div>
 
-            <div className="flex justify-end gap-3 mt-6">
+           <div className="flex flex-col-reverse sm:flex-row justify-end gap-3 mt-6">
 
               <button
                 onClick={() =>
@@ -868,7 +868,7 @@ accept=".mp3,audio/*"
                 onClick={
                   updateItem
                 }
-                className="bg-green-600 text-white px-5 py-2 rounded"
+            className="bg-green-600 text-white px-5 py-3 rounded-lg w-full sm:w-auto"
               >
                 Save
               </button>
@@ -953,7 +953,7 @@ accept=".mp3,audio/*"
                     false
                   )
                 }
-                className="border px-4 py-2 rounded"
+             className="border px-5 py-3 rounded-lg w-full sm:w-auto"
               >
                 Cancel
               </button>
