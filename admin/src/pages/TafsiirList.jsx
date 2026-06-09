@@ -184,33 +184,31 @@ const removeItem =
     }
 };
 
-  const deleteMany =
-    async () => {
-      await axios.delete(
-        `${API}/delete-many`,
-        {
-          data: {
-            ids:
-              selected,
-          },
-        }
-      );
+const deleteMany = async () => {
+  try {
+    await axios.delete(
+      `${API}/delete-many`,
+      {
+        data: {
+          ids: selected,
+        },
+      }
+    );
 
-      toast.success(
-        "Deleted"
-      );
+    toast.success("Deleted");
 
-      setShowBulk(
-        false
-      );
+    setShowBulk(false);
 
-      setSelected(
-        []
-      );
+    setSelected([]);
 
-      loadData();
-    };
+    loadData();
 
+  } catch {
+    toast.error(
+      "Bulk Delete Failed"
+    );
+  }
+};
   /********************************
    TOGGLE
   ********************************/
