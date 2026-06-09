@@ -167,9 +167,17 @@ const [form, setForm] =
 const removeItem =
   async (id) => {
     try {
-      await axios.delete(
-        `${API}/delete/${id}`
-      );
+  
+      const aToken = localStorage.getItem("aToken");
+
+await axios.delete(
+  `${API}/delete/${id}`,
+  {
+    headers: {
+      Authorization: `Bearer ${aToken}`,
+    },
+  }
+);
 
       toast.success("Deleted");
 
@@ -186,14 +194,20 @@ const removeItem =
 
 const deleteMany = async () => {
   try {
-    await axios.delete(
-      `${API}/delete-many`,
-      {
-        data: {
-          ids: selected,
-        },
-      }
-    );
+
+    const aToken = localStorage.getItem("aToken");
+
+await axios.delete(
+  `${API}/delete-many`,
+  {
+    headers: {
+      Authorization: `Bearer ${aToken}`,
+    },
+    data: {
+      ids: selected,
+    },
+  }
+);
 
     toast.success("Deleted");
 
@@ -214,9 +228,19 @@ const deleteMany = async () => {
   ********************************/
   const toggleItem =
     async (id) => {
-      await axios.patch(
-        `${API}/toggle/${id}`
-      );
+  
+      
+      const aToken = localStorage.getItem("aToken");
+
+await axios.patch(
+  `${API}/toggle/${id}`,
+  {},
+  {
+    headers: {
+      Authorization: `Bearer ${aToken}`,
+    },
+  }
+);
 
       toast.success(
         "Updated"
@@ -371,10 +395,17 @@ const deleteMany = async () => {
           );
         }
 
-        await axios.put(
-          `${API}/update/${editItem._id}`,
-          fd
-        );
+     const aToken = localStorage.getItem("aToken");
+
+await axios.put(
+  `${API}/update/${editItem._id}`,
+  fd,
+  {
+    headers: {
+      Authorization: `Bearer ${aToken}`,
+    },
+  }
+);
 
         toast.success(
           "Updated Successfully"
