@@ -1,8 +1,6 @@
 import Lecture from "../models/LectureModel.js";
 
-// ============================
-// Detect media type
-// ============================
+
 
 
 export const addLecture = async (req, res) => {
@@ -89,9 +87,24 @@ export const getAdminLectures = async (req, res) => {
 export const getSingleLecture = async (req, res) => {
   try {
     const lecture = await Lecture.findById(req.params.id);
-    res.json({ success: true, data: lecture });
+
+    if (!lecture) {
+      return res.status(404).json({
+        success: false,
+        message: "Lecture lama helin",
+      });
+    }
+
+    res.json({
+      success: true,
+      data: lecture,
+    });
+
   } catch (error) {
-    res.status(404).json({ success: false });
+    res.status(500).json({
+      success: false,
+      message: "Khalad ayaa dhacay",
+    });
   }
 };
 
@@ -107,7 +120,6 @@ if (!title || !speaker || !description) {
 }
 
     
-
 const updated = await Lecture.findByIdAndUpdate(
   req.params.id,
   {
@@ -118,7 +130,18 @@ const updated = await Lecture.findByIdAndUpdate(
   { new: true }
 );
 
-    res.json({ success: true, data: updated });
+if (!updated) {
+  return res.status(404).json({
+    success: false,
+    message: "Lecture lama helin",
+  });
+}
+
+res.json({
+  success: true,
+  data: updated,
+});
+
   } catch (error) {
     res.status(500).json({ success: false });
   }
@@ -127,14 +150,34 @@ const updated = await Lecture.findByIdAndUpdate(
 // ============================
 // TOGGLE ACTIVE
 // ============================
+
 export const toggleLecture = async (req, res) => {
   try {
     const lecture = await Lecture.findById(req.params.id);
+
+    if (!lecture) {
+      return res.status(404).json({
+        success: false,
+        message: "Lecture lama helin",
+      });
+    }
+
     lecture.isActive = !lecture.isActive;
+
     await lecture.save({ validateBeforeSave: false });
-    res.json({ success: true });
+
+    res.json({
+      success: true,
+      isActive: lecture.isActive,
+    });
+
   } catch (error) {
-    res.status(500).json({ success: false });
+    console.error("Toggle Lecture Error:", error);
+
+    res.status(500).json({
+      success: false,
+      message: "Khalad ayaa dhacay",
+    });
   }
 };
 
@@ -167,6 +210,8 @@ export const deleteLecture = async (req, res) => {
   }
 };
 
+
+
 // ============================
 // ⭐ TOGGLE FAVORITE
 // ============================
@@ -175,17 +220,33 @@ export const toggleFavorite = async (req, res) => {
     const lecture = await Lecture.findById(req.params.id);
 
     if (!lecture) {
-      return res.status(404).json({ success: false });
+      return res.status(404).json({
+        success: false,
+        message: "Lecture lama helin",
+      });
     }
 
     lecture.isFavorite = !lecture.isFavorite;
-    await lecture.save({ validateBeforeSave: false });
 
-    res.json({ success: true, isFavorite: lecture.isFavorite });
+    await lecture.save({
+      validateBeforeSave: false,
+    });
+
+    res.json({
+      success: true,
+      isFavorite: lecture.isFavorite,
+    });
+
   } catch (error) {
-    res.status(500).json({ success: false });
+    console.error("Toggle Favorite Error:", error);
+
+    res.status(500).json({
+      success: false,
+      message: "Khalad ayaa dhacay",
+    });
   }
 };
+
 
 // ============================
 // ⭐ GET ONLY FAVORITES
