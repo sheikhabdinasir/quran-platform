@@ -156,17 +156,20 @@ if (!file) {
             file
           );
         }
-
+const aToken = localStorage.getItem("aToken");
         const { data } =
-          await axios.post(
-            `${API}/add`,
-            fd
-          );
+  await axios.post(
+    `${API}/add`,
+    fd,
+    {
+      headers: {
+        Authorization: `Bearer ${aToken}`,
+      },
+    }
+  );
+  toast.success(data.message);
 
-        toast.success(
-          data.message
-        );
-        setFile(null);
+setFile(null);
 
 setForm({
   juzNumber: "1",
