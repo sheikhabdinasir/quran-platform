@@ -95,9 +95,9 @@ const Kutub = () => {
                   🎙 {book.sheikhName}
                 </p>
 
-                <p className="kutub-description">
-                  {book.description || "Sharaxaad lama gelin"}
-                </p>
+               <p className="kutub-description">
+  {book.description}
+</p>
               </div>
             </div>
           ))}
