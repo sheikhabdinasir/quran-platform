@@ -210,7 +210,7 @@ const deleteMany = async () => {
   }
 };
   /********************************
-   TOGGLE
+   TOGGLE 
   ********************************/
   const toggleItem =
     async (id) => {
