@@ -33,7 +33,7 @@ const TafsiirNowPlaying = () => {
           navigate(-1)
         }
       >
-        ← Back
+        ← Laaboo
       </button>
 
       <div className="now-cover">
