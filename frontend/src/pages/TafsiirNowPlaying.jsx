@@ -37,7 +37,7 @@ const TafsiirNowPlaying = () => {
       </button>
 
       <div className="now-cover">
-        🕌
+        🕋
       </div>
 
       <p className="now-small">
