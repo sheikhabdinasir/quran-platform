@@ -50,6 +50,7 @@ router.post(
 
 router.put(
   "/update/:id",
+  upload.single("file"),
   updateLecture
 );
 

@@ -9,12 +9,13 @@ const EditLecture = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const [form, setForm] = useState({
-    title: "",
-    speaker: "",
-    description: "",
-    link: "",
-  });
+const [form, setForm] = useState({
+  title: "",
+  speaker: "",
+  description: "",
+});
+
+const [file, setFile] = useState(null);
 
   const [loading, setLoading] = useState(true);
 
@@ -35,13 +36,13 @@ const EditLecture = () => {
           return;
         }
 
+      
         setForm({
-          title: lec.title,
-          speaker: lec.speaker,
-          description: lec.description,
+  title: lec.title,
+  speaker: lec.speaker,
+  description: lec.description,
+});
 
-          link: lec.link,
-        });
       } catch (error) {
         toast.error("❌ Failed to load lecture");
       } finally {
@@ -52,29 +53,54 @@ const EditLecture = () => {
     loadLecture();
   }, [id, navigate]);
 
+ 
   /* ======================
-     SUBMIT UPDATE
-  ====================== */
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+   SUBMIT UPDATE
+====================== */
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    try {
-      await axios.put(
-        `${import.meta.env.VITE_API_URL}/api/lectures/update/${id}`,
-        form
-      );
+  try {
+    const fd = new FormData();
 
-      playDing();
-      toast.success("✅ Lecture si guul leh ayaa loo cusboonaysiiyay");
+    Object.entries(form).forEach(([key, value]) => {
+      fd.append(key, value);
+    });
 
-      setTimeout(() => {
-        navigate("/lectures");
-      }, 1200);
-    } catch (error) {
-      toast.error("❌ Khalad ayaa dhacay");
+    // haddii audio cusub la doortay
+    if (file) {
+      fd.append("file", file);
     }
-  };
 
+    const aToken = localStorage.getItem("aToken");
+
+    await axios.put(
+      `${import.meta.env.VITE_API_URL}/api/lectures/update/${id}`,
+      fd,
+      {
+        headers: {
+          Authorization: `Bearer ${aToken}`,
+        },
+      }
+    );
+
+    playDing();
+
+    toast.success(
+      "✅ Lecture si guul leh ayaa loo cusboonaysiiyay"
+    );
+
+    setTimeout(() => {
+      navigate("/lectures");
+    }, 1200);
+
+  } catch (error) {
+    toast.error(
+      error.response?.data?.message ||
+      "❌ Khalad ayaa dhacay"
+    );
+  }
+};
   if (loading) {
     return (
       <div style={{ padding: "2rem", textAlign: "center", fontWeight: 600 }}>
@@ -125,17 +151,17 @@ const EditLecture = () => {
             />
           </div>
 
-          <div className="form-group">
-            <label>Audio Link</label>
-            <input
-              type="text"
-              value={form.link}
-              onChange={(e) =>
-                setForm({ ...form, link: e.target.value })
-              }
-              required
-            />
-          </div>
+        <div className="form-group">
+  <label>Audio File (Optional)</label>
+
+  <input
+    type="file"
+    accept=".mp3,audio/*"
+    onChange={(e) =>
+      setFile(e.target.files[0])
+    }
+  />
+</div>
 
           <button type="submit" className="update-btn">
             ✅ Update Lecture

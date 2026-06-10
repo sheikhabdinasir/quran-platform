@@ -111,39 +111,44 @@ export const getSingleLecture = async (req, res) => {
 // ============================
 // UPDATE LECTURE
 // ============================
+
 export const updateLecture = async (req, res) => {
   try {
-   const { title, speaker, description } = req.body;
+    const { title, speaker, description } = req.body;
 
-if (!title || !speaker || !description) {
-  return res.status(400).json({ success: false });
-}
+    const lecture = await Lecture.findById(req.params.id);
 
-    
-const updated = await Lecture.findByIdAndUpdate(
-  req.params.id,
-  {
-    title,
-    speaker,
-    description,
-  },
-  { new: true }
-);
+    if (!lecture) {
+      return res.status(404).json({
+        success: false,
+        message: "Lecture lama helin",
+      });
+    }
 
-if (!updated) {
-  return res.status(404).json({
-    success: false,
-    message: "Lecture lama helin",
-  });
-}
+    lecture.title = title;
+    lecture.speaker = speaker;
+    lecture.description = description;
 
-res.json({
-  success: true,
-  data: updated,
-});
+    if (req.file) {
+      lecture.audioUrl = req.file.path;
+      lecture.publicId = req.file.filename;
+    }
+
+    await lecture.save();
+
+    res.json({
+      success: true,
+      message: "Lecture waa la cusboonaysiiyay",
+      data: lecture,
+    });
 
   } catch (error) {
-    res.status(500).json({ success: false });
+    console.error("Update Lecture Error:", error);
+
+    res.status(500).json({
+      success: false,
+      message: "Khalad ayaa dhacay",
+    });
   }
 };
 
