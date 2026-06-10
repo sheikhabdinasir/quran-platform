@@ -31,16 +31,7 @@ app.use(
 
 /* ================= CORS ================= */
 
-app.use(
-  cors({
-    origin: [
-      "https://quran-admin-git-main-garad-s-projects.vercel.app",
-      "https://quran-platform.vercel.app",
-    ],
-    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
-    credentials: true,
-  })
-);
+app.use(cors());
 
 /* ================= BODY PARSER ================= */
 
