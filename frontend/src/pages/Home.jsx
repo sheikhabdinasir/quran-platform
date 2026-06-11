@@ -272,7 +272,7 @@ body{
 
   margin:0 auto 2rem auto;
 }
-  
+
 
 .hero-btn{
   display:inline-block;
@@ -564,8 +564,7 @@ body{
   }
 
   .hero-content{
-    padding:1.5rem 1rem;
-    border-radius:22px;
+    padding:0 1rem;
   }
 
   .hero-content h1{
@@ -575,6 +574,7 @@ body{
   .hero-content p{
     font-size:.95rem;
   }
+
 
   .home-wrapper{
     padding:2rem 1rem;
@@ -595,7 +595,7 @@ body{
 @media(max-width:480px){
 
   .hero-content h1{
-    font-size:1.6rem;
+    font-size:1.8rem;
   }
 
   .section-title,
