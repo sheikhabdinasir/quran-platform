@@ -370,29 +370,25 @@ gap:.8rem;
   translateY(-2px);
 }
 
-/* ACTIVE */
+/* ACTIVE LINK - PREMIUM */
 .nav-menu a.active{
-  color:#1a1207;
+  color:var(--gold-bright);
+
+  background:transparent;
+
+  border:none;
+
+  box-shadow:none;
 
   font-weight:700;
-
-  background:
-  linear-gradient(
-    135deg,
-    #F5D76E,
-    #D4AF37
-  );
-
-  border:
-  1px solid #F5D76E;
-
-  box-shadow:
-  0 0 22px rgba(212,175,55,.45),
-  inset 0 1px 0 rgba(255,255,255,.45);
 }
 
 .nav-menu a.active::after{
-  display:none;
+  transform:
+    translateX(-50%)
+    scaleX(1);
+
+  display:block;
 }
 
 /* ============================================================
