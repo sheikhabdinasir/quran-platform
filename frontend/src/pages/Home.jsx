@@ -211,11 +211,10 @@ body{
   background:
     linear-gradient(
       180deg,
-      rgba(0,0,0,.45),
-      rgba(23,16,10,.75)
+      rgba(0,0,0,.15),
+      rgba(0,0,0,.30)
     );
 }
-
 
 
 .hero-content{
