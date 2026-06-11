@@ -63,43 +63,36 @@ const Home = () => {
       <section className="home-wrapper">
         <h2 className="section-title">🌙 Maxaad Ka Helaysaa Madashan?</h2>
 
-        <div className="home-cards-grid">
-          <Link to="/lectures" className="home-card">
-            <div className="card-top">
-              <div className="card-top-icon">🎧</div>
-              <span className="mini-tag">dhegeysi </span>
-            </div>
+  <div className="timeline-wrapper">
 
-            <h3>Muxaadarooyin   </h3>
-            <p>Halkan ka Dhegeyso muxaadarooyinka .</p>
+  <Link to="/lectures" className="timeline-item">
+    <div className="timeline-number">1</div>
 
-            <span className="card-link-btn">Gal →</span>
-          </Link>
+    <div className="timeline-content">
+      <h3>🎧 Muxaadarooyin</h3>
+      <p>Halkan ka Dhegeyso muxaadarooyinka.</p>
+    </div>
+  </Link>
 
-          <Link to="/tafsiir" className="home-card">
-            <div className="card-top">
-              <div className="card-top-icon">🎙️</div>
-              <span className="mini-tag">Qur'aan</span>
-            </div>
+  <Link to="/tafsiir" className="timeline-item">
+    <div className="timeline-number">2</div>
 
-            <h3>Tafsiirka qur'aanka </h3>
-            <p>Baro macnaha Qur'aanka.</p>
+    <div className="timeline-content">
+      <h3>🎙️ Tafsiirka Qur'aanka</h3>
+      <p>Baro macnaha Qur'aanka.</p>
+    </div>
+  </Link>
 
-            <span className="card-link-btn">Gal →</span>
-          </Link>
+  <Link to="/favorites" className="timeline-item">
+    <div className="timeline-number">3</div>
 
-          <Link to="/favorites" className="home-card">
-            <div className="card-top">
-              <div className="card-top-icon">⭐</div>
-              <span className="mini-tag">xul</span>
-            </div>
+    <div className="timeline-content">
+      <h3>⭐ Muxaadarooyin Xul ah</h3>
+      <p>Muxaadarooyin xul ah oo si gaar ah loo habeeyey.</p>
+    </div>
+  </Link>
 
-            <h3>Muxaadarooyin Xul ah</h3>
-            <p>muxaadarooyin  xul ah  oo si gaar ah loo habeeye.</p>
-
-            <span className="card-link-btn">Fur →</span>
-          </Link>
-        </div>
+</div>
 
         {/* VIDEOS */}
         <section className="home-videos">
@@ -296,107 +289,223 @@ body{
   margin-bottom:2rem;
 }
 
-/* CARDS GRID */
-.home-cards-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:1.2rem;
-}
+/* =========================
+   TIMELINE FEATURES
+========================= */
 
-/* CARD */
-.home-card{
-  background:linear-gradient(
-    180deg,
-    #24170F,
-    #17100A
-  );
-
-  border-radius:24px;
-  padding:1.2rem;
-  text-decoration:none;
-  border:1px solid rgba(212,175,55,.15);
-  transition:.3s ease;
+.timeline-wrapper{
+  max-width:850px;
+  margin:0 auto;
   display:flex;
   flex-direction:column;
-  min-height:240px;
-
-  box-shadow:0 10px 25px rgba(0,0,0,.30);
+  gap:3rem;
 }
 
-.home-card:hover{
-  transform:translateY(-6px);
-  border-color:rgba(212,175,55,.35);
-
-  box-shadow:0 20px 35px rgba(0,0,0,.40);
+.timeline-item{
+  position:relative;
+  display:block;
+  padding-left:90px;
+  color:white;
+  transition:.3s ease;
 }
 
-.card-top{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:1rem;
+
+.timeline-item:hover{
+  transform:translateX(6px);
 }
 
-.card-top-icon{
-  width:55px;
-  height:55px;
-  border-radius:18px;
+.timeline-number{
+  position:absolute;
+  left:0;
+  top:0;
+
+  width:50px;
+  height:50px;
+
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--gold),#b88a1d);
+
+  color:#2C1810;
+
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:1.3rem;
 
-  background:linear-gradient(
-    135deg,
-    var(--gold),
-    #b88a1d
-  );
-
-  color:white;
-}
-
-.mini-tag{
-  background:rgba(212,175,55,.12);
-  color:#F5D76E;
-  border:1px solid rgba(212,175,55,.20);
-
-  padding:.35rem .7rem;
-  border-radius:999px;
-  font-size:.7rem;
-  font-weight:800;
-}
-
-/* CARD TEXT */
-.home-card h3{
-  color:white;
   font-size:1.2rem;
   font-weight:900;
-  margin-bottom:.6rem;
+
+  box-shadow:0 0 20px rgba(212,175,55,.35);
+
+  transition:.3s ease;
 }
 
-.home-card p{
-  color:#e7e7e7;
+.timeline-item:hover .timeline-number{
+  transform:scale(1.08);
+}
+
+.timeline-number{
+  position:absolute;
+  left:0;
+  top:0;
+
+  width:50px;
+  height:50px;
+
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--gold),#b88a1d);
+
+  color:#2C1810;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-size:1.2rem;
+  font-weight:900;
+
+  box-shadow:0 0 20px rgba(212,175,55,.35);
+}
+
+.timeline-item::before{
+  content:"";
+  position:absolute;
+  left:24px;
+  top:50px;
+
+  width:2px;
+  height:calc(100% + 30px);
+
+  background:rgba(212,175,55,.5);
+}
+
+.timeline-item:last-child::before{
+  display:none;
+}
+
+.timeline-content{
+  position:relative;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(212,175,55,.2);
+  border-radius:22px;
+
+  padding:1.6rem 1.5rem;   /* CHANGE */
+
+  backdrop-filter:blur(10px);
+  transition:.3s ease;
+}
+
+.timeline-content:hover{
+  border-color:rgba(212,175,55,.45);
+
+  box-shadow:0 15px 35px rgba(0,0,0,.35);
+}
+.timeline-content::before{
+  content:"";
+  position:absolute;
+
+  left:-42px;
+  top:0;
+
+  width:42px;
+  height:28px;
+
+  border-left:2px solid rgba(212,175,55,.55);
+  border-top:2px solid rgba(212,175,55,.55);
+
+  border-top-left-radius:18px;
+}
+
+.timeline-content::after{
+  content:"";
+
+  position:absolute;
+
+  right:-10px;
+  top:28px;
+
+  width:12px;
+  height:12px;
+
+  border-radius:50%;
+
+  background:var(--gold);
+
+  box-shadow:0 0 12px rgba(212,175,55,.6);
+}
+
+.timeline-content h3{
+  font-size:1.2rem;
+  font-weight:900;
+  margin-bottom:.5rem;
+}
+
+.timeline-content p{
+  color:#e6e6e6;
   line-height:1.7;
-  font-size:.95rem;
-  margin-bottom:auto;
 }
 
-.card-link-btn{
-  margin-top:1rem;
-  width:fit-content;
-  padding:.65rem 1rem;
-  border-radius:999px;
+/* TABLET */
+@media(max-width:768px){
 
-  background:linear-gradient(
-    90deg,
-    var(--primary),
-    #b24040
-  );
+  .timeline-wrapper{
+    gap:2rem;
+  }
 
-  color:white;
-  font-size:.85rem;
-  font-weight:800;
+  .timeline-item{
+    padding-left:70px;
+  }
+
+  .timeline-number{
+    width:42px;
+    height:42px;
+    font-size:1rem;
+  }
+
+  .timeline-item::before{
+    left:20px;
+  }
+
+  .timeline-content{
+    padding:1.2rem;
+  }
+
+  .timeline-content::before{
+    width:32px;
+    left:-32px;
+  }
 }
+
+/* MOBILE */
+@media(max-width:480px){
+
+  .timeline-item{
+    padding-left:60px;
+  }
+
+  .timeline-number{
+    width:38px;
+    height:38px;
+  }
+
+  .timeline-item:hover{
+    transform:none;
+  }
+
+  .timeline-content h3{
+    font-size:1.05rem;
+  }
+
+  .timeline-content p{
+    font-size:.92rem;
+  }
+
+  .timeline-content::after{
+    width:10px;
+    height:10px;
+  }
+}
+
+
 
 /* VIDEOS */
 .home-videos{
@@ -477,9 +586,6 @@ body{
     padding:2rem 1rem;
   }
 
-  .home-cards-grid{
-    grid-template-columns:1fr;
-  }
 
   .video-grid{
     grid-template-columns:1fr;
@@ -503,9 +609,6 @@ body{
     font-size:1.5rem;
   }
 
-  .home-card{
-    min-height:auto;
-  }
 
 }
       `}</style>
