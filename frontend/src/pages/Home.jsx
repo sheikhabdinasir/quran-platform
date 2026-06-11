@@ -47,7 +47,7 @@ const Home = () => {
 
           <h1>مركز الشيخ عبد الناصر الحاج أحمد</h1>
 
-          <div className="hero-icon">📖</div>
+          <div className="hero-icon">🕋</div>
 
           <p>
             Ku soo dhawoow madasha Shiikh Cabdinaasir ee faafinta diinka Rabbi.
