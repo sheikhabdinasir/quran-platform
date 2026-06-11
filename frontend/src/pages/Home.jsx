@@ -343,28 +343,7 @@ body{
   transform:scale(1.08);
 }
 
-.timeline-number{
-  position:absolute;
-  left:0;
-  top:0;
 
-  width:50px;
-  height:50px;
-
-  border-radius:50%;
-  background:linear-gradient(135deg,var(--gold),#b88a1d);
-
-  color:#2C1810;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  font-size:1.2rem;
-  font-weight:900;
-
-  box-shadow:0 0 20px rgba(212,175,55,.35);
-}
 
 .timeline-item::before{
   content:"";
