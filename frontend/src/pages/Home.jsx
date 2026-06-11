@@ -202,62 +202,77 @@ body{
   object-fit:cover;
 }
 
+
+
 .hero-overlay{
   position:absolute;
   inset:0;
-  background:linear-gradient(
-    180deg,
-    rgba(0,0,0,.55),
-    rgba(23,16,10,.90)
-  );
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0,0,0,.45),
+      rgba(23,16,10,.75)
+    );
 }
+
+
 
 .hero-content{
   position:relative;
   z-index:2;
-  width:100%;
-  max-width:760px;
-  padding:2rem 1.3rem;
-  border-radius:28px;
-  backdrop-filter:blur(10px);
-  background:rgba(255,255,255,.08);
-  border:1px solid rgba(212,175,55,.30);
-  box-shadow:0 20px 50px rgba(0,0,0,.45);
+
+  max-width:800px;
+
+  padding:0 1.5rem;
+
+  text-align:center;
 }
 
+
 .hero-badge{
-  display:inline-block;
-  padding:.45rem 1rem;
-  border-radius:999px;
-  background:rgba(212,175,55,.15);
-  border:1px solid rgba(212,175,55,.35);
-  color:white;
-  font-size:.8rem;
-  font-weight:800;
+  display:block;
+  color:var(--gold);
+  font-size:1.2rem;
+  font-weight:900;
   margin-bottom:1rem;
 }
 
+
 .hero-content h1{
-  font-size:clamp(1.7rem,5vw,3.2rem);
+  font-size:clamp(2.2rem,6vw,4.5rem);
+
   font-weight:900;
+
   color:white;
-  line-height:1.3;
-  margin-bottom:.8rem;
+
+  line-height:1.2;
+
+  margin-bottom:1rem;
+
+  text-shadow:
+    0 4px 20px rgba(0,0,0,.6);
 }
+
 
 .hero-icon{
   font-size:2rem;
   margin-bottom:.8rem;
 }
 
+
 .hero-content p{
-  font-size:1rem;
-  line-height:1.7;
-  color:#f3f3f3;
-  max-width:580px;
-  margin:auto;
-  margin-bottom:1.5rem;
+  font-size:1.1rem;
+
+  line-height:1.8;
+
+  color:#f5f5f5;
+
+  max-width:620px;
+
+  margin:0 auto 2rem auto;
 }
+  
 
 .hero-btn{
   display:inline-block;
