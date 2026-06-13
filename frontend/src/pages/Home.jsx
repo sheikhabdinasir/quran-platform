@@ -200,6 +200,7 @@ body{
 }
 
 
+/* hero color */
 
 .hero-overlay{
   position:absolute;
