@@ -193,30 +193,37 @@ body{
 
 
 .hero-section{
-  min-height:85vh;
+  min-height:90vh;
+
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:3rem;
+  gap:4rem;
 
-  max-width:1200px;
+  max-width:1400px;
   margin:auto;
 
-  padding:3rem 1rem;
+  padding:3rem 2rem;
 }
 
 
 .hero-image{
   flex:1;
   display:flex;
-  justify-content:center;
+  justify-content:flex-end;
+  align-items:center;
 }
 
 .hero-image img{
   width:100%;
-  max-width:500px;
+  max-width:700px;
   height:auto;
   display:block;
+
+  filter:
+    drop-shadow(0 0 25px rgba(212,175,55,.35));
+
+  object-fit:contain;
 }
 
 .hero-badge{
