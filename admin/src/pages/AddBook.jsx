@@ -156,7 +156,7 @@ const AddBook = () => {
                 disabled={loading}
                 className="w-full rounded-xl bg-gradient-to-r from-yellow-500 to-amber-500 hover:from-yellow-600 hover:to-amber-600 text-white font-semibold py-3 text-sm shadow-lg hover:shadow-xl transition disabled:opacity-60"
               >
-                {loading ? "Saving..." : "➕ Kaydi Kitaabka"}
+                {loading ? "Saving..." : " Kaydi Kitaabka"}
               </button>
             </form>
           </div>

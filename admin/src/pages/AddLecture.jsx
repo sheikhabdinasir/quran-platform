@@ -71,7 +71,7 @@ setAudioFile(null);
       <div className="w-full max-w-xl bg-white rounded-2xl shadow-2xl p-8 border-t-4 border-yellow-500">
 
         <h2 className="text-3xl font-extrabold text-center text-gray-800 mb-6">
-          ➕ Ku Dar Muxaadarooyin
+           Ku Dar Muxaadarooyin
         </h2>
 
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -115,7 +115,7 @@ setAudioFile(null);
 
      <div>
   <label className="block font-semibold mb-1">
-    Audio File (MP3)
+     (MP3 File)
   </label>
 
   <input
@@ -133,7 +133,7 @@ setAudioFile(null);
             type="submit"
             className="w-full py-3 mt-4 bg-yellow-500 hover:bg-yellow-600 text-white font-bold rounded-full transition transform hover:scale-105 shadow-lg"
           >
-            💾 Save Lecture
+            Save 
           </button>
 
         </form>
