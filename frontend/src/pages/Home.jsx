@@ -70,7 +70,6 @@ const Home = () => {
 
     <div className="timeline-content">
       <h3>🎧 Muxaadarooyin</h3>
-      <p>Halkan ka Dhegeyso muxaadarooyinka.</p>
     </div>
   </Link>
 
@@ -78,8 +77,7 @@ const Home = () => {
     <div className="timeline-number">2</div>
 
     <div className="timeline-content">
-      <h3>🎙️ Tafsiirka Qur'aanka</h3>
-      <p>Baro macnaha Qur'aanka.</p>
+      <h3>🎙️ Qur'aan</h3>
     </div>
   </Link>
 
@@ -88,7 +86,6 @@ const Home = () => {
 
     <div className="timeline-content">
       <h3>⭐ Muxaadarooyin Xul ah</h3>
-      <p>Muxaadarooyin xul ah oo si gaar ah loo habeeyey.</p>
     </div>
   </Link>
 
@@ -211,7 +208,7 @@ body{
   background:
     linear-gradient(
       180deg,
-      rgba(0,0,0,.15),
+      rgba(20, 240, 104, 0.92),
       rgba(0,0,0,.30)
     );
 }
