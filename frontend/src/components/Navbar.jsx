@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import profileImg from "../assets/sawirprofile.jpeg";
-import "./Navbar.css";   // ✅
-const Navbar = () => {
+ import "./Navbar .css";const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   // AUTO HIDE ON SCROLL
