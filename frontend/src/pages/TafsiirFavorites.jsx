@@ -28,9 +28,9 @@ const API =
     TafsiirPlayerContext
   );
 
-  useEffect(() => {
-    loadData();
-  }, []);
+useEffect(() => {
+  loadData();
+}, [favorites]);
 
   const loadData =
   async () => {
