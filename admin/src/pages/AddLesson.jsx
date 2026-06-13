@@ -334,7 +334,7 @@ setAudioFile(null);
     mb-2
   "
   >
-    Audio File (MP3)
+     (MP3 File)
   </label>
 
   <input
