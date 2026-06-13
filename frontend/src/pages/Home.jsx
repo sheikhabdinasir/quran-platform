@@ -190,11 +190,34 @@ body{
   );
 }
 
-
-
 .hero-section{
   min-height:90vh;
 
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  gap:2rem;
+
+  max-width:1600px;
+
+  margin:auto;
+
+  padding:3rem 4rem;
+}
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  gap:2rem;
+
+  max-width:1600px;
+
+  margin:auto;
+
+  padding:3rem 4rem;
+}
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -216,12 +239,12 @@ body{
 
 .hero-image img{
   width:100%;
-  max-width:700px;
+  max-width:850px;
   height:auto;
   display:block;
 
   filter:
-    drop-shadow(0 0 25px rgba(212,175,55,.35));
+    drop-shadow(0 0 40px rgba(212,175,55,.45));
 
   object-fit:contain;
 }
