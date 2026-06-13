@@ -1,18 +1,26 @@
 import { useState, useEffect } from "react";
-import React from "react";
 import { Link } from "react-router-dom";
 import FAQ from "../components/FAQ";
 
-import heroIslamic from "../assets/hero-islamic.png";
-
+import hero1 from "../assets/hero1.mp4";
+import hero2 from "../assets/hero2.mp4";
+import hero3 from "../assets/hero3.mp4";
 
 import short1 from "../assets/videos/short1.mp4";
 import short2 from "../assets/videos/short2.mp4";
 import short3 from "../assets/videos/short3.mp4";
 
 const Home = () => {
+  const heroVideos = [hero1, hero2, hero3];
+  const [currentIndex, setCurrentIndex] = useState(0);
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % heroVideos.length);
+    }, 7000);
 
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <div style={{
@@ -21,54 +29,35 @@ const Home = () => {
 }}>        {/* HERO color  */}
 
       {/* HERO */}
-     
-     <section className="hero-section">
+      <section className="hero-section">
+        <video
+          key={currentIndex}
+          src={heroVideos[currentIndex]}
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="hero-video"
+        />
 
-  <div className="hero-text">
+        <div className="hero-overlay"></div>
 
-    <span className="hero-badge">
-      ﷽
-    </span>
+        <div className="hero-content">
+          <span className="hero-badge">﷽ </span>
 
-    <h1>
-      مركز الشيخ عبد الناصر الحاج أحمد
-    </h1>
+          <h1>مركز الشيخ عبد الناصر الحاج أحمد</h1>
 
-    <p className="hero-subtitle">
-      Ku soo dhawoow madasha Shiikh Cabdinaasir ee faafinta
-      diinka Rabbi, baro, faham oo ku dhaqaan.
-    </p>
+          <div className="hero-icon">🕋</div>
 
-    <div className="hero-buttons">
+          <p>
+            Ku soo dhawoow madasha Shiikh Cabdinaasir ee faafinta diinka Rabbi.
+          </p>
 
-      <Link
-        to="/tafsiir"
-        className="hero-btn primary"
-      >
-        📖 Tafsiirka Qur'aanka
-      </Link>
-
-      <Link
-        to="/lectures"
-        className="hero-btn secondary"
-      >
-        🎧 Muxaadarooyin
-      </Link>
-
-    </div>
-
-  </div>
-
-  <div className="hero-image">
-
-    <img
-      src={heroIslamic}
-      alt="Islamic Hero"
-    />
-
-  </div>
-
-</section>
+          <Link to="/tafsiir" className="hero-btn">
+            Bilow Hadda →
+          </Link>
+        </div>
+      </section>
 
       {/* FEATURES */}
       <section className="home-wrapper">
@@ -81,6 +70,7 @@ const Home = () => {
 
     <div className="timeline-content">
       <h3>🎧 Muxaadarooyin</h3>
+      <p>Halkan ka Dhegeyso muxaadarooyinka.</p>
     </div>
   </Link>
 
@@ -88,7 +78,8 @@ const Home = () => {
     <div className="timeline-number">2</div>
 
     <div className="timeline-content">
-      <h3>🎙️ Qur'aan</h3>
+      <h3>🎙️ Tafsiirka Qur'aanka</h3>
+      <p>Baro macnaha Qur'aanka.</p>
     </div>
   </Link>
 
@@ -97,6 +88,7 @@ const Home = () => {
 
     <div className="timeline-content">
       <h3>⭐ Muxaadarooyin Xul ah</h3>
+      <p>Muxaadarooyin xul ah oo si gaar ah loo habeeyey.</p>
     </div>
   </Link>
 
@@ -190,117 +182,85 @@ body{
   );
 }
 
+/* HERO SECTION */
 .hero-section{
-  min-height:90vh;
-
+  min-height:85vh;
+  position:relative;
+  overflow:hidden;
   display:flex;
   align-items:center;
-  justify-content:space-between;
-
-  gap:2rem;
-
-  max-width:1600px;
-
-  margin:auto;
-
-  padding:3rem 4rem;
+  justify-content:center;
+  padding:1rem;
+  text-align:center;
 }
 
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-
-  gap:2rem;
-
-  max-width:1600px;
-
-  margin:auto;
-
-  padding:3rem 4rem;
-}
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:4rem;
-
-  max-width:1400px;
-  margin:auto;
-
-  padding:3rem 2rem;
-}
-
-
-.hero-image{
-  flex:1;
-  display:flex;
-  justify-content:flex-end;
-  align-items:center;
-}
-
-.hero-image img{
+.hero-video{
+  position:absolute;
+  inset:0;
   width:100%;
-  max-width:850px;
-  height:auto;
-  display:block;
-
-  filter:
-    drop-shadow(0 0 40px rgba(212,175,55,.45));
-
-  object-fit:contain;
+  height:100%;
+  object-fit:cover;
 }
+
+
+
+.hero-overlay{
+  position:absolute;
+  inset:0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0,0,0,.15),
+      rgba(0,0,0,.30)
+    );
+}
+
+
+.hero-content{
+  position:relative;
+  z-index:2;
+
+  max-width:800px;
+
+  padding:0 1.5rem;
+
+  text-align:center;
+}
+
 
 .hero-badge{
-  color:var(--gold);
-  font-size:2rem;
   display:block;
+  color:var(--gold);
+  font-size:1.2rem;
+  font-weight:900;
   margin-bottom:1rem;
 }
 
-.hero-text h1{
-  font-size:clamp(2.5rem,5vw,4rem);
+
+.hero-content h1{
+  font-size:clamp(2.2rem,6vw,4.5rem);
+
+  font-weight:900;
+
+  color:white;
+
   line-height:1.2;
+
   margin-bottom:1rem;
-}
 
-.hero-subtitle{
-  color:#e6e6e6;
-  line-height:1.8;
-  margin-bottom:2rem;
-  max-width:600px;
-}
-
-.hero-buttons{
-  display:flex;
-  gap:1rem;
-  flex-wrap:wrap;
-}
-
-@media(max-width:768px){
-
-  .hero-section{
-    flex-direction:column;
-    text-align:center;
-  }
-
-  .hero-text{
-    order:2;
-  }
-
-  .hero-image{
-    order:1;
-  }
-
-  .hero-buttons{
-    justify-content:center;
-  }
-
-  .hero-image img{
-    max-width:320px;
-  }
+  text-shadow:
+    0 4px 20px rgba(0,0,0,.6);
 }
 
 
-.hero-text p{
+.hero-icon{
+  font-size:2rem;
+  margin-bottom:.8rem;
+}
+
+
+.hero-content p{
   font-size:1.1rem;
 
   line-height:1.8;
@@ -309,8 +269,9 @@ body{
 
   max-width:620px;
 
-  margin-bottom:2rem;
+  margin:0 auto 2rem auto;
 }
+
 
 .hero-btn{
   display:inline-block;
@@ -601,18 +562,17 @@ body{
     min-height:72vh;
   }
 
- 
-  .hero-text{
-  padding:0 1rem;
-}
+  .hero-content{
+    padding:0 1rem;
+  }
 
-.hero-text h1{
-  font-size:1.9rem;
-}
+  .hero-content h1{
+    font-size:1.9rem;
+  }
 
-.hero-text p{
-  font-size:.95rem;
-}
+  .hero-content p{
+    font-size:.95rem;
+  }
 
 
   .home-wrapper{
@@ -633,9 +593,9 @@ body{
 /* SMALL MOBILE */
 @media(max-width:480px){
 
-  .hero-text h1{
-  font-size:1.8rem;
-}
+  .hero-content h1{
+    font-size:1.8rem;
+  }
 
   .section-title,
   .home-videos-title{
