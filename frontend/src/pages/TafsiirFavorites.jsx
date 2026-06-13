@@ -39,13 +39,7 @@ useEffect(() => {
 
       const { data } =
       await axios.get(API);
-
-      const audios =
-      data.tafsiir.filter(
-        item =>
-        item.mediaType ===
-        "audio"
-      );
+const audios = data.tafsiir;
 
    
       console.log("Favorites:", favorites);
@@ -55,18 +49,25 @@ console.log(
   audios.map(item => item._id)
 );
 
-const onlyFav = audios.filter(item => {
-  return favorites.some(fav => {
-    return fav === item._id ||
-           fav?._id === item._id;
-  });
-});
 
-console.log("Only Favorites:", onlyFav);
+const onlyFav = audios.filter(
+  item =>
+    favorites.includes(item._id)
+);
 
-      setItems(
-        onlyFav
-      );
+console.log("Favorites:", favorites);
+
+console.log(
+  "Audio IDs:",
+  audios.map(item => item._id)
+);
+
+console.log(
+  "Only Favorites:",
+  onlyFav
+);
+
+setItems(onlyFav);
 
     }catch(err){
       console.log(err);
