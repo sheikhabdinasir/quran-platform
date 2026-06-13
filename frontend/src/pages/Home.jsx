@@ -1,26 +1,19 @@
 import { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import FAQ from "../components/FAQ";
 
-import hero1 from "../assets/hero1.mp4";
-import hero2 from "../assets/hero2.mp4";
-import hero3 from "../assets/hero3.mp4";
+
+
+import heroIslamic from "../assets/hero-islamic.png";
 
 import short1 from "../assets/videos/short1.mp4";
 import short2 from "../assets/videos/short2.mp4";
 import short3 from "../assets/videos/short3.mp4";
 
 const Home = () => {
-  const heroVideos = [hero1, hero2, hero3];
-  const [currentIndex, setCurrentIndex] = useState(0);
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % heroVideos.length);
-    }, 7000);
 
-    return () => clearInterval(timer);
-  }, []);
 
   return (
     <div style={{
@@ -29,35 +22,54 @@ const Home = () => {
 }}>        {/* HERO color  */}
 
       {/* HERO */}
-      <section className="hero-section">
-        <video
-          key={currentIndex}
-          src={heroVideos[currentIndex]}
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="hero-video"
-        />
+     
+     <section className="hero-section">
 
-        <div className="hero-overlay"></div>
+  <div className="hero-text">
 
-        <div className="hero-content">
-          <span className="hero-badge">﷽ </span>
+    <span className="hero-badge">
+      ﷽
+    </span>
 
-          <h1>مركز الشيخ عبد الناصر الحاج أحمد</h1>
+    <h1>
+      مركز الشيخ عبد الناصر الحاج أحمد
+    </h1>
 
-          <div className="hero-icon">🕋</div>
+    <p className="hero-subtitle">
+      Ku soo dhawoow madasha Shiikh Cabdinaasir ee faafinta
+      diinka Rabbi, baro, faham oo ku dhaqaan.
+    </p>
 
-          <p>
-            Ku soo dhawoow madasha Shiikh Cabdinaasir ee faafinta diinka Rabbi.
-          </p>
+    <div className="hero-buttons">
 
-          <Link to="/tafsiir" className="hero-btn">
-            Bilow Hadda →
-          </Link>
-        </div>
-      </section>
+      <Link
+        to="/tafsiir"
+        className="hero-btn primary"
+      >
+        📖 Tafsiirka Qur'aanka
+      </Link>
+
+      <Link
+        to="/lectures"
+        className="hero-btn secondary"
+      >
+        🎧 Muxaadarooyin
+      </Link>
+
+    </div>
+
+  </div>
+
+  <div className="hero-image">
+
+    <img
+      src={heroIslamic}
+      alt="Islamic Hero"
+    />
+
+  </div>
+
+</section>
 
       {/* FEATURES */}
       <section className="home-wrapper">
@@ -179,86 +191,87 @@ body{
   );
 }
 
-/* HERO SECTION */
+
+
 .hero-section{
   min-height:85vh;
-  position:relative;
-  overflow:hidden;
   display:flex;
   align-items:center;
+  justify-content:space-between;
+  gap:3rem;
+
+  max-width:1200px;
+  margin:auto;
+
+  padding:3rem 1rem;
+}
+
+
+.hero-image{
+  flex:1;
+  display:flex;
   justify-content:center;
-  padding:1rem;
-  text-align:center;
 }
 
-.hero-video{
-  position:absolute;
-  inset:0;
+.hero-image img{
   width:100%;
-  height:100%;
-  object-fit:cover;
+  max-width:500px;
+  height:auto;
+  display:block;
 }
-
-
-/* hero color */
-
-.hero-overlay{
-  position:absolute;
-  inset:0;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(0,0,0,.15),
-      rgba(0,0,0,.30)
-    );
-}
-
-
-.hero-content{
-  position:relative;
-  z-index:2;
-
-  max-width:800px;
-
-  padding:0 1.5rem;
-
-  text-align:center;
-}
-
 
 .hero-badge{
-  display:block;
   color:var(--gold);
-  font-size:1.2rem;
-  font-weight:900;
-  margin-bottom:1rem;
-}
-
-
-.hero-content h1{
-  font-size:clamp(2.2rem,6vw,4.5rem);
-
-  font-weight:900;
-
-  color:white;
-
-  line-height:1.2;
-
-  margin-bottom:1rem;
-
-  text-shadow:
-    0 4px 20px rgba(0,0,0,.6);
-}
-
-
-.hero-icon{
   font-size:2rem;
-  margin-bottom:.8rem;
+  display:block;
+  margin-bottom:1rem;
+}
+
+.hero-text h1{
+  font-size:clamp(2.5rem,5vw,4rem);
+  line-height:1.2;
+  margin-bottom:1rem;
+}
+
+.hero-subtitle{
+  color:#e6e6e6;
+  line-height:1.8;
+  margin-bottom:2rem;
+  max-width:600px;
+}
+
+.hero-buttons{
+  display:flex;
+  gap:1rem;
+  flex-wrap:wrap;
+}
+
+@media(max-width:768px){
+
+  .hero-section{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .hero-text{
+    order:2;
+  }
+
+  .hero-image{
+    order:1;
+  }
+
+  .hero-buttons{
+    justify-content:center;
+  }
+
+  .hero-image img{
+    max-width:320px;
+  }
 }
 
 
-.hero-content p{
+.hero-text p{
   font-size:1.1rem;
 
   line-height:1.8;
@@ -267,9 +280,8 @@ body{
 
   max-width:620px;
 
-  margin:0 auto 2rem auto;
+  margin-bottom:2rem;
 }
-
 
 .hero-btn{
   display:inline-block;
@@ -560,17 +572,18 @@ body{
     min-height:72vh;
   }
 
-  .hero-content{
-    padding:0 1rem;
-  }
+ 
+  .hero-text{
+  padding:0 1rem;
+}
 
-  .hero-content h1{
-    font-size:1.9rem;
-  }
+.hero-text h1{
+  font-size:1.9rem;
+}
 
-  .hero-content p{
-    font-size:.95rem;
-  }
+.hero-text p{
+  font-size:.95rem;
+}
 
 
   .home-wrapper{
@@ -591,9 +604,9 @@ body{
 /* SMALL MOBILE */
 @media(max-width:480px){
 
-  .hero-content h1{
-    font-size:1.8rem;
-  }
+  .hero-text h1{
+  font-size:1.8rem;
+}
 
   .section-title,
   .home-videos-title{

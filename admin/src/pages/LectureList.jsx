@@ -110,12 +110,12 @@ axios.delete(
   return (
     <section className="lecture-wrapper">
 
-      <h2 className="title">🎙️Maamulka Muxaadarooyinka</h2>
+      <h2 className="title">Maamulka Muxaadarooyinka</h2>
 
       {/* SEARCH */}
       <input
         className="search-input"
-        placeholder="🔍 Raadi: Shiikh, Muxaadaro IWM..."
+        placeholder="🔍 Raadi Muxaadaro.."
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
@@ -129,7 +129,7 @@ axios.delete(
   disabled={selected.length === 0}
   onClick={() => openDelete("multiple")}
 >
-  Delete Selected
+  Delete Selected items
 </button>
 
         
@@ -202,7 +202,7 @@ axios.delete(
               </button>
 
               <button className="btn red" onClick={confirmDelete}>
-                Haa, Tirtir
+                 Tir
               </button>
             </div>
           </div>

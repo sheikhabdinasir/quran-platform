@@ -112,7 +112,7 @@ const handleSubmit = async (e) => {
   return (
     <section className="edit-wrapper">
       <div className="edit-card">
-        <h2 className="edit-title">✏️ Edit Lecture</h2>
+        <h2 className="edit-title">Edit Lecture</h2>
 
         <form className="edit-form" onSubmit={handleSubmit}>
           <div className="form-group">
@@ -152,7 +152,7 @@ const handleSubmit = async (e) => {
           </div>
 
         <div className="form-group">
-  <label>Audio File (Optional)</label>
+  <label>Audio File </label>
 
   <input
     type="file"

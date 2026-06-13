@@ -35,7 +35,7 @@ const LessonList = () => {
   return (
     <div className="p-4 md:p-6 max-w-6xl mx-auto">
       {/* Title */}
-      <h2 className="text-2xl font-bold mb-4">📚 Lesson List</h2>
+      <h2 className="text-2xl font-bold mb-4">Lesson List</h2>
 
       {/* Book Selector */}
       <div className="mb-6 max-w-md">
