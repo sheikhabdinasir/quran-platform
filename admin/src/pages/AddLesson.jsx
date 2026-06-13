@@ -201,10 +201,10 @@ setAudioFile(null);
                 mt-2
               "
               >
-                <H> Casharkan wuxuu
+                Casharkan wuxuu
                 si toos ah ugu
                 xirnaan doonaa
-                kitaabka </H>
+                kitaabka
               </p>
 
             </div>
