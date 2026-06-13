@@ -225,7 +225,7 @@ const handleSubmit = async (e) => {
             </h3>
 
             <p style={cardText}>
-              shabdinasir@gmail.com
+              shabdinaAsir12@gmail.com
             </p>
           </div>
 

@@ -64,7 +64,7 @@ import "../Navbar.css";
           <NavLink to="/kutub" onClick={() => setOpen(false)}>Kutub</NavLink>
           <NavLink to="/tafsiir" onClick={() => setOpen(false)}>Tafsiir</NavLink>
           <NavLink to="/lectures" onClick={() => setOpen(false)}>Muxaadarooyin</NavLink>
-          <NavLink to="/favorites" onClick={() => setOpen(false)}>Muxaadoroyin xul ah</NavLink>
+          <NavLink to="/favorites" onClick={() => setOpen(false)}>Muxaadaroyin xul ah</NavLink>
           <NavLink to="/about" onClick={() => setOpen(false)}>About</NavLink>
           <NavLink to="/contact" onClick={() => setOpen(false)}>Contact us</NavLink>
         </nav>
