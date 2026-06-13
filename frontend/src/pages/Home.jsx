@@ -3,9 +3,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import FAQ from "../components/FAQ";
 
-
-
 import heroIslamic from "../assets/hero-islamic.png";
+
 
 import short1 from "../assets/videos/short1.mp4";
 import short2 from "../assets/videos/short2.mp4";
