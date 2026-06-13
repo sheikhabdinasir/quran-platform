@@ -59,6 +59,12 @@ const TafsiirPlayerProvider =
       ? JSON.parse(saved)
       : [];
   });
+  useEffect(() => {
+  console.log(
+    "TAFSIIR FAVORITES:",
+    favorites
+  );
+}, [favorites]);
 
   /*********************************
    CONTINUE LISTENING
