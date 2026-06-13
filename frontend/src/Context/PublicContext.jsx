@@ -40,6 +40,33 @@ export const PublicProvider = ({ children }) => {
   return saved ? JSON.parse(saved) : [];
 });
 
+useEffect(() => {
+  const syncLectureFavorites = async () => {
+    try {
+      const res = await axios.get(
+        `${import.meta.env.VITE_API_URL}/api/lectures/all`
+      );
+
+      const dbLectures = res.data.data || [];
+
+      const updatedFavorites = lectureFavorites.filter((fav) =>
+        dbLectures.some((lec) => lec._id === fav._id)
+      );
+
+      setLectureFavorites(updatedFavorites);
+
+      localStorage.setItem(
+        "lectureFavorites",
+        JSON.stringify(updatedFavorites)
+      );
+
+    } catch (error) {
+      console.error("Favorite sync error:", error);
+    }
+  };
+
+  syncLectureFavorites();
+}, []);
   const currentLesson =
     currentIndex !== null ? playlist[currentIndex] : null;
 
