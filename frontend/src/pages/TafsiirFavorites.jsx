@@ -47,13 +47,22 @@ useEffect(() => {
         "audio"
       );
 
-      const onlyFav =
-      audios.filter(
-        item =>
-        favorites.includes(
-          item._id
-        )
-      );
+   
+      console.log("Favorites:", favorites);
+
+console.log(
+  "Audio IDs:",
+  audios.map(item => item._id)
+);
+
+const onlyFav = audios.filter(item => {
+  return favorites.some(fav => {
+    return fav === item._id ||
+           fav?._id === item._id;
+  });
+});
+
+console.log("Only Favorites:", onlyFav);
 
       setItems(
         onlyFav
