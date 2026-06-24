@@ -226,7 +226,7 @@ body{
 
 
   .hero-bismillah{
-  display:block;
+  display:block; 
   color:var(--gold);
   font-size:1.4rem;
   font-weight:900;
