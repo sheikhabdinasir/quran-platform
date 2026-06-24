@@ -1,0 +1,9 @@
+{
+  "appId": "com.tafsiirquran.app",
+  "appName": "Tafsiir Quran",
+  "webDir": "dist",
+  "server": {
+    "url": "https://quraan-platform-kohl.vercel.app",
+    "cleartext": false
+  }
+}
