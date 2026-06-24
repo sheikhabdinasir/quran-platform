@@ -1,26 +1,13 @@
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import FAQ from "../components/FAQ";
 
-import hero1 from "../assets/hero1.mp4";
-import hero2 from "../assets/hero2.mp4";
-import hero3 from "../assets/hero3.mp4";
 
 import short1 from "../assets/videos/short1.mp4";
 import short2 from "../assets/videos/short2.mp4";
 import short3 from "../assets/videos/short3.mp4";
 
 const Home = () => {
-  const heroVideos = [hero1, hero2, hero3];
-  const [currentIndex, setCurrentIndex] = useState(0);
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % heroVideos.length);
-    }, 7000);
-
-    return () => clearInterval(timer);
-  }, []);
 
   return (
     <div style={{
@@ -29,35 +16,55 @@ const Home = () => {
 }}>        {/* HERO color  */}
 
       {/* HERO */}
-      <section className="hero-section">
-        <video
-          key={currentIndex}
-          src={heroVideos[currentIndex]}
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="hero-video"
-        />
+ 
+ <section className="hero-section">
 
-        <div className="hero-overlay"></div>
+  <div className="hero-content">
 
-        <div className="hero-content">
-          <span className="hero-badge">﷽ </span>
+    <span className="hero-bismillah">
+      ﷽
+    </span>
 
-          <h1>مركز الشيخ عبد الناصر الحاج أحمد</h1>
+    <h1 className="hero-title">
+      MADASHA SHIIKH CABDINAASIR XAAJI AXMED
+    </h1>
 
-          <div className="hero-icon">🕋</div>
+ <p className="hero-description">
+  Ku soo dhawoow madal ay ku jiraan
+  Tafsiirka Qur'aanka Kariimka,
+  Muxaadarooyin Islaami ah,
+  Kutub Islaami ah iyo Duruus cilmiyeed
+  oo uu soo jeediyey Shiikh Cabdinaasir Xaaji Axmed.
+</p>
 
-          <p>
-            Ku soo dhawoow madasha Shiikh Cabdinaasir ee faafinta diinka Rabbi.
-          </p>
+    <div className="hero-buttons">
 
-          <Link to="/tafsiir" className="hero-btn">
-            Bilow Hadda →
-          </Link>
-        </div>
-      </section>
+      <Link
+        to="/kutub"
+        className="hero-btn-secondary"
+      >
+        📖 Kutubta
+      </Link>
+
+      <Link
+        to="/lectures"
+        className="hero-btn-primary"
+      >
+        🎧 Muxaadarooyinka
+      </Link>
+
+      <Link
+        to="/tafsiir"
+        className="hero-btn-secondary"
+      >
+        📚 Tafsiirka
+      </Link>
+
+    </div>
+
+  </div>
+
+</section>
 
       {/* FEATURES */}
       <section className="home-wrapper">
@@ -194,27 +201,11 @@ body{
   text-align:center;
 }
 
-.hero-video{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
 
 
 
-.hero-overlay{
-  position:absolute;
-  inset:0;
 
-  background:
-    linear-gradient(
-      180deg,
-      rgba(0,0,0,.15),
-      rgba(0,0,0,.30)
-    );
-}
+
 
 
 .hero-content{
@@ -229,69 +220,75 @@ body{
 }
 
 
-.hero-badge{
-  display:block;
+
+
+ 
+ 
+
+  .hero-bismillah{
+  display:block; 
   color:var(--gold);
-  font-size:1.2rem;
+  font-size:1.4rem;
   font-weight:900;
   margin-bottom:1rem;
 }
 
-
-.hero-content h1{
-  font-size:clamp(2.2rem,6vw,4.5rem);
-
+.hero-title{
+  font-size:clamp(2.8rem,6vw,5rem);
   font-weight:900;
-
+  line-height:1.15;
   color:white;
-
-  line-height:1.2;
-
-  margin-bottom:1rem;
-
-  text-shadow:
-    0 4px 20px rgba(0,0,0,.6);
+  margin-bottom:1.5rem;
+  text-shadow:0 8px 25px rgba(0,0,0,.4);
 }
 
-
-.hero-icon{
-  font-size:2rem;
-  margin-bottom:.8rem;
-}
-
-
-.hero-content p{
-  font-size:1.1rem;
-
-  line-height:1.8;
-
+.hero-description{
   color:#f5f5f5;
-
-  max-width:620px;
-
-  margin:0 auto 2rem auto;
+  font-size:1.15rem;
+  line-height:1.9;
+  max-width:700px;
+  margin:0 auto 2.5rem;
 }
 
+.hero-buttons{
+  display:flex;
+  justify-content:center;
+  gap:1rem;
+  flex-wrap:wrap;
+}
 
-.hero-btn{
-  display:inline-block;
-  padding:.9rem 1.8rem;
+.hero-btn-primary{
+  padding:1rem 2rem;
   border-radius:999px;
+  text-decoration:none;
+  font-weight:900;
   background:linear-gradient(
-    90deg,
+    135deg,
     var(--gold),
     #b88a1d
   );
   color:#2C1810;
-  text-decoration:none;
-  font-weight:900;
-  transition:.3s ease;
-  box-shadow:0 12px 25px rgba(212,175,55,.30);
+  transition:.3s;
 }
 
-.hero-btn:hover{
+.hero-btn-secondary{
+  padding:1rem 2rem;
+  border-radius:999px;
+  text-decoration:none;
+  font-weight:900;
+  color:white;
+  border:1px solid rgba(212,175,55,.4);
+  background:rgba(255,255,255,.05);
+  transition:.3s;
+}
+
+.hero-btn-primary:hover,
+.hero-btn-secondary:hover{
   transform:translateY(-4px);
 }
+
+
+
 
 /* TITLES */
 .section-title,
