@@ -595,7 +595,7 @@ body{
   }
 
   .section-title,
-  .home-videos-title{
+  .home-videos-title{ 
     font-size:1.5rem;
   }
 
