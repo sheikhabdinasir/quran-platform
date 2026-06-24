@@ -30,7 +30,9 @@ const Home = () => {
 
     </h1>
 
- 
+ <p className="hero-description">
+منصة علمية لنشر تفسير القرآن الكريم والمحاضرات والدروس العلمية
+</p>
 
 
 
@@ -214,34 +216,10 @@ body{
   text-shadow:0 8px 25px rgba(0,0,0,.4);
 }
 
-.hero-description{
-  color:#f5f5f5;
-  font-size:1.15rem;
-  line-height:1.9;
-  max-width:700px;
-  margin:0 auto 2.5rem;
-}
 
-.hero-buttons{
-  display:flex;
-  justify-content:center;
-  gap:1rem;
-  flex-wrap:wrap;
-}
 
-.hero-btn-primary{
-  padding:1rem 2rem;
-  border-radius:999px;
-  text-decoration:none;
-  font-weight:900;
-  background:linear-gradient(
-    135deg,
-    var(--gold),
-    #b88a1d
-  );
-  color:#2C1810;
-  transition:.3s;
-}
+
+
 
 .hero-btn-secondary{
   padding:1rem 2rem;
@@ -254,10 +232,6 @@ body{
   transition:.3s;
 }
 
-.hero-btn-primary:hover,
-.hero-btn-secondary:hover{
-  transform:translateY(-4px);
-}
 
 
 
