@@ -223,35 +223,8 @@ body{
 
 
 
-.hero-content h1{
-  font-size:clamp(2.2rem,6vw,4.5rem);
-
-  font-weight:900;
-
-  color:white;
-
-  line-height:1.2;
-
-  margin-bottom:1rem;
-
-  text-shadow:
-    0 4px 20px rgba(0,0,0,.6);
-}
 
 
-
-
-.hero-content p{
-  font-size:1.1rem;
-
-  line-height:1.8;
-
-  color:#f5f5f5;
-
-  max-width:620px;
-
-  margin:0 auto 2rem auto;
-}
   .hero-bismillah{
   display:block;
   color:var(--gold);
