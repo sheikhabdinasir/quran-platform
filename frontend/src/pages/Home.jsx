@@ -37,30 +37,7 @@ const Home = () => {
   oo uu soo jeediyey Shiikh Cabdinaasir Xaaji Axmed.
 </p>
 
-    <div className="hero-buttons">
 
-      <Link
-        to="/kutub"
-        className="hero-btn-secondary"
-      >
-        📖 Kutubta
-      </Link>
-
-      <Link
-        to="/lectures"
-        className="hero-btn-primary"
-      >
-        🎧 Muxaadarooyinka
-      </Link>
-
-      <Link
-        to="/tafsiir"
-        className="hero-btn-secondary"
-      >
-        📚 Tafsiirka
-      </Link>
-
-    </div>
 
   </div>
 
