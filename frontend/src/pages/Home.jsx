@@ -26,16 +26,11 @@ const Home = () => {
     </span>
 
     <h1 className="hero-title">
-      MADASHA SHIIKH CABDINAASIR XAAJI AXMED
+        مركز الشيخ عبد الناصر الحاج أحمد
+
     </h1>
 
- <p className="hero-description">
-  Ku soo dhawoow madal ay ku jiraan
-  Tafsiirka Qur'aanka Kariimka,
-  Muxaadarooyin Islaami ah,
-  Kutub Islaami ah iyo Duruus cilmiyeed
-  oo uu soo jeediyey Shiikh Cabdinaasir Xaaji Axmed.
-</p>
+ 
 
 
 
