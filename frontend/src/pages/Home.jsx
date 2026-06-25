@@ -10,10 +10,12 @@ const Home = () => {
 
 
   return (
+
     <div style={{
-  background: "linear-gradient(180deg, #17100A 0%, #21160E 100%)",
+  background: "#F8F3ED",
   minHeight: "100vh"
-}}>        {/* HERO color  */}
+}}>
+    {/* HERO color  */}
 
       {/* HERO */}
  
