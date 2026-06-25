@@ -113,7 +113,7 @@ const {
           Muxaadarooyin
         </div>
 
-      </div>
+      </div> 
 
       {/* LIST */}
       <div className="lecture-list">
