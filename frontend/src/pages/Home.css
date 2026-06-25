@@ -20,10 +20,9 @@
 
 body{
   font-family:system-ui,sans-serif;
-  background:#17100A;
-  color:white;
+  background:#F8F3ED;
+  color:#2C1810;
 }
-
 /* MAIN PAGE */
 .home-wrapper{
   max-width:1200px;
@@ -100,11 +99,19 @@ body{
   font-size:clamp(2.8rem,6vw,5rem);
   font-weight:900;
   line-height:1.15;
-  color:white;
+  color:#2C1810;
   margin-bottom:1.5rem;
-  text-shadow:0 8px 25px rgba(0,0,0,.4);
+  text-shadow:none;
+
 }
 
+.hero-description{
+  max-width:700px;
+  margin:0 auto;
+  color:#5B4636;
+  font-size:1.08rem;
+  line-height:1.8;
+}
 
 
 
@@ -128,11 +135,7 @@ body{
 /* TITLES */
 .section-title,
 .home-videos-title{
-  text-align:center;
-  font-size:clamp(1.7rem,4vw,2.3rem);
-  font-weight:900;
-  color:white;
-  margin-bottom:2rem;
+  color:#2C1810;
 }
 
 /* =========================
@@ -151,7 +154,7 @@ body{
   position:relative;
   display:block;
   padding-left:90px;
-  color:white;
+  color:#2C1810;
   transition:.3s ease;
 }
 
@@ -209,16 +212,20 @@ body{
 
 .timeline-content{
   position:relative;
-  background:rgba(255,255,255,.05);
-  border:1px solid rgba(212,175,55,.2);
+
+  background:#ffffff;
+  border:1px solid #E8D8C8;
   border-radius:22px;
 
-  padding:1.6rem 1.5rem;   /* CHANGE */
+  padding:1.6rem 1.5rem;
 
   backdrop-filter:blur(10px);
   transition:.3s ease;
 }
+  
 
+
+ 
 .timeline-content:hover{
   border-color:rgba(212,175,55,.45);
 
@@ -264,8 +271,11 @@ body{
   margin-bottom:.5rem;
 }
 
-.timeline-content p{
-  color:#e6e6e6;
+
+
+  .timeline-content p{
+  color:#6B5A4A;
+
   line-height:1.7;
 }
 
@@ -405,9 +415,6 @@ body{
   font-size:1.9rem;
 }
 
-.hero-description{
-  font-size:.95rem;
-}
 
 
   .home-wrapper{
