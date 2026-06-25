@@ -245,16 +245,21 @@
   border:none;
   border-radius:50%;
   cursor:pointer;
-  background:#D4AF37;
-  color:#111;
+
+  background:#932F2F;
+  color:#FFFFFF;
+
   font-size:15px;
   font-weight:900;
+
   flex-shrink:0;
+
+  transition:.3s;
 }
 
 .tafsiir-row.active .tafsiir-play-btn{
-  background:#111;
-  color:#D4AF37;
+  background:#D4AF37;
+  color:#2C1810;
 }
 
 .tafsiir-info{
@@ -280,13 +285,17 @@
 .tafsiir-fav{
   border:none;
   background:none;
-  color:#D4AF37;
-  font-size:18px;
+
+  color:#932F2F;
+
+  font-size:20px;
   cursor:pointer;
+
+  transition:.3s;
 }
 
 .tafsiir-row.active .tafsiir-fav{
-  color:#111;
+  color:#932F2F;
 }
 
 /*********************************
