@@ -203,86 +203,77 @@ ku soo dhawow barashada Tafsiirka quráanka kariimka
             )
           }
 
-          {
-            filtered.map(item => {
+        {
+  filtered.map(item => {
 
-              const active =
-                currentTrack?._id ===
-                item._id;
+    const active =
+      currentTrack?._id === item._id;
 
-              const liked =
-                favorites.includes(
-                  item._id
-                );
+    const liked =
+      favorites.includes(item._id);
 
-              return (
+    return (
 
+      <div
+        key={item._id}
+        className={
+          active
+            ? "tafsiir-row active"
+            : "tafsiir-row"
+        }
+      >
 
+        {/* ICON */}
+        <div className="tafsiir-icon">
+          🎵
+        </div>
 
-                <div
-                  key={item._id}
+        {/* INFO */}
+        <div className="tafsiir-info">
+          <h3 dir="rtl">
+            {item.surahName}
+          </h3>
 
-               className={
-  active
-    ? "lesson-row active"
-    : "lesson-row"
+          <p dir="rtl">
+            من الآية {item.ayahFrom} إلى {item.ayahTo}
+          </p>
+        </div>
+
+        {/* ACTIONS */}
+        <div className="tafsiir-actions">
+
+          <button
+            className="tafsiir-favorite"
+            onClick={() => toggleFavorite(item._id)}
+          >
+            {liked ? "★" : "☆"}
+          </button>
+
+          <button
+            className="tafsiir-play"
+            onClick={() => {
+
+              if (active) {
+                togglePlay();
+              } else {
+                playTrack(item, filtered);
+              }
+
+            }}
+          >
+            {active && isPlaying ? "❚❚" : "▶"}
+          </button>
+
+        </div>
+
+      </div>
+
+    );
+
+  })
 }
-                >
-
-                  {/* PLAY */}
-
-                <div className="lesson-icon">
-  🎵
 
 
-</div>
-
-
-
-                  {/* INFO */}
-     <div className="lesson-text">
-  <h4 dir="rtl">
-    {item.surahName}
-  </h4>
-
-  <p dir="rtl">
-    من الآية {item.ayahFrom} إلى {item.ayahTo}
-  </p>
-</div>
-
-                  {/* FAVORITE */}
-
-                 <div className="lesson-actions">
-
-  <button
-    className="lesson-favorite"
-    onClick={() => toggleFavorite(item._id)}
-  >
-    {liked ? "★" : "☆"}
-  </button>
-
-  <button
-    className="lesson-play"
-    onClick={() => {
-      if (active) {
-        togglePlay();
-      } else {
-        playTrack(item, filtered);
-      }
-    }}
-  >
-    {active && isPlaying ? "❚❚" : "▶"}
-  </button>
-
-</div>
-
-
-                </div>
-
-              );
-
-            })
-          }
 
         </div>
 
