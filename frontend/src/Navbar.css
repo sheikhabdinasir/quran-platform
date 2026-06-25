@@ -3,22 +3,21 @@
 /* ============================================================
    CSS VARIABLES
 ==================================================== ======== */
-.navbar {
+.navbar{
   --gold:#D4AF37;
-  --gold-bright:#F0D060;
-  --gold-dim:#8B6914;
-  --gold-glow:rgba(212,175,55,.18);
+  --gold-bright:#D4AF37;
+  --gold-dim:#B8860B;
 
-  --deep:#0E0805;
-  --surface:#17100A;
-  --surface-mid:#21160E;
-  --surface-light:#2C1D12;
+  --deep:#F8F3ED;
+  --surface:#FFFFFF;
+  --surface-mid:#FFF8F3;
+  --surface-light:#FFFFFF;
 
-  --text-primary:#F7EAC8;
-  --text-muted:#A89060;
+  --text-primary:#2C1810;
+  --text-muted:#6B5A4A;
 
-  --border-gold:rgba(212,175,55,.35);
-  --border-soft:rgba(212,175,55,.12);
+  --border-gold:#E8D8C8;
+  --border-soft:#F2E5D7;
 }
 
 /* ============================================================
@@ -29,21 +28,11 @@
   top:0;
   z-index:999;
 
-  background:
-  linear-gradient(
-    180deg,
-    var(--surface) 0%,
-    var(--surface-mid) 100%
-  );
+background:#ffffff;
 
   border-bottom:
   1px solid var(--border-gold);
-
-  box-shadow:
-  0 1px 0 rgba(212,175,55,.08) inset,
-  0 12px 40px rgba(0,0,0,.55),
-  0 2px 0 rgba(0,0,0,.4);
-
+box-shadow:0 4px 18px rgba(0,0,0,.08);
   transition:
   transform .42s cubic-bezier(.4,0,.2,1);
 }
@@ -168,22 +157,20 @@
   'Amiri',
   serif;
 
-  color:var(--gold-bright);
+  color:#2C1810;
 
-  font-size:1.65rem;
+  font-size:1.55rem;
   font-weight:700;
 
   line-height:1.2;
 
-  text-shadow:
-  0 0 20px rgba(240,208,96,.3),
-  0 1px 2px rgba(0,0,0,.6);
+  text-shadow:none;
 
   transition:color .3s;
 }
 
 .nav-logo:hover{
-  color:#fff;
+  color:#932F2F;
 }
 
 .nav-tagline{
