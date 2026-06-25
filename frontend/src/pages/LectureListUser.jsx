@@ -539,12 +539,7 @@ const {
 
     gap:14px;
 
-    background:
-    linear-gradient(
-      90deg,
-      rgba(18,45,35,.88),
-      rgba(20,50,38,.78)
-    );
+ background:#FFFFFF;
 
     border:
     1px solid rgba(255,215,90,.12);
