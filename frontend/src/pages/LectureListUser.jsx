@@ -72,7 +72,7 @@ const {
       </div>
 
       {/* HERO */}
-      <div className="hero">
+     <div className="lecture-hero">
 
         <h1 className="page-title">
   Muxaadarooyin
