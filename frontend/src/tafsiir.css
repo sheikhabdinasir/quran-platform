@@ -633,3 +633,41 @@
   color:#932F2F;
   font-size:20px;
 }
+
+.lesson-actions{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-left:auto;
+}
+
+.lesson-favorite{
+  border:none;
+  background:none;
+  color:#932F2F;
+  font-size:20px;
+  cursor:pointer;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:0;
+  width:24px;
+  height:24px;
+}
+
+.lesson-play{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  border:none;
+  background:#932F2F;
+  color:#fff;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  cursor:pointer;
+}
