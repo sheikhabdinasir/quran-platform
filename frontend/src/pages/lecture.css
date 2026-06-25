@@ -11,10 +11,10 @@ body{
 
 .lecture-page{
   min-height:100vh;
-  background:#F8F3ED;
+  background:#13e224;
   padding:90px 14px 120px;
   position:relative;
-  overflow:visible;
+  overflow:hidden;
 }
 
 /* TOP */
