@@ -14,7 +14,7 @@ body{
   background:#F8F3ED;
   padding:90px 14px 120px;
   position:relative;
-  overflow:hidden;
+  overflow:visible;
 }
 
 /* TOP */
