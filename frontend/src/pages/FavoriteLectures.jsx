@@ -158,7 +158,7 @@ playLesson(
     gap:16px;
   }
 
-  /* CARD */
+
 
   /* CARD */
 
@@ -201,27 +201,28 @@ box-shadow:0 8px 20px rgba(0,0,0,.08);
 
   /* ICON */
 
+ 
   .lesson-icon{
 
-    width:52px;
-    height:52px;
+  width:52px;
+  height:52px;
 
-    border-radius:18px;
+  border-radius:18px;
 
-    background:#F5E6E0;
+  background:#F5E6E0;
 
-    display:flex;
+  display:flex;
 
-    align-items:center;
+  align-items:center;
 
-    justify-content:center;
+  justify-content:center;
 
-    font-size:1.1rem;
+  font-size:1.1rem;
 
-color:#932F2F;
-    box-shadow:
-    0 10px 25px rgba(30,234,114,.22);
-  }
+  color:#932F2F;
+
+  box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
 
   /* INFO */
 

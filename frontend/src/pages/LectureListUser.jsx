@@ -328,15 +328,21 @@ const {
     margin:auto auto 20px;
   }
 
+  
   .back-btn{
 
-    background:
-    rgba(255,215,90,.08);
+  background:#FFFFFF;
 
-    border:
-    1px solid rgba(255,215,90,.12);
+  border:1px solid #E8D8C8;
 
-    color:#F5E6E0;
+  color:#932F2F;
+
+  padding:10px 16px;
+
+  border-radius:999px;
+
+  cursor:pointer;
+}
 
     padding:9px 15px;
 
@@ -384,22 +390,9 @@ const {
 
     margin-bottom:14px;
 
-    background:
-    linear-gradient(
-      135deg,
-      #FFF6D6 0%,
-      #FFD95A 45%,
-      #D4AF37 100%
-    );
+ color:#2C1810;
 
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-
-    letter-spacing:-1px;
-
-    text-shadow:
-    0 10px 35px rgba(255,215,90,.12);
-  }
+letter-spacing:-1px;
 
   .hero-subtitle{
 
