@@ -426,11 +426,15 @@ const {
     margin:auto auto 26px;
   }
 
-  .search-input{
+ .search-input{
 
   width:100%;
 
-  border:none;
+  max-width:620px;
+
+  margin:0 auto 28px;
+
+  display:block;
 
   outline:none;
 
@@ -438,26 +442,20 @@ const {
 
   border-radius:999px;
 
-  background:
-  rgba(18,45,35,.72);
+  background:#FFFFFF;
 
-  color:#fff;
+  color:#2C1810;
 
   font-size:.95rem;
 
-  backdrop-filter:blur(18px);
+  border:1px solid #E8D8C8;
 
-  border:
-  1px solid rgba(255,215,90,.08);
-
-  box-shadow:
-  0 10px 25px rgba(0,0,0,.22);
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
 }
 
 .search-input::placeholder{
-  color:rgba(255,255,255,.42);
+  color:#9A8876;
 }
-
 
 
 .lecture-favorite{
