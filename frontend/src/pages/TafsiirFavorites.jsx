@@ -1,4 +1,4 @@
-import React,{
+import React, {
   useContext,
   useEffect,
   useState
@@ -10,12 +10,13 @@ import "../tafsiir.css";
 import {
   TafsiirPlayerContext
 } from "../Context/TafsiirPlayerContext";
+
 const TafsiirFavorites = () => {
-const API =
-`${import.meta.env.VITE_API_URL}/api/tafsiir/public`;
-  const [items,
-  setItems] =
-  useState([]);
+
+  const API =
+    `${import.meta.env.VITE_API_URL}/api/tafsiir/public`;
+
+  const [items, setItems] = useState([]);
 
   const {
     favorites,
@@ -24,149 +25,143 @@ const API =
     playTrack,
     togglePlay,
     toggleFavorite
-  } = useContext(
-    TafsiirPlayerContext
-  );
+  } = useContext(TafsiirPlayerContext);
 
-useEffect(() => {
-  loadData();
-}, [favorites]);
+  useEffect(() => {
+    loadData();
+  }, [favorites]);
 
-  const loadData =
-  async () => {
+  const loadData = async () => {
 
-    try{
+    try {
 
-      const { data } =
-      await axios.get(API);
-const audios = data.tafsiir;
+      const { data } = await axios.get(API);
 
-   
-      console.log("Favorites:", favorites);
+      const onlyFav = data.tafsiir.filter(item =>
+        favorites.includes(item._id)
+      );
 
-console.log(
-  "Audio IDs:",
-  audios.map(item => item._id)
-);
+      setItems(onlyFav);
 
-
-const onlyFav = audios.filter(
-  item =>
-    favorites.includes(item._id)
-);
-
-console.log("Favorites:", favorites);
-
-console.log(
-  "Audio IDs:",
-  audios.map(item => item._id)
-);
-
-console.log(
-  "Only Favorites:",
-  onlyFav
-);
-
-setItems(onlyFav);
-
-    }catch(err){
+    } catch (err) {
       console.log(err);
     }
+
   };
 
   return (
+
     <div className="tafsiir-page">
 
       <div className="tafsiir-page-wrap">
 
         <h1 className="tafsiir-title">
-          xul 
+          Tafsiirrada Aan Jeclahay
         </h1>
 
         <div className="tafsiir-list">
 
           {
-          items.length === 0 &&
-          <p
-         style={{
-  color:"#6B5A4A",
-  textAlign:"center"
-}}
-          >
-maad samaysan tafsiir xul ah
-     </p>
+            items.length === 0 && (
+
+              <p
+                style={{
+                  textAlign: "center",
+                  color: "#6B5A4A",
+                  marginTop: "40px"
+                }}
+              >
+                Weli maadan dooran Tafsiir.
+              </p>
+
+            )
           }
 
-          {items.map(item => {
+          {
 
-            const active =
-            currentTrack?._id ===
-            item._id;
+            items.map(item => {
 
-            return (
-<div
-  key={item._id}
-  className={
-    active
-      ? "lesson-row active"
-      : "lesson-row"
-  }
->
+              const active =
+                currentTrack?._id === item._id;
 
+              return (
 
-            <div className="lesson-icon">
-  🎵
-</div>
+                <div
+                  key={item._id}
+                  className={
+                    active
+                      ? "tafsiir-row active"
+                      : "tafsiir-row"
+                  }
+                >
 
-              
- <div className="lesson-text">
-  <h4 dir="rtl">
-    {item.surahName}
-  </h4>
+                  {/* ICON */}
+                  <div className="tafsiir-icon">
+                    🎵
+                  </div>
 
-  <p dir="rtl">
-    Aayadaha {item.ayahFrom} - {item.ayahTo}
-  </p>
-</div>
+                  {/* INFO */}
+                  <div className="tafsiir-info">
 
-    <div
-  className="lesson-bookmark"
-  onClick={(e) => {
-    e.stopPropagation();
-    toggleFavorite(item._id);
-  }}
->
-  ★
-</div>
+                    <h3 dir="rtl">
+                      {item.surahName}
+                    </h3>
 
-<div
-  className="lesson-play"
-  onClick={(e) => {
-    e.stopPropagation();
+                    <p dir="rtl">
+                      من الآية {item.ayahFrom} إلى {item.ayahTo}
+                    </p>
 
-    if (active) {
-      togglePlay();
-    } else {
-      playTrack(item, items);
-    }
-  }}
->
-  {active && isPlaying ? "❚❚" : "▶"}
-</div>
+                  </div>
 
-              </div>
+                  {/* ACTIONS */}
+                  <div className="tafsiir-actions">
 
-            );
+                    <button
+                      className="tafsiir-favorite"
+                      onClick={() =>
+                        toggleFavorite(item._id)
+                      }
+                    >
+                      ★
+                    </button>
 
-          })}
+                    <button
+                      className="tafsiir-play"
+                      onClick={() => {
+
+                        if (active) {
+
+                          togglePlay();
+
+                        } else {
+
+                          playTrack(item, items);
+
+                        }
+
+                      }}
+                    >
+                      {active && isPlaying ? "❚❚" : "▶"}
+                    </button>
+
+                  </div>
+
+                </div>
+
+              );
+
+            })
+
+          }
 
         </div>
 
       </div>
 
     </div>
+
   );
+
 };
 
-export default
-TafsiirFavorites;
+export default TafsiirFavorites;
