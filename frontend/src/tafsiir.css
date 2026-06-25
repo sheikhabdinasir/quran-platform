@@ -219,30 +219,24 @@
   padding:12px 16px;
   border-radius:18px;
   min-height:78px;
-  background:linear-gradient(
-    135deg,
-    #12352c 0%,
-    #0d241d 55%,
-    #081512 100%
-  );
-  border:1px solid rgba(212,175,55,.28);
-  transition:.35s ease;
-  box-shadow:0 8px 18px rgba(0,0,0,.22);
+
+  background:#FFFFFF;
+  border:1px solid #E8D8C8;
+
+  transition:.3s ease;
+  box-shadow:0 8px 20px rgba(0,0,0,.08);
 }
 
 .tafsiir-row:hover{
   transform:translateY(-4px);
   border-color:#D4AF37;
-  box-shadow:0 14px 28px rgba(212,175,55,.14);
+  box-shadow:0 14px 30px rgba(0,0,0,.12);
 }
 
 .tafsiir-row.active{
-  background:linear-gradient(
-    135deg,
-    #D4AF37,
-    #8c6b0c
-  );
-  box-shadow:0 12px 30px rgba(212,175,55,.22);
+  background:#FFF8F3;
+  border-color:#D4AF37;
+  box-shadow:0 12px 28px rgba(212,175,55,.18);
 }
 
 .tafsiir-play-btn{
@@ -269,18 +263,18 @@
 
 .tafsiir-info h3{
   font-size:16px;
-  color:#fff;
+  color:#2C1810;
   margin-bottom:4px;
 }
 
 .tafsiir-info p{
   font-size:12px;
-  color:#e2d3a2;
+  color:#6B5A4A;
 }
 
 .tafsiir-row.active .tafsiir-info h3,
 .tafsiir-row.active .tafsiir-info p{
-  color:#111;
+  color:#932F2F;
 }
 
 .tafsiir-fav{
