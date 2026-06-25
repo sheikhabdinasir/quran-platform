@@ -220,42 +220,18 @@ ku soo dhawow barashada Tafsiirka quráanka kariimka
                 <div
                   key={item._id}
 
-                  className={
-                    active
-                      ? "tafsiir-row active"
-                      : "tafsiir-row"
-                  }
+               className={
+  active
+    ? "lesson-row active"
+    : "lesson-row"
+}
                 >
 
                   {/* PLAY */}
-                  <button
-                    className="tafsiir-play-btn"
 
-                    onClick={() => {
-
-                      if (active) {
-
-                        togglePlay();
-
-                      } else {
-
-                        playTrack(
-                          item,
-                          filtered
-                        );
-                      }
-
-                    }}
-                  >
-
-                    {
-                      active &&
-                      isPlaying
-                        ? "❚❚"
-                        : "▶"
-                    }
-
-                  </button>
+                <div className="lesson-icon">
+  🎵
+</div>
 
                   {/* INFO */}
                   <div
@@ -286,23 +262,31 @@ ku soo dhawow barashada Tafsiirka quráanka kariimka
                   </div>
 
                   {/* FAVORITE */}
-                  <button
-                    className="tafsiir-fav"
 
-                    onClick={() =>
-                      toggleFavorite(
-                        item._id
-                      )
-                    }
-                  >
+                 <div className="lesson-actions">
 
-                    {
-                      liked
-                        ? "★"
-                        : "☆"
-                    }
+  <button
+    className="lesson-favorite"
+    onClick={() => toggleFavorite(item._id)}
+  >
+    {liked ? "★" : "☆"}
+  </button>
 
-                  </button>
+  <button
+    className="lesson-play"
+    onClick={() => {
+      if (active) {
+        togglePlay();
+      } else {
+        playTrack(item, filtered);
+      }
+    }}
+  >
+    {active && isPlaying ? "❚❚" : "▶"}
+  </button>
+
+</div>
+
 
                 </div>
 

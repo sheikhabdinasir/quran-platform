@@ -88,10 +88,10 @@ setItems(onlyFav);
           {
           items.length === 0 &&
           <p
-          style={{
-            color:"#fff",
-            textAlign:"center"
-          }}
+         style={{
+  color:"#6B5A4A",
+  textAlign:"center"
+}}
           >
 maad samaysan tafsiir xul ah
      </p>
@@ -104,65 +104,57 @@ maad samaysan tafsiir xul ah
             item._id;
 
             return (
+<div
+  key={item._id}
+  className={
+    active
+      ? "lesson-row active"
+      : "lesson-row"
+  }
+>
 
-              <div
-                key={item._id}
-                className={
-                  active
-                  ? "tafsiir-row active"
-                  : "tafsiir-row"
-                }
-              >
+  <div className="lesson-icon">
+    🎵
+  </div>
 
-                <button
-                  className="tafsiir-play-btn"
-                  onClick={() => {
-
-                    if(active){
-
-                      togglePlay();
-
-                    }else{
-
-                      playTrack(
-                        item,
-                        items
-                      );
-                    }
-
-                  }}
-                >
-                  {
-                    active &&
-                    isPlaying
-                    ? "❚❚"
-                    : "▶"
-                  }
-                </button>
+            <div className="lesson-icon">
+  🎵
+</div>
 
               
-              <div className="tafsiir-info">
-
+  <div className="lesson-info">
   <h3 dir="rtl">
     {item.surahName}
   </h3>
 
-  <p dir="rtl">
-    من الآية {item.ayahFrom} إلى {item.ayahTo}
+  <p>
+    Aayadaha {item.ayahFrom} - {item.ayahTo}
   </p>
-
 </div>
 
-                <button
-                  className="tafsiir-fav"
-                  onClick={() =>
-                    toggleFavorite(
-                      item._id
-                    )
-                  }
-                >
-                  ★
-                </button>
+             <div className="lesson-actions">
+
+  <button
+    className="lesson-favorite"
+    onClick={() => toggleFavorite(item._id)}
+  >
+    ★
+  </button>
+
+  <button
+    className="lesson-play"
+    onClick={() => {
+      if (active) {
+        togglePlay();
+      } else {
+        playTrack(item, items);
+      }
+    }}
+  >
+    {active && isPlaying ? "❚❚" : "▶"}
+  </button>
+
+</div>
 
               </div>
 
