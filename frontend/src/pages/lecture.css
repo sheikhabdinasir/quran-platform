@@ -22,7 +22,7 @@ body{
 .top-header{
   max-width:900px;
   margin:auto auto 20px;
-}
+} 
 
 .back-btn{
   display:inline-flex;
@@ -33,20 +33,19 @@ body{
 
   border:1px solid #D9C8B7;
 
-  color:#932F2F;
+  color:#2C1810;
 
   padding:12px 22px;
 
   border-radius:12px;
 
   font-size:16px;
-  font-weight:600;
+  font-weight:700;
 
   cursor:pointer;
 
   transition:.3s ease;
 }
-
 
 .back-btn:hover{
   background:#FDF8F3;
