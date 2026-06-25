@@ -113,47 +113,45 @@ maad samaysan tafsiir xul ah
   }
 >
 
-  <div className="lesson-icon">
-    🎵
-  </div>
 
             <div className="lesson-icon">
   🎵
 </div>
 
               
-  <div className="lesson-info">
-  <h3 dir="rtl">
+ <div className="lesson-text">
+  <h4 dir="rtl">
     {item.surahName}
-  </h3>
+  </h4>
 
-  <p>
+  <p dir="rtl">
     Aayadaha {item.ayahFrom} - {item.ayahTo}
   </p>
 </div>
 
-             <div className="lesson-actions">
+    <div
+  className="lesson-bookmark"
+  onClick={(e) => {
+    e.stopPropagation();
+    toggleFavorite(item._id);
+  }}
+>
+  ★
+</div>
 
-  <button
-    className="lesson-favorite"
-    onClick={() => toggleFavorite(item._id)}
-  >
-    ★
-  </button>
+<div
+  className="lesson-play"
+  onClick={(e) => {
+    e.stopPropagation();
 
-  <button
-    className="lesson-play"
-    onClick={() => {
-      if (active) {
-        togglePlay();
-      } else {
-        playTrack(item, items);
-      }
-    }}
-  >
-    {active && isPlaying ? "❚❚" : "▶"}
-  </button>
-
+    if (active) {
+      togglePlay();
+    } else {
+      playTrack(item, items);
+    }
+  }}
+>
+  {active && isPlaying ? "❚❚" : "▶"}
 </div>
 
               </div>
