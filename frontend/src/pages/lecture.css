@@ -49,6 +49,7 @@ body{
 
 
 .back-btn:hover{
+  background:#FDF8F3;
   border-color:#D4AF37;
 }
 
@@ -122,26 +123,20 @@ body{
   text-align:center;
   box-shadow:0 8px 20px rgba(0,0,0,.08);
 }
-
 .stats-number{
-  font-size:32px;
-  font-weight:900;
-  color:#ffe603e5;
+  color:#D4AF37;
 }
 
-.stats-text{
-  color:#6B5A4A;
-  font-size:14px;
+.lecture-number{
+  color:#D4AF37;
 }
 
-/* LIST */
+.lecture-icon{
+  color:#D4AF37;
+}
 
-.lecture-list{
-  max-width:900px;
-  margin:auto;
-  display:flex;
-  flex-direction:column;
-  gap:16px;
+.lecture-favorite{
+  color:#D4AF37;
 }
 
 /* CARD */
@@ -358,12 +353,3 @@ border-radius:50%;
   border-color:#D4AF37;
 }
 
-.lecture-hero{
-  text-align:center;
-  max-width:760px;
-  margin:0 auto 30px;
-  padding:20px 0;
-  background:none;
-  border:none;
-  box-shadow:none;
-}
