@@ -89,23 +89,17 @@
 /*********************************
  CARD
 *********************************/
-
 .premium-islamic-card{
-  background:linear-gradient(
-    135deg,
-    rgba(255,255,255,.06),
-    rgba(255,255,255,.02)
-  );
-  border:1px solid rgba(212,175,55,.35);
-  border-radius:28px;
+  background:#FFFFFF;
+  border:1px solid #E8D8C8;
+  border-radius:24px;
   padding:24px;
   display:flex;
   align-items:center;
   gap:18px;
   cursor:pointer;
-  transition:.35s ease;
-  box-shadow:0 14px 35px rgba(0,0,0,.28);
-  backdrop-filter:blur(8px);
+  transition:.3s ease;
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
 }
 
 .premium-islamic-card:hover{
@@ -130,14 +124,14 @@
 
 .card-body h2{
   font-size:28px;
-  color:#fff;
+  color:#2C1810;
   margin-bottom:8px;
 }
 
 .card-body p{
   font-size:15px;
-  color:#ddd2bd;
-  line-height:1.5;
+  color:#6B5A4A;
+  line-height:1.6;
 }
 
 .card-arrow{
@@ -164,14 +158,9 @@
 
 .tafsiir-page{
   min-height:100vh;
-  background:linear-gradient(
-    180deg,
-    #1a120c 0%,
-    #111111 100%
-  );
+  background:#F8F3ED;
   padding:35px 18px 130px;
 }
-
 .tafsiir-page-wrap{
   width:min(950px,100%);
   margin:auto;
@@ -179,7 +168,7 @@
 
 .tafsiir-title{
   text-align:center;
-  color:#D4AF37;
+  color:#2C1810;
   font-size:40px;
   font-weight:900;
   margin-bottom:24px;
@@ -191,15 +180,14 @@
 
 .tafsiir-search{
   width:100%;
-  border:none;
+  border:1px solid #E8D8C8;
   outline:none;
   padding:18px 20px;
   border-radius:18px;
-  background:rgba(255,255,255,.07);
-  color:#fff;
+  background:#FFFFFF;
+  color:#2C1810;
   font-size:16px;
   margin-bottom:26px;
-  border:1px solid rgba(212,175,55,.18);
 }
 
 .tafsiir-search:focus{
@@ -207,7 +195,7 @@
 }
 
 .tafsiir-search::placeholder{
-  color:rgba(255,255,255,.45);
+  color:#9A8876;
 }
 
 /*********************************
