@@ -75,9 +75,8 @@ const {
       <div className="hero">
 
         <h1 className="page-title">
-          Muxaadarooyinjjghkg
-          
-        </h1>
+  Muxaadarooyin
+</h1>
 
         
 
@@ -89,9 +88,8 @@ const {
         <input
           className="search-input"
 
-          placeholder="
-          🔍  Raadi magaca muxaadarada...
-        "
+         placeholder="🔍 Raadi magaca muxaadarada..."
+
 
           value={search}
 
