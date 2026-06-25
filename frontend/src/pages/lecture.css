@@ -47,10 +47,6 @@ body{
   transition:.3s ease;
 }
 
-.back-btn:hover{
-  background:#FDF8F3;
-  border-color:#D4AF37;
-}
 
 .back-btn:hover{
   border-color:#D4AF37;
@@ -58,7 +54,7 @@ body{
 
 /* HERO */
 
-.hero{
+.lecture-hero{
   text-align:center;
   max-width:760px;
   margin:0 auto 28px;
@@ -78,8 +74,7 @@ body{
   text-shadow:none;
 
 }
-
-.hero::after{
+.lecture-hero::after{
   content:"❈";
   display:block;
   color:#D4AF37;
