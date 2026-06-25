@@ -554,33 +554,11 @@
 
 }
 
-/* ===== LESSON STYLE ===== */
+/* ===========================
+   TAFSIIR AUDIO COMPONENT
+=========================== */
 
-
-
-.lesson-row{
-  display:flex;
-  align-items:center;
-  gap:14px;
-  padding:12px 14px;
-  border-radius:16px;
-  background:#fff;
-  border:1px solid #E8D8C8;
-  box-shadow:0 8px 20px rgba(0,0,0,.08);
-  transition:.3s;
-}
-
-.lesson-row:hover{
-  transform:translateY(-3px);
-  border-color:#D4AF37;
-}
-
-.lesson-row.active{
-  background:#FFF8F3;
-  border-left:5px solid #D4AF37;
-}
-
-.lesson-icon{
+.tafsiir-icon{
   width:48px;
   height:48px;
   border-radius:50%;
@@ -589,87 +567,58 @@
   align-items:center;
   justify-content:center;
   font-size:22px;
+  flex-shrink:0;
 }
 
-.lesson-text{
+.tafsiir-info{
   flex:1;
 }
 
-.lesson-text h4{
+.tafsiir-info h3{
   margin:0;
   color:#2C1810;
-  font-size:17px;
+  font-size:18px;
+  font-weight:700;
 }
 
-.lesson-text p{
+.tafsiir-info p{
   margin-top:4px;
   color:#6B5A4A;
   font-size:13px;
 }
 
-nghjnghnjghjhg
-
-
-
-.lesson-play{
-  width:42px;
-  height:42px;
-  border-radius:50%;
-  border:none;
-  background:#932F2F;
-  color:#fff;
-  cursor:pointer;
-  font-size:16px;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  flex-shrink:0;
-  margin-left:12px;
-}
-
-.lesson-bookmark{
-  margin-left:auto;
-  cursor:pointer;
-  color:#932F2F;
-  font-size:20px;
-}
-
-.lesson-actions{
+.tafsiir-actions{
   display:flex;
   align-items:center;
   gap:12px;
   margin-left:auto;
 }
 
-.lesson-favorite{
+.tafsiir-favorite{
   border:none;
   background:none;
   color:#932F2F;
   font-size:20px;
   cursor:pointer;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  padding:0;
-  width:24px;
-  height:24px;
 }
 
-.lesson-play{
+.tafsiir-play{
   width:42px;
   height:42px;
-  border-radius:50%;
   border:none;
+  border-radius:50%;
   background:#932F2F;
   color:#fff;
+  cursor:pointer;
 
   display:flex;
   align-items:center;
   justify-content:center;
 
-  cursor:pointer;
+  font-size:16px;
+}
+
+.tafsiir-row.active .tafsiir-play{
+  background:#D4AF37;
+  color:#2C1810;
 }
