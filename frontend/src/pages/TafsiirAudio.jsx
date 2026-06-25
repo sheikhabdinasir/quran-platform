@@ -217,6 +217,8 @@ ku soo dhawow barashada Tafsiirka quráanka kariimka
 
               return (
 
+
+
                 <div
                   key={item._id}
 
@@ -231,35 +233,22 @@ ku soo dhawow barashada Tafsiirka quráanka kariimka
 
                 <div className="lesson-icon">
   🎵
+
+
 </div>
 
+
+
                   {/* INFO */}
-                  <div
-                    className="tafsiir-info"
-                  >
-                    <h3 dir="rtl">
+     <div className="lesson-text">
+  <h4 dir="rtl">
+    {item.surahName}
+  </h4>
 
-  {
-    item.surahName
-  }
-
-</h3>
-
-                    <p dir="rtl">
-
-                      من الآية {
-                        item.ayahFrom
-                      }
-
-                      {" "}إلى{" "}
-
-                      {
-                        item.ayahTo
-                      }
-
-                    </p>
-
-                  </div>
+  <p dir="rtl">
+    من الآية {item.ayahFrom} إلى {item.ayahTo}
+  </p>
+</div>
 
                   {/* FAVORITE */}
 
