@@ -605,19 +605,9 @@
   font-size:13px;
 }
 
-.lesson-actions{
-  display:flex;
-  align-items:center;
-  gap:12px;
-}
 
-.lesson-favorite{
-  background:none;
-  border:none;
-  color:#932F2F;
-  font-size:22px;
-  cursor:pointer;
-}
+
+
 
 .lesson-play{
   width:42px;
@@ -628,4 +618,18 @@
   color:#fff;
   cursor:pointer;
   font-size:16px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  flex-shrink:0;
+  margin-left:12px;
+}
+
+.lesson-bookmark{
+  margin-left:auto;
+  cursor:pointer;
+  color:#932F2F;
+  font-size:20px;
 }
