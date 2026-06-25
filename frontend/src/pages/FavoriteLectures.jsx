@@ -263,7 +263,8 @@ color:#2C1810;
     text-overflow:ellipsis;
   }
 
-  /* PLAY */
+/* PLAY */
+
 .lesson-play{
 
   width:42px;
@@ -279,25 +280,13 @@ color:#2C1810;
   align-items:center;
   justify-content:center;
 
+  font-size:1rem;
+  font-weight:900;
+
+  cursor:pointer;
+
   flex-shrink:0;
 }
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    color:#1A1208;
-
-    font-weight:900;
-
-    font-size:1rem;
-
-    box-shadow:
-    0 12px 28px rgba(212,175,55,.30);
-  }
-
   /* MOBILE */
 
   @media(max-width:768px){

@@ -623,8 +623,7 @@ const {
 
     color:#fff;
 
-    box-shadow:
-    0 10px 25px rgba(30,234,114,.22);
+   box-shadow:0 8px 20px rgba(0,0,0,.08);
   }
 
   /* INFO */
