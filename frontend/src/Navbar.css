@@ -208,7 +208,8 @@ gap:.8rem;
 
   letter-spacing:-.3px;
 
-  color:#f3f3f3;
+  
+  color:#2C1810;
 
   padding:.7rem 1.15rem;
 
@@ -260,29 +261,20 @@ gap:.8rem;
 }
 
 .nav-menu a:hover{
-  color:#fff5cc;
+  color:#932F2F;
 
-  background:
-  linear-gradient(
-    135deg,
-    rgba(212,175,55,.18),
-    rgba(212,175,55,.08)
-  );
+  background:#FFF8F3;
 
-  border:
-  1px solid rgba(212,175,55,.35);
+  border:1px solid #D4AF37;
 
-  box-shadow:
-  0 0 18px rgba(212,175,55,.18);
+  box-shadow:0 4px 12px rgba(212,175,55,.15);
 
-  transform:
-  translateY(-2px);
+  transform:translateY(-2px);
 }
 
 /* ACTIVE LINK - PREMIUM */
 .nav-menu a.active{
-  color:var(--gold-bright);
-
+color:#932F2F;
   background:transparent;
 
   border:none;
