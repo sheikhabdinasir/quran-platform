@@ -69,53 +69,22 @@ playLesson(
     overflow-x:hidden;
   }
 
-  .lesson-page{
+.lesson-page{
 
-    min-height:100vh;
+  min-height:100vh;
 
-    background:
-    radial-gradient(
-      circle at top,
-      rgba(18,80,55,.35),
-      transparent 30%
-    ),
+  background:#F8F3ED;
 
-    linear-gradient(
-      180deg,
-      #03110D 0%,
-      #071B15 30%,
-      #04100D 70%,
-      #020806 100%
-    );
+  padding:
+  90px 14px 120px;
 
-    padding:
-    90px 14px 120px;
+  position:relative;
 
-    position:relative;
+  overflow:hidden;
+}
 
-    overflow:hidden;
-  }
+    
 
-  .lesson-page::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    background-image:
-    radial-gradient(
-      rgba(212,175,55,.04) 1px,
-      transparent 1px
-    );
-
-    background-size:40px 40px;
-
-    opacity:.25;
-
-    pointer-events:none;
-  }
 
   /* TITLE */
 
@@ -133,17 +102,8 @@ playLesson(
 
     margin-bottom:28px;
 
-    background:
-    linear-gradient(
-      135deg,
-      #FFF6D6 0%,
-      #FFD95A 45%,
-      #D4AF37 100%
-    );
-
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-
+    color:#2C1810;
+-webkit-text-fill-color:initial; 
     letter-spacing:-1px;
 
     text-shadow:
@@ -224,8 +184,7 @@ playLesson(
       rgba(20,50,38,.78)
     );
 
-    border:
-    1px solid rgba(255,215,90,.12);
+   border:1px solid #E8D8C8;
 
     backdrop-filter:blur(20px);
 
