@@ -102,11 +102,18 @@ const NowPlaying = () => {
          <FaStepBackward />
         </button>
 
-        <button className="play-btn" onClick={togglePlay} title="Play / Pause">
-
-     {isPlaying ? <FaPause /> : <FaPlay />}
-
-        </button>
+       
+       <button
+  type="button"
+  className="play-btn"
+  onClick={(e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    togglePlay();
+  }}
+>
+  {isPlaying ? <FaPause /> : <FaPlay />}
+</button>
 
 
         <button onClick={playNext} title="Next">
