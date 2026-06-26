@@ -1,6 +1,15 @@
 import { usePublic } from "../Context/PublicContext";
 import { useNavigate } from "react-router-dom";
 import "../styles/nowplaying.css";
+import {
+  FaPlay,
+  FaPause,
+  FaStepBackward,
+  FaStepForward,
+  FaRandom,
+  FaRedoAlt,
+  FaArrowLeft,
+} from "react-icons/fa";
 
 const formatTime = (time) => {
   if (!time || isNaN(time)) return "0:00";
@@ -94,8 +103,11 @@ const NowPlaying = () => {
         </button>
 
         <button className="play-btn" onClick={togglePlay} title="Play / Pause">
-        {isPlaying ? "⏸" : "▶"}
+
+     {isPlaying ? <FaPause /> : <FaPlay />}
+
         </button>
+
 
         <button onClick={playNext} title="Next">
           <FaStepForward />
