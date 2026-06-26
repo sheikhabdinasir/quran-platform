@@ -44,9 +44,10 @@ const NowPlaying = () => {
   return (
     <div className="now-playing">
       {/* BACK */}
-      <button className="back-btn" onClick={() => navigate(-1)}>
-        ← Hoos u laabo
-      </button>
+     
+     <button className="back-btn" onClick={() => navigate(-1)}>
+  <FaArrowLeft /> Hoos u laabo
+</button>
 
       {/* COVER (ROTATING) */}
       <div className={`cover-circle ${isPlaying ? "rotating" : ""}`}>
@@ -85,19 +86,19 @@ const NowPlaying = () => {
           onClick={toggleShuffle}
           title="Shuffle"
         >
-          🔀
+        <FaRandom />
         </button>
 
         <button onClick={playPrev} title="Previous">
-          ⏮
+         <FaStepBackward />
         </button>
 
         <button className="play-btn" onClick={togglePlay} title="Play / Pause">
-          {isPlaying ? "⏸" : "▶"}
+        {isPlaying ? "⏸" : "▶"}
         </button>
 
         <button onClick={playNext} title="Next">
-          ⏭
+          <FaStepForward />
         </button>
 
         <button
@@ -105,7 +106,7 @@ const NowPlaying = () => {
           onClick={toggleRepeat}
           title="Repeat"
         >
-          🔁
+          <FaRedoAlt />
         </button>
       </div>
     </div>
