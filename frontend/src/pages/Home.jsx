@@ -77,17 +77,19 @@ const Home = () => {
 
         {/* VIDEOS */}
         <section className="home-videos">
-          <h2 className="home-videos-title">  Dardaaran </h2>
+          <h2 className="home-videos-title">  Dardaaran  </h2>
 
           <div className="video-grid">
             {[
               {
                 video: short1,
                 title: "Cisadu diinta ayey ku jirtaa",
+                desc: "Diintaada ku dhagganoow ⭐⭐⭐⭐",
               },
               {
                 video: short2,
                 title: "Cibaadadii Rasuulka",
+                desc: "Fahamka Qur'aanka ⭐⭐⭐",
               },
               {
                 video: short3,
