@@ -64,9 +64,12 @@ const NowPlaying = () => {
       </div>
 
       {/* LESSON NUMBER */}
-      <div className="lesson-number">
-        {String(currentLesson.order).padStart(2, "0")}
-      </div>
+      
+     <div className="lesson-number">
+  {currentLesson.order
+    ? String(currentLesson.order).padStart(2, "0")
+    : currentLesson.speaker}
+</div>
 
       {/* TITLE */}
       <h2 className="lesson-title">{currentLesson.title}</h2>
