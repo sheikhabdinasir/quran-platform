@@ -7,7 +7,12 @@
   left: 50%;
   transform: translateX(-50%);
   width: calc(100% - 24px);
-  max-width: 480px;
+ 
+
+  max-width: 680px;
+height: 68px;
+padding: 10px 14px;
+
 
   background: rgba(32, 24, 18, 0.95);
   backdrop-filter: blur(18px);
@@ -15,8 +20,7 @@
   border: 1px solid rgba(212, 175, 55, 0.25);
   border-radius: 20px;
 
-  padding: 14px 16px;
-  padding-bottom: calc(14px + env(safe-area-inset-bottom));
+
 
   display: flex;
   align-items: center;
@@ -45,8 +49,8 @@
 }
 
 .player-icon {
-  width: 50px;
-  height: 50px;
+  width: 42px;
+  height: 42px;
   border-radius: 14px;
 
   display: flex;
@@ -57,7 +61,7 @@
   background: linear-gradient(135deg, #d4af37, #b68d1f);
   color: #ffffff;
 
-  font-size: 22px;
+  font-size: 18px;
 
   box-shadow: 0 8px 18px rgba(212, 175, 55, 0.35);
 }
@@ -121,24 +125,25 @@
   transform: scale(1.08);
 }
 
+
+
+
+
 .controls button.active {
   color: #d4af37;
-}
-
-.controls button:hover {
-  opacity: 0.85;
-  transform: scale(1.05);
-}
-
-.controls button.active {
-  color: #b08d57;
 }
 
 /* PLAY BUTTON (SAXAN) */
 
 .player-play {
-  width: 48px;
-  height: 48px;
+
+
+
+
+  width: 44px;
+height: 44px;
+font-size: 16px;
+
 
   display: flex;
   align-items: center;
@@ -287,8 +292,8 @@
 
 .progress-track {
   width: 100%;
-  height: 4px;
-  margin-top: 8px;
+  height: 2px;
+  margin-top: 5px;
 
   background: rgba(255,255,255,.12);
 
