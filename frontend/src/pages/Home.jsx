@@ -77,7 +77,7 @@ const Home = () => {
 
         {/* VIDEOS */}
         <section className="home-videos">
-          <h2 className="home-videos-title">  Dardaaran  </h2>
+          <h2 className="home-videos-title"> ⭐ Dardaaran ⭐ </h2>
 
           <div className="video-grid">
             {[
@@ -91,7 +91,8 @@ const Home = () => {
               },
               {
                 video: short3,
-                title:   "Ilaasho diintaada",
+                title: "Dardaaran",
+                desc: "Ilaasho diintaada ⭐⭐⭐",
               },
             ].map((item, i) => (
               <div className="video-card" key={i}>
