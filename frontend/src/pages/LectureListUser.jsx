@@ -191,7 +191,7 @@ console.log("Favorite clicked:", l);
   }}
   className="lecture-favorite"
 >
-  {liked ? "⭐" : "☆"}
+  {liked ? "⭐" : "☆"}   
 </div>
 
 
@@ -213,7 +213,7 @@ console.log("Favorite clicked:", l);
         <div className="empty-state">
 
           <div className="empty-icon">
-            📚
+            📚☆
           </div>
 
           <h3>
