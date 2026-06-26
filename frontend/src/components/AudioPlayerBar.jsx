@@ -62,12 +62,17 @@ const AudioPlayerBar = () => {
   }
 
   return (
-    <div className="player-bar">
+   <div
+  className="player-bar"
+  onClick={() => navigate("/now-playing")}
+>
       {/* HIDE */}
-   
-   <button
+ <button
   className="hide-btn"
-  onClick={() => setIsHidden(true)}
+  onClick={(e) => {
+    e.stopPropagation();
+    setIsHidden(true);
+  }}
   title="Qari Player"
 >
   <FaChevronDown />
@@ -100,7 +105,7 @@ const AudioPlayerBar = () => {
       }}
     ></div>
   </div>
-  
+
 </div>
       </div>
 
@@ -110,16 +115,32 @@ const AudioPlayerBar = () => {
       ) : (
         <div className="controls">
 
-         <button onClick={playPrev}>
+<button
+  onClick={(e) => {
+    e.stopPropagation();
+    playPrev();
+  }}
+>
   <FaStepBackward />
 </button>
 
          {/* Play / Pause */}
-<button className="player-play" onClick={togglePlay}>
+<button
+  className="player-play"
+  onClick={(e) => {
+    e.stopPropagation();
+    togglePlay();
+  }}
+>
   {isPlaying ? <FaPause /> : <FaPlay />}
 </button>
 
-<button onClick={playNext}>
+<button
+  onClick={(e) => {
+    e.stopPropagation();
+    playNext();
+  }}
+>
   <FaStepForward />
 </button>
 
@@ -127,7 +148,10 @@ const AudioPlayerBar = () => {
          {/* Repeat */}
 <button
   className={repeatMode !== "off" ? "active" : ""}
-  onClick={toggleRepeat}
+  onClick={(e) => {
+    e.stopPropagation();
+    toggleRepeat();
+  }}
   title="Repeat"
 >
   <FaRedoAlt />
@@ -135,7 +159,14 @@ const AudioPlayerBar = () => {
 
          
          {/* ❌ CLOSE */}
-<button className="close-btn" onClick={stopPlayer}>
+
+<button
+  className="close-btn"
+  onClick={(e) => {
+    e.stopPropagation();
+    stopPlayer();
+  }}
+>
   <FaTimes />
 </button>
 
