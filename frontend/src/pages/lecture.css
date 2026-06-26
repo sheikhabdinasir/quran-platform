@@ -158,76 +158,73 @@
 ========================================== */
 
 .lecture-card{
-
   display:flex;
   align-items:center;
+  gap:14px;
 
-  gap:18px;
-
-  background:#fff;
-
-  border-radius:22px;
-
+  background:#FFFFFF;
   border:1px solid #E8D8C8;
 
-  padding:16px 20px;
+  padding:18px;
 
-  min-height:82;
+  border-radius:26px;
 
   cursor:pointer;
 
-  transition:.35s;
+  transition:.3s;
 
-  box-shadow:0 10px 25px rgba(0,0,0,.08);
+  position:relative;
+
+  overflow:hidden;
+
+  box-shadow:0 8px 20px rgba(0,0,0,.08);
 }
 
 .lecture-card:hover{
-
   transform:translateY(-4px);
-
   border-color:#D4AF37;
-
-  box-shadow:0 18px 35px rgba(0,0,0,.12);
+  box-shadow:0 18px 45px rgba(0,0,0,.12);
 }
+
 
 /* NUMBER */
 
 .lecture-number{
+  width:42px;
+  height:42px;
 
-  width:52px;
-  height:52px;
-
-  border-radius:50%;
+  border-radius:16px;
 
   background:#F5E6E0;
 
-  color:#D4AF37;
-
   display:flex;
-  justify-content:center;
   align-items:center;
+  justify-content:center;
 
-  font-weight:800;
+  font-size:.9rem;
+  font-weight:700;
+
+  color:#D4AF37;
 
   flex-shrink:0;
 }
 
 /* ICON */
 
+
 .lecture-icon{
+  width:52px;
+  height:52px;
 
-  width:60px;
-  height:60px;
-
-  border-radius:50%;
+  border-radius:18px;
 
   background:#F5E6E0;
 
   display:flex;
-  justify-content:center;
   align-items:center;
+  justify-content:center;
 
-  font-size:24px;
+  font-size:1.1rem;
 
   flex-shrink:0;
 }
@@ -240,19 +237,15 @@
 }
 
 .lecture-info h3{
-
-  font-size:20px;
-
+  font-size:1rem;
+  font-weight:700;
+  margin-bottom:5px;
   color:#2C1810;
-
-  margin-bottom:6px;
 }
 
 .lecture-info p{
-
-  color:#7A6958;
-
-  font-size:15px;
+  font-size:.84rem;
+  color:#6B5A4A;
 }
 
 /* FAVORITE */
@@ -275,10 +268,10 @@
 
 /* PLAY */
 
-.lecture-play{
 
-  width:52px;
-  height:52px;
+.lecture-play{
+  width:42px;
+  height:42px;
 
   border-radius:50%;
 
@@ -290,11 +283,10 @@
   align-items:center;
   justify-content:center;
 
-  font-size:18px;
+  font-size:1rem;
+  font-weight:900;
 
   flex-shrink:0;
-
-  transition:.3s;
 }
 
 .lecture-play:hover{
