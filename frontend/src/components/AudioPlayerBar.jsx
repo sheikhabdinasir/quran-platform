@@ -5,10 +5,13 @@ import "../styles/playerbar.css";
 
 const formatTime = (time) => {
   if (!time || isNaN(time)) return "0:00";
+
   const minutes = Math.floor(time / 60);
+
   const seconds = Math.floor(time % 60)
     .toString()
     .padStart(2, "0");
+
   return `${minutes}:${seconds}`;
 };
 
@@ -25,85 +28,142 @@ const AudioPlayerBar = () => {
     duration,
     isLoading,
     stopPlayer,
+    audioRef,
   } = usePublic();
 
   const navigate = useNavigate();
   const location = useLocation();
 
-  /* 🔽 UI hide / show */
   const [isHidden, setIsHidden] = useState(false);
 
-  /* ❌ Ha muuqan haddii */
   if (!currentLesson) return null;
-  if (location.pathname === "/now-playing") return null;
 
-  /* 🔹 MINIMIZED */
+  if (location.pathname === "/now-playing")
+    return null;
+
   if (isHidden) {
     return (
       <div
         className="player-bar minimized"
         onClick={() => setIsHidden(false)}
       >
-        ▶️ {currentLesson.title}
+        ▶ {currentLesson.title}
       </div>
     );
   }
 
   return (
     <div className="player-bar">
-      {/* HIDE */}
-      <button
-        className="hide-btn"
-        onClick={() => setIsHidden(true)}
-        title="Qari Player"
-      >
-        ⬇️
-      </button>
+
+      {/* TOP */}
+
+      <div className="player-header">
+
+        <button
+          className="hide-btn"
+          onClick={() => setIsHidden(true)}
+        >
+          ⬇
+        </button>
+
+        <button
+          className="close-btn"
+          onClick={stopPlayer}
+        >
+          ✕
+        </button>
+
+      </div>
 
       {/* INFO */}
+
       <div
         className="player-info"
         onClick={() => navigate("/now-playing")}
       >
-        <div className="player-icon">📖</div>
+
+        <div className="player-icon">
+          🎧
+        </div>
 
         <div className="player-text">
+
           <h4>{currentLesson.title}</h4>
+
           <p>
-            {formatTime(currentTime)} / {formatTime(duration)}
+            Audio Lecture
           </p>
+
         </div>
+
+      </div>
+
+      {/* PROGRESS */}
+
+      <div className="progress-wrapper">
+
+        <input
+          type="range"
+          min="0"
+          max={duration || 0}
+          value={currentTime}
+          onChange={(e) => {
+            audioRef.current.currentTime =
+              e.target.value;
+          }}
+          className="progress-bar"
+        />
+
+        <div className="time-row">
+
+          <span>
+            {formatTime(currentTime)}
+          </span>
+
+          <span>
+            {formatTime(duration)}
+          </span>
+
+        </div>
+
       </div>
 
       {/* CONTROLS */}
+
       {isLoading ? (
         <div className="skeleton"></div>
       ) : (
         <div className="controls">
-          <button onClick={playPrev}>⏮</button>
 
-          {/* ▶️ PLAY */}
-          <button className="player-play" onClick={togglePlay}>
+          <button onClick={playPrev}>
+            ⏮
+          </button>
+
+          <button
+            className="player-play"
+            onClick={togglePlay}
+          >
             {isPlaying ? "⏸" : "▶"}
           </button>
 
-          <button onClick={playNext}>⏭</button>
+          <button onClick={playNext}>
+            ⏭
+          </button>
 
-          {/* 🔁 REPEAT */}
           <button
-            className={repeatMode !== "off" ? "active" : ""}
+            className={
+              repeatMode !== "off"
+                ? "active"
+                : ""
+            }
             onClick={toggleRepeat}
-            title="Repeat"
           >
             🔁
           </button>
 
-          {/* ❌ CLOSE */}
-          <button className="close-btn" onClick={stopPlayer}>
-            ✕
-          </button>
         </div>
       )}
+
     </div>
   );
 };
