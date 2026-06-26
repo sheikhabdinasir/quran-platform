@@ -62,7 +62,6 @@ const Home = () => {
 
     <div className="timeline-content">
       <h3>🎙️ Tafsiirka Qur'aanka</h3>
-      <p>Baro macnaha Qur'aanka.</p>
     </div>
   </Link>
 
@@ -71,7 +70,6 @@ const Home = () => {
 
     <div className="timeline-content">
       <h3>⭐ Muxaadarooyin Xul ah</h3>
-      <p>Muxaadarooyin xul ah oo si gaar ah loo habeeyey.</p>
     </div>
   </Link>
 
@@ -79,31 +77,27 @@ const Home = () => {
 
         {/* VIDEOS */}
         <section className="home-videos">
-          <h2 className="home-videos-title"> ⭐ Dardaaran ⭐ </h2>
+          <h2 className="home-videos-title">  Dardaaran  </h2>
 
           <div className="video-grid">
             {[
               {
                 video: short1,
                 title: "Cisadu diinta ayey ku jirtaa",
-                desc: "Diintaada ku dhagganoow ⭐⭐⭐⭐",
               },
               {
                 video: short2,
                 title: "Cibaadadii Rasuulka",
-                desc: "Fahamka Qur'aanka ⭐⭐⭐",
               },
               {
                 video: short3,
-                title: "Dardaaran",
-                desc: "Ilaasho diintaada ⭐⭐⭐",
+                title:   "Ilaasho diintaada",
               },
             ].map((item, i) => (
               <div className="video-card" key={i}>
                 <video src={item.video} controls playsInline />
 
                 <div className="video-card-info">
-                  <p className="tap-text">▶️ Taabo si aad u daawato</p>
                   <h4>{item.title}</h4>
                   <p>{item.desc}</p>
                 </div>
