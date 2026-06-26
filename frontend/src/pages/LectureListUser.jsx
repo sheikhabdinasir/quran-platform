@@ -179,12 +179,15 @@ const {
   onClick={(e) => {
     e.stopPropagation();
 
-   toggleLectureFavorite({
+toggleLectureFavorite({
   _id: l._id,
   title: l.title,
   speaker: l.speaker,
   audioUrl: l.audioUrl,
 });
+
+console.log("Favorite clicked:", l);
+
   }}
   className="lecture-favorite"
 >
