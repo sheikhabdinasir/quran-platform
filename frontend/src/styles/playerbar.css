@@ -316,14 +316,15 @@ font-size: 16px;
 }
 
 /* ================= MOBILE APP LAYOUT ================= */
+
 @media (max-width: 768px) {
 
   .player-bar {
-    bottom: 88px;
+    bottom: 76px;
   }
 
   .player-bar.minimized {
-    bottom: 88px;
+    bottom: 76px;
   }
 
 }
