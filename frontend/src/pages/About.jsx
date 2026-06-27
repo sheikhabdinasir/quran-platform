@@ -63,17 +63,20 @@ const About = () => {
             علمي موثوق يخدم طلاب العلم والعامة.
           </p>
         </div>
+        <div className="section-divider">
+  🕌 ✦ 🕌
+</div>
 
         {/* BLOCK 2 */}
         <div className="about-card gold">
           <h2 className="about-title">
              ماذا تقدم المنصة؟
           </h2>
-          <div className="section-divider">
-  🕌 ✦ 🕌
-</div>
+
+
 
           <div className="features">
+
             <div className="feature">🎧 تفسير صوتي واضح ومنظم</div>
             <div className="feature">🎥 دروس ومحاضرات مرئية</div>
             <div className="feature">🔍 نظام بحث سريع ودقيق</div>
@@ -82,6 +85,9 @@ const About = () => {
             <div className="feature">🌍 متاحة لجميع المسلمين</div>
           </div>
         </div>
+        <div className="section-divider">
+  🕌 ✦ 🕌
+</div>
 
         {/* BLOCK 3 */}
      
@@ -128,6 +134,9 @@ const About = () => {
 {/* ================= SHEIKH INFO CARD ================= */}
 
 
+<div className="section-divider">
+  🕌 ✦ 🕌
+</div>
 
 <div className="about-card gold sheikh-card">
 
@@ -164,6 +173,10 @@ const About = () => {
 
 
         {/* BLOCK 4 – AYAH */}
+        <div className="section-divider">
+  🕌 ✦ 🕌
+</div>
+
         <div className="ayah-box">
           <p className="ayah">
             ﴿ كِتَابٌ أَنزَلْنَاهُ إِلَيْكَ مُبَارَكٌ

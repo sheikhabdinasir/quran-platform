@@ -548,3 +548,68 @@ height:130px;
 }
 
 }
+
+/* ======================================
+   ISLAMIC DIVIDER
+====================================== */
+
+.section-divider{
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+gap:18px;
+
+margin:55px 0;
+
+color:#D4AF37;
+
+font-size:1.6rem;
+
+opacity:.9;
+
+}
+
+.section-divider::before,
+.section-divider::after{
+
+content:"";
+
+width:120px;
+height:2px;
+
+background:
+linear-gradient(
+90deg,
+transparent,
+#D4AF37,
+transparent
+);
+
+border-radius:999px;
+
+}
+
+@media(max-width:768px){
+
+.section-divider{
+
+font-size:1.3rem;
+
+gap:12px;
+
+margin:40px 0;
+
+}
+
+.section-divider::before,
+.section-divider::after{
+
+width:70px;
+
+}
+
+}
