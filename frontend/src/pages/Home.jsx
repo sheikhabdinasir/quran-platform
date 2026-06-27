@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import FAQ from "../components/FAQ";
 import "./Home.css";
+import QuickActions from "../components/QuickActions";
 
 import short1 from "../assets/videos/short1.mp4";
 import short2 from "../assets/videos/short2.mp4";
@@ -44,35 +45,9 @@ const Home = () => {
 
       {/* FEATURES */}
       <section className="home-wrapper">
-        <h2 className="section-title">🌙 Maxaad Ka Helaysaa Madashan?</h2>
 
-  <div className="timeline-wrapper">
+<QuickActions />
 
-  <Link to="/lectures" className="timeline-item">
-    <div className="timeline-number">1</div>
-
-    <div className="timeline-content">
-      <h3>🎧 Muxaadarooyin</h3>
-    </div>
-  </Link>
-
-  <Link to="/tafsiir" className="timeline-item">
-    <div className="timeline-number">2</div>
-
-    <div className="timeline-content">
-      <h3>🎙️ Tafsiirka Qur'aanka</h3>
-    </div>
-  </Link>
-
-  <Link to="/favorites" className="timeline-item">
-    <div className="timeline-number">3</div>
-
-    <div className="timeline-content">
-      <h3>⭐ Muxaadarooyin Xul ah</h3>
-    </div>
-  </Link>
-
-</div>
 
         {/* VIDEOS */}
         <section className="home-videos">
