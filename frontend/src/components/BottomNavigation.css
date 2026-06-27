@@ -44,23 +44,24 @@
   text-decoration: none;
 
   color: #F8F3ED;
+  cursor: pointer;
 
   transition: all .30s ease;
 }
 
 .bottom-nav-icon {
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
 
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 
-  border-radius: 14px;
+  border-radius: 50%;
 
   font-size: 22px;
 
-  transition: all .30s ease;
+  transition: .3s ease;
 }
 
 .bottom-nav-label {
@@ -80,16 +81,22 @@
   color: #D4AF37;
 }
 
+
 .bottom-nav-item.active .bottom-nav-icon {
-  background: rgba(212,175,55,.16);
+  background: linear-gradient(
+    135deg,
+    #D4AF37,
+    #F3D36A
+  );
 
-  color: #D4AF37;
+  color: #2C1810;
 
-  transform: translateY(-4px);
+  transform: translateY(-6px) scale(1.08);
 
   box-shadow:
-    0 6px 18px rgba(212,175,55,.18),
-    inset 0 0 0 1px rgba(212,175,55,.25);
+    0 8px 20px rgba(212,175,55,.35);
+
+  border-radius: 50%;
 }
 
 .bottom-nav-item.active .bottom-nav-label {

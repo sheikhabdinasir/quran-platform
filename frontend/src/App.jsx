@@ -40,6 +40,7 @@ const App = () => {
 
   const location =
   useLocation();
+const isMobile = window.innerWidth <= 768;
 
   const hideFooter =
     location.pathname === "/now-playing" ||
@@ -137,7 +138,8 @@ const App = () => {
 <BottomNavigation />
 
 {/* FOOTER */}
-{!hideFooter && <Footer />}
+
+{!hideFooter && !isMobile && <Footer />}
     </>
   );
 };
