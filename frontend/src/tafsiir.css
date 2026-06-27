@@ -354,22 +354,18 @@
 }
 
 .mini-controls{
+
   display:flex;
   align-items:center;
-  justify-content:space-between;
-  gap:10px;
+  justify-content:center;
+
+  gap:14px;
+
+  margin-top:6px;
+
 }
 
-.mini-controls span{
-  color:#bbb;
-  font-size:12px;
-}
 
-.mini-controls div{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
 
 .mini-controls button{
   border:none;

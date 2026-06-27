@@ -87,55 +87,29 @@ const TafsiirMiniPlayer = () => {
       />
 
       {/* CONTROLS */}
-      <div className="mini-controls">
+ 
+ <div className="mini-controls">
 
-        <span>
-          Playing
-        </span>
+  <button onClick={prevTrack}>
+    ⏮
+  </button>
 
-        <div>
+  <button
+    className="main-play"
+    onClick={togglePlay}
+  >
+    {isPlaying ? "❚❚" : "▶"}
+  </button>
 
-          <button
-            onClick={
-              prevTrack
-            }
-          >
-            ⏮
-          </button>
+  <button onClick={nextTrack}>
+    ⏭
+  </button>
 
-          <button
-            className="main-play"
-            onClick={
-              togglePlay
-            }
-          >
-            {
-              isPlaying
-              ? "❚❚"
-              : "▶"
-            }
-          </button>
+  <button onClick={closePlayer}>
+    ✕
+  </button>
 
-          <button
-            onClick={
-              nextTrack
-            }
-          >
-            ⏭
-          </button>
-
-          {/* CLOSE PLAYER */}
-          <button
-            onClick={
-              closePlayer
-            }
-          >
-            ✕
-          </button>
-
-        </div>
-
-      </div>
+</div>
 
     </div>
   );
