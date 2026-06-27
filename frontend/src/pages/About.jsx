@@ -40,11 +40,12 @@ const About = () => {
 </section>
 
       {/* ================= CONTENT ================= */}
+      
       <section className="about-container">
 
         {/* BLOCK 1 */}
         <div className="about-card">
-          <div className="about-card premium-card">
+<div className="about-card premium-card">
 
   <div className="card-badge">
     🕌
@@ -57,9 +58,10 @@ const About = () => {
   <p className="about-desc">
     هذه المنصة مخصصة لنشر
     <b> تفسير القرآن الكريم </b>
-    بأسلوب حديث ومنظم، يساعد المسلم على
-    الوصول إلى العلم بسهولة، والاستماع إلى
-    الدروس والمحاضرات في أي وقت.
+    بأسلوب حديث ومنظم يساعد المسلم
+    على الوصول إلى العلم بسهولة،
+    والاستماع إلى الدروس والمحاضرات
+    في أي وقت.
   </p>
 
   <div className="about-grid">
@@ -83,6 +85,7 @@ const About = () => {
   </div>
 
 </div>
+
           <h2 className="about-title">
             🕌 ما هي هذه المنصة؟
           </h2>
