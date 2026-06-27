@@ -7,6 +7,7 @@ import {
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import BottomNavigation from "./components/BottomNavigation";
 import AudioPlayerBar from "./components/AudioPlayerBar";
 
 /* MAIN */
@@ -128,12 +129,15 @@ const App = () => {
 
       </Routes>
 
-      {/* MINI PLAYERS */}
-      <AudioPlayerBar />
-      <TafsiirMiniPlayer />
+  {/* MINI PLAYERS */}
+<AudioPlayerBar />
+<TafsiirMiniPlayer />
 
-      {/* FOOTER */}
-      {!hideFooter && <Footer />}
+{/* BOTTOM NAVIGATION */}
+<BottomNavigation />
+
+{/* FOOTER */}
+{!hideFooter && <Footer />}
     </>
   );
 };
