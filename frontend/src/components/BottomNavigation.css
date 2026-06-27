@@ -1,48 +1,79 @@
-/* =========================
-   PREMIUM BOTTOM NAVIGATION
-========================= */
+/* ==========================================
+   PREMIUM ISLAMIC MOBILE BOTTOM NAVIGATION
+========================================== */
 
 .bottom-nav {
   position: fixed;
-  bottom: 0;
   left: 0;
-  width: 100%;
+  right: 0;
+  bottom: 0;
 
   display: flex;
   justify-content: space-around;
   align-items: center;
 
-  padding: 10px 0 calc(10px + env(safe-area-inset-bottom));
+  height: 72px;
+  padding: 0 8px;
+  padding-bottom: env(safe-area-inset-bottom);
 
-  background: rgba(44, 24, 16, 0.95);
+  background: rgba(44, 24, 16, 0.96);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
 
-  border-top: 1px solid rgba(212, 175, 55, 0.2);
+  border-top: 1px solid rgba(212, 175, 55, 0.25);
 
-  z-index: 999;
+  box-shadow:
+    0 -6px 25px rgba(0, 0, 0, .30),
+    0 -1px 0 rgba(212,175,55,.15);
+
+  z-index: 9999;
 }
 
 .bottom-nav-item {
+  flex: 1;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 
+  gap: 4px;
+
+  height: 100%;
+
   text-decoration: none;
 
   color: #F8F3ED;
 
-  font-size: 11px;
-
-  transition: all 0.3s ease;
+  transition: all .30s ease;
 }
 
 .bottom-nav-icon {
-  font-size: 22px;
-  margin-bottom: 4px;
+  width: 42px;
+  height: 42px;
 
-  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 14px;
+
+  font-size: 22px;
+
+  transition: all .30s ease;
+}
+
+.bottom-nav-label {
+  font-size: 11px;
+  font-weight: 500;
+
+  letter-spacing: .2px;
+
+  transition: .30s;
+}
+
+.bottom-nav-item:hover {
+  color: #D4AF37;
 }
 
 .bottom-nav-item.active {
@@ -50,9 +81,23 @@
 }
 
 .bottom-nav-item.active .bottom-nav-icon {
-  transform: translateY(-2px) scale(1.1);
+  background: rgba(212,175,55,.16);
+
+  color: #D4AF37;
+
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 6px 18px rgba(212,175,55,.18),
+    inset 0 0 0 1px rgba(212,175,55,.25);
 }
 
-.bottom-nav-item:hover {
-  color: #D4AF37;
+.bottom-nav-item.active .bottom-nav-label {
+  font-weight: 700;
+}
+
+@media (min-width: 768px) {
+  .bottom-nav {
+    display: none;
+  }
 }
