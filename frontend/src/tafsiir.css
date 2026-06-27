@@ -158,9 +158,10 @@
 
 .tafsiir-page{
   min-height:100vh;
-  background:#F8F3ED;
-  padding:35px 18px 130px;
+  background:#FFF8F3;
+  padding:120px 14px 170px;
 }
+
 .tafsiir-page-wrap{
   width:min(950px,100%);
   margin:auto;
@@ -570,8 +571,10 @@
   flex-shrink:0;
 }
 
+
 .tafsiir-info{
   flex:1;
+  min-width:0;
 }
 
 .tafsiir-info h3{
@@ -579,12 +582,20 @@
   color:#2C1810;
   font-size:18px;
   font-weight:700;
+
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 
 .tafsiir-info p{
   margin-top:4px;
   color:#6B5A4A;
   font-size:13px;
+
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 
 .tafsiir-actions{
@@ -665,4 +676,12 @@
   display:flex;
   align-items:center;
   justify-content:center;
+}
+
+@media(max-width:768px){
+
+  .tafsiir-row{
+    min-height:84px;
+  }
+
 }

@@ -119,12 +119,12 @@ const TafsiirAudio = () => {
 
   return (
 
-    <div className="tafsiir-page">
+    <div className="tafsiir-page lecture-page">
 
-      <div className="tafsiir-page-wrap">
+     <div className="tafsiir-page-wrap lecture-list">
 
         {/* TITLE */}
-        <h1 className="tafsiir-title">
+   <h1 className="tafsiir-title page-title">
 
 
 ku soo dhawow barashada Tafsiirka quráanka kariimka
@@ -132,10 +132,10 @@ ku soo dhawow barashada Tafsiirka quráanka kariimka
         </h1>
 
         {/* SEARCH */}
-        <input
-          type="text"
-
-          className="tafsiir-search"
+      
+      <input
+  type="text"
+  className="tafsiir-search search-input"
 
           placeholder="🔍 Raadi magaca suuradda..."
 
@@ -216,20 +216,22 @@ ku soo dhawow barashada Tafsiirka quráanka kariimka
 
       <div
         key={item._id}
-        className={
-          active
-            ? "tafsiir-row active"
-            : "tafsiir-row"
-        }
+
+     className={
+  active
+    ? "tafsiir-row lecture-card active"
+    : "tafsiir-row lecture-card"
+}
+
       >
 
         {/* ICON */}
-        <div className="tafsiir-icon">
+       <div className="tafsiir-icon lecture-icon">
           🎵
         </div>
 
         {/* INFO */}
-        <div className="tafsiir-info">
+       <div className="tafsiir-info lecture-info">
           <h3 dir="rtl">
             {item.surahName}
           </h3>
@@ -242,15 +244,17 @@ ku soo dhawow barashada Tafsiirka quráanka kariimka
         {/* ACTIONS */}
         <div className="tafsiir-actions">
 
-          <button
-            className="tafsiir-favorite"
+          
+            
+            <button
+  className="tafsiir-favorite lecture-favorite"
             onClick={() => toggleFavorite(item._id)}
           >
             {liked ? "★" : "☆"}
           </button>
 
-          <button
-            className="tafsiir-play"
+       <button
+  className="tafsiir-play lecture-play"
             onClick={() => {
 
               if (active) {
