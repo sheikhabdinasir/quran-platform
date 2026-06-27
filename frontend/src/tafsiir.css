@@ -326,18 +326,14 @@
 }
 
 .mini-icon{
-  width:54px;
-  height:54px;
-
   width:40px;
-height:40px;
-
+  height:40px;
   border-radius:16px;
   background:linear-gradient(135deg,#932F2F,#541616);
   display:flex;
   align-items:center;
   justify-content:center;
-font-size:18px;
+  font-size:18px;
 }
 
 .mini-left h4{
@@ -686,11 +682,36 @@ font-size:18px;
 
 @media(max-width:768px){
 
-  .tafsiir-row{
-    min-height:84px;
+  .mini-player{
+    padding:6px 12px;
+  }
+
+  .mini-icon{
+    width:36px;
+    height:36px;
+    font-size:16px;
+  }
+
+  .mini-left h4{
+    font-size:14px;
+  }
+
+  .mini-left p{
+    font-size:10px;
+  }
+
+  .mini-controls button{
+    font-size:15px;
+  }
+
+  .main-play{
+    width:36px;
+    height:36px;
   }
 
 }
+
+
 
 @media(max-width:768px){
 
