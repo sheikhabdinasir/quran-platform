@@ -43,14 +43,11 @@ const Kutub = () => {
   return (
     <div className="kutub-page">
       {/* PAGE TITLE */}
-      <h1 className="kutub-title">
-           ✦
-         Waxaa kuugu diyaar ah dhammaan kutubtii uu akhriyey
-        shiikh cabdinaasir xaaji axmed.
-            ✦ 
-      </h1>
+     
 
-      
+      <p className="kutub-sub">
+         ✦ halkan ka xulo dhammaan Kutubta ✦ 
+        </p>
 
       {/* SEARCH */}
       <input
@@ -152,7 +149,7 @@ const Kutub = () => {
           background: #fffaf0;
           border-radius: 20px;
           overflow: hidden;
-          border: 2px solid #acc714b6;
+          border: 2px solid #374ed4;
           box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
           cursor: pointer;
           transition: 0.35s ease;
