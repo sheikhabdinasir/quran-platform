@@ -44,6 +44,45 @@ const About = () => {
 
         {/* BLOCK 1 */}
         <div className="about-card">
+          <div className="about-card premium-card">
+
+  <div className="card-badge">
+    🕌
+  </div>
+
+  <h2 className="about-title">
+    ما هي هذه المنصة؟
+  </h2>
+
+  <p className="about-desc">
+    هذه المنصة مخصصة لنشر
+    <b> تفسير القرآن الكريم </b>
+    بأسلوب حديث ومنظم، يساعد المسلم على
+    الوصول إلى العلم بسهولة، والاستماع إلى
+    الدروس والمحاضرات في أي وقت.
+  </p>
+
+  <div className="about-grid">
+
+    <div className="about-item">
+      📖 تقسيم القرآن إلى 30 جزءًا
+    </div>
+
+    <div className="about-item">
+      📘 عرض السور مرتبة
+    </div>
+
+    <div className="about-item">
+      🎧 تفسير صوتي
+    </div>
+
+    <div className="about-item">
+      🎥 محاضرات مرئية
+    </div>
+
+  </div>
+
+</div>
           <h2 className="about-title">
             🕌 ما هي هذه المنصة؟
           </h2>
