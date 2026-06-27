@@ -16,7 +16,7 @@ import {
 
 const About = () => {
   return (
-    <div style={{ background: "#FFF8F3", minHeight: "100vh" }}>
+ <div className="about-page">
 
     
 
@@ -69,6 +69,9 @@ const About = () => {
           <h2 className="about-title">
              ماذا تقدم المنصة؟
           </h2>
+          <div className="section-divider">
+  🕌 ✦ 🕌
+</div>
 
           <div className="features">
             <div className="feature">🎧 تفسير صوتي واضح ومنظم</div>
