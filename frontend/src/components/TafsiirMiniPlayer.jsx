@@ -37,19 +37,21 @@ const navigate = useNavigate();
 const location = useLocation();
 
 const [isHidden, setIsHidden] = useState(false);
-  const {
-    currentTrack,
-    isPlaying,
-    togglePlay,
-    nextTrack,
-    prevTrack,
-    closePlayer,
-    currentTime,
-    duration,
-    seekTo
-  } = useContext(
-    TafsiirPlayerContext
-  );
+
+const {
+  currentTrack,
+  isPlaying,
+  togglePlay,
+  nextTrack,
+  prevTrack,
+  closePlayer,
+  currentTime,
+  duration,
+} = useContext(
+  TafsiirPlayerContext
+);
+
+  
 if (!currentTrack) return null;
 
 if (location.pathname === "/tafsiir/now-playing")
