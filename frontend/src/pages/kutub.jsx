@@ -131,7 +131,7 @@ const Kutub = () => {
           margin: 0 auto 2.5rem;
           padding: 0.85rem 1rem;
           border-radius: 14px;
-          border: 2px solid #1f0fc7;
+          border: 2px solid #D4AF37;
           outline: none;
           font-size: 1rem;
           background: #fff;
@@ -149,7 +149,7 @@ const Kutub = () => {
           background: #fffaf0;
           border-radius: 20px;
           overflow: hidden;
-          border: 2px solid #374ed4;
+          border: 2px solid #D4AF37;
           box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
           cursor: pointer;
           transition: 0.35s ease;
