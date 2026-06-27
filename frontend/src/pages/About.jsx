@@ -20,9 +20,8 @@ const About = () => {
 
     
 
-<section className="about-hero">
 
-  <div className="overlay"></div>
+<section className="about-hero">
 
   <div className="hero-content">
 
