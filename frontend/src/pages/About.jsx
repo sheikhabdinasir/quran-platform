@@ -1,7 +1,7 @@
 import React from "react";
 
 import sheikhImg from "../assets/shiikhcabdinasir.jpeg";
-
+import "./About.css";
 import {
   FaMosque,
   FaQuran,
@@ -17,19 +17,8 @@ import {
 const About = () => {
   return (
     <div style={{ background: "#FFF8F3", minHeight: "100vh" }}>
-      {/* ================= HERO ================= */}
-      <section className="about-hero">
-        <div className="overlay" />
-        <div className="hero-content">
-          <h1 className="hero-title">
-             عن منصة تفسير القرآن الكريم
-          </h1>
-          <p className="hero-subtitle">
-            منصة إسلامية شاملة تهدف إلى نشر فهم القرآن الكريم
-            من خلال التفسير، المحاضرات، والدروس الصوتية والمرئية.
-          </p>
-        </div>
-      </section>
+
+    
 
       {/* ================= CONTENT ================= */}
       <section className="about-container">

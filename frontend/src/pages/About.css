@@ -1,0 +1,85 @@
+/* ======================================
+   ABOUT HERO
+====================================== */
+
+.about-hero{
+
+  padding:130px 20px 70px;
+
+  background:#FFF8F3;
+
+  display:flex;
+  justify-content:center;
+}
+
+.about-hero-content{
+
+  max-width:850px;
+
+  text-align:center;
+}
+
+.about-bismillah{
+
+  display:block;
+
+  font-size:70px;
+
+  color:#D4AF37;
+
+  margin-bottom:15px;
+}
+
+.about-main-title{
+
+  font-size:clamp(2.3rem,5vw,4rem);
+
+  font-weight:900;
+
+  color:#2C1810;
+
+  margin-bottom:18px;
+}
+
+.about-subtitle{
+
+  max-width:760px;
+
+  margin:auto;
+
+  color:#6B5A4A;
+
+  line-height:1.9;
+
+  font-size:1.08rem;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.about-hero{
+
+padding:110px 18px 50px;
+
+}
+
+.about-bismillah{
+
+font-size:54px;
+
+}
+
+.about-main-title{
+
+font-size:2rem;
+
+}
+
+.about-subtitle{
+
+font-size:.95rem;
+
+}
+
+}
