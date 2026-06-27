@@ -70,7 +70,6 @@ const Tafsiir = () => {
 
           <p className="hero-subtitle">
 
-Baro Tafsiirka Quráanka 
           </p>
 
         </div>
@@ -123,7 +122,7 @@ Baro Tafsiirka Quráanka
         >
 
           <div className="card-icon">
-            ❤️
+            🎧
           </div>
 
           <div className="card-body">
