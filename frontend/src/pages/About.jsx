@@ -102,12 +102,45 @@ const About = () => {
 
           <div className="features">
 
-            <div className="feature">🎧 تفسير صوتي واضح ومنظم</div>
-            <div className="feature">🎥 دروس ومحاضرات مرئية</div>
-            <div className="feature">🔍 نظام بحث سريع ودقيق</div>
-            <div className="feature">📱 متوافقة مع الهاتف والكمبيوتر</div>
-            <div className="feature">💾 حفظ المحاضرات المفضلة</div>
-            <div className="feature">🌍 متاحة لجميع المسلمين</div>
+          <div className="features">
+
+  <div className="feature">
+    <div className="feature-icon">🎧</div>
+    <h3>تفسير صوتي</h3>
+    <p>استمع إلى تفسير القرآن الكريم بجودة عالية.</p>
+  </div>
+
+  <div className="feature">
+    <div className="feature-icon">🎥</div>
+    <h3>محاضرات مرئية</h3>
+    <p>شاهد الدروس والمحاضرات الإسلامية بسهولة.</p>
+  </div>
+
+  <div className="feature">
+    <div className="feature-icon">🔍</div>
+    <h3>بحث سريع</h3>
+    <p>اعثر على السورة أو الجزء خلال ثوانٍ.</p>
+  </div>
+
+  <div className="feature">
+    <div className="feature-icon">📱</div>
+    <h3>جميع الأجهزة</h3>
+    <p>يعمل على الهاتف والكمبيوتر والتابلت.</p>
+  </div>
+
+  <div className="feature">
+    <div className="feature-icon">💾</div>
+    <h3>المفضلة</h3>
+    <p>احفظ الدروس واستمع إليها لاحقًا.</p>
+  </div>
+
+  <div className="feature">
+    <div className="feature-icon">🌍</div>
+    <h3>متاح للجميع</h3>
+    <p>منصة مجانية لجميع المسلمين حول العالم.</p>
+  </div>
+
+</div>
           </div>
         </div>
         <div className="section-divider">
