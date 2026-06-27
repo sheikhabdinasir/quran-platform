@@ -474,88 +474,35 @@
  MOBILE
 *********************************/
 
-@media(max-width:768px){
-
-.hero-title{ font-size:38px; }
-.hero-subtitle{ font-size:18px; }
-
-.mosque-line{
-  font-size:28px;
-  letter-spacing:5px;
+.mini-player{
+  padding:6px 12px;
 }
 
-.premium-islamic-card{ padding:20px; }
-
-.card-icon{
-  width:58px;
-  height:58px;
-  font-size:28px;
+.mini-icon{
+  width:36px;
+  height:36px;
+  font-size:16px;
 }
 
-.card-body h2{ font-size:22px; }
-.card-body p{ font-size:14px; }
-.card-arrow{ font-size:28px; }
-
-.tafsiir-title{ font-size:30px; }
-
-.tafsiir-search{
-  padding:15px 16px;
-}
-
-.tafsiir-row{
-  gap:12px;
-  padding:10px 14px;
-  min-height:70px;
-}
-
-.tafsiir-play-btn{
-  width:40px;
-  height:40px;
+.mini-left h4{
   font-size:14px;
 }
 
-.tafsiir-info h3{ font-size:15px; }
-.tafsiir-info p{ font-size:11px; }
-.tafsiir-fav{ font-size:16px; }
-
-.mini-player{ padding:10px 14px; }
-
-.mini-icon{
-  width:46px;
-  height:46px;
-  font-size:20px;
+.mini-left p{
+  font-size:10px;
 }
 
-.mini-left h4{ font-size:15px; }
-
-.mini-controls button{ font-size:18px; }
+.mini-controls button{
+  font-size:15px;
+}
 
 .main-play{
-  width:42px;
-  height:42px;
+  width:36px;
+  height:36px;
 }
 
-.now-cover{
-  width:210px;
-  height:210px;
-  font-size:70px;
-}
 
-.now-title{ font-size:28px; }
 
-.now-controls{ gap:14px; }
-
-.now-controls button{
-  font-size:24px;
-}
-
-.now-play{
-  width:62px;
-  height:62px;
-  font-size:28px !important;
-}
-
-}
 
 /* ===========================
    TAFSIIR AUDIO COMPONENT
