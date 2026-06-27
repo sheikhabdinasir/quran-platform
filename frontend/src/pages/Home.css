@@ -78,14 +78,6 @@ body{
  
  
 
-  .hero-bismillah{
-  display:block; 
-  color:var(--gold);
-  font-size:1.4rem;
-  font-weight:900;
-  margin-bottom:1rem;
-}
-
 .hero-title{
   font-size: clamp(1.9rem,4vw,2.6rem);
 
@@ -435,28 +427,29 @@ body{
 
 /* MOBILE */
 
-
-@media(max-width:768px){
+@media (max-width:768px){
 
   .hero-section{
-    min-height:360px;
-    height:45vh;
+    padding:20px 16px 8px;
   }
 
   .hero-content{
-    padding:0 1rem;
+    padding:0;
   }
 
   .hero-title{
-  font-size:1.9rem;
-}
+    font-size:2rem;
+    margin-bottom:8px;
+  }
 
-
+  .hero-description{
+    font-size:.95rem;
+    line-height:1.6;
+  }
 
   .home-wrapper{
     padding:2rem 1rem;
   }
-
 
   .video-grid{
     grid-template-columns:1fr;
@@ -470,15 +463,21 @@ body{
 
 
 /* SMALL MOBILE */
-@media(max-width:480px){
+/* SMALL MOBILE */
+
+@media (max-width:480px){
 
   .hero-section{
-    min-height:320px;
-    height:40vh;
+    padding:18px 14px 8px;
   }
 
   .hero-title{
-    font-size:1.8rem;
+    font-size:1.7rem;
+    margin-bottom:6px;
+  }
+
+  .hero-description{
+    font-size:.9rem;
   }
 
   .section-title,
@@ -487,4 +486,3 @@ body{
   }
 
 }
-    
