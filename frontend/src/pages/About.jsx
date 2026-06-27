@@ -22,7 +22,7 @@ const About = () => {
         <div className="overlay" />
         <div className="hero-content">
           <h1 className="hero-title">
-            ✨ عن منصة تفسير القرآن الكريم
+             عن منصة تفسير القرآن الكريم
           </h1>
           <p className="hero-subtitle">
             منصة إسلامية شاملة تهدف إلى نشر فهم القرآن الكريم
@@ -59,7 +59,7 @@ const About = () => {
         {/* BLOCK 2 */}
         <div className="about-card gold">
           <h2 className="about-title">
-            ⭐ ماذا تقدم المنصة؟
+             ماذا تقدم المنصة؟
           </h2>
 
           <div className="features">
