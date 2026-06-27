@@ -66,18 +66,25 @@ const Lessons = () => {
   );
 
   return (
-    <div className="lessons-page">
+    
+    <div className="lessons-page lecture-page">
       {/* BACK */}
-      <button
-        className="back-btn"
-        onClick={() => navigate(-1)}
-      >
-        ← Dib u laabo
-      </button>
+
+      <div className="top-header">
+
+  <button
+    className="back-btn"
+    onClick={() => navigate(-1)}
+  >
+    ← Dib u laabo
+  </button>
+
+</div>
 
       {/* HEADER */}
-      {book && (
-        <div className="lessons-header">
+
+{book && (
+  <div className="lessons-header lecture-hero">
           <h2> Kusoo dhawoow</h2>
           <h1>{book.title}</h1>
           <p>🎙 {book.sheikhName}</p>
@@ -106,26 +113,29 @@ const Lessons = () => {
 
             return (
               <div
-                key={lesson._id}
-                className={`lesson-row ${
-                  isActive ? "active" : ""
-                }`}
+  key={lesson._id}
+  className={`lesson-row lecture-card ${
+    isActive ? "active" : ""
+  }`}
+      
                 onClick={() =>
                   playLesson(lesson, filteredLessons)
                 }
               >
                 {/* ICON */}
-                <div className="lesson-icon">🎵</div>
 
+<div className="lesson-icon lecture-icon">🎧</div>
                 {/* TEXT */}
-                <div className="lesson-text">
+             
+             <div className="lesson-text lecture-info">
                   <h4>{lesson.title}</h4>
                   <p>Cashar #{lesson.order}</p>
                 </div>
 
                 {/* BOOKMARK */}
-                <div
-                  className="lesson-bookmark"
+             
+             <div
+  className="lesson-bookmark lecture-favorite"
                   onClick={(e) => {
                     e.stopPropagation();
                     toggleBookmark(lesson);
@@ -137,7 +147,8 @@ const Lessons = () => {
                 </div>
 
                 {/* PLAY */}
-                <div className="lesson-play">▶</div>
+               
+               <div className="lesson-play lecture-play">▶</div>
               </div>
             );
           })}
@@ -145,96 +156,113 @@ const Lessons = () => {
       )}
 
       <style>{`
-        .lessons-page {
-          max-width: 900px;
-          margin: auto;
-          padding: 2rem 1rem 5rem;
-        }
 
-        .back-btn {
-          background: none;
-          border: none;
-          color: rgb(34, 209, 57);
-          font-size: 15px;
-          cursor: pointer;
-          margin-bottom: 1rem;
-        }
+      
+.lessons-page{
+  min-height:100vh;
+  background:#FFF8F3;
+  padding:120px 14px 170px;
+}
 
-        .lessons-header {
-          text-align: center;
-          margin-bottom: 2rem;
-        }
+.lessons-header{
+  text-align:center;
+  margin-bottom:35px;
+}
 
-        .lessons-header h1 {
-          font-size: 2rem;
-          color: #f30b32b2;         {/*بلوغ المرام*/} 
-            
+.lessons-header h2{
+  color:#D4AF37;
+  font-size:18px;
+  margin-bottom:8px;
+}
 
-          margin: .3rem 0;
-        }
+.lessons-header h1{
+  font-size:clamp(2rem,5vw,3rem);
+  color:#2C1810;
+  font-weight:900;
+}
 
-        .search {
-          width: 100%;
-          padding: .8rem 1rem;
-          border-radius: 12px;
-          border: 1px solid #ccc;
-          margin-bottom: 1.8rem;
-        }
+.lessons-header p{
+  color:#6B5A4A;
+}
 
-        .lesson-list {
-          display: flex;
-          flex-direction: column;
-          gap: 10px;
-        }
+.search{
+  width:100%;
+  max-width:650px;
+  display:block;
+  margin:0 auto 30px;
 
-        .lesson-row {
-          display: flex;
-          align-items: center;
-          gap: 14px;
-          padding: 12px 14px;
-          border-radius: 14px;
-          background: #ffffff;
-          box-shadow: 0 8px 20px rgba(30, 26, 82, 0.23);  
-          cursor: pointer;
-        }
+  padding:18px 22px;
 
-        .lesson-row.active {
-          background: #eef6f1;
-          border-left: 4px solid #14532d;   {/*    ← Dib u laabo */} 
-        }
+  border-radius:999px;
+  border:1px solid #E8D8C8;
 
-        .lesson-icon {
-          width: 42px;
-          height: 42px;
-          border-radius: 50%;
-          background: #e0f2fe;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
+  outline:none;
+  background:#fff;
 
-        .lesson-text {
-          flex: 1;
-        }
+  box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
 
-        .lesson-text h4 {
-          margin: 0;
-          font-size: 15px;
-          font-weight: 700;
-        }
+.search:focus{
+  border-color:#D4AF37;
+}
 
-        .lesson-text p {
-          margin: 2px 0 0;
-          font-size: 13px;
-          color: #a00842;                  {/* orderka casharka  */}
+.lesson-list{
+  max-width:900px;
+  margin:auto;
 
-        }
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
 
-        .lesson-bookmark,
-        .lesson-play {
-          font-size: 18px;
-          cursor: pointer;
-        }
+.lesson-row.active{
+  border:1px solid #D4AF37;
+}
+
+.lesson-icon{
+  flex-shrink:0;
+}
+
+.lesson-text{
+  flex:1;
+  min-width:0;
+}
+
+.lesson-text h4{
+  margin:0;
+  color:#2C1810;
+  font-size:16px;
+
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.lesson-text p{
+  margin-top:4px;
+  color:#6B5A4A;
+
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.lesson-bookmark{
+  cursor:pointer;
+}
+
+@media(max-width:768px){
+
+  .lessons-page{
+    padding:120px 14px 170px;
+  }
+
+  .lesson-row{
+    min-height:84px;
+  }
+
+}
+
       `}</style>
     </div>
   );
