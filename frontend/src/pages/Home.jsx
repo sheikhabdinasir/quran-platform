@@ -25,20 +25,25 @@ const Home = () => {
 
   <div className="hero-content">
 
-    <span className="hero-bismillah">
-      ﷽
+    <span className="hero-greeting">
+      السلام عليكم ورحمة الله وبركاته 🤲
     </span>
 
     <h1 className="hero-title">
-        مركز الشيخ عبد الناصر الحاج أحمد
-
+      Sheekh Cabdulnaasir Xaaji Axmed
     </h1>
 
- <p className="hero-description">
-منصة علمية لنشر تفسير القرآن الكريم والمحاضرات والدروس العلمية
-</p>
+    <p className="hero-description">
+      Ku soo dhawoow madasha rasmiga ah ee Tafsiirka Qur'aanka,
+      Muxaadarooyinka iyo Kutubta Sheekh Cabdulnaasir Xaaji Axmed.
+    </p>
 
- 
+    <div className="hero-search">
+      <input
+        type="text"
+        placeholder="🔍 Raadi muxaadaro, tafsiir ama kitaab..."
+      />
+    </div>
 
   </div>
 
