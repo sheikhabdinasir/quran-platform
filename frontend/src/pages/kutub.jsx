@@ -44,13 +44,13 @@ const Kutub = () => {
     <div className="kutub-page">
       {/* PAGE TITLE */}
       <h1 className="kutub-title">
-           ✦ halkan ka xulo dhammaan Kutubta ✦ 
+           ✦
+         Waxaa kuugu diyaar ah dhammaan kutubtii uu akhriyey
+        shiikh cabdinaasir xaaji axmed.
+            ✦ 
       </h1>
 
-      <p className="kutub-sub">
-        Waxaa kuugu diyaar ah dhammaan kutubtii uu akhriyey
-        shiikh cabdinaasir xaaji axmed.
-      </p>
+      
 
       {/* SEARCH */}
       <input
