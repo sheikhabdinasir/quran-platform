@@ -313,7 +313,7 @@
   z-index:11000;
   background:rgba(10,10,10,.97);
   border-top:2px solid #D4AF37;
-  padding:12px 18px;
+ padding:8px 14px;
   box-shadow:0 -10px 30px rgba(0,0,0,.4);
 }
 
@@ -328,28 +328,32 @@
 .mini-icon{
   width:54px;
   height:54px;
+
+  width:40px;
+height:40px;
+
   border-radius:16px;
   background:linear-gradient(135deg,#932F2F,#541616);
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:24px;
+font-size:18px;
 }
 
 .mini-left h4{
   color:#fff;
-  font-size:17px;
+  font-size:15px;
   margin-bottom:4px;
 }
 
 .mini-left p{
   color:rgba(255,255,255,.6);
-  font-size:13px;
+  font-size:11px;
 }
 
 .mini-range{
   width:100%;
-  margin:10px 0;
+  margin:6px 0;
   accent-color:#D4AF37;
 }
 
@@ -375,13 +379,13 @@
   border:none;
   background:none;
   color:#fff;
-  font-size:22px;
+  font-size:16px;
   cursor:pointer;
 }
 
 .main-play{
-  width:48px;
-  height:48px;
+  width:40px;
+  height:40px;
   border-radius:50% !important;
   background:#D4AF37 !important;
   color:#111 !important;
