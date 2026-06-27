@@ -53,7 +53,6 @@ const Home = () => {
 
     <div className="timeline-content">
       <h3>🎧 Muxaadarooyin</h3>
-      <p>Halkan ka Dhegeyso muxaadarooyinka.</p>
     </div>
   </Link>
 

@@ -46,13 +46,13 @@ const Kutub = () => {
      
 
       <p className="kutub-sub">
-         ✦ halkan ka xulo dhammaan Kutubta ✦ 
+         ✦ Halkan ka xulo dhammaan Kutubta ✦ 
         </p>
 
       {/* SEARCH */}
       <input
         type="text"
-        placeholder="🔍 Raadi kitaab ama sheikh..."
+        placeholder="🔍 Raadi Magaca kitaabka..."
         className="kutub-search"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
