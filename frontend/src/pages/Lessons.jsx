@@ -106,7 +106,7 @@ const Lessons = () => {
           Wax casharro ah lama helin
         </p>
       ) : (
-        <div className="lesson-list">
+    <div className="lesson-list lecture-list">
           {filteredLessons.map((lesson) => {
             const isActive =
               currentLesson?._id === lesson._id;
