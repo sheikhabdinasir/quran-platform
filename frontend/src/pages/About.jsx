@@ -44,7 +44,7 @@ const About = () => {
       <section className="about-container">
 
         {/* BLOCK 1 */}
-        <div className="about-card">
+   {/* BLOCK 1 */}
 <div className="about-card premium-card">
 
   <div className="card-badge">
@@ -84,26 +84,9 @@ const About = () => {
 
   </div>
 
-</div>
 
-          <h2 className="about-title">
-            🕌 ما هي هذه المنصة؟
-          </h2>
-          <p>
-            هذه المنصة مخصصة لنشر <b>تفسير القرآن الكريم</b> بأسلوب منظم
-            وسهل الوصول، حيث تم تقسيم المحتوى إلى:
-          </p>
-          <ul>
-            <li>📖 الأجزاء (الأجزاء الثلاثون)</li>
-            <li>📘 السور القرآنية</li>
-            <li>🎧 مقاطع تفسيرية صوتية ومرئية</li>
-          </ul>
 
-          <p>
-            تعتمد المنصة على دروس ومحاضرات
-            <b> الشيخ عبد الناصر حاجي أحمد</b>، مع تقديم محتوى
-            علمي موثوق يخدم طلاب العلم والعامة.
-          </p>
+        
         </div>
         <div className="section-divider">
   🕌 ✦ 🕌
