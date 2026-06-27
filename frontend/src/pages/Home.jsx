@@ -2,6 +2,7 @@
 
 import FAQ from "../components/FAQ";
 import "./Home.css";
+import { FaPlay } from "react-icons/fa";
 import QuickActions from "../components/QuickActions";
 
 import short1 from "../assets/videos/short1.mp4";
@@ -26,7 +27,7 @@ const Home = () => {
   <div className="hero-content">
 
     <span className="hero-greeting">
-      السلام عليكم ورحمة الله وبركاته 🤲
+      مركز الشيخ عبد الناصر الحاج أحمد
     </span>
 
     <h1 className="hero-title">
@@ -48,6 +49,54 @@ const Home = () => {
   </div>
 
 </section>
+
+{/* CONTINUE LISTENING */}
+
+<section className="continue-section">
+
+  <div className="continue-card">
+
+    <div className="continue-top">
+
+      <span className="continue-label">
+        Continue Listening
+      </span>
+
+      <button className="continue-play">
+        <FaPlay />
+      </button>
+
+    </div>
+
+    <h3 className="continue-title">
+      Tafsiirka Suuratul Baqarah
+    </h3>
+
+    <p className="continue-speaker">
+      Sheekh Cabdulnaasir Xaaji Axmed
+    </p>
+
+    <div className="continue-progress">
+
+      <div
+        className="continue-progress-fill"
+        style={{ width: "42%" }}
+      />
+
+    </div>
+
+    <div className="continue-time">
+
+      <span>42:18</span>
+
+      <span>1:03:45</span>
+
+    </div>
+
+  </div>
+
+</section>
+
 
       {/* FEATURES */}
       <section className="home-wrapper">
