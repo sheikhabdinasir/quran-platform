@@ -23,7 +23,13 @@
   align-items:center;
   justify-content:center;
   text-align:center;
-  background:linear-gradient(135deg,#2C1810 0%,#4A2C20 45%,#932F2F 100%);
+
+  background:linear-gradient(
+    135deg,
+    #1B120B 0%,
+    #2C1810 50%,
+    #3A2619 100%
+  );
 }
 
 .about-hero::before{
