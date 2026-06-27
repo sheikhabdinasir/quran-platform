@@ -4,79 +4,135 @@
 
 .about-hero{
 
-  padding:130px 20px 70px;
+  position:relative;
 
-  background:#FFF8F3;
+  overflow:hidden;
+
+  min-height:340px;
+
+  padding:130px 20px 90px;
 
   display:flex;
+  align-items:center;
   justify-content:center;
-}
-
-.about-hero-content{
-
-  max-width:850px;
 
   text-align:center;
+
+  background:
+  linear-gradient(
+      135deg,
+      #2C1810 0%,
+      #4A2C20 45%,
+      #932F2F 100%
+  );
 }
 
-.about-bismillah{
+/* GOLD GLOW */
 
-  display:block;
+.about-hero::before{
 
-  font-size:70px;
+content:"";
 
-  color:#D4AF37;
+position:absolute;
 
-  margin-bottom:15px;
+width:450px;
+height:450px;
+
+border-radius:50%;
+
+background:
+radial-gradient(
+circle,
+rgba(212,175,55,.18),
+transparent 70%
+);
+
+top:-180px;
+right:-120px;
+
 }
 
-.about-main-title{
+.about-hero::after{
 
-  font-size:clamp(2.3rem,5vw,4rem);
+content:"";
 
-  font-weight:900;
+position:absolute;
 
-  color:#2C1810;
+width:350px;
+height:350px;
 
-  margin-bottom:18px;
+border-radius:50%;
+
+background:
+radial-gradient(
+circle,
+rgba(255,255,255,.06),
+transparent 70%
+);
+
+bottom:-170px;
+left:-120px;
+
 }
 
-.about-subtitle{
+.hero-content{
 
-  max-width:760px;
+position:relative;
 
-  margin:auto;
+z-index:2;
 
-  color:#6B5A4A;
+max-width:850px;
 
-  line-height:1.9;
-
-  font-size:1.08rem;
 }
 
-/* MOBILE */
+.hero-title{
+
+font-size:clamp(2.3rem,5vw,4rem);
+
+font-weight:900;
+
+color:#F3D36A;
+
+margin-bottom:20px;
+
+text-shadow:
+0 6px 25px rgba(0,0,0,.45);
+
+}
+
+.hero-subtitle{
+
+color:#FFF8F3;
+
+font-size:1.15rem;
+
+line-height:2;
+
+max-width:760px;
+
+margin:auto;
+
+opacity:.95;
+
+}
 
 @media(max-width:768px){
 
 .about-hero{
 
-padding:110px 18px 50px;
+padding:120px 18px 70px;
+
+min-height:300px;
 
 }
 
-.about-bismillah{
-
-font-size:54px;
-
-}
-
-.about-main-title{
+.hero-title{
 
 font-size:2rem;
 
 }
 
-.about-subtitle{
+.hero-subtitle{
 
 font-size:.95rem;
 
