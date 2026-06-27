@@ -320,11 +320,11 @@ font-size: 16px;
 @media (max-width: 768px) {
 
   .player-bar {
-    bottom: 76px;
+    bottom: 95px;
   }
 
   .player-bar.minimized {
-    bottom: 76px;
+    bottom: 95px;
   }
 
 }
