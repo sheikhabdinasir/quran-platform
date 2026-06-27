@@ -20,6 +20,26 @@ const About = () => {
 
     
 
+<section className="about-hero">
+
+  <div className="overlay"></div>
+
+  <div className="hero-content">
+
+    <h1 className="hero-title">
+      منصة تفسير القرآن الكريم
+    </h1>
+
+    <p className="hero-subtitle">
+      منصة إسلامية متخصصة في تفسير القرآن الكريم
+      ودروس ومحاضرات الشيخ عبد الناصر حاجي أحمد
+      بطريقة عصرية وسهلة الاستخدام.
+    </p>
+
+  </div>
+
+</section>
+
       {/* ================= CONTENT ================= */}
       <section className="about-container">
 
