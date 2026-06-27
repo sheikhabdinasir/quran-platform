@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
+
 import FAQ from "../components/FAQ";
 import "./Home.css";
 import QuickActions from "../components/QuickActions";
