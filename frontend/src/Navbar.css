@@ -499,50 +499,46 @@
 
   /* ================= MOBILE MENU ================= */
 
-  .nav-menu{
-    position:absolute;
+.nav-menu{
+  position:fixed;
 
-    top:100%;
-    left:12px;
-    right:12px;
+  top:0;
+  right:0;
 
-    width:auto;
+  width:300px;
+  max-width:85%;
 
-    background:rgba(255,255,255,.97);
+  height:100vh;
 
-    backdrop-filter:blur(20px);
-    -webkit-backdrop-filter:blur(20px);
+  background:#FFFFFF;
 
-    display:flex;
-    flex-direction:column;
-    align-items:stretch;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
 
-    padding:16px;
+  padding:90px 22px 30px;
 
-    gap:12px;
+  gap:10px;
 
-    border:1px solid rgba(212,175,55,.18);
-    border-radius:22px;
+  border-left:1px solid #E8D8C8;
 
-    box-shadow:
-      0 20px 60px rgba(0,0,0,.18);
+  box-shadow:-10px 0 40px rgba(0,0,0,.15);
 
-    transform:translateY(-25px);
+  transform:translateX(100%);
 
-    opacity:0;
+  opacity:1;
 
-    pointer-events:none;
+  pointer-events:none;
 
-    transition:all .35s ease;
-  }
+  transition:transform .35s ease;
+}
 
  
-  .nav-menu.show{
-    transform:translateY(8px);
 
-    opacity:1;
+.nav-menu.show{
+  transform:translateX(0);
 
-    pointer-events:auto;
+  pointer-events:auto;
 }
 
   .nav-menu a{
