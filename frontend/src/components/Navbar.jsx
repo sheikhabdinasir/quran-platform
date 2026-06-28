@@ -3,6 +3,20 @@ import { Link, NavLink } from "react-router-dom";
 import profileImg from "../assets/sawirprofile.jpeg";
 
 
+
+import {
+  FiHome,
+  FiBook,
+  FiMail,
+  FiInfo,
+} from "react-icons/fi";
+
+import {
+  MdHeadphones,
+  MdFavoriteBorder,
+  MdMenuBook,
+} from "react-icons/md";
+
 import "../Navbar.css"; 
  const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -65,15 +79,58 @@ import "../Navbar.css";
 
 
         {/* MENU */}
-        <nav className={`nav-menu ${open ? "show" : ""}`}>
-          <NavLink to="/" onClick={() => setOpen(false)}>Home</NavLink>
-          <NavLink to="/kutub" onClick={() => setOpen(false)}>Kutub</NavLink>
-          <NavLink to="/tafsiir" onClick={() => setOpen(false)}>Tafsiir</NavLink>
-          <NavLink to="/lectures" onClick={() => setOpen(false)}>Muxaadarooyin</NavLink>
-          <NavLink to="/favorites" onClick={() => setOpen(false)}>Muxaadaroyin xul ah</NavLink>
-          <NavLink to="/about" onClick={() => setOpen(false)}>About</NavLink>
-          <NavLink to="/contact" onClick={() => setOpen(false)}>Contact us</NavLink>
-        </nav>
+ 
+<nav className={`nav-menu ${open ? "show" : ""}`}>
+
+  <div className="drawer-header">
+    <img
+      src={profileImg}
+      alt="Sheikh"
+      className="drawer-avatar"
+    />
+
+    <h3>Sheikh Abdul Naasir</h3>
+
+    <p>عالم • مُفَسِّر • داعية</p>
+  </div>
+
+  <NavLink to="/" onClick={() => setOpen(false)}>
+    <FiHome />
+    <span>Home</span>
+  </NavLink>
+
+  <NavLink to="/kutub" onClick={() => setOpen(false)}>
+    <FiBook />
+    <span>Kutub</span>
+  </NavLink>
+
+  <NavLink to="/tafsiir" onClick={() => setOpen(false)}>
+    <MdMenuBook />
+    <span>Tafsiir</span>
+  </NavLink>
+
+  <NavLink to="/lectures" onClick={() => setOpen(false)}>
+    <MdHeadphones />
+    <span>Muxaadarooyin</span>
+  </NavLink>
+
+  <NavLink to="/favorites" onClick={() => setOpen(false)}>
+    <MdFavoriteBorder />
+    <span>Favorites</span>
+  </NavLink>
+
+  <NavLink to="/about" onClick={() => setOpen(false)}>
+    <FiInfo />
+    <span>About</span>
+  </NavLink>
+
+  <NavLink to="/contact" onClick={() => setOpen(false)}>
+    <FiMail />
+    <span>Contact us</span>
+  </NavLink>
+
+</nav>
+
       </div>
 
 

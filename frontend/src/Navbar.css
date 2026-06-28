@@ -515,6 +515,54 @@
   color:#8B7355;
 }
 
+
+
+/* ===========================================
+   DRAWER HEADER
+=========================================== */
+
+.drawer-header{
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+
+  margin-bottom:22px;
+  padding-bottom:20px;
+
+  border-bottom:1px solid #F2E5D7;
+}
+
+.drawer-avatar{
+  width:78px;
+  height:78px;
+
+  border-radius:50%;
+  object-fit:cover;
+
+  border:3px solid #D4AF37;
+
+  margin-bottom:12px;
+
+  box-shadow:0 8px 20px rgba(212,175,55,.25);
+}
+
+.drawer-header h3{
+  margin:0;
+  color:#2C1810;
+  font-size:1.1rem;
+  font-weight:700;
+}
+
+.drawer-header p{
+  margin-top:6px;
+  color:#8B7355;
+  font-size:.82rem;
+  text-align:center;
+}
+
+
+
   /* ================= MOBILE MENU ================= */
 
 .nav-menu{
@@ -536,7 +584,8 @@
   flex-direction:column;
   align-items:flex-start;
 
-  padding:90px 22px 30px;
+    padding:70px 20px 24px;
+
 
   gap:10px;
 
@@ -610,8 +659,20 @@
 
     transform:none;
   }
+
+  .nav-menu svg{
+  font-size:22px;
+  flex-shrink:0;
+  color:#D4AF37;
+}
+
+.nav-menu a.active svg{
+  color:#fff;
+}
+
 }
    
+
 
 @keyframes goldFlow{
 
