@@ -39,10 +39,8 @@ const handleSubmit = async (e) => {
   title: "Waad Mahadsan Tahay",
   text: "Fariintaada si guul ah ayaa loo diray.",
   width: 320,
-  padding: "1.5rem",
-  confirmButtonColor: "#D4AF37",
-  background: "#FFFDF9",
-  color: "#2C1810",
+  padding: "1.2em",
+  confirmButtonText: "OK",
 });
 
       setForm({
