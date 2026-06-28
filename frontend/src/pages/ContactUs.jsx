@@ -5,8 +5,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./Contact.css";
 import Swal from "sweetalert2";
-const fadeIn = { animation: "fadeIn 1.8s ease" };
-const slideUp = { animation: "slideUp 1.4s ease" };
+
 
 const ContactUs = () => {
   const [form, setForm] = useState({
