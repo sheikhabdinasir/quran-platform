@@ -193,7 +193,7 @@ const Lessons = () => {
 
 .lessons-header{
   text-align:center;
-  margin-bottom:40px;
+  margin-bottom:30px;
 }
 
 .lessons-header h2{
@@ -210,23 +210,19 @@ const Lessons = () => {
 }
 
 .lesson-meta{
-
   display:flex;
-
   justify-content:center;
-
   align-items:center;
-
-  gap:14px;
-
+  gap:12px;
   flex-wrap:wrap;
+
+  margin-top:6px;
 
   color:#6B5A4A;
 
-  font-size:1rem;
+  font-size:.95rem;
 
   font-weight:600;
-
 }
 
 .meta-divider{
@@ -356,7 +352,7 @@ const Lessons = () => {
   .lesson-stats{
   width:145px;
 }
-  
+
   .lesson-row{
     min-height:84px;
   }
