@@ -68,10 +68,10 @@ import "../Navbar.css";
 
 
         <button
-          className={`hamburger ${open ? "active" : ""}`}
-          onClick={() => setOpen(!open)}
-          aria-label="Toggle menu"
-        >
+  className={`hamburger ${open ? "active" : ""} ${open ? "hide-btn" : ""}`}
+  onClick={() => setOpen(!open)}
+  aria-label="Toggle menu"
+>
           <span />
           <span />
           <span />
