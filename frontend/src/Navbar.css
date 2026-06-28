@@ -586,6 +586,7 @@
 
   display:flex;
   flex-direction:column;
+  justify-content:flex-start;
   align-items:flex-start;
 
 padding:70px 20px 120px;
@@ -695,7 +696,7 @@ background-position:100% 50%;
   position:absolute;
   top:12px;
   right:12px;
-
+z-index:5;
   width:34px;
   height:34px;
 
@@ -715,15 +716,17 @@ background-position:100% 50%;
 }
 
 .drawer-footer{
-  margin-top:auto;
-
   width:100%;
 
-  padding-top:20px;
+  margin-top:auto;
+
+  padding:18px 0;
+
+  border-top:1px solid #F2E5D7;
 
   text-align:center;
 
-  border-top:1px solid #F2E5D7;
+  flex-shrink:0;
 }
 
 .drawer-footer p{
