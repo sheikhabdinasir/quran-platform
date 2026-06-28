@@ -117,18 +117,38 @@ const handleSubmit = async (e) => {
       </section>
 
       {/* MAIN */}
-      <section
-        style={{
-          maxWidth: "1150px",
-          margin: "2rem auto",
-          padding: "1rem",
-          ...slideUp,
-        }}
-      >
+ 
+ <section className="contact-container" style={slideUp}>
 
         {/* CONTACT CARDS */}
     
+<div className="contact-grid">
 
+  <div className="contact-card">
+    <div className="contact-icon">📞</div>
+    <h3>Mobile</h3>
+    <p>+252 634961693</p>
+  </div>
+
+  <div className="contact-card">
+    <div className="contact-icon">📧</div>
+    <h3>Email</h3>
+    <p>shcabdinaasir12@gmail.com</p>
+  </div>
+
+  <div className="contact-card">
+    <div className="contact-icon">💬</div>
+    <h3>WhatsApp</h3>
+    <p>+252 634961693</p>
+  </div>
+
+  <div className="contact-card">
+    <div className="contact-icon">📍</div>
+    <h3>Goobta</h3>
+    <p>Laascaanood — Soomaaliya</p>
+  </div>
+
+</div>
 
         {/* FORM */}
       
