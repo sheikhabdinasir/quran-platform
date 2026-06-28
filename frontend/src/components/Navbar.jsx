@@ -24,6 +24,12 @@ import "../Navbar.css";
 
   return (
     <header className={`navbar ${hidden ? "hide" : ""}`}>
+      {open && (
+  <div
+    className="nav-overlay"
+    onClick={() => setOpen(false)}
+  />
+)}
 
       {/* TOP GOLD BORDER ACCENT */}
       <div className="nav-top-line" />
