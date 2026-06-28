@@ -96,11 +96,7 @@ const handleSubmit = async (e) => {
 
      <div className="contact-glow" />
 
-     
-     <div
-  className="contact-hero-content"
-  style={fadeIn}
->
+     <div className="contact-hero-content">
 
         <h1 className="contact-title">
   Nala Soo xidhiidh
@@ -116,8 +112,7 @@ const handleSubmit = async (e) => {
 
       {/* MAIN */}
  
- <section className="contact-container" style={slideUp}>
-
+<section className="contact-container">
         {/* CONTACT CARDS */}
     
 <div className="contact-grid">
