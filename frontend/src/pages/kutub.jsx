@@ -103,11 +103,13 @@ const Kutub = () => {
 
       {/* ================= CSS ================= */}
       <style>{`
-        .kutub-page {
-          max-width: 1200px;
-          margin: auto;
-          padding: 2rem 1rem 4rem;
-        }
+      
+      
+      .kutub-page {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem 1rem 9rem;
+}
 
         .kutub-title {
           text-align: center;
