@@ -85,10 +85,13 @@ const Lessons = () => {
 
 {book && (
 <div className="lessons-header">
-            <h2> Kusoo dhawoow</h2>
           <h1>{book.title}</h1>
-          <p>🎙 {book.sheikhName}</p>
+
+<p>
+  🎙 {book.sheikhName} &nbsp; • &nbsp; 📚 {lessons.length} Cashar
+</p>          
         </div>
+
       )}
 
       {/* SEARCH */}
