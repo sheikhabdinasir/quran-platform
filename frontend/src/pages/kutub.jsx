@@ -346,28 +346,7 @@ const Kutub = () => {
         }
 
 
-.kutub-footer{
-  margin-top:18px;
 
-  display:flex;
-  justify-content:flex-end;
-}
-
-.kutub-open{
-  color:#932F2F;
-
-  font-weight:700;
-
-  font-size:.95rem;
-
-  transition:.3s;
-}
-
-.kutub-card:hover .kutub-open{
-  color:#D4AF37;
-
-  transform:translateX(6px);
-}
 
       `}</style>
     </div>
