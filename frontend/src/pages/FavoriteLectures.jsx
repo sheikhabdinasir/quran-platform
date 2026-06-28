@@ -39,9 +39,7 @@ const lectures = lectureFavorites;
     {filtered.length}
   </div>
 
-  <div className="stats-text">
-    Muxaadarooyin Lxul ah
-  </div>
+  <div className="stats-text">Muxaadarooyin Lxul ah</div>
 </div>
 
 <div className="lesson-list lecture-list">

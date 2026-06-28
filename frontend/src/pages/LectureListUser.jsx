@@ -76,10 +76,7 @@ const {
       🎧 Muxaadarooyin
     </h1>
 
-    <p className="lecture-subtitle">
-      Ka faa'iidayso muxaadarooyin Islaami ah oo tayo sare leh,
-      si fudud u dhagayso una sii wad barashada diintaada.
-    </p>
+   
 
   </div>
 
@@ -112,9 +109,7 @@ const {
           {filtered.length}
         </div>
 
-        <div className="stats-text">
-          Muxaadarooyin
-        </div>
+        <div className="stats-text">Muxaadarooyin</div>
 
       </div> 
 
