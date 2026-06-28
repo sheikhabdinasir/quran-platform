@@ -89,14 +89,9 @@ const Lessons = () => {
 
     <h1>{book.title}</h1>
 
-    <div className="lesson-meta">
-      <span>🎙 {book.sheikhName}</span>
-
-      <span className="meta-divider">|</span>
-
-      <span>📚 {lessons.length} Cashar</span>
-    </div>
-
+  <div className="lesson-meta">
+  <span>🎙 {book.sheikhName}</span>
+</div>
     <div className="lesson-divider">
       ✦
     </div>
@@ -225,13 +220,7 @@ const Lessons = () => {
   font-weight:600;
 }
 
-.meta-divider{
 
-  color:#D4AF37;
-
-  font-weight:700;
-
-}
 
 .lesson-divider{
 
