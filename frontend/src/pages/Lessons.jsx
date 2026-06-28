@@ -83,9 +83,6 @@ const Lessons = () => {
 
       {/* HEADER */}
 
-{book && (
-<div className="lessons-header">
-          <h1>{book.title}</h1>
 
 {book && (
   <div className="lessons-header">
@@ -93,13 +90,11 @@ const Lessons = () => {
     <h1>{book.title}</h1>
 
     <div className="lesson-meta">
-
       <span>🎙 {book.sheikhName}</span>
 
       <span className="meta-divider">|</span>
 
       <span>📚 {lessons.length} Cashar</span>
-
     </div>
 
     <div className="lesson-divider">
@@ -107,11 +102,11 @@ const Lessons = () => {
     </div>
 
   </div>
-)}          
-        </div>
+)}
+           
+      
 
-      )}
-
+    
       {/* SEARCH */}
       <input
         className="search"
@@ -120,6 +115,17 @@ const Lessons = () => {
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
+      <div className="lesson-stats">
+
+  <div className="lesson-stats-number">
+    {lessons.length}
+  </div>
+
+  <div className="lesson-stats-text">
+    Cashar
+  </div>
+
+</div>
 
       {/* EMPTY */}
       {filteredLessons.length === 0 ? (
@@ -240,7 +246,7 @@ const Lessons = () => {
   color:#D4AF37;
 
 }
-  
+
 .search{
   width:100%;
   max-width:650px;
@@ -262,6 +268,40 @@ const Lessons = () => {
   border-color:#D4AF37;
 }
 
+/* ================= STATS ================= */
+
+
+.lesson-stats{
+  width:170px;
+
+  margin:0 auto 45px;
+
+  background:#fff;
+
+  border-radius:20px;
+
+  padding:20px;
+
+  text-align:center;
+
+  border:1px solid #E8D8C8;
+
+  box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+
+.lesson-stats-number{
+  font-size:34px;
+  font-weight:900;
+  color:#D4AF37;
+}
+
+.lesson-stats-text{
+  margin-top:6px;
+  color:#6B5A4A;
+  font-size:1rem;
+  font-weight:600;
+}
 .lesson-list{
   max-width:900px;
   margin:auto;
@@ -313,6 +353,10 @@ const Lessons = () => {
     padding:120px 14px 170px;
   }
 
+  .lesson-stats{
+  width:145px;
+}
+  
   .lesson-row{
     min-height:84px;
   }
