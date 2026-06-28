@@ -83,23 +83,32 @@ import "../Navbar.css";
 <nav className={`nav-menu ${open ? "show" : ""}`}>
 
   <div className="drawer-header">
-    <img
-      src={profileImg}
-      alt="Sheikh"
-      className="drawer-avatar"
-    />
 
-    <h3>Sheikh Abdul Naasir</h3>
+  <button
+    className="drawer-close"
+    onClick={() => setOpen(false)}
+  >
+    ✕
+  </button>
 
-    <p>عالم • مُفَسِّر • داعية</p>
-  </div>
+  <img
+    src={profileImg}
+    alt="Sheikh"
+    className="drawer-avatar"
+  />
+
+  <h3>Sheikh Abdul Naasir</h3>
+
+  <p>عالم • مُفَسِّر • داعية</p>
+
+</div>
 
   <NavLink to="/" onClick={() => setOpen(false)}>
     <FiHome />
     <span>Home</span>
   </NavLink>
 
-  <NavLink to="/kutub" onClick={() => setOpen(false)}>
+  <NavLink to="/kutub" onClick={() => setOpen(false)}> 
     <FiBook />
     <span>Kutub</span>
   </NavLink>
@@ -128,6 +137,9 @@ import "../Navbar.css";
     <FiMail />
     <span>Contact us</span>
   </NavLink>
+  <div className="drawer-footer">
+  <p>Tafsiir App v1.0</p>
+</div>
 
 </nav>
 

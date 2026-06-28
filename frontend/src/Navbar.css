@@ -548,7 +548,7 @@
   box-shadow:0 8px 20px rgba(212,175,55,.25);
 }
 
-.drawer-header h3{
+.drawer-header h3{ 
   margin:0;
   color:#2C1810;
   font-size:.95rem;
@@ -687,4 +687,46 @@ background-position:0% 50%;
 background-position:100% 50%;
 }
 
+}
+
+
+
+.drawer-close{
+  position:absolute;
+  top:12px;
+  right:12px;
+
+  width:34px;
+  height:34px;
+
+  border:none;
+  border-radius:50%;
+
+  background:#FFF4D9;
+
+  color:#2C1810;
+
+  font-size:20px;
+  cursor:pointer;
+}
+
+.drawer-header{
+  position:relative;
+}
+
+.drawer-footer{
+  margin-top:auto;
+
+  width:100%;
+
+  padding-top:20px;
+
+  text-align:center;
+
+  border-top:1px solid #F2E5D7;
+}
+
+.drawer-footer p{
+  color:#9B8B74;
+  font-size:.8rem;
 }
