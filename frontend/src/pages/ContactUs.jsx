@@ -34,11 +34,16 @@ const handleSubmit = async (e) => {
 
     if (res.data.success) {
 
-      Swal.fire({
-        icon: "success",
-        title: "Waad Mahadsan Tahay",
-        text: "Fariintaada si guul ah ayaa loo diray.",
-      });
+     Swal.fire({
+  icon: "success",
+  title: "Waad Mahadsan Tahay",
+  text: "Fariintaada si guul ah ayaa loo diray.",
+  width: 320,
+  padding: "1.5rem",
+  confirmButtonColor: "#D4AF37",
+  background: "#FFFDF9",
+  color: "#2C1810",
+});
 
       setForm({
         name: "",
