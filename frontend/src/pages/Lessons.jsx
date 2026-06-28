@@ -87,9 +87,27 @@ const Lessons = () => {
 <div className="lessons-header">
           <h1>{book.title}</h1>
 
-<p>
-  🎙 {book.sheikhName} &nbsp; • &nbsp; 📚 {lessons.length} Cashar
-</p>          
+{book && (
+  <div className="lessons-header">
+
+    <h1>{book.title}</h1>
+
+    <div className="lesson-meta">
+
+      <span>🎙 {book.sheikhName}</span>
+
+      <span className="meta-divider">|</span>
+
+      <span>📚 {lessons.length} Cashar</span>
+
+    </div>
+
+    <div className="lesson-divider">
+      ✦
+    </div>
+
+  </div>
+)}          
         </div>
 
       )}
@@ -169,7 +187,7 @@ const Lessons = () => {
 
 .lessons-header{
   text-align:center;
-  margin-bottom:35px;
+  margin-bottom:40px;
 }
 
 .lessons-header h2{
@@ -179,15 +197,50 @@ const Lessons = () => {
 }
 
 .lessons-header h1{
-  font-size:clamp(2rem,5vw,3rem);
+  font-size:clamp(2.5rem,5vw,3.8rem);
   color:#2C1810;
   font-weight:900;
+  margin-bottom:14px;
 }
 
-.lessons-header p{
+.lesson-meta{
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  gap:14px;
+
+  flex-wrap:wrap;
+
   color:#6B5A4A;
+
+  font-size:1rem;
+
+  font-weight:600;
+
 }
 
+.meta-divider{
+
+  color:#D4AF37;
+
+  font-weight:700;
+
+}
+
+.lesson-divider{
+
+  margin-top:16px;
+
+  font-size:24px;
+
+  color:#D4AF37;
+
+}
+  
 .search{
   width:100%;
   max-width:650px;
