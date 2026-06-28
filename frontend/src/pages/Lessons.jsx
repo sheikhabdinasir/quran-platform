@@ -83,13 +83,7 @@ const Lessons = () => {
 
       {/* HEADER */}
 
-{book && (
-  <div className="lessons-header lecture-hero">
-          <h2> Kusoo dhawoow</h2>
-          <h1>{book.title}</h1>
-          <p>🎙 {book.sheikhName}</p>
-        </div>
-      )}
+
 
       {/* SEARCH */}
       <input
@@ -164,26 +158,7 @@ const Lessons = () => {
   padding:120px 14px 170px;
 }
 
-.lessons-header{
-  text-align:center;
-  margin-bottom:35px;
-}
 
-.lessons-header h2{
-  color:#D4AF37;
-  font-size:18px;
-  margin-bottom:8px;
-}
-
-.lessons-header h1{
-  font-size:clamp(2rem,5vw,3rem);
-  color:#2C1810;
-  font-weight:900;
-}
-
-.lessons-header p{
-  color:#6B5A4A;
-}
 
 .search{
   width:100%;
