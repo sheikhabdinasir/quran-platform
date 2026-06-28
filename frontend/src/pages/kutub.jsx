@@ -45,22 +45,9 @@ const Kutub = () => {
       {/* PAGE TITLE */}
      
 
-     
-
-
-<div className="kutub-hero">
-
-  <h1 className="kutub-title">
-     Kutub
-  </h1>
-
-  <p className="kutub-sub">
-✦ Halkan ka xulo dhammaan Kutubta✦
-  </p>
-
-</div>
-
-
+      <p className="kutub-sub">
+         ✦ Halkan ka xulo dhammaan Kutubta ✦ 
+        </p>
 
       {/* SEARCH */}
       <input
@@ -97,33 +84,17 @@ const Kutub = () => {
 
               {/* CONTENT */}
               <div className="kutub-content">
-
                 <h3 className="kutub-book">
                   {book.title}
                 </h3>
 
-    <div className="kutub-content">
-
-  <h3 className="kutub-book">
-    {book.title}
-  </h3>
-
-  <p className="kutub-sheikh">
-    🎙 {book.sheikhName}
-  </p>
-
-  <p className="kutub-description">
-    {book.description}
-  </p>
-
-</div>
+                <p className="kutub-sheikh">
+                  🎙 {book.sheikhName}
+                </p>
 
                <p className="kutub-description">
   {book.description}
 </p>
-
-
-
               </div>
             </div>
           ))}
@@ -132,67 +103,39 @@ const Kutub = () => {
 
       {/* ================= CSS ================= */}
       <style>{`
-   
-   /* HERO */
+        .kutub-page {
+          max-width: 1200px;
+          margin: auto;
+          padding: 2rem 1rem 4rem;
+        }
 
-.kutub-hero{
-  text-align:center;
-  margin-bottom:40px;
-}
+        .kutub-title {
+          text-align: center;
+          font-size: 2.4rem;
+          font-weight: 900;
+          color: #15102c;
+          margin-bottom: 0.5rem;
+        }
 
-.kutub-title{
-  font-size:clamp(2.2rem,5vw,3.5rem);
-  font-weight:900;
-  color:#2C1810;
-}
+        .kutub-sub {
+          text-align: center;
+          color: #6b4e16;
+          margin-bottom: 2rem;
+          font-size: 1rem;
+        }
 
-.kutub-sub{
-  margin-top:12px;
-  color:#6B5A4A;
-  font-size:1rem;
-  line-height:1.8;
-}
-
-.kutub-hero::after{
-  content:"❈";
-  display:block;
-  margin-top:14px;
-  color:#D4AF37;
-  font-size:28px;
-}
-.kutub-search{
-  width:100%;
-  max-width:650px;
-
-  display:block;
-  margin:0 auto 35px;
-
-  padding:18px 24px;
-
-  border-radius:999px;
-
-  border:1px solid #E8D8C8;
-
-  outline:none;
-
-  background:#fff;
-
-  font-size:16px;
-
-  color:#2C1810;
-
-  box-shadow:0 10px 25px rgba(0,0,0,.08);
-
-  transition:.3s;
-}
-
-.kutub-search:focus{
-  border-color:#D4AF37;
-
-  box-shadow:
-    0 0 0 4px rgba(212,175,55,.15),
-    0 10px 25px rgba(0,0,0,.08);
-}
+        .kutub-search {
+          width: 100%;
+          max-width: 520px;
+          display: block;
+          margin: 0 auto 2.5rem;
+          padding: 0.85rem 1rem;
+          border-radius: 14px;
+          border: 2px solid #D4AF37;
+          outline: none;
+          font-size: 1rem;
+          background: #fff;
+        }
 
         /* GRID */
         .kutub-grid {
@@ -202,36 +145,21 @@ const Kutub = () => {
         }
 
         /* CARD */
-  
-        .kutub-card{
-  background:#FFFFFF;
+        .kutub-card {
+          background: #fffaf0;
+          border-radius: 20px;
+          overflow: hidden;
+          border: 2px solid #D4AF37;
+          box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+          cursor: pointer;
+          transition: 0.35s ease;
+          animation: fadeUp 0.5s ease;
+        }
 
-  border:1px solid #E8D8C8;
-
-  border-radius:28px;
-
-  overflow:hidden;
-
-  cursor:pointer;
-
-  transition:.35s ease;
-
-  box-shadow:
-    0 10px 25px rgba(0,0,0,.08);
-
-  display:flex;
-  flex-direction:column;
-
-  height:100%;
-}
-.kutub-card:hover{
-  transform:translateY(-8px);
-
-  border-color:#D4AF37;
-
-  box-shadow:
-    0 20px 45px rgba(0,0,0,.14);
-}
+        .kutub-card:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 20px 45px rgba(0, 0, 0, 0.18);
+        }
 
         /* IMAGE */
         .kutub-image {
@@ -263,15 +191,9 @@ const Kutub = () => {
         }
 
         /* CONTENT */
-      
-        .kutub-content{
-  padding:1.3rem;
-
-  display:flex;
-  flex-direction:column;
-
-  flex:1;
-}
+        .kutub-content {
+          padding: 1.2rem;
+        }
 
         .kutub-book {
           font-size: 1.15rem;
@@ -287,19 +209,11 @@ const Kutub = () => {
           margin-bottom: 0.8rem;
         }
 
-   .kutub-description{
-  font-size:.92rem;
-  color:#6B5A4A;
-  line-height:1.6;
-
-  display:-webkit-box;
-  -webkit-line-clamp:2;
-  -webkit-box-orient:vertical;
-
-  overflow:hidden;
-
-  margin-top:auto;
-}
+        .kutub-description {
+          font-size: 0.92rem;
+          color: #555;
+          line-height: 1.5;
+        }
 
         .kutub-loading,
         .kutub-empty {
@@ -344,10 +258,6 @@ const Kutub = () => {
             font-size: 1rem;
           }
         }
-
-
-
-
       `}</style>
     </div>
   );
