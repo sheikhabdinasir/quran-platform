@@ -433,6 +433,21 @@
 }
 
 
+.nav-overlay{
+
+  position:fixed;
+
+  inset:0;
+
+  background:rgba(0,0,0,.35);
+
+  backdrop-filter:blur(2px);
+
+  z-index:998;
+
+}
+
+
 /* ============================================================
    MOBILE
 ============================================================ */
@@ -490,19 +505,7 @@
   }
 
 
-  .nav-overlay{
-
-  position:fixed;
-
-  inset:0;
-
-  background:rgba(0,0,0,.35);
-
-  backdrop-filter:blur(2px);
-
-  z-index:998;
-
-}
+ 
 
 .nav-tagline{
   display:block;
