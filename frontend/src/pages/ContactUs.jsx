@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import heroImg from "../assets/contantheropicture.jpg";
 import axios from "axios";
+import "./Contact.css";
 import Swal from "sweetalert2";
 const fadeIn = { animation: "fadeIn 1.8s ease" };
 const slideUp = { animation: "slideUp 1.4s ease" };
@@ -77,86 +78,37 @@ const handleSubmit = async (e) => {
 };
 
   return (
-    <div
-      style={{
-        background: "#FFF8F3",
-        minHeight: "100vh",
-      }}
-    >
+ <div className="contact-page">
 
       {/* HERO */}
-      <section
-        style={{
-          padding: "5rem 1rem",
-          backgroundImage: `url(${heroImg})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          position: "relative",
-          minHeight: "45vh",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          textAlign: "center",
-          overflow: "hidden",
-        }}
-      >
+   
+   <section
+  className="contact-hero"
+  style={{
+    backgroundImage: `url(${heroImg})`,
+  }}
+>
 
         {/* DARK OVERLAY */}
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background:
-              "linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.72))",
-          }}
-        />
+    
+    <div className="contact-overlay" />
 
         {/* GOLD GLOW */}
-        <div
-          style={{
-            position: "absolute",
-            width: "350px",
-            height: "350px",
-            background:
-              "radial-gradient(circle, rgba(212,175,55,.18), transparent 70%)",
-            top: "-120px",
-            right: "-80px",
-          }}
-        />
+     
 
-        <div
-          style={{
-            position: "relative",
-            zIndex: 10,
-            ...fadeIn,
-          }}
-        >
+     <div className="contact-glow" />
 
-          <h1
-            style={{
-              fontSize: "clamp(2.5rem,5vw,4rem)",
-              fontWeight: 900,
-              color: "#5a65ff",
+     
+     <div
+  className="contact-hero-content"
+  style={fadeIn}
+>
 
-              textShadow:
-                "0 0 20px rgba(212,175,55,.35), 0 4px 18px rgba(0,0,0,.9)",
+        <h1 className="contact-title">
+  Nala Soo xidhiidh
+</h1>
 
-              letterSpacing: "-1px",
-            }}
-          >
-             Nala Soo xidhiidh
-          </h1>
-
-          <p
-            style={{
-              fontSize: "1.15rem",
-              marginTop: "1rem",
-              maxWidth: "720px",
-              marginInline: "auto",
-              lineHeight: "2",
-              color: "#FFF8F3",
-            }}
-          >
+      <p className="contact-subtitle">
             Haddii aad qabto su’aalo, aad nooo waddo talooyin
             ama aad doonayso caawimo  nala soo xidhiidh.
           </p>
@@ -175,133 +127,20 @@ const handleSubmit = async (e) => {
       >
 
         {/* CONTACT CARDS */}
-        <div
-          style={{
-            display: "grid",
-            gap: "1.5rem",
+    
 
-            gridTemplateColumns:
-              "repeat(auto-fit,minmax(260px,1fr))",
-
-            marginBottom: "2rem",
-          }}
-        >
-
-          {/* MOBILE */}
-          <div
-            style={cardStyle}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform =
-                "translateY(-6px)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform =
-                "translateY(0)";
-            }}
-          >
-            <h3 style={cardTitle}>
-              📞 Mobile
-            </h3>
-
-            <p style={cardText}>
-              +252 634961693
-            </p>
-          </div>
-
-          {/* EMAIL */}
-          <div
-            style={cardStyle}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform =
-                "translateY(-6px)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform =
-                "translateY(0)";
-            }}
-          >
-            <h3 style={cardTitle}>
-              📧 Email
-            </h3>
-
-            <p style={cardText}>
-              shabdinaAsir12@gmail.com
-            </p>
-          </div>
-
-          {/* WHATSAPP */}
-          <div
-            style={cardStyle}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform =
-                "translateY(-6px)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform =
-                "translateY(0)";
-            }}
-          >
-            <h3 style={cardTitle}>
-              💬 WhatsApp
-            </h3>
-
-            <p style={cardText}>
-              +252 634961693
-            </p>
-          </div>
-
-          {/* LOCATION */}
-          <div
-            style={cardStyle}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform =
-                "translateY(-6px)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform =
-                "translateY(0)";
-            }}
-          >
-            <h3 style={cardTitle}>
-              📍 Goobta
-            </h3>
-
-            <p style={cardText}>
-              Laascaanood — Soomaaliya
-            </p>
-          </div>
-
-        </div>
 
         {/* FORM */}
-        <div
-          style={{
-            background: "#ffffff",
-            padding: "2rem",
-            borderRadius: "1.5rem",
+      
+      <div className="contact-form">
 
-            boxShadow:
-              "0 18px 40px rgba(0,0,0,.12)",
-
-            border:
-              "1px solid rgba(212,175,55,.2)",
-          }}
-        >
-
-          <h2
-            style={{
-              fontSize: "1.8rem",
-              fontWeight: 800,
-              color: "#2C1810",
-              marginBottom: "1.5rem",
-            }}
-          >
+     <h2 className="contact-form-title">
             ✍️ halkan nuugu Soo Dir Fariintaada
           </h2>
 
           <form onSubmit={handleSubmit}>
 
-            <label style={labelStyle}>
+         <label className="contact-label">   
               Name
             </label>
 
@@ -310,11 +149,10 @@ const handleSubmit = async (e) => {
               value={form.name}
               onChange={handleChange}
               required
-              style={inputStyle}
+            className="contact-input"
               placeholder="Magacaaga..."
             />
-
-            <label style={labelStyle}>
+<label className="contact-label">
               Email
             </label>
 
@@ -324,11 +162,11 @@ const handleSubmit = async (e) => {
               onChange={handleChange}
               required
               type="email"
-              style={inputStyle}
+         className="contact-input"
               placeholder="shcabdinaasir12@gmail.com"
             />
 
-            <label style={labelStyle}>
+           <label className="contact-label">
               Message
             </label>
 
@@ -338,40 +176,15 @@ const handleSubmit = async (e) => {
               onChange={handleChange}
               required
               rows="5"
-              style={{
-                ...inputStyle,
-                resize: "none",
-              }}
+
+       className="contact-input contact-textarea"
               placeholder="Fariintaada halkan ku qor..."
             />
 
-            <button
-              type="submit"
-              style={{
-                marginTop: "1.2rem",
-                width: "100%",
-                padding: "14px",
-
-                borderRadius: "14px",
-
-                background:
-                  "linear-gradient(135deg,#F5D76E,#D4AF37)",
-
-                color: "#2C1810",
-
-                fontSize: "1rem",
-                fontWeight: 800,
-
-                border: "none",
-
-                cursor: "pointer",
-
-                transition: ".35s ease",
-
-                boxShadow:
-                  "0 10px 25px rgba(212,175,55,.35)",
-              }}
-            >
+          <button
+  type="submit"
+  className="contact-btn"
+>
               ➤ Dir Fariinta
             </button>
 
@@ -520,68 +333,7 @@ const handleSubmit = async (e) => {
   );
 };
 
-/* CARD STYLE */
-const cardStyle = {
-  background: "#ffffff",
 
-  padding: "1.7rem",
 
-  borderRadius: "1.2rem",
-
-  boxShadow:
-    "0 15px 35px rgba(0,0,0,.08)",
-
-  borderTop:
-    "4px solid #D4AF37",
-
-  transition: ".35s ease",
-
-  backdropFilter: "blur(10px)",
-};
-
-/* CARD TITLE */
-const cardTitle = {
-  fontSize: "1.2rem",
-  fontWeight: 800,
-  color: "#2C1810",
-};
-
-/* CARD TEXT */
-const cardText = {
-  marginTop: ".7rem",
-  color: "#4B5563",
-  lineHeight: "1.7",
-};
-
-/* LABEL */
-const labelStyle = {
-  display: "block",
-
-  fontWeight: 700,
-
-  color: "#2C1810",
-
-  marginBottom: "6px",
-
-  marginTop: "14px",
-};
-
-/* INPUT */
-const inputStyle = {
-  width: "100%",
-
-  padding: "14px",
-
-  borderRadius: "12px",
-
-  border:
-    "2px solid rgba(212,175,55,.45)",
-
-  background: "#FFF8F3",
-
-  fontSize: "1rem",
-
-  transition: ".3s ease",
-};
 
 export default ContactUs;
