@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 import { usePublic } from "../Context/PublicContext";
-import { useNavigate } from "react-router-dom";
+
 import "./lecture.css";
 const LectureListUser = () => {
 
@@ -13,7 +13,7 @@ const {
   playLesson,
   toggleLectureFavorite,
   isLectureFavorite
-} = usePublic();  const navigate = useNavigate();
+} = usePublic(); 
 
   /* ================= FETCH ================= */
 
@@ -60,27 +60,30 @@ const {
      
 
       {/* TOP */}
-      <div className="top-header">
 
-        <button
-          onClick={() => navigate(-1)}
-          className="back-btn"
-        >
-          ← Dib u laabo
-        </button>
-
-      </div>
 
       {/* HERO */}
-     <div className="lecture-hero">
+   
+   <div className="lecture-hero">
 
-        <h1 className="page-title">
-  Muxaadarooyin
-</h1>
+  <div className="lecture-overlay"></div>
 
-        
+  <div className="lecture-glow"></div>
 
-      </div>
+  <div className="lecture-hero-content">
+
+    <h1 className="lecture-title">
+      🎧 Muxaadarooyin
+    </h1>
+
+    <p className="lecture-subtitle">
+      Ka faa'iidayso muxaadarooyin Islaami ah oo tayo sare leh,
+      si fudud u dhagayso una sii wad barashada diintaada.
+    </p>
+
+  </div>
+
+</div>
 
       {/* SEARCH */}
       <div className="search-wrap">
