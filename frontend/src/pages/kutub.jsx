@@ -102,10 +102,15 @@ const Kutub = () => {
                   {book.title}
                 </h3>
 
-                <p className="kutub-sheikh">
-                  🎙 {book.sheikhName}
-                </p>
-                <div className="kutub-footer">
+    <p className="kutub-sheikh">
+  🎙 {book.sheikhName}
+</p>
+
+<p className="kutub-description">
+  {book.description}
+</p>
+
+<div className="kutub-footer">
   <span className="kutub-open">
     ▶ Fur Kitaabka
   </span>
@@ -114,6 +119,9 @@ const Kutub = () => {
                <p className="kutub-description">
   {book.description}
 </p>
+
+
+
               </div>
             </div>
           ))}
