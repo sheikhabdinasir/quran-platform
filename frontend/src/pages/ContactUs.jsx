@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import heroImg from "../assets/contantheropicture.jpg";
+
+
+
 import axios from "axios";
 import "./Contact.css";
 import Swal from "sweetalert2";
@@ -84,13 +86,7 @@ const handleSubmit = async (e) => {
  <div className="contact-page">
 
       {/* HERO */}
-   
-   <section
-  className="contact-hero"
-  style={{
-    backgroundImage: `url(${heroImg})`,
-  }}
->
+  <section className="contact-hero">
 
         {/* DARK OVERLAY */}
     
