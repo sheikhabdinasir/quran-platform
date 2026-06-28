@@ -211,86 +211,21 @@ const handleSubmit = async (e) => {
         </div>
 
         {/* QURAN SECTION */}
-        <div
-          style={{
-            marginTop: "2.5rem",
+        <div className="contact-ayah">
 
-            background:
-              "linear-gradient(135deg,#2C1810,#1A0F0A)",
+         
 
-            borderRadius: "1.8rem",
+        <h2 className="contact-ayah-title">
+  ✨ آيات من القرآن الكريم
+</h2>
 
-            padding: "2.5rem 1.5rem",
+<p className="contact-ayah-text">
+  ﴿ وَقُل رَّبِّ زِدْنِي عِلْمًا ﴾
+</p>
 
-            textAlign: "center",
-
-            boxShadow:
-              "0 20px 50px rgba(0,0,0,.25)",
-
-            position: "relative",
-
-            overflow: "hidden",
-          }}
-        >
-
-          <div
-            style={{
-              position: "absolute",
-
-              width: "300px",
-              height: "300px",
-
-              background:
-                "radial-gradient(circle, rgba(212,175,55,.14), transparent 70%)",
-
-              top: "-120px",
-              right: "-80px",
-            }}
-          />
-
-          <h2
-            style={{
-              color: "#FFD95A",
-
-              fontSize: "1.9rem",
-
-              marginBottom: "1.5rem",
-
-              fontWeight: 900,
-            }}
-          >
-            ✨ آيات من القرآن الكريم
-          </h2>
-
-          <p
-            style={{
-              color: "#FFF8F3",
-
-              fontSize: "1.9rem",
-
-              lineHeight: "2.3",
-
-              fontFamily: "'Amiri', serif",
-
-              direction: "rtl",
-            }}
-          >
-            ﴿ وَقُل رَّبِّ زِدْنِي عِلْمًا ﴾
-          </p>
-
-          <span
-            style={{
-              color: "#D4AF37",
-
-              fontWeight: 700,
-
-              display: "block",
-
-              marginTop: ".8rem",
-            }}
-          >
-            سورة طه — 114
-          </span>
+<span className="contact-ayah-ref">
+  سورة طه — 114
+</span>
 
         </div>
 
