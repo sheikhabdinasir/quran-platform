@@ -27,7 +27,7 @@
 .navbar{
   position:sticky;
   top:0;
-  z-index:999;
+z-index:10000;
 
   background:rgba(255,255,255,.92);
   backdrop-filter:blur(18px);
@@ -432,13 +432,11 @@
 
 }
 
-
 .nav-overlay{
   position:fixed;
   inset:0;
 
   background:rgba(0,0,0,.35);
-  backdrop-filter:blur(2px);
 
   z-index:10000;
 }
