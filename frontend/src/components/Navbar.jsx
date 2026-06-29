@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link, NavLink } from "react-router-dom";
 import profileImg from "../assets/sawirprofile.jpeg";
 
@@ -20,6 +20,7 @@ import {
 import "../Navbar.css"; 
  const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const menuRef = useRef(null);
 
   // AUTO HIDE ON SCROLL
   const [hidden, setHidden] = useState(false);
@@ -47,6 +48,27 @@ import "../Navbar.css";
 
   return () => {
     document.body.classList.remove("menu-open");
+  };
+}, [open]);
+
+
+useEffect(() => {
+  const handleClickOutside = (e) => {
+    if (
+      open &&
+      menuRef.current &&
+      !menuRef.current.contains(e.target)
+    ) {
+      setOpen(false);
+    }
+  };
+
+  document.addEventListener("mousedown", handleClickOutside);
+  document.addEventListener("touchstart", handleClickOutside);
+
+  return () => {
+    document.removeEventListener("mousedown", handleClickOutside);
+    document.removeEventListener("touchstart", handleClickOutside);
   };
 }, [open]);
 
@@ -99,8 +121,10 @@ import "../Navbar.css";
   onClick={() => setOpen(false)}
 >
   <nav
+  ref={menuRef}
     className={`nav-menu ${open ? "show" : ""}`}
-    onClick={(e) => e.stopPropagation()}
+    
+
   >
 
   <div className="drawer-header">
