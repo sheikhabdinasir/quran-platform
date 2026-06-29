@@ -431,14 +431,6 @@ z-index:100;
 
 }
 
-.nav-overlay{
-  position:fixed;
-  inset:0;
-
-  background:rgba(0,0,0,.35);
-
-  z-index:10000;
-}
 
 
 /* ============================================================
@@ -750,6 +742,3 @@ body.menu-open{
   pointer-events:auto;
 }
 
-.nav-menu{
-  z-index:10000;
-}
