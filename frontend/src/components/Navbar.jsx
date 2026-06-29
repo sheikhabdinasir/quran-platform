@@ -25,15 +25,6 @@ import "../Navbar.css";
   const [hidden, setHidden] = useState(false);
   const [lastScroll, setLastScroll] = useState(0);
 
-  const navigate = useNavigate();
-
-const handleNavigate = (path) => {
-  setOpen(false);
-
-  setTimeout(() => {
-    navigate(path);
-  }, 200);
-};
 
   useEffect(() => {
     const handleScroll = () => {
@@ -102,7 +93,14 @@ const handleNavigate = (path) => {
 
         {/* MENU */}
  
-<nav className={`nav-menu ${open ? "show" : ""}`}>
+<div
+  className={`drawer-wrapper ${open ? "show" : ""}`}
+  onClick={() => setOpen(false)}
+>
+  <nav
+    className={`nav-menu ${open ? "show" : ""}`}
+    onClick={(e) => e.stopPropagation()}
+  >
 
   <div className="drawer-header">
 
@@ -125,16 +123,10 @@ const handleNavigate = (path) => {
 
 </div>
 
-<NavLink
-  to="/"
-  onClick={(e) => {
-    e.preventDefault();
-    handleNavigate("/");
-  }}
->
-    <FiHome />
-    <span>Home</span>
-  </NavLink>
+<NavLink to="/" onClick={() => setOpen(false)}>
+  <FiHome />
+  <span>Home</span>
+</NavLink>
 
   <NavLink to="/kutub" onClick={() => setOpen(false)}> 
     <FiBook />
@@ -170,12 +162,11 @@ const handleNavigate = (path) => {
 </div>
 
 </nav>
+</div>   {/* drawer-wrapper */}
 
-      </div>
+</div>   {/* nav-container */}
 
-
-      {/* BOTTOM ORNAMENT LINE */}
-      <div className="nav-bottom-line" />
+<div className="nav-bottom-line" />
 
     </header>
     </>

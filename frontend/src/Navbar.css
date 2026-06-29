@@ -730,3 +730,26 @@ body.menu-open{
   overflow:hidden;
   touch-action:none;
 }
+
+.drawer-wrapper{
+  position:fixed;
+  inset:0;
+
+  background:rgba(0,0,0,.35);
+
+  z-index:9999;
+
+  opacity:0;
+  pointer-events:none;
+
+  transition:.3s;
+}
+
+.drawer-wrapper.show{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.nav-menu{
+  z-index:10000;
+}
