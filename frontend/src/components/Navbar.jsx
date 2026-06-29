@@ -68,7 +68,7 @@ import "../Navbar.css";
 
 
 <button
-  className={`hamburger ${open ? "hide-btn" : ""}`}
+  className={`hamburger ${open ? "active hide-btn" : ""}`}
   onClick={() => setOpen(!open)}
   aria-label="Toggle menu"
 >
