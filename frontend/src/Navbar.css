@@ -579,8 +579,8 @@ z-index:100;
 .nav-menu{
   position:fixed;
 
-  top:0;
-  right:0;
+
+
 
 width:240px;
 max-width:72%;
@@ -727,10 +727,14 @@ body.menu-open{
   position:fixed;
   inset:0;
 
+  display:flex;
+  justify-content:flex-end;
+
   background:rgba(0,0,0,.35);
 
   z-index:9999;
 
+  visibility:hidden;
   opacity:0;
   pointer-events:none;
 
@@ -738,6 +742,7 @@ body.menu-open{
 }
 
 .drawer-wrapper.show{
+  visibility:visible;
   opacity:1;
   pointer-events:auto;
 }
