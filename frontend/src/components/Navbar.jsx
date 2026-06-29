@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import profileImg from "../assets/sawirprofile.jpeg";
 
 
@@ -162,9 +162,8 @@ import "../Navbar.css";
 </div>
 
 </nav>
-</div>   {/* drawer-wrapper */}
-
-</div>   {/* nav-container */}
+</div> {/* drawer-wrapper */}
+</div> {/* nav-container */}
 
 <div className="nav-bottom-line" />
 
