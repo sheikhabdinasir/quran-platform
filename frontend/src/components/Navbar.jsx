@@ -36,6 +36,19 @@ import "../Navbar.css";
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScroll]);
 
+
+  useEffect(() => {
+  if (open) {
+    document.body.classList.add("menu-open");
+  } else {
+    document.body.classList.remove("menu-open");
+  }
+
+  return () => {
+    document.body.classList.remove("menu-open");
+  };
+}, [open]);
+
   return (
 
 <>

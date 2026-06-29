@@ -714,3 +714,22 @@ background-position:100% 50%;
 }
 
 
+
+/* Disable iOS tap highlight */
+
+*{
+  -webkit-tap-highlight-color: transparent;
+}
+
+.nav-menu,
+.nav-menu *,
+.hamburger,
+.drawer-close{
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+body.menu-open{
+  overflow:hidden;
+  touch-action:none;
+}
