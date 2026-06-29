@@ -571,8 +571,8 @@
   top:0;
   right:0;
 
-  width:300px;
-  max-width:85%;
+width:260px;
+max-width:75%;
 
  height:100dvh;
  overflow-y:auto;
@@ -734,6 +734,11 @@ z-index:5;
   color:#9B8B74;
   font-size:.8rem;
 }
+.hide-btn{
+  opacity:0;
+  pointer-events:none;
+}
+
 .hide-btn{
   opacity:0;
   pointer-events:none;
