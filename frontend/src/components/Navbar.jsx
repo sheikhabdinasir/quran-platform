@@ -37,13 +37,17 @@ import "../Navbar.css";
   }, [lastScroll]);
 
   return (
-    <header className={`navbar ${hidden ? "hide" : ""}`}>
-      {open && (
-  <div
-    className="nav-overlay"
-    onClick={() => setOpen(false)}
-  />
-)}
+
+<>
+  {open && (
+    <div
+      className="nav-overlay"
+      onClick={() => setOpen(false)}
+    />
+  )}
+
+  <header className={`navbar ${hidden ? "hide" : ""}`}>
+
 
       {/* TOP GOLD BORDER ACCENT */}
       <div className="nav-top-line" />
@@ -150,6 +154,7 @@ import "../Navbar.css";
       <div className="nav-bottom-line" />
 
     </header>
+    </>
   );
 };
 
