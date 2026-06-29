@@ -92,6 +92,7 @@ import "../Navbar.css";
 
 
         {/* MENU */}
+        </div> {/* nav-container */}
  
 <div
   className={`drawer-wrapper ${open ? "show" : ""}`}
@@ -163,7 +164,7 @@ import "../Navbar.css";
 
 </nav>
 </div> {/* drawer-wrapper */}
-</div> {/* nav-container */}
+
 
 <div className="nav-bottom-line" />
 
