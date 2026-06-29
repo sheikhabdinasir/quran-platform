@@ -1,31 +1,15 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import profileImg from "../assets/sawirprofile.jpeg";
 
 
-
-import {
-  FiHome,
-  FiBook,
-  FiMail,
-  FiInfo,
-} from "react-icons/fi";
-
-import {
-  MdHeadphones,
-  MdFavoriteBorder,
-  MdMenuBook,
-} from "react-icons/md";
-
 import "../Navbar.css"; 
  const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const menuRef = useRef(null);
 
   // AUTO HIDE ON SCROLL
   const [hidden, setHidden] = useState(false);
   const [lastScroll, setLastScroll] = useState(0);
-
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,47 +22,8 @@ import "../Navbar.css";
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScroll]);
 
-
-  useEffect(() => {
-  if (open) {
-    document.body.classList.add("menu-open");
-  } else {
-    document.body.classList.remove("menu-open");
-  }
-
-  return () => {
-    document.body.classList.remove("menu-open");
-  };
-}, [open]);
-
-
-useEffect(() => {
-  const handleClickOutside = (e) => {
-    if (
-      open &&
-      menuRef.current &&
-      !menuRef.current.contains(e.target)
-    ) {
-      setOpen(false);
-    }
-  };
-
-  document.addEventListener("mousedown", handleClickOutside);
-  document.addEventListener("touchstart", handleClickOutside);
-
-  return () => {
-    document.removeEventListener("mousedown", handleClickOutside);
-    document.removeEventListener("touchstart", handleClickOutside);
-  };
-}, [open]);
-
   return (
-
-<>
-
-
-  <header className={`navbar ${hidden ? "hide" : ""}`}>
-
+    <header className={`navbar ${hidden ? "hide" : ""}`}>
 
       {/* TOP GOLD BORDER ACCENT */}
       <div className="nav-top-line" />
@@ -102,11 +47,11 @@ useEffect(() => {
         {/* HAMBURGER */}
 
 
-<button
-  className={`hamburger ${open ? "active hide-btn" : ""}`}
-  onClick={() => setOpen(!open)}
-  aria-label="Toggle menu"
->
+        <button
+          className={`hamburger ${open ? "active" : ""}`}
+          onClick={() => setOpen(!open)}
+          aria-label="Toggle menu"
+        >
           <span />
           <span />
           <span />
@@ -114,86 +59,22 @@ useEffect(() => {
 
 
         {/* MENU */}
-        </div> {/* nav-container */}
- 
-<div
-  className={`drawer-wrapper ${open ? "show" : ""}`}
-  onClick={() => setOpen(false)}
->
-  <nav
-  ref={menuRef}
-    className={`nav-menu ${open ? "show" : ""}`}
-    
-
-  >
-
-  <div className="drawer-header">
-
-  <button
-    className="drawer-close"
-    onClick={() => setOpen(false)}
-  >
-    ✕
-  </button>
-
-  <img
-    src={profileImg}
-    alt="Sheikh"
-    className="drawer-avatar"
-  />
-
-  <h3>Sheikh Abdul Naasir</h3>
-
-  <p>عالم • مُفَسِّر • داعية</p>
-
-</div>
-
-<NavLink to="/" onClick={() => setOpen(false)}>
-  <FiHome />
-  <span>Home</span>
-</NavLink>
-
-  <NavLink to="/kutub" onClick={() => setOpen(false)}> 
-    <FiBook />
-    <span>Kutub</span>
-  </NavLink>
-
-  <NavLink to="/tafsiir" onClick={() => setOpen(false)}>
-    <MdMenuBook />
-    <span>Tafsiir</span>
-  </NavLink>
-
-  <NavLink to="/lectures" onClick={() => setOpen(false)}>
-    <MdHeadphones />
-    <span>Muxaadarooyin</span>
-  </NavLink>
-
-  <NavLink to="/favorites" onClick={() => setOpen(false)}>
-    <MdFavoriteBorder />
-    <span>Favorites</span>
-  </NavLink>
-
-  <NavLink to="/about" onClick={() => setOpen(false)}>
-    <FiInfo />
-    <span>About</span>
-  </NavLink>
-
-  <NavLink to="/contact" onClick={() => setOpen(false)}>
-    <FiMail />
-    <span>Contact us</span>
-  </NavLink>
-  <div className="drawer-footer">
-  <p>Tafsiir App v1.0</p>
-</div>
-
-</nav>
-</div> {/* drawer-wrapper */}
+        <nav className={`nav-menu ${open ? "show" : ""}`}>
+          <NavLink to="/" onClick={() => setOpen(false)}>Home</NavLink>
+          <NavLink to="/kutub" onClick={() => setOpen(false)}>Kutub</NavLink>
+          <NavLink to="/tafsiir" onClick={() => setOpen(false)}>Tafsiir</NavLink>
+          <NavLink to="/lectures" onClick={() => setOpen(false)}>Muxaadarooyin</NavLink>
+          <NavLink to="/favorites" onClick={() => setOpen(false)}>Muxaadaroyin xul ah</NavLink>
+          <NavLink to="/about" onClick={() => setOpen(false)}>About</NavLink>
+          <NavLink to="/contact" onClick={() => setOpen(false)}>Contact us</NavLink>
+        </nav>
+      </div>
 
 
-<div className="nav-bottom-line" />
+      {/* BOTTOM ORNAMENT LINE */}
+      <div className="nav-bottom-line" />
 
     </header>
-    </>
   );
 };
 
