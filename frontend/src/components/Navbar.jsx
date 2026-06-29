@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import profileImg from "../assets/sawirprofile.jpeg";
 
 
@@ -24,6 +24,16 @@ import "../Navbar.css";
   // AUTO HIDE ON SCROLL
   const [hidden, setHidden] = useState(false);
   const [lastScroll, setLastScroll] = useState(0);
+
+  const navigate = useNavigate();
+
+const handleNavigate = (path) => {
+  setOpen(false);
+
+  setTimeout(() => {
+    navigate(path);
+  }, 200);
+};
 
   useEffect(() => {
     const handleScroll = () => {
@@ -52,12 +62,7 @@ import "../Navbar.css";
   return (
 
 <>
-  {open && (
-    <div
-      className="nav-overlay"
-      onClick={() => setOpen(false)}
-    />
-  )}
+
 
   <header className={`navbar ${hidden ? "hide" : ""}`}>
 
@@ -120,7 +125,13 @@ import "../Navbar.css";
 
 </div>
 
-  <NavLink to="/" onClick={() => setOpen(false)}>
+<NavLink
+  to="/"
+  onClick={(e) => {
+    e.preventDefault();
+    handleNavigate("/");
+  }}
+>
     <FiHome />
     <span>Home</span>
   </NavLink>
